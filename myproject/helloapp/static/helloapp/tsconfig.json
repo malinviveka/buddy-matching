@@ -1,0 +1,7 @@
+{
+    "compilerOptions": {
+      "target": "ES2015",       // Specify ECMAScript target
+      "lib": ["ES2015", "DOM"], // Include ES2015 and DOM libraries for `Promise` and browser support
+      "outDir": "./dist"        // Optional: specify output directory for compiled JavaScript
+    }
+  }

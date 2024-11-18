@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World App with Database</title>
+    {% load static %}
+    <script src="{% static 'helloapp/main.js' %}" defer></script> <!-- Link to compiled JavaScript -->
+</head>
+<body>
+    <h1>Hello World App with Database</h1>
+    <div>
+        <input type="text" id="entryInput" placeholder="Enter text" />
+        <button id="saveButton">Save Entry</button>
+    </div>
+    <div>
+        <button id="retrieveButton">Retrieve Entries</button>
+        <ul id="entriesDisplay"></ul> <!-- Display list of entries here -->
+    </div>
+</body>
+</html>
