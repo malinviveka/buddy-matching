@@ -48,10 +48,10 @@ class Entry(models.Model):
     preferred_language = models.CharField(
         max_length = 10,
         choices = LANGUAGE_CHOICES,
-        default = 'English',  # Set a default language if desired
+        default = 'English',
     )
     # student's email address
-    e_mail = models.EmailField(
+    email = models.EmailField(
         max_length=255,
         default = 'default@stud.tu-darmstadt.de')
     degree_level = models.CharField(
@@ -62,13 +62,13 @@ class Entry(models.Model):
     matriculation_number = models.PositiveIntegerField(
         unique = True,
         blank = True, # Allow blank values
-        default = 0000000,
+        default = 0,
     )
     # TODO: ask, whether application number only contains numbers
     application_number = models.PositiveIntegerField(
         unique = True,
         blank = True, # Allow blank values
-        default = 0000000,
+        default = 0,
     )
     department = models.CharField(
         max_length = 50,
@@ -89,14 +89,13 @@ class Entry(models.Model):
         default = 'none',
     )
     # for local students
-    prefered_number_of_partners = models.PositiveIntegerField(
+    preferred_number_of_partners = models.PositiveIntegerField(
         null = True,   
         default = 1, 
     )
     partners = models.ManyToManyField(
         'self', 
         blank = True,
-        default = None,
     )
 
 
