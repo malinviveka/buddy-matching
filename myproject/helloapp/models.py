@@ -59,13 +59,9 @@ class Entry(models.Model):
         choices = DEGREE_CHOICES,
         default = 'Bachelors',  # Default value for degree
     )
-    matriculation_number = models.PositiveIntegerField(
-        unique = True,
-        blank = True, # Allow blank values
-        default = 0,
-    )
     # TODO: ask, whether application number only contains numbers
-    application_number = models.PositiveIntegerField(
+    # application or matriculation number
+    app_matr_number = models.PositiveIntegerField(
         unique = True,
         blank = True, # Allow blank values
         default = 0,
@@ -75,17 +71,10 @@ class Entry(models.Model):
         choices = DEPARTMENT_CHOICES,
         default = 'FB 1',  
     )
-    # country of sending university - for international students
-    sending_country = models.CharField(
+    # country of sending university - for international students; country of preference - for local students
+    country = models.CharField(
         max_length = 255,
         blank = True, 
-        default = 'none',
-    )
-    # preferred country - for local students
-    preferred_country = models.CharField(
-        max_length = 255,
-        blank = True,
-        null = True,    # Optional field
         default = 'none',
     )
     # for local students
