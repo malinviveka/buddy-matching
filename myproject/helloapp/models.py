@@ -86,7 +86,9 @@ class Entry(models.Model):
         'self', 
         blank = True,
     )
-
+    is_permitted = models.BooleanField(
+        default = False
+    )
 
 
     def __str__(self):
@@ -98,5 +100,6 @@ class Entry(models.Model):
             f'{self.degree_level} - '
             f'{self.app_matr_number} - '
             f'{self.department} - '
-            f'{self.country}'
+            f'{self.country} - '
+            f'{self.is_permitted}'
         )

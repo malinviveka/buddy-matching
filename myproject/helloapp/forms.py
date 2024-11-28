@@ -32,3 +32,6 @@ class AccountCreateForm(forms.ModelForm):
         # Always hide 'partners' field
         if 'partners' in self.fields:
             self.fields.pop('partners')    
+            
+        if 'is_permitted' in self.fields:
+            self.fields.pop('is_permitted')     
