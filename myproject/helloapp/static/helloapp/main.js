@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 entriesDisplay.innerHTML = ""; // Clear existing entries
                 data.entries.forEach((entry) => {
                     const listItem = document.createElement("li");
-                    listItem.textContent = entry.text;
+                    listItem.textContent = entry.surname;
                     entriesDisplay.appendChild(listItem);
                 });
             }
