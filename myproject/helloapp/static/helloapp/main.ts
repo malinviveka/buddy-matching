@@ -1,50 +1,37 @@
 // helloapp/static/helloapp/main.ts
 
-document.addEventListener("DOMContentLoaded", () => {
-    const entryInput = document.getElementById("entryInput") as HTMLInputElement;
-    const saveButton = document.getElementById("saveButton") as HTMLButtonElement;
-    const retrieveButton = document.getElementById("retrieveButton") as HTMLButtonElement;
-    const entriesDisplay = document.getElementById("entriesDisplay") as HTMLUListElement;
+const accountCreationForm = document.getElementById("accountCreationForm") as HTMLFormElement;
+const submitAccountButton = document.getElementById("submitAccountButton") as HTMLButtonElement;
+const messageDiv = document.getElementById("message") as HTMLDivElement;
 
-    // Save entry to the database
-    saveButton.addEventListener("click", async () => {
-        const text = entryInput.value;
-        if (text) {
-            try {
-                const response = await fetch("/api/save_entry/", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ text: text }),
-                });
-                const data = await response.json();
-                alert(data.message);  // Display confirmation message
-                entryInput.value = "";  // Clear the input field
-            } catch (error) {
-                console.error("Error saving entry:", error);
-            }
-        }
-    });
+submitAccountButton.addEventListener("click", async (event) => {
+    event.preventDefault(); //prevents re-loading page to trigger submission
 
-    // Retrieve all entries from the database
-    retrieveButton.addEventListener("click", async () => {
-        try {
-            const response = await fetch("/api/get_entries/");
-            if (response.ok) {
-                const data = await response.json();
-                entriesDisplay.innerHTML = "";  // Clear existing entries
-                data.entries.forEach((entry: { id: number, text: string }) => {
-                    const listItem = document.createElement("li");
-                    listItem.textContent = entry.text;
-                    entriesDisplay.appendChild(listItem);
-                });
-            } else {
-                console.error("Error retrieving entries");
-            }
-        } catch (error) {
-            console.error("Network error:", error);
+    const formData = new FormData(accountCreationForm); //index.html <form id="accountCreationForm" ...>
+
+    const csrfToken = (document.querySelector("[name=csrfmiddlewaretoken]") as HTMLInputElement).value;
+
+    try {
+        const response = await fetch(accountCreationForm.action, {
+            method: "POST",
+            headers: {
+                "X-CSRFToken": csrfToken,
+            },
+            body: formData,
+        });
+
+        if (response.ok) {
+            const result = await response.json();
+            messageDiv.innerText = result.message;
+            messageDiv.style.color = "green";
+            accountCreationForm.reset();
+        } else {
+            const errors = await response.json();
+            messageDiv.innerText = `Errors: ${JSON.stringify(errors.errors)}`;
+            messageDiv.style.color = "red";
         }
-    });
+    } catch (error) {
+        messageDiv.innerText = "An error occurred while creating the account.";
+        messageDiv.style.color = "red";
+    }
 });
-

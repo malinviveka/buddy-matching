@@ -1,0 +1,72 @@
+/* helloapp/static/helloapp/styles.css */
+
+
+/*VORSCHLAG VON GPT NOCH ABÄNDERN JE NACH DESIGN!!!*/
+
+/* Allgemeines Layout */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Eingabefeld */
+#entryInput {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Buttons */
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+/* Save-Button */
+#saveButton {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Retrieve-Button */
+#retrieveButton {
+    background-color: #28a745;
+    color: white;
+}
+
+/* Liste der Einträge */
+#entriesDisplay {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+#entriesDisplay li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+#entriesDisplay li:last-child {
+    border-bottom: none;
+}
