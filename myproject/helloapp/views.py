@@ -23,6 +23,7 @@ def index(request):
 # View to render the account creation form
 class AccountCreationView(View):
     template_name = 'helloapp/account_creation.html'
+    #template_name = 'helloapp/index.html'
     
     def get(self, request):
         form = AccountCreateForm()
