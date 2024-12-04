@@ -5,11 +5,12 @@ class AccountCreateForm(forms.ModelForm):
     class Meta: 
         model = Entry
         fields = [
-            'surname', 'first_name', 'preferred_language', 
+            'role', 'surname', 'first_name', 'preferred_language', 
             'email', 'degree_level', 'app_matr_number', 
             'department', 'country', 'preferred_number_of_partners'
         ]
         widgets = {
+            'role': forms.Select(attrs={'class': 'form-control', 'id': 'id_role'}),
             'surname': forms.TextInput(attrs={'class': 'form-control'}),
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
             'preferred_language': forms.Select(attrs={'class': 'form-control'}),
@@ -18,7 +19,7 @@ class AccountCreateForm(forms.ModelForm):
             'app_matr_number': forms.NumberInput(attrs={'class': 'form-control'}),
             'department': forms.Select(attrs={'class': 'form-control'}),
             'country': forms.TextInput(attrs={'class': 'form-control'}),
-            'preferred_number_of_partners': forms.NumberInput(attrs={'class': 'form-control'}),
+            'preferred_number_of_partners': forms.NumberInput(attrs={'class': 'form-control', 'data-role-field': 'Buddy'}),
         }
         
         
@@ -26,8 +27,6 @@ class AccountCreateForm(forms.ModelForm):
         super(AccountCreateForm, self).__init__(*args, **kwargs)
         
         # Hide 'preferred_number_of_partners' if the role is not "Buddy"
-        if self.instance and self.instance.role != 'Buddy':
-            self.fields.pop('preferred_number_of_partners')
 
         # Always hide 'partners' field
         if 'partners' in self.fields:
