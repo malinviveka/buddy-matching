@@ -1,4 +1,6 @@
 from django import forms
+from django.contrib.auth import authenticate
+from django.core.exceptions import ValidationError
 from .models import Entry
 
 class AccountCreateForm(forms.ModelForm):
@@ -25,8 +27,6 @@ class AccountCreateForm(forms.ModelForm):
         
     def __init__(self, *args, **kwargs):
         super(AccountCreateForm, self).__init__(*args, **kwargs)
-        
-        # Hide 'preferred_number_of_partners' if the role is not "Buddy"
 
         # Always hide 'partners' field
         if 'partners' in self.fields:
@@ -34,3 +34,22 @@ class AccountCreateForm(forms.ModelForm):
             
         if 'is_permitted' in self.fields:
             self.fields.pop('is_permitted')     
+            
+class LoginForm(forms.Form):
+    first_name = forms.CharField(max_length=255, label="First Name")
+    surname = forms.CharField(max_length=255, label="Surname")
+
+    def clean(self):
+        cleaned_data = super().clean()
+        first_name = cleaned_data.get("first_name")
+        surname = cleaned_data.get("surname")
+
+        try:
+            user = Entry.objects.get(first_name=first_name, surname=surname)
+        except Entry.DoesNotExist:
+            raise ValidationError("Invalid Entry. Have you made a spelling error?")
+        
+        #if not user.is_permitted:
+        #    raise ValidationError("This account is not permitted to log in.")
+        
+        return cleaned_data            
