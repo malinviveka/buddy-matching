@@ -8,40 +8,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const accountCreationForm = document.getElementById("accountCreationForm");
-const submitAccountButton = document.getElementById("submitAccountButton");
 const retrieveButton = document.getElementById("retrieveButton");
 const entriesDisplay = document.getElementById("entriesDisplay");
-const messageDiv = document.getElementById("message");
-submitAccountButton.addEventListener("click", (event) => __awaiter(this, void 0, void 0, function* () {
-    event.preventDefault(); //prevents re-loading page to trigger submission
-    const formData = new FormData(accountCreationForm); //index.html <form id="accountCreationForm" ...>
-    const csrfToken = document.querySelector("[name=csrfmiddlewaretoken]").value;
-    try {
-        const response = yield fetch(accountCreationForm.action, {
-            method: "POST",
-            headers: {
-                "X-CSRFToken": csrfToken,
-            },
-            body: formData,
-        });
-        if (response.ok) {
-            const result = yield response.json();
-            messageDiv.innerText = result.message;
-            messageDiv.style.color = "green";
-            accountCreationForm.reset();
-        }
-        else {
-            const errors = yield response.json();
-            messageDiv.innerText = `Errors: ${JSON.stringify(errors.errors)}`;
-            messageDiv.style.color = "red";
-        }
-    }
-    catch (error) {
-        messageDiv.innerText = "An error occurred while creating the account.";
-        messageDiv.style.color = "red";
-    }
-}));
 retrieveButton.addEventListener("click", (event) => __awaiter(this, void 0, void 0, function* () {
     event.preventDefault();
     try {

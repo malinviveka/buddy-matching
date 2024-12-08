@@ -5,115 +5,17 @@
     <title>Hello World App with Database</title>
     {% load static %}
     <script src="{% static 'helloapp/main.js' %}" defer></script> <!-- Link to compiled JavaScript -->
-    <link rel="stylesheet" type="text/css" href="{% static 'helloapp/styles.css' %}"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" type="text/css" href="{% static 'helloapp/styles.css' %}"> <!-- Link to CSS file -->
 </head>
 <body>
     <h1>Hello World App with Database</h1>
 
-    <form id="accountCreationForm" method="POST" action="{% url 'create_account' %}">
-        <!-- CSRF TOKEN-->
-        {% csrf_token %}
-        {{ form.as_p }}
+    <div>
+        <!-- NUR FÜR UNS ZUM TESTEN !!!!!-->
+        <button id="retrieveButton">Retrieve Entries</button>
+        <ul id="entriesDisplay"></ul> <!-- Display list of entries here -->
+    </div>
 
-        <!-- ROLE_CHOICES: International Student OR Buddy? -->
-        <div>
-            <label for="role">Role:</label>
-            <select id="role" name="role">
-                <option value="International Student">International Student</option>
-                <option value="Buddy">Buddy</option>
-            </select>
-        </div>
-
-        <!-- NAME: blank field -->
-        <div>
-            <label for="surname">Surname:</label>
-            <input type="text" id="surname" name="surname" placeholder="Enter your surname" required>
-            <label for="first_name">First Name:</label>
-            <input type="text" id="first_name" name="first_name" placeholder="Enter your first name" required>
-        </div>    
-
-        <!-- LANGUAGE_CHOICES: English OR German -->
-        <div>
-            <label for="preferred_language">Preferred Language:</label>
-            <select id="preferred_language" name="preferred_language">
-                <option value="German">German</option>
-                <option value="English">English</option>
-                <option value="Both">Both</option>
-            </select>
-        </div>
-
-        <!-- EMAIL: blank field -->
-        <div>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
-        </div>
-
-        <!-- DEGREE_CHOICES: Bachelor OR Master-->
-        <div>
-            <label for="degree_level">Degree Level:</label>
-            <select id="degree_level" name="degree_level">
-                <option value="Bachelors">Bachelors</option>
-                <option value="Masters">Masters</option>
-            </select>
-        </div>
-
-        <!-- APPLICATION / MATR. NUMBER: app_matr_number -->
-        <div>
-            <label for="app_matr_number">Application/Matriculation Number:</label>
-            <input type="number" id="app_matr_number" name="app_matr_number" placeholder="Enter application number">
-        </div>
-
-        <!-- DEPARTMENT_CHOICES: all departments at TU Darmstadt -->
-        <!--Humanities / Geistes- und Sozialwissenschaften (1-3), Natural Sciences /Naturwissenschaften (4-10), Engineering / Ingenieurwissenschaften (13-20)-->
-        <div>
-            <label for="department">Department:</label>
-            <select id="department" name="department">
-                <option value="FB 1">Dept. 1, Law and Economics</option> <!--Rechts- und Wirtschaftswissenschaften-->
-                <option value="FB 2">Dept. 2, History and Social Sciences</option> <!--Gesellschafts- & Geschichtswissenschaften-->
-                <option value="FB 3">Dept. 3, Human Sciences</option> <!--Humanwissenschaften-->
-                <option value="FB 4">Dept. 4, Mathematics</option> <!--Mathematik-->
-                <option value="FB 5">Dept. 5, Physics</option> <!--Physik-->
-                <option value="FB 7">Dept. 7, Chemistry</option> <!--Chemie-->
-                <option value="FB 10">Dept. 10, Biology</option> <!--Biologie-->
-                <option value="FB 11">Dept. 11, Material and Earth Sciences</option> <!--Material- und Geowissenschaften-->
-                <option value="FB 13">Dept. 13, Civil and Environmental Engineering</option> <!--Bau- und Umweltingenieurwissenschaften-->
-                <option value="FB 15">Dept. 15, Architecture</option> <!--Architektur-->
-                <option value="FB 16">Dept. 16, Mechanical Engineering</option> <!--Maschinenbau-->
-                <option value="FB 18">Dept. 18, Electrical Engineering and Information Technology</option> <!--Elektrotechnik und Informationstechnik-->
-                <option value="FB 20">Dept. 20, Computer Science</option> <!--Informatik-->
-            </select>
-        </div>
-
-        <!-- COUNTRY: text field -->
-        <div>
-            <label for="country">Country:</label>
-            <input type="text" id="country" name="country" placeholder="Enter your country">
-        </div>
-
-        <!-- PREFERED NUMBER OF PARTNERS: number-->
-        <div>
-            <label for="preferred_number_of_partners">Preferred Number of Partners:</label>
-            <input type="number" id="preferred_number_of_partners" name="preferred_number_of_partners" placeholder="Enter preferred number of partners">
-        </div>
-
-        <!-- IS PERMITTED? -->
-        <div>
-            <label for="is_permitted">Is Permitted:</label>
-            <input type="checkbox" id="is_permitted" name="is_permitted">
-        </div>
-
-        <!-- SUBMIT BUTTON-->
-        <div>
-            <button type="submit" id="submitAccountButton">Create Account</button>
-
-            <!-- NUR FÜR UNS ZUM TESTEN !!!!!-->
-            <button id="retrieveButton">Retrieve Entries</button>
-            <ul id="entriesDisplay"></ul> <!-- Display list of entries here -->
-        </div>
-
-    </form>
-
-    <div id="message" style="margin-top: 20px;"></div>
-    
+  
 </body>
 </html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <title>Create Account</title>
+    <script src="{% static 'js/account_creation.js' %}" defer></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'helloapp/styles.css' %}"> <!-- Link to CSS file -->
+</head>
+<body>
+    <h1>Create Account</h1>
+
+    <form id="accountCreationForm" method="POST" action="{% url 'create_account' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <div>
+            <button type="submit" id="submitAccountButton">Create Account</button>
+        </div>    
+    </form>
+
+    <div id="message" style="margin-top: 20px;"></div>
+
+</body>
+</html>
