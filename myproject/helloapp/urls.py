@@ -10,5 +10,5 @@ urlpatterns = [
     path('api/save_entry/', views.save_entry, name='save_entry'),
     path('api/get_entries/', views.get_entries, name='get_entries'),
     path('logout/', views.logout_view, name='logout'),
-    path('', views.index, name='index'),
+    path('', views.homepage, name='homepage'),
 ]

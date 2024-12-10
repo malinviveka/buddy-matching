@@ -14,8 +14,8 @@ from django.contrib.auth import logout
 
 #def index(request):
 #    return render(request, 'helloapp/index.html')  # Render the HTML template
-def index(request):
-    return render(request, 'helloapp/index.html')  # Adjust the path to your template if needed
+def homepage(request):
+    return render(request, 'helloapp/homepage.html')  # Adjust the path to your template if needed
 
 # View to render the account creation form
 class AccountCreationView(View):
