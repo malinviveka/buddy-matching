@@ -8,7 +8,14 @@
     <link rel="stylesheet" type="text/css" href="{% static 'helloapp/styles.css' %}"> <!-- Link to CSS file -->
 </head>
 <body>
-    <h1>Hello World App with Database</h1>
+
+    <div>
+        <a href="{% url 'login' %}">Login</a> 
+        <a href="{% url 'create_account_view' %}">Create Account</a> 
+    </div>
+
+
+    <h1>Homepage Hello World</h1>
 
     <div>
         <!-- NUR FÜR UNS ZUM TESTEN !!!!!-->

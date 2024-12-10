@@ -56,8 +56,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log(`Hiding field for role: ${roleField}`); // Debugging
             }
         });
-    };
+
+    }; 
+    
 
     roleSelect.addEventListener("change", updateSpecialFields);
     updateSpecialFields(); // Initial visibility setup
+    
 });
