@@ -2,14 +2,15 @@
 
 # helloapp/views.py
 
+import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 from .models import Entry
-import json
 from django.shortcuts import render, redirect
 from .forms import AccountCreateForm, LoginForm
 from django.views import View
+from django.contrib.auth import logout
 
 #def index(request):
 #    return render(request, 'helloapp/index.html')  # Render the HTML template
@@ -66,6 +67,15 @@ def login_view(request):
         form = LoginForm()
 
     return render(request, template_name, {'form': form})    
+
+
+
+def logout_view(request):
+    logout(request)
+    # Redirect to index -> TODO: change to home page, when implemented!
+    return redirect('index')
+
+
 
 # The following is old code from the helloWorld prototype. I leave it here for now, if someone needs to look something up
 
