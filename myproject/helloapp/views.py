@@ -72,8 +72,7 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    # Redirect to index -> TODO: change to home page, when implemented!
-    return redirect('index')
+    return redirect('homepage')
 
 
 
