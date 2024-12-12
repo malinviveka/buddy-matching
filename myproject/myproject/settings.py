@@ -113,6 +113,8 @@ PASSWORD_HASHERS = [
     "django.contrib.auth.hashers.ScryptPasswordHasher",
 ]
 
+AUTH_USER_MODEL = 'helloapp.BuddyMatchingUser'  # Set the custom user model
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
