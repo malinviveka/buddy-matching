@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 
-class CustomUser(AbstractUser):
+class BuddyMatchingUser(AbstractUser):
     LANGUAGE_CHOICES = [
         ('German', 'German'),
         ('English', 'English'),
@@ -55,6 +55,7 @@ class CustomUser(AbstractUser):
     # student's email address
     email = models.EmailField(
         max_length=255,
+        unique=True,
         default = 'default@stud.tu-darmstadt.de')
     degree_level = models.CharField(
         max_length = 10,
@@ -93,6 +94,16 @@ class CustomUser(AbstractUser):
     is_staff = models.BooleanField(
         default = False
     )
+
+    # set user to email
+    username = None
+    EMAIL_FIELD = 'email'
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
+
+
+    
+    
 
     # Defines how the model is displayed in the admin interface
     class Meta:
