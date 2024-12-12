@@ -1,6 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
-class Entry(models.Model):
+
+class CustomUser(AbstractUser):
     LANGUAGE_CHOICES = [
         ('German', 'German'),
         ('English', 'English'),
@@ -59,7 +61,6 @@ class Entry(models.Model):
         choices = DEGREE_CHOICES,
         default = 'Bachelors',  # Default value for degree
     )
-    # TODO: ask, whether application number only contains numbers
     # application or matriculation number
     app_matr_number = models.PositiveIntegerField(
         unique = True,
@@ -89,6 +90,14 @@ class Entry(models.Model):
     is_permitted = models.BooleanField(
         default = False
     )
+    is_staff = models.BooleanField(
+        default = False
+    )
+
+    # Defines how the model is displayed in the admin interface
+    class Meta:
+        verbose_name = 'User' # Singular display name for the model
+        verbose_name_plural = 'Users' # Plural display name for the model
 
 
     def __str__(self):
