@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('form');
-    const firstNameInput = document.querySelector('#id_first_name');
-    const surnameInput = document.querySelector('#id_surname');
+    const emailInput = document.querySelector('#id_email');
+    const passwordInput = document.querySelector('#id_password');
     form === null || form === void 0 ? void 0 : form.addEventListener('submit', (event) => {
-        if (!(firstNameInput === null || firstNameInput === void 0 ? void 0 : firstNameInput.value) || !(surnameInput === null || surnameInput === void 0 ? void 0 : surnameInput.value)) {
+        if (!(emailInput === null || emailInput === void 0 ? void 0 : emailInput.value) || !(passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.value)) {
             alert('Please fill in both fields.');
             event.preventDefault();
         }

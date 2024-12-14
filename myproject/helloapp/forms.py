@@ -29,38 +29,27 @@ class BuddyMatchingUserCreationForm(UserCreationForm):
             'preferred_number_of_partners': forms.NumberInput(attrs={'class': 'form-control', 'data-role-field': 'Buddy'}),
         }
 
+
     def clean(self):
         cleaned_data = super().clean()
-        """
-        password1 = cleaned_data.get('password1')
-        password2 = cleaned_data.get('password2')
-
-        if password1 != password2:
-            raise forms.ValidationError("Passwords do not match")
-        """
         return cleaned_data
+    
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
         if BuddyMatchingUser.objects.filter(email=email).exists():
             raise forms.ValidationError("There is already an existing user with this email adress.")
         return email
+    
 
     def save(self, commit=True):
         user = super().save(commit=False)
-        """
-        user.set_password(self.cleaned_data['password1'])  # Passwort verschlüsseln
-        if commit:
-            user.save()
 
-    
-        """
         user.username = self.cleaned_data['email']
         if commit:
             user.save()
 
         return user
-
 
 
     def __init__(self, *args, **kwargs):
@@ -76,21 +65,20 @@ class BuddyMatchingUserCreationForm(UserCreationForm):
 
 
 
-
-
 class LoginForm(forms.Form):
-    email = forms.EmailField(label="Email", widget=forms.EmailInput)
-    password = forms.CharField(label="Password", widget=forms.PasswordInput)
+    email = forms.EmailField(label="Email", widget=forms.EmailInput, required=True)
+    password = forms.CharField(label="Password", widget=forms.PasswordInput, required=True)
 
     def clean(self):
         cleaned_data = super().clean()
         email = cleaned_data.get("email")
         password = cleaned_data.get("password")
-        # Authentifizierung über das BuddyMatchingUser-Modell
-        try:
-            user = BuddyMatchingUser.objects.get(email=email)
-            if not user.check_password(password):
-                raise forms.ValidationError("Invalid email or password")
-        except BuddyMatchingUser.DoesNotExist:
+   
+        # Authentifiziere Benutzer
+        user = authenticate(username=email, password=password)
+        if not user:
             raise forms.ValidationError("Invalid email or password")
-        return cleaned_data         
+
+        # Setze Benutzer, falls erforderlich
+        self.user = user
+        return cleaned_data       

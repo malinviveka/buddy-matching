@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('form');
-    const firstNameInput = document.querySelector<HTMLInputElement>('#id_first_name');
-    const surnameInput = document.querySelector<HTMLInputElement>('#id_surname');
+    const emailInput = document.querySelector<HTMLInputElement>('#id_email');
+    const passwordInput = document.querySelector<HTMLInputElement>('#id_password');
 
     form?.addEventListener('submit', (event) => {
-        if (!firstNameInput?.value || !surnameInput?.value) {
+        if (!emailInput?.value || !passwordInput?.value) {
             alert('Please fill in both fields.');
             event.preventDefault();
         }
