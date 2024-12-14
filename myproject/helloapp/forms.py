@@ -6,15 +6,15 @@ from django.contrib.auth.forms import UserCreationForm
 
 
 class BuddyMatchingUserCreationForm(UserCreationForm):
-    #password = forms.CharField(widget=forms.PasswordInput)
-    #password_confirmation = forms.CharField(widget=forms.PasswordInput, label="Confirm Password")
-    
+    """
+    Form for creating a new user.
+    """
     class Meta: 
         model = BuddyMatchingUser
         fields = [
             'role', 'surname', 'first_name', 'preferred_language', 
             'email', 'degree_level', 'app_matr_number', 
-            'department', 'country', 'preferred_number_of_partners'
+            'department', 'country', 'preferred_number_of_partners', 'is_permitted'
         ]
         widgets = {
             'role': forms.Select(attrs={'class': 'form-control', 'id': 'id_role'}),
@@ -38,7 +38,7 @@ class BuddyMatchingUserCreationForm(UserCreationForm):
     def clean_email(self):
         email = self.cleaned_data.get('email')
         if BuddyMatchingUser.objects.filter(email=email).exists():
-            raise forms.ValidationError("There is already an existing user with this email adress.")
+            raise forms.ValidationError("There is already an existing user with this email address.")
         return email
     
 
@@ -53,9 +53,9 @@ class BuddyMatchingUserCreationForm(UserCreationForm):
 
 
     def __init__(self, *args, **kwargs):
-        super(BuddyMatchingUserCreationForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
-        # Always hide 'partners' field
+        # Always hide 'partners' and 'is_permitted' fields
         if 'partners' in self.fields:
             self.fields.pop('partners')    
             
@@ -70,15 +70,18 @@ class LoginForm(forms.Form):
     password = forms.CharField(label="Password", widget=forms.PasswordInput, required=True)
 
     def clean(self):
+        """
+        Authenticate user/Valdiate form data.
+        """
         cleaned_data = super().clean()
         email = cleaned_data.get("email")
         password = cleaned_data.get("password")
    
-        # Authentifiziere Benutzer
+        # Authenticate user
         user = authenticate(username=email, password=password)
         if not user:
             raise forms.ValidationError("Invalid email or password")
 
-        # Setze Benutzer, falls erforderlich
+        # Set user if necessary
         self.user = user
         return cleaned_data       

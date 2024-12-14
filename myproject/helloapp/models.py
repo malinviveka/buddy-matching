@@ -3,6 +3,11 @@ from django.contrib.auth.models import AbstractUser
 
 
 class BuddyMatchingUser(AbstractUser):
+    """
+    Custom user model for the Buddy Matching System.
+    Field definitions for the data base.
+    """
+
     LANGUAGE_CHOICES = [
         ('German', 'German'),
         ('English', 'English'),
@@ -40,11 +45,11 @@ class BuddyMatchingUser(AbstractUser):
         default = 'International Student', 
     )
     surname = models.CharField(
-        max_length=255,
+        max_length = 255,
         default = 'Mustermann',
     )
     first_name = models.CharField(
-        max_length=255,
+        max_length = 255,
         default = 'Max',
     )
     preferred_language = models.CharField(
@@ -54,8 +59,8 @@ class BuddyMatchingUser(AbstractUser):
     )
     # student's email address
     email = models.EmailField(
-        max_length=255,
-        unique=True,
+        max_length = 255,
+        unique = True,
         default = 'default@stud.tu-darmstadt.de')
     degree_level = models.CharField(
         max_length = 10,
@@ -102,8 +107,6 @@ class BuddyMatchingUser(AbstractUser):
     REQUIRED_FIELDS = []
 
 
-    
-    
 
     # Defines how the model is displayed in the admin interface
     class Meta:

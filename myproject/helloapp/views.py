@@ -14,15 +14,17 @@ from django.contrib import messages
 from .models import BuddyMatchingUser
 
 
-
-#def index(request):
-#    return render(request, 'helloapp/index.html')  # Render the HTML template
 def homepage(request):
-    return render(request, 'helloapp/homepage.html')  # Adjust the path to your template if needed
+    """
+    Render the homepage template.
+    """
+    return render(request, 'helloapp/homepage.html')  
 
 
-# View to render the account creation form
 class AccountCreationView(View):
+    """
+    View to render the account creation form and handle form submissions.
+    """
     template_name = 'helloapp/account_creation.html'
     
     def get(self, request):
@@ -39,23 +41,28 @@ class AccountCreationView(View):
 
 @require_http_methods(["POST"])
 def create_account(request):
-    form = BuddyMatchingUserCreationForm(request.POST)  # Adjusting to parse JSON instead of form POST
+    """
+    Handle account creation form submissions.
+    """
+    form = BuddyMatchingUserCreationForm(request.POST)
     if form.is_valid():
-        form.clean()
         email = form.cleaned_data.get("email")
    
         if BuddyMatchingUser.objects.filter(email=email).exists():
-            return JsonResponse({"error": "There is already an existing user with this email adress."}, status=400)
+            return JsonResponse({"error": "There is already an existing user with this email address."}, status=400)
 
         messages.success(request, "Account created successfully!")
 
         form.save()
         # redirect to loginpage after successful account creation
-        return redirect('login') 
+        return redirect('login')
     return JsonResponse({"errors": form.errors}, status=400)
 
 
 def login_view(request):
+    """
+    Render the login form and handle login form submissions.
+    """
     template_name = 'helloapp/login.html'
     
     if request.method == "POST":
@@ -66,7 +73,7 @@ def login_view(request):
             user = authenticate(request, username=email, password=password)
             if user is not None:
                 login(request, user)
-                messages.success(request, "Login was successfull!")
+                messages.success(request, "Login was successful!")
                 return redirect('homepage')
             else:
                 messages.error(request, "Invalid email or password")
@@ -77,6 +84,9 @@ def login_view(request):
 
 
 def logout_view(request):
+    """
+    Log the user out and redirect to the homepage.
+    """
     logout(request)
     return redirect('homepage')
 
