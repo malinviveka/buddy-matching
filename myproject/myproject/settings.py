@@ -140,6 +140,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
+
+LOGIN_URL = '/login/'
+
+
 LOGOUT_REDIRECT_URL = 'login'  # Standard-Weiterleitung nach Logout
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # Sitzung endet mit dem Schließen des Browsers
 SESSION_COOKIE_AGE = 3600  # Sitzung ist für 1 Stunde aktiv (in Sekunden)
