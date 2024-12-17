@@ -2,6 +2,7 @@ const accountCreationForm = document.getElementById("accountCreationForm") as HT
 const submitAccountButton = document.getElementById("submitAccountButton") as HTMLButtonElement;
 const messageDiv = document.getElementById("message") as HTMLDivElement;
 
+
 submitAccountButton.addEventListener("click", async (event) => {
     event.preventDefault(); //prevents re-loading page to trigger submission
 
@@ -33,6 +34,7 @@ submitAccountButton.addEventListener("click", async (event) => {
         messageDiv.style.color = "red";
     }
 });
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const roleSelect = document.querySelector("#id_role") as HTMLSelectElement;
