@@ -43,7 +43,7 @@ class BuddyMatchingUser(AbstractUser):
     role = models.CharField(
         max_length = 25,
         choices = ROLE_CHOICES,
-        default = 'International Student', 
+        default = 'Buddy', 
     )
     surname = models.CharField(
         max_length = 255,
