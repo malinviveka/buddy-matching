@@ -46,6 +46,8 @@ class BuddyMatchingUserCreationForm(UserCreationForm):
         user = super().save(commit=False)
 
         user.username = self.cleaned_data['email']
+        user.is_permitted = False
+        
         if commit:
             user.save()
 
