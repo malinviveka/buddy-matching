@@ -99,7 +99,7 @@ def logout_view(request):
 
 
 # The following is old code from the helloWorld prototype. I leave it here for now, if someone needs to look something up
-'''
+
 @csrf_exempt
 def save_entry(request):
     if request.method == "POST":
@@ -111,5 +111,5 @@ def save_entry(request):
 def get_entries(request):
     entries = BuddyMatchingUser.objects.all().values("first_name", "surname")
     return JsonResponse({"entries": list(entries)})
-'''
+
 
