@@ -56,8 +56,8 @@ def create_account(request):
         messages.success(request, "Account created successfully!")
 
         form.save()
-        # redirect to loginpage after successful account creation
-        return redirect('login')
+        # redirect to homepage after successful account creation
+        return redirect('homepage')
     return JsonResponse({"errors": form.errors}, status=400)
 
 
@@ -74,9 +74,13 @@ def login_view(request):
             password = form.cleaned_data["password"]
             user = authenticate(request, username=email, password=password)
             if user is not None:
-                login(request, user)
-                messages.success(request, "Login was successful!")
-                return redirect('homepage')
+                # Nach iterationsmeeting auskommentieren!
+                #if user.is_permitted:
+                    login(request, user)
+                    messages.success(request, "Login was successful!")
+                    return redirect('homepage')
+                #else:
+                #    messages.error(request, "Your account is not permitted yet. Please wait for approval.")
             else:
                 messages.error(request, "Invalid email or password")
     else:
