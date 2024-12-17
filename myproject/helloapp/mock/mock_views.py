@@ -109,7 +109,7 @@ def mock_login_view(request):
     template_name = 'helloapp/login.html'
 
     """
-    ORIGINAL:
+    #ORIGINAL:
     if request.method == "POST":
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -142,7 +142,7 @@ def mock_login_view(request):
         if email == "test@example.com" and password == "password123":
             # successful test:
             messages.success(request, "Mocked login successful!")
-            return JsonResponse({"message": "Mocked login successful!"}, status=201)
+            #return JsonResponse({"message": "Mocked login successful!"}, status=201)
             return redirect('mock_homepage')  
         else:
             # error test:
@@ -156,8 +156,6 @@ def mock_login_view(request):
         #form = LoginForm()
         form = MockLoginForm
     return render(request, template_name, {'form': form})
-
-    
             
 
     #if request.method == "POST":

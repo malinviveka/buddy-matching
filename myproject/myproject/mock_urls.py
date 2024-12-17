@@ -10,6 +10,7 @@ urlpatterns = [
     # urls for mock
     path('', include('helloapp.mock.mock_urls')),
     path('admin/', dummy_admin, name='mock_admin'),
+    path('login/', include("django.contrib.auth.urls")),
 
     # urls from main version
     path('', include('helloapp.urls')),

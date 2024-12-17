@@ -50,6 +50,8 @@ def create_account(request):
    
         if BuddyMatchingUser.objects.filter(email=email).exists():
             return JsonResponse({"error": "There is already an existing user with this email address."}, status=400)
+            #messages.info(request, "There is already an existing user with this email address.")
+            #return redirect('login')
 
         messages.success(request, "Account created successfully!")
 

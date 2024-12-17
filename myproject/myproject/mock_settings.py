@@ -1,6 +1,7 @@
 # mock uses sqlite (easier than postgresql)
 # see: https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -60,5 +61,16 @@ TEMPLATES = [
 STATIC_URL = '/static/'
 
 
-STATICFILES_DIRS = [BASE_DIR / 'static']
+#STATICFILES_DIRS = [BASE_DIR / 'static']
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    # Entferne nicht existierende Pfade wie 'helloapp'
+]
+
+LOGIN_URL = '/login/'
+
+LOGIN_REDIRECT_URL = '/'  # Standard-Weiterleitung nach Login
+LOGOUT_REDIRECT_URL = '/'  # Standard-Weiterleitung nach Logout
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # Sitzung endet mit dem Schließen des Browsers
+SESSION_COOKIE_AGE = 3600  # Sitzung ist für 1 Stunde aktiv (in Sekunden)
 
