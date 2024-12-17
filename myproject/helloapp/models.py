@@ -63,6 +63,7 @@ class BuddyMatchingUser(AbstractUser):
         max_length = 255,
         unique = True,
         default = 'default@stud.tu-darmstadt.de')
+    
     degree_level = models.CharField(
         max_length = 10,
         choices = DEGREE_CHOICES,
