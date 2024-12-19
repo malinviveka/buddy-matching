@@ -1,31 +1,14 @@
-<!-- templates/login.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    {% load static %}
-    <script src="{% static 'helloapp/login.js' %}" defer></script> <!-- Link to compiled JavaScript -->
+
+{% extends 'helloapp/base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% load static %}
+
+{% block content %}
     <link rel="stylesheet" type="text/css" href="{% static 'helloapp/styles.css' %}"> <!-- Link to CSS file -->
-</head>
-<body>
-    <div class="topnav">
-        <a href="{% url 'homepage' %}">Home</a>
-        {% if user.is_authenticated %} <!--is the user logged in?-->
-            <form action="{% url 'logout' %}" method="post">
-                {% csrf_token %}
-                <button type="submit">Logout</button>
-            </form>
-            <!--<a href="{% url 'logout' %}">Logout</a>-->
-        {% else %}
-            <a class="active" href="{% url 'login' %}">Login</a> 
-            <a href="{% url 'create_account_view' %}">Create Account</a> <!--only needed if not logged in-->
-        {% endif %}
-    </div>
-
+    <script src="{% static 'helloapp/login.js' %}" defer></script> <!-- Link to compiled JavaScript -->
     <h1>Login</h1>
-
-    
 
     <form method="post" action="{% url 'login' %}">
         {% csrf_token %}
@@ -35,5 +18,4 @@
     
     <a href="{% url 'create_account_view' %}">Create Account</a> 
 
-</body>
-</html>
+{% endblock %}
