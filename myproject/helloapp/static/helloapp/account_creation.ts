@@ -50,11 +50,12 @@ document.addEventListener("DOMContentLoaded", () => {
         
         specialFields.forEach(field => {
             const roleField = field.getAttribute("data-role-field");
+            const parent = field.parentElement;
             if (roleField === selectedRole) {
-                (field as HTMLElement).style.display = "block";
+                (parent as HTMLElement).style.display = "block";
                 console.log(`Showing field for role: ${roleField}`); // Debugging
             } else {
-                (field as HTMLElement).style.display = "none";
+                (parent as HTMLElement).style.display = "none";
                 console.log(`Hiding field for role: ${roleField}`); // Debugging
             }
         });
