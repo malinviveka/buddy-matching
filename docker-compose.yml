@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres_server
+    environment:
+      POSTGRES_USER: buddymatchinguser
+      POSTGRES_PASSWORD: P455w0rd
+      POSTGRES_DB: buddymatchingdatabase
+    ports:
+      - "5433:5432"
