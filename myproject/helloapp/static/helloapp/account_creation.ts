@@ -24,13 +24,14 @@ submitAccountButton.addEventListener("click", async (event) => {
             messageDiv.innerText = result.message;
             messageDiv.style.color = "green";
             accountCreationForm.reset();
+            // todo: redirect to home page (see views.py todo)
         } else {
             const errors = await response.json();
             messageDiv.innerText = `Errors: ${JSON.stringify(errors.errors)}`;
             messageDiv.style.color = "red";
         }
     } catch (error) {
-        messageDiv.innerText = "An error occurred while creating the account.";
+        messageDiv.innerText = "An error occurred while creating the account: " + error;
         messageDiv.style.color = "red";
     }
 });

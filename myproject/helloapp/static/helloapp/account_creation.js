@@ -35,7 +35,7 @@ submitAccountButton.addEventListener("click", (event) => __awaiter(this, void 0,
         }
     }
     catch (error) {
-        messageDiv.innerText = "An error occurred while creating the account.";
+        messageDiv.innerText = "An error occurred while creating the account: " + error;
         messageDiv.style.color = "red";
     }
 }));
