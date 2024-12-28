@@ -57,7 +57,7 @@ def create_account(request):
 
         form.save()
         # redirect to homepage after successful account creation
-        return redirect('homepage')
+        return redirect('homepage') # todo: fix this. Frontend expects a JSON response in any case!
     return JsonResponse({"errors": form.errors}, status=400)
 
 
