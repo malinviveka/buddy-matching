@@ -8,14 +8,43 @@
 {% block content %}
     <link rel="stylesheet" type="text/css" href="{% static 'helloapp/styles.css' %}"> <!-- Link to CSS file -->
     <script src="{% static 'helloapp/login.js' %}" defer></script> <!-- Link to compiled JavaScript -->
-    <h1>Login</h1>
-
-    <form method="post" action="{% url 'login' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
-    </form>
     
-    <a href="{% url 'create_account_view' %}">Create Account</a> 
+
+    <div class="form-container">
+        <form method="post" action="{% url 'login' %}" class="form-login">
+            {% csrf_token %}
+            <!-- E-Mail -->
+            <div class="input-field">
+                <div>
+                    <label class="label" for="email">Email:</label>
+                </div>
+                <div>
+                    <input type="email" id="email" name="email" class="input" placeholder="@stud.tu-darmstadt.de" required>
+                </div>
+            </div>
+
+            <!-- Password -->
+            <div class="input-field">
+                <div>
+                    <label class="label" for="password">Password:</label>
+                </div>
+                
+                <div>
+                    <input type="password" id="password" name="password" class="input" placeholder="" required>
+                </div>
+            </div>
+
+            <!-- Login Button -->
+            <div class="button-group">
+                <button type="submit" class="button">Login</button>
+            </div>
+
+            <!-- Create Account Link -->
+            <div class="text-link">
+                <a href="{% url 'create_account_view' %}" class="text-link-2">Create Account</a>
+            </div>
+        </form>
+
+    </div>
 
 {% endblock %}
