@@ -14,7 +14,7 @@ class BuddyMatchingUserCreationForm(UserCreationForm):
         fields = [
             'role', 'surname', 'first_name', 'preferred_language', 
             'email', 'degree_level', 'app_matr_number', 
-            'department', 'country', 'preferred_number_of_partners', 'is_permitted'
+            'department', 'country', 'preferred_number_of_partners', 'interests', 'is_permitted'
         ]
         widgets = {
             'role': forms.Select(attrs={'class': 'form-control', 'id': 'id_role'}),
@@ -27,6 +27,7 @@ class BuddyMatchingUserCreationForm(UserCreationForm):
             'department': forms.Select(attrs={'class': 'form-control'}),
             'country': forms.TextInput(attrs={'class': 'form-control'}),
             'preferred_number_of_partners': forms.NumberInput(attrs={'class': 'form-control', 'data-role-field': 'Buddy'}),
+            'interests': forms.CheckboxSelectMultiple(attrs={'class': 'form-check'}),
         }
 
 

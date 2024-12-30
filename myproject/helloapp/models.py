@@ -2,6 +2,7 @@ from django.db import models
 #from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.contrib.auth.models import BaseUserManager
+from multiselectfield import MultiSelectField
 
 class BuddyMatchingUserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -72,6 +73,14 @@ class BuddyMatchingUser(AbstractUser):
         ('International Student', 'International Student'),
         ('Buddy', 'Buddy'),
     ]
+
+    INTEREST_CHOICES = [
+        ('Sports', 'Sports'),
+        ('Culture', 'Culture'),
+        ('Nature', 'Nature'),
+        ('Technology', 'Technology'),
+    ]
+
     role = models.CharField(
         max_length = 25,
         choices = ROLE_CHOICES,
@@ -122,6 +131,10 @@ class BuddyMatchingUser(AbstractUser):
     preferred_number_of_partners = models.PositiveIntegerField(
         null = True,   
         default = 1, 
+    )
+    interests = MultiSelectField(
+        choices = INTEREST_CHOICES, 
+        blank = True,
     )
     partners = models.ManyToManyField(
         'self', 
