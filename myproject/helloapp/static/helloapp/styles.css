@@ -127,8 +127,14 @@ select {
   border-radius: var(--border-radius-200);
 }
 
-.topnav a:hover:not(.active), /* add hover effect to all elements except the active one */
-.topnav button:hover {
+.topnav a:hover.active,
+.topnav button:hover{
+  background-color: var(--ISS-medium-blue-color);
+  color: black;
+  border-radius: var(--border-radius-200);
+}
+
+.topnav a:hover:not(.active){ /* add hover effect to all elements except the active one */
   background-color: var(--ISS-light-blue-color);
   color: black;
   border-radius: var(--border-radius-200);
@@ -136,10 +142,7 @@ select {
 
 /* Logout-Button*/
 .topnav form {
-  position: absolute; /* Absolut im Container positionieren */
-  top: 1000; /* Direkt oben ausrichten */
-  right: 1000; /* Direkt rechts ausrichten */
-  margin: 10000px; /* Abstand zu den Rändern */
+  margin-left: auto;
 }
 
 .topnav button {
@@ -156,9 +159,10 @@ select {
   background-color: var(--ISS-medium-blue-color);
   color: white;
   border: none;
-  border-radius: var(--size-radius-200);
+  border-radius: var(--border-radius-200);
   cursor: pointer;
 }
+
 
 /*
     HOMEPAGE
