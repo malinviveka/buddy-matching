@@ -7,8 +7,11 @@
 {% block content %}
     <script src="{% static 'helloapp/main.js' %}" defer></script> <!-- Link to compiled JavaScript -->
     <h1>{{ message }}</h1> <!--MOCK-->
-    <h1>Homepage Hello World</h1>
 
+    <div class="homepage-header">
+        <img src="{% static 'images/no_background_iss_logo.png' %}" alt="Logo" class="iss_logo">
+        <h1>ISS Buddy Program</h1>
+    </div>
    
     <!-- <div>
         NUR FÜR UNS ZUM TESTEN 

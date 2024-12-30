@@ -9,15 +9,82 @@
     <script src="{% static 'helloapp/account_creation.js' %}" defer></script>
     <link rel="stylesheet" type="text/css" href="{% static 'helloapp/styles.css' %}"> <!-- Link to CSS file -->
 
-    <h1>Create Account</h1>
-
-    <form id="accountCreationForm" method="POST" action="{% url 'create_account' %}">
+    <h2>Create Account</h2>
+    
+    <form id="accountCreationForm" method="POST" action="{% url 'create_account' %}" class="form-account-creation">
         {% csrf_token %}
-        {{ form.as_p }}
 
-        <div>
-            <button type="submit" id="submitAccountButton">Create Account</button>
-        </div>    
+        <!-- LABELS AND INPUT FIELDS -->
+        <div class="form-box"> 
+            <label for="id_role">Role:</label>
+            {{ form.role }}
+        </div>
+        <div class="form-box"> 
+            <label for="id_surname">Surname:</label>
+            {{ form.surname }}
+        </div>
+        <div class="form-box"> 
+            <label for="id_first_name">First Name:</label>
+            {{ form.first_name }}
+        </div>
+        <div class="form-box"> 
+            <label for="id_preferred_language">Preferred Language:</label>
+            {{ form.preferred_language }}
+        </div>
+        <div class="form-box"> 
+            <label for="id_email">E-Mail:</label>
+            <!--{{ form.email }}-->
+            <input type="email" name="email" id="id_email" class="form-control" placeholder="@stud.tu-darmstadt.de", required>
+        </div>
+        <div class="form-box"> 
+            <label for="id_degree_level">Degree Level:</label>
+            {{ form.degree_level }}
+        </div>
+        <div class="form-box"> 
+            <label for="id_app_matr_number">Matriculation/Application Number:</label>
+            <!--{{ form.app_matr_number }}-->
+            <input type="text" name="app_matr_number" id="id_app_matr_number" class="form-control" placeholder="0123456", required>
+        </div>
+        <div class="form-box"> 
+            <label for="id_department">Department:</label>
+            {{ form.department }}
+        </div>
+        <div class="form-box">     
+            <label for="id_country">Country:</label>
+            {{ form.country }}
+        </div>
+        <div class="form-box"> 
+            <label for="id_preferred_number_of_partners">Preferred Number of Partners:</label>
+            {{ form.preferred_number_of_partners }}
+        </div>
+
+        <!-- PASSWORD SECTION-->
+        <div class="password-box">
+            <label for="id_password1">Password:</label>
+            <!--{{ form.password1 }}-->
+            <input type="password" name="password1" id="id_password1" class="form-control" required>
+
+            <p class="description">
+                Your password can’t be too similar to your other personal information. <br>
+                Your password must contain at least 8 characters.<br>
+                Your password can’t be a commonly used password. <br>
+                Your password can’t be entirely numeric.
+            </p>
+
+            <label for="id_password2">Confirm Password:</label>
+            <!--{{ form.password2 }}-->
+            <input type="password" name="password2" id="id_password2" class="form-control" required>
+
+            <p class="description">
+                Enter the same password as before, for verification.
+            </p>
+
+        
+        
+        <!-- SUBMIT BUTTON -->
+        </div>
+            <button type="submit" id="submitAccountButton" class="button">Create Account</button>
+        </div>
     </form>
 
     <div id="message" style="margin-top: 20px;"></div>

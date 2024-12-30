@@ -1,267 +1,314 @@
 /* helloapp/static/helloapp/styles.css */
 
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+/*
+    GLOBAL VARIABLES
+*/
+:root {
+  /*margin sizes*/
+  --size-space-500: 20px;
 
-body {
-    font-family: 'Roboto', sans-serif;  /* Roboto font is used in websites by TU Darmstadt (see: https://www.intern.tu-darmstadt.de/arbeitsmittel/corporate_design_vorlagen/index.de.jsp)*/
-    margin: 20px;
-    padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
-    box-sizing: border-box;
-} 
+  /*border*/
+  --border-radius-200: 8px;
+  --border-input-width: 1px;
+  --border-box-width: 1px;
 
-:root{
-    --size-space-200: 8px;
-    --size-space-300: 12px;
-    --size-space-400: 16px;
-    --size-space-600: 24px;
-    --size-space-1600: 64px;
-    --single-line-body-base-font-size: 18px;
-    --body-link-font-weight: 400;
-    --size-radius-200: 8px;
+  /*padding sizes*/
+  --size-space-100: 4px;
+  --size-space-200: 8px;
+  --size-space-300: 12px;
+  --size-space-400: 16px;
+  --size-space-600: 24px;
+  --size-space-1600: 64px;
+
+  /*font-size & weight*/
+  --small-body-font-size: 16px;
+  --medium-body-font-size: 18px;
+  --body-font-weight: 400;
+
+  /*colors*/
+  --border-input-color: #ccc;
+  --ISS-light-blue-color: #0080c933;
+  --ISS-medium-blue-color: #0080c9;
+  --ISS-dark-blue-color: #0070b0;
+  --ISS-orange-color: #e5a000;
+  --ISS-light-orange-color: #fff7e6;
+  --text-color: #333;
 }
+
+/*
+    GLOBAL STYLES
+*/
+body {
+  font-family: "Roboto", sans-serif; /* Roboto font is used in websites by TU Darmstadt (see: https://www.intern.tu-darmstadt.de/arbeitsmittel/corporate_design_vorlagen/index.de.jsp)*/
+  margin: 20px;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: var(--ISS-dark-blue-color);
+  font-size: 40px;
+  font-weight: 700;
+}
+
+h2 {
+  color: var(--ISS-dark-blue-color);
+  font-size: 32px;
+  font-weight: 700;
+}
+
+input{
+  flex: 1; 
+  padding:  var(--size-space-300) var(--size-space-400);
+  border: var(--border-input-width) solid var(--border-input-color);
+  border-radius: var(--border-radius-200);
+  font-size: var(--small-body-font-size);
+  color: var(--text-color);
+  box-sizing: border-box; 
+}
+
+select {
+  /*makes apperance uniform across devices*/
+  appearance: none; /* Entfernt die Browser-Standardeigenschaften */
+  -webkit-appearance: none; /* Für Safari */
+  -moz-appearance: none; /* Für Firefox */
+  background-color: white; /* Hintergrundfarbe */
+
+  /*styling same as input*/
+  flex: 1;
+  padding:  var(--size-space-300) var(--size-space-400);
+  border: var(--border-input-width) solid var(--border-input-color);
+  border-radius: var(--border-radius-200);
+  font-size: var(--small-body-font-size);
+  color: var(--text-color);
+  box-sizing: border-box; 
+  cursor: pointer;
+}
+
 
 /*
     NAVIGATION
 */
-/* add light blue color to the top navigation bar*/
 .topnav {
-    display: flex; 
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 
-    width: calc(100% + 40px);  /* full width: topnav spans full width of website; nav-items start further right*/
-    margin-left: -20px;
-    padding: 0px var(--size-space-1600) 0px var(--size-space-1600);
-
-    height: auto;
-    align-items: center;
-    gap: 8px 8px;
-    position: relative;
-    background-color: #0080c933;
+  width: calc(100% - 80px); /* full width: topnav spans full width of website; nav-items start further right*/
+  margin-left: -20px;
+  padding: 0px var(--size-space-1600);
+  
+  height: auto;
+  align-items: center;
+  gap: var(--size-space-200);
+  position: relative;
+  
+  background-color: var(--ISS-light-blue-color); /* add light blue color to the top navigation bar*/
 }
 
-/* style the links inside the navigation bar */
 .topnav a {
-    color: #333;
-    text-align: center;
-    padding: var(--size-space-200) var(--size-space-200) var(--size-space-200) var(--size-space-200);
-    text-decoration: none;
-    font-size: var(--single-line-body-base-font-size);
-}
+  /* base */
+  font-size: var(--small-body-font-size);
+  color: var(--text-color);
 
-/* change color of links on hover */
-.topnav a:hover {
-    background-color: #0080c933;
-    color: black;
-    border-radius: var(--size-radius-200);
+  /* style the links inside the navigation bar */
+  text-align: center;
+  padding: var(--size-space-200);
+  text-decoration: none;
 }
 
 /* add color to active element */
 .topnav a.active {
-    background-color: #0080c9;
-    color: white;
-    border-radius: var(--size-radius-200);
+  background-color: var(--ISS-medium-blue-color);
+  color: white;
+  border-radius: var(--border-radius-200);
+}
+
+.topnav a:hover:not(.active), /* add hover effect to all elements except the active one */
+.topnav button:hover {
+  background-color: var(--ISS-light-blue-color);
+  color: black;
+  border-radius: var(--border-radius-200);
 }
 
 /* Logout-Button*/
 .topnav form {
-    margin-left: auto; /* Schiebt das Formular nach rechts */
+  position: absolute; /* Absolut im Container positionieren */
+  top: 1000; /* Direkt oben ausrichten */
+  right: 1000; /* Direkt rechts ausrichten */
+  margin: 10000px; /* Abstand zu den Rändern */
 }
 
 .topnav button {
-    padding: var(--size-space-200) var(--size-space-200) var(--size-space-200) var(--size-space-200);
-    font-size: var(--single-line-body-base-font-size);
-    background-color: #0080c9;
-    color: white;
-    border: none;
-    border-radius: var(--size-radius-200);
-    cursor: pointer;
-}
+  /* base */
+  font-size: var(--small-body-font-size);
+  color: var(--text-color);
 
-.topnav button:hover {
-    background-color:  #ddd;
-    color: black;
-    border-radius: var(--size-radius-200);
+  /* style the links inside the navigation bar */
+  text-align: center;
+  padding: var(--size-space-200);
+  text-decoration: none;
+
+  /* style the button */
+  background-color: var(--ISS-medium-blue-color);
+  color: white;
+  border: none;
+  border-radius: var(--size-radius-200);
+  cursor: pointer;
 }
 
 /*
-    LOGIN
+    HOMEPAGE
 */
-.form-container {
-    display: flex;
-    justify-content: left; /* Horizontal zentrieren */
-    align-items: center;     /* Vertikal zentrieren */
-    padding: 20px;
+.homepage-header {
+  display: flex; 
+  align-items: center; 
+  gap: var(--size-space-400); 
+  padding: var(--size-space-400); 
 }
 
+.iss_logo {
+  width: 150px;
+  height: auto;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+
+
+/*
+    LOGIN:
+*/
 .form-login {
-    display: inline-flex;
-    flex-direction: column;
-    min-width: 320px;
-    align-items: flex-start;
-    gap: var(--size-space-600);
-    padding: var(--size-space-600);
-    position: relative;
-    background-color: white;
-    border-radius: var(--size-radius-200);
-    border: 1px solid #e5a000;
-}
+  display: flex; 
+  flex-direction: column;
+  gap: var(--size-space-600);
+  padding: var(--size-space-600);
 
-.input-field {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--size-space-200);
-    position: relative;
-    align-self: stretch;
-    width: 100%;
-    flex: 0 0 auto;
+  /*centering*/
+  width: 400px; 
+  margin: var(--size-space-500) 0; 
+
+  /*styling of "box"*/
+  background-color: white;
+  border-radius: var(--border-radius-200); 
+  border: var(--border-box-width) solid var(--ISS-orange-color); 
 }
 
 .label {
-    position: relative;
-    align-self: stretch;
-    margin-top: -1.00px;
+  position: relative;
+  align-self: stretch;
+  margin-bottom: -14px
 }
 
 .input {
-    display: block;
-    min-width: 240px;
-    align-items: center;
-    padding: var(--size-space-300) var(--size-space-400) var(--size-space-300) var(--size-space-400);
-    position: relative;
-    align-self: stretch;
-    width: 100%;
-    flex: 0 0 auto;
-    margin-bottom: -1.00px;
-    margin-left: -1.00px;
-    margin-right: -1.00px;
-    border-radius: var(--size-radius-200);
-    overflow: hidden;
-    border: 1px solid #ccc;
-    box-sizing: content-box;
+  display: block;
+  min-width: 240px;
+  align-items: center;
+  padding: var(--size-space-300) var(--size-space-400);
+  width: 100%;
+  border-radius: var(--border-radius-200);
+  border: var(--border-input-width) solid var(--border-input-color);
+  box-sizing: border-box;
+  margin-bottom: var(--size-space-200); 
 }
 
-.button-group {
-    all: unset;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    gap: var(--size-space-400);
-    position: relative;
-    align-self: stretch;
-    width: 100%;
-    flex: 0 0 auto;
-}
 
 .button {
-    all: unset;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--size-space-200);
-    padding: var(--size-space-300);
-    position: relative;
-    flex: 1;
-    flex-grow: 1;
-    background-color: #0080c9;
-    color: #fff;
-    border-radius: var(--size-radius-200);
-    overflow: hidden;
-    cursor: pointer;
-    
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--size-space-200);
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+  padding: var(--size-space-300);
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+  background-color: var(--ISS-medium-blue-color);
+  color: #fff;
+  border-radius: var(--border-radius-200);
+  overflow: hidden;
+  cursor: pointer;
 }
 
 .button:hover {
-    background-color: #0080c9;
+  background-color: var(--ISS-medium-blue-color);
+  color: black;
+  border-radius: var(--border-radius-200);
 }
+
 
 .text-link {
-    display: flex;
-    align-items: flex-start;
-    position: relative;
-    align-self: start;
-    width: 100%;
-    flex: 0 0 auto;
-    background-color: #fff;
-}
-
-.text-link-2 {
-    color: #333;
-    font-size: var(--single-line-body-base-font-size);
-    font-weight: var(--body-link-font-weight);
-    white-space: nowrap;
-    text-decoration: underline;
-}
-
-.text-link-2:hover {
-    text-decoration: underline;
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  align-self: start;
+  width: 100%;
+  flex: 0 0 auto;
+  background-color: #fff;
+  color: #333;
+  font: var(--small-body-font-size);
+  font-weight: var(--body-font-weight);
+  text-decoration: underline;
 }
 
 
+/*
+    CREATE ACCOUNT:
+*/
+.form-account-creation{
+  display: flex; 
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
 
-
-
-/* Eingabefeld */
-#entryInput {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  /*centering*/
+  width: 60%; 
+  margin: var(--size-space-500) 0; 
 }
 
-/* Buttons */
-button {
-    padding: 10px 15px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-    transition: background-color 0.3s ease;
+.form-box {
+  display: flex; /* Elemente nebeneinander platzieren */
+  align-items: center; /* Vertikal zentrieren */
+  gap: var(--size-space-400); /* Abstand zwischen Label und Input */
+  padding: var(--size-space-100)
 }
 
-button:hover {
-    background-color: #0056b3;
-    color: white;
+.password-box {
+  padding: var(--size-space-400); 
+  border: var(--border-box-width) solid var(--ISS-orange-color); 
+  border-radius: var(--border-radius-200); 
+  background-color: var(--ISS-light-orange-color);
+  margin-top: var(--size-space-400); 
+  margin-bottom: var(--size-space-400);
 }
-
-/* Save-Button */
-#saveButton {
-    background-color: #007bff;
-    color: white;
+.password-box label {
+  display: block;
+  margin-bottom: var(--size-space-200); 
+  font-size: var(--body-font-size);
+  color: var(--text-color)
 }
-
-/* Retrieve-Button */
-#retrieveButton {
-    background-color: #28a745;
-    color: white;
+.password-box input {
+  width: 100%; 
+  padding: 10px; 
+  border: var(--border-input-width) solid var(--border-input-color); 
+  border-radius: var(--border-radius-200);
+  box-sizing: border-box;
+  margin-bottom: var(--size-space-200);
 }
-
-/* Liste der Einträge */
-#entriesDisplay {
-    list-style-type: none;
-    padding: 0;
-    margin: 20px 0;
-    max-height: 200px;
-    overflow-y: auto;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
+.password-box .description {
+  margin-top: var(--size-radius-200);
+  font-size: var(--small-body-font-size); 
+  line-height: 1.5; 
+  color: gray;
 }
-
-#entriesDisplay li {
-    padding: 10px;
-    border-bottom: 1px solid #eee;
-}
-
-#entriesDisplay li:last-child {
-    border-bottom: none;
-}
-
 
