@@ -17,6 +17,9 @@
                 <button type="submit">Logout</button>
             </form>
             <!--<a href="{% url 'logout' %}">Logout</a>-->
+            {% if user.is_staff %}
+                <a href="{% url 'admin_user_list' %}">Admin User Management</a> 
+            {% endif %}    
         {% else %}
             <a href="{% url 'login' %}">Login</a> 
             <a href="{% url 'create_account_view' %}">Create Account</a> <!--only needed if not logged in-->
