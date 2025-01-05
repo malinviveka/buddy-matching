@@ -8,7 +8,13 @@
     <script src="{% static 'helloapp/main.js' %}" defer></script> <!-- Link to compiled JavaScript -->
     <h1>{{ message }}</h1> <!--MOCK-->
     <h1>Homepage Hello World</h1>
-
+    <!-- Das folgende ist nur zum testen, damit man beim nachvollziehen kann, als was man gerade angemeldet ist, aber eigtl ist das doch ne ganz coole Idee, das man namentlich begrüßt wird, oder?-->
+    {% if user.is_authenticated %}
+    <p>Hey, {{ user.first_name }}!</p>
+    <p>Your Email is: {{ user.email }}!</p>
+    {% endif %}
+    <!-- Das folgende ist dynamisch anpassbarer Text, wie gefordert. (man kann ihn, wenn man als staff angemeldet ist unter admin user management verändern) Man kann das theoretisch natürlich noch erweitern, um auch Titel uns sowas zu verändern, aber das hier soll erstmal so ein proof of concept sein^^-->
+    <p>{{ homepage_text.content }}</p>
    
     <!-- <div>
         NUR FÜR UNS ZUM TESTEN 

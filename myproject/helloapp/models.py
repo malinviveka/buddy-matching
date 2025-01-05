@@ -207,3 +207,11 @@ class BuddyMatchingUser(AbstractUser):
             f'{self.country} - '
             f'{self.is_permitted}'
         )
+
+
+class HomepageText(models.Model):
+    content = models.TextField(default="Willkommen auf der Seite!")  # Standardtext
+    last_updated = models.DateTimeField(auto_now=True)  # Automatisch aktualisieren bei jeder Änderung
+
+    def __str__(self):
+        return f"Homepage Text (aktualisiert am {self.last_updated})"
