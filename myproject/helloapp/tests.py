@@ -2,6 +2,8 @@ from django.test import TestCase
 from django.urls import reverse
 from .models import BuddyMatchingUser
 from .forms import BuddyMatchingUserCreationForm, LoginForm
+from .matching import run_matching, gale_shapley
+from .matching_utils import create_preference_lists, calculate_match_score
 
 class ModelsTestCase(TestCase):
     def test_buddy_matching_user_creation(self):
@@ -128,3 +130,115 @@ class ViewsTestCase(TestCase):
         self.client.login(email='test.user@example.com', password='password123!')
         response = self.client.get(reverse('logout'))
         self.assertEqual(response.status_code, 302)  # Redirect to homepage
+
+
+# tests for matching algorithm
+class MatchingTestCase(TestCase):
+    def setUp(self):
+        # set up dummy buddies and students
+        self.buddy1 = BuddyMatchingUser.objects.create(
+            role='Buddy',
+            email='buddy1@test.com',
+            app_matr_number='111111',
+            preferred_language='English',
+            department='FB 20',
+            country='Spain',
+            preferred_number_of_partners=2,
+            interests=['Sports', 'Culture'],
+            degree_level='Bachelors'
+        )
+        self.buddy2 = BuddyMatchingUser.objects.create(
+            role='Buddy',
+            email='buddy2@test.com',
+            app_matr_number='222222',
+            preferred_language='Both',
+            department='FB 20',
+            country='Italy',
+            preferred_number_of_partners=1,
+            interests=['Nature'],
+            degree_level='Masters'
+        )
+
+        # Dummy Internationale Studierende erstellen
+        self.student1 = BuddyMatchingUser.objects.create(
+            role='International Student',
+            email='student1@test.com',
+            app_matr_number='333333',
+            preferred_language='English',
+            country='Spain',
+            department='FB 20',
+            interests=['Sports', 'Nature'],
+            degree_level='Masters'
+        )
+        self.student2 = BuddyMatchingUser.objects.create(
+            role='International Student',
+            email='student2@test.com',
+            app_matr_number='444444',
+            preferred_language='English',
+            department='FB 20',
+            country='Italy',
+            interests=['Culture', 'Nature'],
+            degree_level='Bachelors'
+        )
+        self.student3 = BuddyMatchingUser.objects.create(
+            role='International Student',
+            email='student3@test.com',
+            app_matr_number='555555',
+            preferred_language='German',
+            department='FB 16',
+            country='Norway',
+            interests=['Technology'],
+            degree_level='Masters'
+        )
+
+    # test the calculation of the match score
+    def test_calculate_match_score(self):
+        score1 = calculate_match_score(self.buddy1, self.student1)
+        self.assertEqual(score1, 7) 
+        score2 = calculate_match_score(self.buddy1, self.student2)
+        self.assertEqual(score2, 5.5)  
+        score3 = calculate_match_score(self.buddy1, self.student3)
+        self.assertEqual(score3, 0) 
+
+
+    # test the creation of the preference lists
+    def test_create_preference_lists(self):
+        buddies = BuddyMatchingUser.objects.filter(role='Buddy')
+        students = BuddyMatchingUser.objects.filter(role='International Student')
+        
+        preference_lists = create_preference_lists(buddies, students)
+
+        # check if preference list is created for student1
+        self.assertIn(self.student1, preference_lists)
+        
+        # check if buddy1 is in list of student1
+        self.assertTrue(any(b[0] == self.buddy1 for b in preference_lists[self.student1]))
+
+        # check if list is sorted by score
+        scores = [b[1] for b in preference_lists[self.student1]]
+        self.assertEqual(scores, sorted(scores, reverse=True))
+
+    # test the Gale-Shapley algorithm
+    def test_gale_shapley(self):
+        buddies = BuddyMatchingUser.objects.filter(role='Buddy')
+        students = BuddyMatchingUser.objects.filter(role='International Student')
+        preference_lists = create_preference_lists(buddies, students)
+
+        matches = gale_shapley(buddies, students, preference_lists)
+
+        # check if matches are correct
+        self.assertIn(self.student1, matches[self.buddy1])
+        self.assertIn(self.student2, matches[self.buddy1])
+        self.assertNotIn(self.student3, matches[self.buddy1])
+
+        # buddy2 should only have one match
+        self.assertEqual(len(matches[self.buddy2]), 1)
+
+    # test the whole matching process
+    def test_run_matching(self):
+        run_matching()
+
+        # Überprüfen, ob Matches in der Datenbank gespeichert wurden
+        self.assertIn(self.student1, self.buddy1.partners.all())
+        self.assertIn(self.student2, self.buddy1.partners.all())
+        self.assertNotIn(self.student3, self.buddy1.partners.all())

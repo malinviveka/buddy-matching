@@ -36,8 +36,9 @@ def create_preference_lists(buddies, students):
     for student in students:
         for buddy in buddies:
             score = calculate_match_score(buddy, student)
+            print(f"Score for {student} and {buddy}: {score}")  # Debugging
             if score > 0:  # only consider buddies with a score > 0
                 preference_lists[student].append((buddy, score))
         
-        # Liste sortieren nach Score (höchster zuerst)
+        # sort the preference list in descending order
         preference_lists[student].sort(key=lambda x: x[1], reverse=True)

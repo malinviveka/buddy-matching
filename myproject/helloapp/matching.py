@@ -2,13 +2,15 @@ from helloapp.models import BuddyMatchingUser
 from .matching_utils import create_preference_lists
 from collections import defaultdict
 
+# student = international student
+
 def gale_shapley(buddies, students, preference_lists):
     matches = defaultdict(list)  # Buddy -> [Students]
     buddy_capacities = {buddy: buddy.preferred_number_of_partners for buddy in buddies}
 
-    free_students = list(students)  # Liste der freien Studierenden
+    free_students = list(students)  # list of students that are not matched yet
 
-    # Matching-Schleife
+    # matching loop
     while free_students:
         student = free_students.pop(0)  # choose first student from list
 
