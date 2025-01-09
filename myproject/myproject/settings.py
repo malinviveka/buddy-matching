@@ -27,6 +27,25 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Aktivieren der Internationalisierung
+USE_I18N = True
+
+# Standard-Sprache (Fallback)
+LANGUAGE_CODE = 'en'
+
+# Zeit- und Datumsformatierung basierend auf der Sprache
+USE_L10N = True
+
+# Verfügbare Sprachen
+LANGUAGES = [
+    ('en', 'English'),
+    ('de', 'Deutsch'),
+]
+
+# Pfad zu Übersetzungsdateien
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
 
 # Application definition
 
@@ -45,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',

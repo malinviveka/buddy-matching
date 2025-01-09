@@ -13,6 +13,8 @@ from django.views import View
 from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
 from .models import BuddyMatchingUser, HomepageText
+from django.utils import translation
+
 # Test
 from django.http import HttpResponse
 import os
@@ -23,6 +25,13 @@ def homepage(request):
     """
     Render the homepage template.
     """
+    # Debug Test translate-stuff
+    if request.user.is_authenticated:
+        translation.activate('de')
+        
+    # End Debug
+
+
     homepage_text = HomepageText.objects.first()
     return render(request, 'helloapp/homepage.html', {"homepage_text": homepage_text})  
 
