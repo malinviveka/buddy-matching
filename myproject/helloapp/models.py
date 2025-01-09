@@ -125,7 +125,7 @@ class BuddyMatchingUser(AbstractUser):
     country = models.CharField(
         max_length = 255,
         blank = True, 
-        default = 'none',
+        default = '',
     )
     # for local students
     preferred_number_of_partners = models.PositiveIntegerField(
