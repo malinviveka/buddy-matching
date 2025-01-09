@@ -25,7 +25,7 @@ class BuddyMatchingUserCreationForm(UserCreationForm):
             'degree_level': forms.Select(attrs={'class': 'form-control'}),
             'app_matr_number': forms.NumberInput(attrs={'class': 'form-control'}),
             'department': forms.Select(attrs={'class': 'form-control'}),
-            'country': forms.TextInput(attrs={'class': 'form-control'}),
+            'country': forms.TextInput(attrs={'class': 'form-control', 'id': 'id_country'}),
             'preferred_number_of_partners': forms.NumberInput(attrs={'class': 'form-control', 'data-role-field': 'Buddy'}),
             'interests': forms.CheckboxSelectMultiple(attrs={'class': 'form-check'}),
         }
