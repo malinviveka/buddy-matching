@@ -27,6 +27,7 @@ submitAccountButton.addEventListener("click", (event) => __awaiter(this, void 0,
             messageDiv.innerText = result.message;
             messageDiv.style.color = "green";
             accountCreationForm.reset();
+            // todo: redirect to home page (see views.py todo)
         }
         else {
             const errors = yield response.json();
@@ -47,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
     const updateSpecialFields = () => {
+        var _a;
         const selectedRole = roleSelect.value;
         specialFields.forEach(field => {
             const roleField = field.getAttribute("data-role-field");
@@ -60,6 +62,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log(`Hiding field for role: ${roleField}`); // Debugging
             }
         });
+        const countryField = document.getElementById("id_country");
+        const countryLabel = (_a = countryField === null || countryField === void 0 ? void 0 : countryField.parentElement) === null || _a === void 0 ? void 0 : _a.querySelector("label");
+        if (selectedRole === "Buddy") {
+            countryLabel.innerText = "Preferred Country";
+            countryField.placeholder = "Enter preferred country";
+        }
+        else if (selectedRole === "International Student") {
+            countryLabel.innerText = "Country of Origin";
+            countryField.placeholder = "Enter country of origin";
+        }
     };
     roleSelect.addEventListener("change", updateSpecialFields);
     updateSpecialFields(); // Initial visibility setup
