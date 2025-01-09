@@ -1,5 +1,111 @@
-# buddy-matching
-Repository für das Matching-Software-Projekt
+# Buddy-Matching
+Repository für das Matching-Software-Projekt für den ISS
+
+## Installation und Setup des Projekts
+
+Diese Anleitung beschreibt die Schritte, um das Projekt auf einem lokalen Rechner einzurichten.
+
+### 1. PostgreSQL installieren
+- PostgreSQL kann unter [PostgreSQL - Download](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) heruntergeladen werden.
+- Während des Installationsprozesses muss ein Passwort festgelegt werden. Es wird empfohlen, das Passwort gut zu speichern, da es später benötigt wird.
+- Der Standardport 5432 sollte beibehalten werden.
+- Der Installationsprozess kann anschließend fortgesetzt werden.
+
+### 2. Repository klonen
+- Git kann unter [Git - Download](https://git-scm.com/downloads) heruntergeladen werden.
+- Eine bevorzugte IDE, wie z.B. Visual Studio Code, kann unter [Download-Link](https://code.visualstudio.com/download) heruntergeladen und geöffnet werden.
+- Im Terminal sollte überprüft werden, ob Git korrekt in der Umgebungsvariable `PATH` konfiguriert ist. Hierzu kann der folgende Befehl ausgeführt werden:
+   ```bash
+   git --version
+   ```
+   Falls eine Fehlermeldung erscheint, sind folgende Schritte erforderlich:
+    - Zu Systemsteuerung > System > Erweiterte Systemeinstellungen > Umgebungsvariablen navigieren.
+    - In den Systemvariablen nach PATH suchen, es bearbeiten und folgenden Pfad hinzufügen:
+      ```bash
+      C:\Program Files\Git\bin
+      ```
+    - Visual Studio Code neu starten und das Terminal erneut öffnen. Es sollte dann erneut überprüft werden:
+      ```bash
+      git --version
+      ```
+- Zu dem Ordner navigieren, in dem das Repository gespeichert werden soll:
+  ```bash
+  cd /pfad/zum/zielordner
+  ```
+- Das Repository mit dem folgenden Befehl klonen:
+  ```bash
+  git clone https://github.com/malinviveka/buddy-matching.git
+  ```
+- Das Projekt kann anschließend über open folder in der IDE geöffnet werden.
+
+
+### 3. Virtuelle Umgebung erstellen
+- Eine virtuelle Umgebung kann mit folgendem Befehl erstellt werden:
+  ```bash
+  python -m venv venv
+  ```
+- Die virtuelle Umgebung wird mit folgendem Befehl aktiviert:
+  ```bash
+  ./venv/scripts/activate
+  ```
+  Sollte dabei ein Fehler auftreten, kann der folgende Befehl ausgeführt werden, um die PowerShell-Skriptausführungsrichtlinie anzupassen:
+  ```bash
+  Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
+  ```
+- Die benötigten Abhängigkeiten können mit folgendem Befehl installiert werden:
+  ```bash
+  py -m pip install -r requirements.txt
+  ```
+
+
+### 4. Datenbank anlegen
+- Es kann überprüft werden, ob psql korrekt installiert wurde, indem der folgende Befehl ausgeführt wird:
+  ```bash
+  psql --version
+  ```
+- Sollte eine Fehlermeldung erscheinen, sind folgende Schritte erforderlich:
+  - Zu Systemsteuerung > System > Erweiterte Systemeinstellungen > Umgebungsvariablen navigieren.
+  - In den Systemvariablen nach PATH suchen, es bearbeiten und folgenden Pfad hinzufügen (ersetze VERSION mit der installierten Version von PostgreSQL):
+    ```bash
+    C:\Program Files\PostgreSQL\VERSION\bin
+    ```
+  - Visual Studio Code neu starten und das Terminal erneut öffnen. Es sollte dann erneut überprüft werden:
+    ```bash
+    psql --version
+    ```
+- Eine Verbindung zum PostgreSQL-Server wird mit folgendem Befehl hergestellt:
+  ```bash
+  psql -U postgres
+  ```
+- Es wird nach dem Passwort gefragt, das während der Installation von PostgreSQL festgelegt wurde.
+- Die Datenbank und der Benutzer können mit den folgenden Befehlen erstellt werden:
+  ```sql
+  CREATE DATABASE buddymatchingdatabase;
+  CREATE USER buddymatchinguser WITH PASSWORD 'P455w0rd';
+  GRANT ALL PRIVILEGES ON DATABASE buddymatchingdatabase TO buddymatchinguser;
+  ```
+- Die psql-Session wird mit folgendem Befehl beendet:
+  ```bash
+  \q
+  ```
+
+
+### 5. Weitere Requirements installieren
+Die restlichen Abhängigkeiten können mit folgendem Befehl installiert werden:
+```bash
+py -m pip install -r requirements.txt
+```
+
+
+### 6. Migration ausführen
+Die Migrationen, um die Datenbankstruktur zu erstellen, können mit den folgenden Befehlen ausgeführt werden:
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+---
+
 
 ## Docker
 Für die Entwicklung kann [Docker](https://docs.docker.com/get-started/) genutzt werden, um die Datenbank leichter zu verwalten.
