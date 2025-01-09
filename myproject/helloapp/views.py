@@ -6,19 +6,25 @@ import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
-from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import user_passes_test
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import BuddyMatchingUserCreationForm, LoginForm
 from django.views import View
 from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
-from .models import BuddyMatchingUser
+from .models import BuddyMatchingUser, HomepageText
+# Test
+from django.http import HttpResponse
+import os
+import sys
 
 
 def homepage(request):
     """
     Render the homepage template.
     """
-    return render(request, 'helloapp/homepage.html')  
+    homepage_text = HomepageText.objects.first()
+    return render(request, 'helloapp/homepage.html', {"homepage_text": homepage_text})  
 
 
 class AccountCreationView(View):
@@ -96,7 +102,38 @@ def logout_view(request):
     logout(request)
     return redirect('homepage')
 
+@user_passes_test(lambda u: u.is_staff)
+def admin_user_list(request):
+    users = BuddyMatchingUser.objects.all()
+    return render(request, 'helloapp/admin_user_site.html', {'users': users})
 
+@user_passes_test(lambda u: u.is_staff)
+def toggle_user_permission(request, user_id):
+    if request.method == "POST":
+        user = get_object_or_404(BuddyMatchingUser, id=user_id)
+        user.is_permitted = not user.is_permitted
+        user.save()
+        return JsonResponse({'is_permitted': user.is_permitted})
+    return JsonResponse({'error': 'Invalid request'}, status=400)
+
+@user_passes_test(lambda u: u.is_staff)
+def edit_homepage_text(request):
+    homepage_text, created = HomepageText.objects.get_or_create(id=1)  # Standardtext erstellen, falls noch nicht vorhanden
+
+    if request.method == "POST":
+        new_content = request.POST.get("content")
+        homepage_text.content = new_content
+        homepage_text.save()
+        return redirect('admin_user_list')  # Zurück zur Admin-Seite
+
+    return render(request, "helloapp/edit_homepage_text.html", {"homepage_text": homepage_text})
+
+
+def shutdown_server(request):
+    if not request.user.is_staff:
+        return HttpResponse("Unauthorized", status=401)
+    os._exit(0)  # Beendet den Python-Prozess (unsicher, aber funktional)
+    return HttpResponse("Server is shutting down...")
 
 # The following is old code from the helloWorld prototype. I leave it here for now, if someone needs to look something up
 
