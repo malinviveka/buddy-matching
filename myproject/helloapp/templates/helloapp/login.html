@@ -8,14 +8,24 @@
 {% block content %}
     <link rel="stylesheet" type="text/css" href="{% static 'helloapp/styles.css' %}"> <!-- Link to CSS file -->
     <script src="{% static 'helloapp/login.js' %}" defer></script> <!-- Link to compiled JavaScript -->
-    <h1>Login</h1>
+    
 
-    <form method="post" action="{% url 'login' %}">
+    
+    <form method="post" action="{% url 'login' %}" class="form-login">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
+        <!-- E-Mail -->  
+        <label class="label" for="email">Email:</label>
+        <input type="email" id="id_email" name="email" class="input" placeholder="@stud.tu-darmstadt.de" required>
+           
+        <!-- Password -->
+        <label class="label" for="password">Password:</label>
+        <input type="password" id="id_password" name="password" class="input" placeholder="" required>
+
+        <!-- Login Button -->
+        <button type="submit" class="button">Login</button>
+
+        <!-- Create Account Link -->
+        <a href="{% url 'create_account_view' %}" class="text-link" >Create Account</a>
     </form>
     
-    <a href="{% url 'create_account_view' %}">Create Account</a> 
-
 {% endblock %}
