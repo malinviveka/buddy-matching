@@ -1,43 +1,53 @@
 from helloapp.models import BuddyMatchingUser
 from .matching_utils import create_preference_lists
 from collections import defaultdict
+from django.db import transaction
 
 # student = international student
 
-def gale_shapley(buddies, students, preference_lists):
-    matches = defaultdict(list)  # Buddy -> [Students]
-    buddy_capacities = {buddy: buddy.preferred_number_of_partners for buddy in buddies}
+def gale_shapley(students, buddies, student_preferences, buddy_preferences):
+    '''
+    Run the Gale-Shapley algorithm to find stable matches between students and buddies.
+    :param students: List of students
+    :param buddies: List of buddies
+    :param student_preferences: Dictionary of student preference lists
+    :param buddy_preferences: Dictionary of buddy preference lists
+    :param buddy_capacities: Dictionary of buddy capacities
+    '''
 
-    free_students = list(students)  # list of students that are not matched yet
+    # Initialize variables
+    unmatched_students = list(students)  # List of students who have not yet been matched
+    matches = defaultdict(list) # Buddy -> [Students]
 
-    # matching loop
-    while free_students:
-        student = free_students.pop(0)  # choose first student from list
+    while unmatched_students:
+        student = unmatched_students.pop(0)  # get the first unmatched student
+        student_pref_list = student_preferences[student] # get the preference list of the student
 
-        # get preference list of student
-        for buddy, _ in preference_lists[student]:
-            if len(matches[buddy]) < buddy_capacities[buddy]:
-                # buddy has capacity left -> match student with buddy
+        # iterate over the preference list of the student
+        for buddy, _ in student_pref_list:
+            # check if buddy has capacity
+            if len(matches[buddy]) < buddy.preferred_number_of_partners:
                 matches[buddy].append(student)
                 break
-            else:
-                # check, if current Buddy would prefer different match
-                current_students = matches[buddy]
-                worst_student = min(
-                    current_students,
-                    key=lambda s: next(score for b, score in preference_lists[s] if b == buddy)
-                )
 
-                # if student is preferred over worst_student, match student with buddy
-                new_score = next(score for b, score in preference_lists[student] if b == buddy)
-                worst_score = next(score for b, score in preference_lists[worst_student] if b == buddy)
+            # check if buddy prefers the student over the worst student in the current matches
+            lowest_score_student = min(
+                matches[buddy],
+                key=lambda s: next(score for b, score in buddy_preferences[buddy] if b == s)
+            )
+            new_score = next(score for b, score in buddy_preferences[buddy] if b == student)
+            current_lowest_score = next(score for b, score in buddy_preferences[buddy] if b == lowest_score_student)
 
-                if new_score > worst_score:
-                    matches[buddy].remove(worst_student)
-                    matches[buddy].append(student)
-                    free_students.append(worst_student)
-                    break
+            # if buddy prefers the student over the worst student in the current matches then swap the students
+            if new_score > current_lowest_score:
+                matches[buddy].remove(lowest_score_student)
+                matches[buddy].append(student)
+                unmatched_students.append(lowest_score_student)
+                break
+        else:
+            continue
     return matches
+    
 
 
 def run_matching():
@@ -46,10 +56,10 @@ def run_matching():
     students = BuddyMatchingUser.objects.filter(role='International Student', is_permitted=True)
     
     # create preference lists
-    preference_lists = create_preference_lists(buddies, students)
+    student_preferences, buddy_preferences = create_preference_lists(buddies, students)
     
     # run Gale-Shapley 
-    matches = gale_shapley(buddies, students, preference_lists)
+    matches = gale_shapley(buddies, students, student_preferences, buddy_preferences)
 
     # safe matches in database
     for buddy, matched_students in matches.items():

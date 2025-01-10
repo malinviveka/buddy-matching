@@ -30,15 +30,31 @@ def calculate_match_score(buddy, student):
 
 
 def create_preference_lists(buddies, students):
-    # create preference lists for international students
-    preference_lists = defaultdict(list)
+    # Dictionary to store the score for each (buddy, student) pair
+    scores = {}
 
-    for student in students:
-        for buddy in buddies:
+    # Calculate scores for all pairs and store them
+    for buddy in buddies:
+        for student in students:
             score = calculate_match_score(buddy, student)
-            print(f"Score for {student} and {buddy}: {score}")  # Debugging
-            if score > 0:  # only consider buddies with a score > 0
-                preference_lists[student].append((buddy, score))
-        
-        # sort the preference list in descending order
-        preference_lists[student].sort(key=lambda x: x[1], reverse=True)
+            scores[(buddy, student)] = score
+
+    # Create preference lists for students
+    student_preferences = defaultdict(list)
+    for student in students:
+        student_preferences[student] = sorted(
+            [(buddy, scores[(buddy, student)]) for buddy in buddies],
+            key=lambda x: x[1],  # Sort by score
+            reverse=True  # Descending order
+        )
+
+    # Create preference lists for buddies
+    buddy_preferences = defaultdict(list)
+    for buddy in buddies:
+        buddy_preferences[buddy] = sorted(
+            [(student, scores[(buddy, student)]) for student in students],
+            key=lambda x: x[1],  # Sort by score
+            reverse=True  # Descending order
+        )
+
+    return student_preferences, buddy_preferences
