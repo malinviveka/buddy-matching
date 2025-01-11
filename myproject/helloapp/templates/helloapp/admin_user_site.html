@@ -1,0 +1,60 @@
+{% extends 'helloapp/base.html' %}
+
+{% block title %}Admin User Management{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+<script src="{% static 'helloapp/admin_user_list.js' %}"></script>
+<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+    <h1>Admin User Management</h1>
+    <!--Sorry, dass die Seiteso hässlig ist, ich gebe sie -->
+    <a href="{% url 'edit_homepage_text' %}">Zur Homepage-Nachrichten-Bearbeitungs-Seite</a> <br>
+
+    <button type="submit">Matches zuweisen (Todo)</button> <br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>App Matriculation Number</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr id="user-{{ user.id }}">
+                <td>{{ user.email }}</td>
+                <td>{{ user.first_name }}</td>
+                <td>{{ user.surname }}</td>
+                <td>{{ user.app_matr_number }}</td>
+                <td class="status">
+                    {% if user.is_permitted %}
+                        Zugelassen
+                    {% else %}
+                        Nicht zugelassen
+                    {% endif %}
+                </td>
+                <td>
+                    <button class="toggle-permission" data-user-id="{{ user.id }}">
+                        {% if user.is_permitted %}Entziehen{% else %}Zulassen{% endif %}
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+
+    <form method="POST" action="{% url 'shutdown' %}">
+        {% csrf_token %}
+        <button type="submit" style="background-color: red; color: white;">Server stoppen (es ist wirklich nicht empfohlen, so einen Knopf überhaupt zu haben)</button>
+    </form>
+
+{% endblock %}

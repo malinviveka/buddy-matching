@@ -68,8 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
             countryLabel!.innerText = "Preferred Country";
             countryField.placeholder = "Enter preferred country";
         } else if (selectedRole === "International Student") {
-            countryLabel!.innerText = "Country of Origin";
-            countryField.placeholder = "Enter country of origin";
+            countryLabel!.innerText = "Country of Sending University";
+            countryField.placeholder = "Enter country of sending university";
     }
 
 

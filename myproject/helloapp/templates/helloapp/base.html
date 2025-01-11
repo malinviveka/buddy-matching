@@ -1,4 +1,4 @@
-{% load static %}
+{% load static i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +13,7 @@
     <!-- Top Navigation -->
     <div class="topnav">
         <!-- Home -->
-        <a class="title {% if request.path == '/' %}active{% endif %}" href="{% url 'homepage' %}">Home</a>
+        <a class="title {% if request.path == '/' %}active{% endif %}" href="{% url 'homepage' %}">{% trans "Home" %}</a>
 
          {% if user.is_authenticated %} <!-- Dynamic Login/ Logout Button: is the user logged in?-->
             <!--Logout-->
@@ -21,6 +21,10 @@
                 {% csrf_token %}
                 <button type="submit" class="title">Logout</button>
             </form>
+            {% if user.is_staff %}
+                <a href="{% url 'admin_user_list' %}">Admin User Management</a> 
+            {% endif %}  
+
         {% else %}
             <!-- Login -->
             <a class="title {% if request.path == '/login/' %}active{% endif %}" href="{% url 'login' %}">Login</a>

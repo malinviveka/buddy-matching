@@ -10,5 +10,9 @@ urlpatterns = [
     #path('api/save_entry/', views.save_entry, name='save_entry'),
     #path('api/get_entries/', views.get_entries, name='get_entries'),
     path('logout/', views.logout_view, name='logout'),
+    path('cadmin/users/', views.admin_user_list, name='admin_user_list'),
+    path('cadmin/users/toggle_permission/<int:user_id>/', views.toggle_user_permission, name='toggle_user_permission'),
+    path('cadmin/edit_homepage_text/', views.edit_homepage_text, name='edit_homepage_text'),
+    path('shutdown/', views.shutdown_server, name='shutdown'),
     path('', views.homepage, name='homepage'),
 ]
