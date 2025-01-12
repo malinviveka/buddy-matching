@@ -214,9 +214,14 @@ class MatchingTestCase(TestCase):
         buddies = BuddyMatchingUser.objects.filter(role='Buddy')
         students = BuddyMatchingUser.objects.filter(role='International Student')
 
+        print("BUDDIES: ", buddies)   # debug
+        print("STUDENTS: ", students)   # debug
         
         # Call the method to create preference lists
         student_preferences, buddy_preferences = create_preference_lists(buddies, students)
+
+        print("STUDENT PREFERENCES: ", student_preferences)   # debug
+        print("BUDDY PREFERENCES: ", buddy_preferences)   # debug
 
         # Check student preferences
         self.assertEqual(student_preferences[self.student1], [
@@ -251,15 +256,16 @@ class MatchingTestCase(TestCase):
         buddies = BuddyMatchingUser.objects.filter(role='Buddy')
         students = BuddyMatchingUser.objects.filter(role='International Student')
 
+
         student_preferences, buddy_preferences = create_preference_lists(buddies, students)
         
-        matches = gale_shapley(buddies, students, student_preferences, buddy_preferences)
+        matches = gale_shapley(students, buddies, student_preferences, buddy_preferences)
 
     
         # check if matches are correct
         self.assertIn(self.student1, matches[self.buddy1])
-        self.assertIn(self.student2, matches[self.buddy1])
-        self.assertNotIn(self.student3, matches[self.buddy2])
+        self.assertIn(self.student2, matches[self.buddy2])
+        self.assertIn(self.student3, matches[self.buddy1])
 
         # buddy2 should only have one match
         self.assertEqual(len(matches[self.buddy2]), 1)
@@ -270,7 +276,17 @@ class MatchingTestCase(TestCase):
     def test_run_matching(self):
         run_matching()
 
-        # check if matches are correctly stored in the database
-        # TODO: implement this test
+        # Note: Django saves Many-to-Many-relations as QuerySets, remember to use the `.all()` method to retrieve the related objects
+
+        # check if the matches are stored in the database
+        self.assertIn(self.student2, self.buddy2.partners.all())
+        self.assertIn(self.student1, self.buddy1.partners.all())
+        self.assertIn(self.student2, self.buddy2.partners.all())
+        self.assertIn(self.student3, self.buddy1.partners.all())
+
+        # Optional: Test die Gegenseitigkeit der Verknüpfungen
+        self.assertIn(self.buddy2, self.student2.partners.all())
+        self.assertIn(self.buddy1, self.student1.partners.all())
+        self.assertIn(self.buddy1, self.student3.partners.all())
         
 

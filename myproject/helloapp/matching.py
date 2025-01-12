@@ -1,6 +1,6 @@
 from helloapp.models import BuddyMatchingUser
 from .matching_utils import create_preference_lists
-from collections import defaultdict
+from collections import defaultdict, deque
 from django.db import transaction
 
 # student = international student
@@ -12,15 +12,15 @@ def gale_shapley(students, buddies, student_preferences, buddy_preferences):
     :param buddies: List of buddies
     :param student_preferences: Dictionary of student preference lists
     :param buddy_preferences: Dictionary of buddy preference lists
-    :param buddy_capacities: Dictionary of buddy capacities
     '''
 
     # Initialize variables
-    unmatched_students = list(students)  # List of students who have not yet been matched
+    unmatched_students = deque(students)  # Deque of students who have not yet been matched
+
     matches = defaultdict(list) # Buddy -> [Students]
 
     while unmatched_students:
-        student = unmatched_students.pop(0)  # get the first unmatched student
+        student = unmatched_students.popleft()  # get the first unmatched student
         student_pref_list = student_preferences[student] # get the preference list of the student
 
         # iterate over the preference list of the student
@@ -46,6 +46,7 @@ def gale_shapley(students, buddies, student_preferences, buddy_preferences):
                 break
         else:
             continue
+
     return matches
     
 
@@ -59,9 +60,27 @@ def run_matching():
     student_preferences, buddy_preferences = create_preference_lists(buddies, students)
     
     # run Gale-Shapley 
-    matches = gale_shapley(buddies, students, student_preferences, buddy_preferences)
+    matches = gale_shapley(students, buddies, student_preferences, buddy_preferences)
+
+    # print matches for each buddy
+    print('Matches:', matches)
+
 
     # safe matches in database
-    for buddy, matched_students in matches.items():
-        buddy.partners.set(matched_students)
-        buddy.save()
+    #for buddy, matched_students in matches.items():
+    #    buddy.partners.set(matched_students)
+    #    buddy.save()
+    with transaction.atomic():
+        for buddy, students in matches.items():
+            # Füge die Students zum Buddy hinzu
+            buddy.partners.add(*students)
+            # Für jeden Student: füge den Buddy hinzu
+            for student in students:
+                student.partners.add(buddy)
+
+            # Speichere den Buddy (obwohl .add() das normalerweise übernimmt)
+            buddy.save()
+
+            # Speichere jeden Student
+            for student in students:
+                student.save()
