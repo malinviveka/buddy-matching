@@ -195,18 +195,18 @@ class MatchingTestCase(TestCase):
     # test the calculation of the match score
     def test_calculate_match_score(self):
         score1 = calculate_match_score(self.buddy1, self.student1)
-        self.assertEqual(score1, 7) 
+        self.assertEqual(score1, 10**4 + 10**3 + 10**2 + 10**1) # 11110
         score2 = calculate_match_score(self.buddy1, self.student2)
-        self.assertEqual(score2, 5.5)  
+        self.assertEqual(score2, 10**4 + 10**2 + 10**1 + 10**0)  # 10111
         score3 = calculate_match_score(self.buddy1, self.student3)
         self.assertEqual(score3, 0) 
 
         score4 = calculate_match_score(self.buddy2, self.student1)
-        self.assertEqual(score4, 5.5)
+        self.assertEqual(score4, 10**4 + 10**2 + 10**1 + 10**0) # 10111
         score5 = calculate_match_score(self.buddy2, self.student2)
-        self.assertEqual(score5, 7)
+        self.assertEqual(score5, 10**4 + 10**3 + 10**2 + 10**1) # 11110
         score6 = calculate_match_score(self.buddy2, self.student3)
-        self.assertEqual(score6, 3.5)
+        self.assertEqual(score6, 10**4 + 10**0) # 10001
 
 
     # test the creation of the preference lists
@@ -214,39 +214,35 @@ class MatchingTestCase(TestCase):
         buddies = BuddyMatchingUser.objects.filter(role='Buddy')
         students = BuddyMatchingUser.objects.filter(role='International Student')
 
-        print("BUDDIES: ", buddies)   # debug
-        print("STUDENTS: ", students)   # debug
         
         # Call the method to create preference lists
-        student_preferences, buddy_preferences = create_preference_lists(buddies, students)
+        student_preferences, buddy_preferences = create_preference_lists(students, buddies)
 
-        print("STUDENT PREFERENCES: ", student_preferences)   # debug
-        print("BUDDY PREFERENCES: ", buddy_preferences)   # debug
 
         # Check student preferences
         self.assertEqual(student_preferences[self.student1], [
-            (self.buddy1, 7),
-            (self.buddy2, 5.5)
+            (self.buddy1, 11110),
+            (self.buddy2, 10111)
         ])
         self.assertEqual(student_preferences[self.student2], [
-            (self.buddy2, 7),
-            (self.buddy1, 5.5)
+            (self.buddy2, 11110),
+            (self.buddy1, 10111)
         ])
         self.assertEqual(student_preferences[self.student3], [
-            (self.buddy2, 3.5),
+            (self.buddy2, 10001),
             (self.buddy1, 0)
         ])
 
         # Check buddy preferences
         self.assertEqual(buddy_preferences[self.buddy1], [
-            (self.student1, 7),
-            (self.student2, 5.5),
+            (self.student1, 11110),
+            (self.student2, 10111),
             (self.student3, 0)
         ])
         self.assertEqual(buddy_preferences[self.buddy2], [
-            (self.student2, 7),
-            (self.student1, 5.5),
-            (self.student3, 3.5)
+            (self.student2, 11110),
+            (self.student1, 10111),
+            (self.student3, 10001)
         ])
 
 
@@ -257,7 +253,7 @@ class MatchingTestCase(TestCase):
         students = BuddyMatchingUser.objects.filter(role='International Student')
 
 
-        student_preferences, buddy_preferences = create_preference_lists(buddies, students)
+        student_preferences, buddy_preferences = create_preference_lists(students, buddies)
         
         matches = gale_shapley(students, buddies, student_preferences, buddy_preferences)
 

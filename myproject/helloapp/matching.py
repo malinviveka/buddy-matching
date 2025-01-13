@@ -57,19 +57,13 @@ def run_matching():
     students = BuddyMatchingUser.objects.filter(role='International Student', is_permitted=True)
     
     # create preference lists
-    student_preferences, buddy_preferences = create_preference_lists(buddies, students)
+    student_preferences, buddy_preferences = create_preference_lists(students, buddies)
     
     # run Gale-Shapley 
     matches = gale_shapley(students, buddies, student_preferences, buddy_preferences)
 
-    # print matches for each buddy
-    print('Matches:', matches)
-
 
     # safe matches in database
-    #for buddy, matched_students in matches.items():
-    #    buddy.partners.set(matched_students)
-    #    buddy.save()
     with transaction.atomic():
         for buddy, students in matches.items():
             # Füge die Students zum Buddy hinzu

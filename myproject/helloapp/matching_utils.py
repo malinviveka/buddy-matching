@@ -5,31 +5,33 @@ def calculate_match_score(buddy, student):
     score = 0
     # priorities can be changed later
 
+    # use 10**n to give higher priority to certain attributes
+
     # language
     if buddy.preferred_language in ('Both', student.preferred_language):
-        score += 3
+        score += 10**4
 
     # country of sending university or country of preference
     if buddy.country.lower() == student.country.lower():
-        score += 2
+        score += 10**3
 
     # interests
     common_interests = set(buddy.interests).intersection(set(student.interests))
-    score += len(common_interests)
+    score += len(common_interests)*(10**2)
 
     # department (at TU Darmstadt)
     if buddy.department == student.department:
-        score += 1
+        score += 10**1
 
     # degree level
     if buddy.degree_level == student.degree_level:
-        score += 0.5
+        score += 10**0
 
     return score
 
 
 
-def create_preference_lists(buddies, students):
+def create_preference_lists(students, buddies):
     # Dictionary to store the score for each (buddy, student) pair
     scores = {}
 
