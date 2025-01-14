@@ -3,7 +3,7 @@
 
 {% block title %}Login{% endblock %}
 
-{% load static %}
+{% load static i18n %}
 
 {% block content %}
     <link rel="stylesheet" type="text/css" href="{% static 'helloapp/styles.css' %}"> <!-- Link to CSS file -->
@@ -18,14 +18,14 @@
         <input type="email" id="id_email" name="email" class="input" placeholder="@stud.tu-darmstadt.de" required>
            
         <!-- Password -->
-        <label class="label" for="password">Password:</label>
+        <label class="label" for="password">{% trans "Password:" %}</label>
         <input type="password" id="id_password" name="password" class="input" placeholder="" required>
 
         <!-- Login Button -->
         <button type="submit" class="button">Login</button>
 
         <!-- Create Account Link -->
-        <a href="{% url 'create_account_view' %}" class="text-link" >Create Account</a>
+        <a href="{% url 'create_account_view' %}" class="text-link" >{% trans "Create Account" %}</a>
     </form>
     
 {% endblock %}

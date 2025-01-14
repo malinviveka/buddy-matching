@@ -3,32 +3,32 @@
 
 {% block title %}Create Account{% endblock %}
 
-{% load static %}
+{% load static i18n %}
 
 {% block content %}
     <script src="{% static 'helloapp/account_creation.js' %}" defer></script>
     <link rel="stylesheet" type="text/css" href="{% static 'helloapp/styles.css' %}"> <!-- Link to CSS file -->
 
-    <h2>Create Account</h2>
+    <h2>{% trans "Create Account" %}</h2>
     
     <form id="accountCreationForm" method="POST" action="{% url 'create_account' %}" class="form-account-creation">
         {% csrf_token %}
 
         <!-- LABELS AND INPUT FIELDS -->
         <div class="form-box"> 
-            <label for="id_role">Role:</label>
+            <label for="id_role">{% trans "Role:" %}</label>
             {{ form.role }}
         </div>
         <div class="form-box"> 
-            <label for="id_surname">Surname:</label>
+            <label for="id_surname">{% trans "Surname:" %}</label>
             {{ form.surname }}
         </div>
         <div class="form-box"> 
-            <label for="id_first_name">First Name:</label>
+            <label for="id_first_name">{% trans "First Name:" %}</label>
             {{ form.first_name }}
         </div>
         <div class="form-box"> 
-            <label for="id_preferred_language">Preferred Language:</label>
+            <label for="id_preferred_language">{% trans "Preferred Language:" %}</label>
             {{ form.preferred_language }}
         </div>
         <div class="form-box"> 
@@ -37,50 +37,50 @@
             <input type="email" name="email" id="id_email" class="form-control" placeholder="@stud.tu-darmstadt.de", required>
         </div>
         <div class="form-box"> 
-            <label for="id_degree_level">Degree Level:</label>
+            <label for="id_degree_level">{% trans "Degree Level:" %}</label>
             {{ form.degree_level }}
         </div>
         <div class="form-box"> 
-            <label for="id_app_matr_number">Matriculation/Application Number:</label>
+            <label for="id_app_matr_number">{% trans "Matriculation/Application Number:" %}</label>
             <!--{{ form.app_matr_number }}-->
             <input type="text" name="app_matr_number" id="id_app_matr_number" class="form-control" placeholder="0123456", required>
         </div>
         <div class="form-box"> 
-            <label for="id_department">Department:</label>
+            <label for="id_department">{% trans "Department:" %}</label>
             {{ form.department }}
         </div>
         <div class="form-box">     
-            <label for="id_country">Country:</label>
+            <label for="id_country">{% trans "Country:" %}</label>
             {{ form.country }}
         </div>
         <div class="form-box"> 
-            <label for="id_preferred_number_of_partners">Preferred Number of Partners:</label>
+            <label for="id_preferred_number_of_partners">{% trans "Preferred Number of Partners:" %}</label>
             {{ form.preferred_number_of_partners }}
         </div>
         <div class="form-box"> 
-            <label for="id_interests">Interests:</label>
+            <label for="id_interests">{% trans "Interests:" %}</label>
             {{ form.interests }}
         </div>
 
         <!-- PASSWORD SECTION-->
         <div class="password-box">
-            <label for="id_password1">Password:</label>
+            <label for="id_password1">{% trans "Password:" %}</label>
             <!--{{ form.password1 }}-->
             <input type="password" name="password1" id="id_password1" class="form-control" required>
 
             <p class="description">
-                Your password can’t be too similar to your other personal information. <br>
-                Your password must contain at least 8 characters.<br>
-                Your password can’t be a commonly used password. <br>
-                Your password can’t be entirely numeric.
+                {% trans "Your password can’t be too similar to your other personal information." %} <br> 
+                {% trans "Your password must contain at least 8 characters." %} <br>
+                {% trans "Your password can’t be a commonly used password." %} <br>
+                {% trans "Your password can’t be entirely numeric." %}
             </p>
 
-            <label for="id_password2">Confirm Password:</label>
+            <label for="id_password2">{% trans "Confirm Password:" %}</label>
             <!--{{ form.password2 }}-->
             <input type="password" name="password2" id="id_password2" class="form-control" required>
 
             <p class="description">
-                Enter the same password as before, for verification.
+                {% trans "Enter the same password as before, for verification." %}
             </p>
 
         

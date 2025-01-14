@@ -29,7 +29,7 @@
             <!-- Login -->
             <a class="title {% if request.path == '/login/' %}active{% endif %}" href="{% url 'login' %}">Login</a>
             <!-- Create Account (only needed if not already logged in)-->
-            <a class="title {% if request.path == '/create-account/' %}active{% endif %}" href="{% url 'create_account_view' %}">Create Account</a>
+            <a class="title {% if request.path == '/create-account/' %}active{% endif %}" href="{% url 'create_account_view' %}">{% trans "Create Account" %}</a>
         {% endif %}
     </div>
 

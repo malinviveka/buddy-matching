@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-09 12:43+0100\n"
+"POT-Creation-Date: 2025-01-13 21:29+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,10 +18,84 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: .\helloapp\templates\helloapp\account_creation.html:14
+msgid "Create Account"
+msgstr "Create Account"
+
+#: .\helloapp\templates\helloapp\account_creation.html:21
+msgid "Role:"
+msgstr "Role:"
+
+#: .\helloapp\templates\helloapp\account_creation.html:25
+msgid "Surname:"
+msgstr "Surname:"
+
+#: .\helloapp\templates\helloapp\account_creation.html:29
+msgid "First Name:"
+msgstr "First Name:"
+
+#: .\helloapp\templates\helloapp\account_creation.html:33
+msgid "Preferred Language:"
+msgstr "Preferred Language:"
+
+#: .\helloapp\templates\helloapp\account_creation.html:42
+msgid "Degree Level:"
+msgstr "Degree Level:"
+
+#: .\helloapp\templates\helloapp\account_creation.html:46
+msgid "Matriculation/Application Number:"
+msgstr "Matriculation/Application Number:"
+
+#: .\helloapp\templates\helloapp\account_creation.html:51
+msgid "Department:"
+msgstr "Department:"
+
+#: .\helloapp\templates\helloapp\account_creation.html:55
+msgid "Country:"
+msgstr "Country:"
+
+#: .\helloapp\templates\helloapp\account_creation.html:59
+msgid "Preferred Number of Partners:"
+msgstr "Preferred Number of Partners:"
+
+#: .\helloapp\templates\helloapp\account_creation.html:63
+msgid "Interests:"
+msgstr "Interests:"
+
+#: .\helloapp\templates\helloapp\account_creation.html:69
+msgid "Password:"
+msgstr "Password:"
+
+#: .\helloapp\templates\helloapp\account_creation.html:74
+msgid "Your password can’t be too similar to your other personal information."
+msgstr "Your password can’t be too similar to your other personal information."
+
+#: .\helloapp\templates\helloapp\account_creation.html:75
+msgid "Your password must contain at least 8 characters."
+msgstr "Your password must contain at least 8 characters."
+
+#: .\helloapp\templates\helloapp\account_creation.html:76
+msgid "Your password can’t be a commonly used password."
+msgstr "Your password can’t be a commonly used password."
+
+#: .\helloapp\templates\helloapp\account_creation.html:77
+msgid "Your password can’t be entirely numeric."
+msgstr "Your password can’t be entirely numeric."
+
+#: .\helloapp\templates\helloapp\account_creation.html:80
+msgid "Confirm Password:"
+msgstr "Confirm Password:"
+
+#: .\helloapp\templates\helloapp\account_creation.html:85
+msgid "Enter the same password as before, for verification."
+msgstr "Enter the same password as before, for verification."
+
+# Base
 #: .\helloapp\templates\helloapp\base.html:16
 msgid "Home"
 msgstr "Home"
 
+# Homepage
 #: .\helloapp\templates\helloapp\homepage.html:11
 msgid "Hello, world!"
 msgstr "Englisch"

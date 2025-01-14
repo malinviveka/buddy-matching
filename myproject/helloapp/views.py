@@ -27,7 +27,7 @@ def homepage(request):
     """
     # Debug Test translate-stuff
     if request.user.is_authenticated:
-        translation.activate('de')
+        translation.activate('en')
         
     # End Debug
 
