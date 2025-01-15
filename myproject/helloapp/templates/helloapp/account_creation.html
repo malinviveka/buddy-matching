@@ -10,10 +10,14 @@
     <link rel="stylesheet" type="text/css" href="{% static 'helloapp/styles.css' %}"> <!-- Link to CSS file -->
 
     <h2>{% trans "Create Account" %}</h2>
+
+    {% get_current_language as LANGUAGE_CODE %}
+    <div id="language-info" data-language="{{ LANGUAGE_CODE }}"></div>
+    
     
     <form id="accountCreationForm" method="POST" action="{% url 'create_account' %}" class="form-account-creation">
         {% csrf_token %}
-
+        
         <!-- LABELS AND INPUT FIELDS -->
         <div class="form-box"> 
             <label for="id_role">{% trans "Role:" %}</label>

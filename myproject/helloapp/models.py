@@ -3,6 +3,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.contrib.auth.models import BaseUserManager
 from multiselectfield import MultiSelectField
+from django.utils.translation import gettext_lazy as _
+
 
 class BuddyMatchingUserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -42,43 +44,44 @@ class BuddyMatchingUser(AbstractUser):
 
     objects = BuddyMatchingUserManager()
 
+    
     LANGUAGE_CHOICES = [
-        ('German', 'German'),
-        ('English', 'English'),
-        ('Both', 'Both'),
+        ('German', _('German')),
+        ('English', _('English')),
+        ('Both', _('Both')),
     ]
 
     DEGREE_CHOICES = [
-        ('Bachelors', 'Bachelors'),
-        ('Masters', 'Masters'),
+        ('Bachelors', _('Bachelors')),
+        ('Masters', _('Masters')),
     ]
 
     DEPARTMENT_CHOICES = [
-        ('FB 1', 'Rechts- und Wirtschaftswissenschaften (FB 1)'),
-        ('FB 2', 'Gesellschafts- & Geschichtswissenschaften (FB 2)'),
-        ('FB 3', 'Humanwissenschaften (FB 3)'),
-        ('FB 4', 'Mathematik (FB 4)'),
-        ('FB 5', 'Physik (FB 5)'),
-        ('FB 7', 'Chemie (FB 7)'),
-        ('FB 10', 'Biologie (FB 10)'),
-        ('FB 11', 'Material- und Geowissenschaften (FB 11)'),
-        ('FB 13', 'Bau- und Umweltingenieurwissenschaften (FB 13)'),
-        ('FB 15', 'Architektur (FB 15)'),
-        ('FB 16', 'Maschinenbau (FB 16)'),
-        ('FB 18', 'Elektrotechnik und Informationstechnik (FB 18)'),
-        ('FB 20', 'Informatik (FB 20)'),
+        ('FB 1', _('Law and Economics (FB 1)')),
+        ('FB 2', _('Social and Historical Sciences (FB 2)')),
+        ('FB 3', _('Human Sciences (FB 3)')),
+        ('FB 4', _('Mathematics (FB 4)')),
+        ('FB 5', _('Physics (FB 5)')),
+        ('FB 7', _('Chemistry (FB 7)')),
+        ('FB 10', _('Biology (FB 10)')),
+        ('FB 11', _('Material and Earth Sciences (FB 11)')),
+        ('FB 13', _('Civil and Environmental Engineering (FB 13)')),
+        ('FB 15', _('Architecture (FB 15)')),
+        ('FB 16', _('Mechanical Engineering (FB 16)')),
+        ('FB 18', _('Electrical Engineering and IT (FB 18)')),
+        ('FB 20', _('Computer Science (FB 20)')),
     ]
 
     ROLE_CHOICES = [
-        ('International Student', 'International Student'),
-        ('Buddy', 'Buddy'),
+        ('International Student', _('International Student')),
+        ('Buddy', _('Buddy')),
     ]
 
     INTEREST_CHOICES = [
-        ('Sports', 'Sports'),
-        ('Culture', 'Culture'),
-        ('Nature', 'Nature'),
-        ('Technology', 'Technology'),
+        ('Sports', _('Sports')),
+        ('Culture', _('Culture')),
+        ('Nature', _('Nature')),
+        ('Technology', _('Technology')),
     ]
 
     role = models.CharField(

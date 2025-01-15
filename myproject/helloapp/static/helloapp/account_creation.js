@@ -64,15 +64,31 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         const countryField = document.getElementById("id_country");
         const countryLabel = (_a = countryField === null || countryField === void 0 ? void 0 : countryField.parentElement) === null || _a === void 0 ? void 0 : _a.querySelector("label");
-        if (selectedRole === "Buddy") {
-            countryLabel.innerText = "Preferred Country";
-            countryField.placeholder = "Enter preferred country";
+        if (getCurrentLanguage() === 'en') {
+            if (selectedRole === "Buddy") {
+                countryLabel.innerText = "Preferred Country";
+                countryField.placeholder = "Enter preferred country";
+            }
+            else if (selectedRole === "International Student") {
+                countryLabel.innerText = "Country of Sending University";
+                countryField.placeholder = "Enter country of sending university";
+            }
         }
-        else if (selectedRole === "International Student") {
-            countryLabel.innerText = "Country of Sending University";
-            countryField.placeholder = "Enter country of sending university";
+        else {
+            if (selectedRole === "Buddy") {
+                countryLabel.innerText = "Bevorzugtes Land";
+                countryField.placeholder = "Gib dein bevorzugtes Land an";
+            }
+            else if (selectedRole === "International Student") {
+                countryLabel.innerText = "Land der sendenden Universität";
+                countryField.placeholder = "Gib das Land deiner sendenden Universität an";
+            }
         }
     };
     roleSelect.addEventListener("change", updateSpecialFields);
     updateSpecialFields(); // Initial visibility setup
 });
+function getCurrentLanguage() {
+    const languageElement = document.getElementById('language-info');
+    return (languageElement === null || languageElement === void 0 ? void 0 : languageElement.getAttribute('data-language')) || 'en'; // Fallback zu Englisch
+}

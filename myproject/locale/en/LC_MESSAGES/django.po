@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-13 21:29+0100\n"
+"POT-Creation-Date: 2025-01-15 15:36+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,75 +18,174 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\helloapp\templates\helloapp\account_creation.html:14
+#: .\helloapp\models.py:49
+msgid "German"
+msgstr ""
+
+#: .\helloapp\models.py:50
+msgid "English"
+msgstr ""
+
+#: .\helloapp\models.py:51
+msgid "Both"
+msgstr ""
+
+#: .\helloapp\models.py:55
+msgid "Bachelors"
+msgstr ""
+
+#: .\helloapp\models.py:56
+msgid "Masters"
+msgstr ""
+
+#: .\helloapp\models.py:60
+msgid "Law and Economics (FB 1)"
+msgstr ""
+
+#: .\helloapp\models.py:61
+msgid "Social and Historical Sciences (FB 2)"
+msgstr ""
+
+#: .\helloapp\models.py:62
+msgid "Human Sciences (FB 3)"
+msgstr ""
+
+#: .\helloapp\models.py:63
+msgid "Mathematics (FB 4)"
+msgstr ""
+
+#: .\helloapp\models.py:64
+msgid "Physics (FB 5)"
+msgstr ""
+
+#: .\helloapp\models.py:65
+msgid "Chemistry (FB 7)"
+msgstr ""
+
+#: .\helloapp\models.py:66
+msgid "Biology (FB 10)"
+msgstr ""
+
+#: .\helloapp\models.py:67
+msgid "Material and Earth Sciences (FB 11)"
+msgstr ""
+
+#: .\helloapp\models.py:68
+msgid "Civil and Environmental Engineering (FB 13)"
+msgstr ""
+
+#: .\helloapp\models.py:69
+msgid "Architecture (FB 15)"
+msgstr ""
+
+#: .\helloapp\models.py:70
+msgid "Mechanical Engineering (FB 16)"
+msgstr ""
+
+#: .\helloapp\models.py:71
+msgid "Electrical Engineering and IT (FB 18)"
+msgstr ""
+
+#: .\helloapp\models.py:72
+msgid "Computer Science (FB 20)"
+msgstr ""
+
+#: .\helloapp\models.py:76
+msgid "International Student"
+msgstr ""
+
+#: .\helloapp\models.py:77
+msgid "Buddy"
+msgstr ""
+
+#: .\helloapp\models.py:81
+msgid "Sports"
+msgstr ""
+
+#: .\helloapp\models.py:82
+msgid "Culture"
+msgstr ""
+
+#: .\helloapp\models.py:83
+msgid "Nature"
+msgstr ""
+
+#: .\helloapp\models.py:84
+msgid "Technology"
+msgstr ""
+
+#: .\helloapp\templates\helloapp\account_creation.html:12
+#: .\helloapp\templates\helloapp\base.html:32
+#: .\helloapp\templates\helloapp\login.html:28
 msgid "Create Account"
 msgstr "Create Account"
 
-#: .\helloapp\templates\helloapp\account_creation.html:21
+#: .\helloapp\templates\helloapp\account_creation.html:19
 msgid "Role:"
 msgstr "Role:"
 
-#: .\helloapp\templates\helloapp\account_creation.html:25
+#: .\helloapp\templates\helloapp\account_creation.html:23
 msgid "Surname:"
 msgstr "Surname:"
 
-#: .\helloapp\templates\helloapp\account_creation.html:29
+#: .\helloapp\templates\helloapp\account_creation.html:27
 msgid "First Name:"
 msgstr "First Name:"
 
-#: .\helloapp\templates\helloapp\account_creation.html:33
+#: .\helloapp\templates\helloapp\account_creation.html:31
 msgid "Preferred Language:"
 msgstr "Preferred Language:"
 
-#: .\helloapp\templates\helloapp\account_creation.html:42
+#: .\helloapp\templates\helloapp\account_creation.html:40
 msgid "Degree Level:"
 msgstr "Degree Level:"
 
-#: .\helloapp\templates\helloapp\account_creation.html:46
+#: .\helloapp\templates\helloapp\account_creation.html:44
 msgid "Matriculation/Application Number:"
 msgstr "Matriculation/Application Number:"
 
-#: .\helloapp\templates\helloapp\account_creation.html:51
+#: .\helloapp\templates\helloapp\account_creation.html:49
 msgid "Department:"
 msgstr "Department:"
 
-#: .\helloapp\templates\helloapp\account_creation.html:55
+#: .\helloapp\templates\helloapp\account_creation.html:53
 msgid "Country:"
 msgstr "Country:"
 
-#: .\helloapp\templates\helloapp\account_creation.html:59
+#: .\helloapp\templates\helloapp\account_creation.html:57
 msgid "Preferred Number of Partners:"
 msgstr "Preferred Number of Partners:"
 
-#: .\helloapp\templates\helloapp\account_creation.html:63
+#: .\helloapp\templates\helloapp\account_creation.html:61
 msgid "Interests:"
 msgstr "Interests:"
 
-#: .\helloapp\templates\helloapp\account_creation.html:69
+#: .\helloapp\templates\helloapp\account_creation.html:67
+#: .\helloapp\templates\helloapp\login.html:21
 msgid "Password:"
 msgstr "Password:"
 
-#: .\helloapp\templates\helloapp\account_creation.html:74
+#: .\helloapp\templates\helloapp\account_creation.html:72
 msgid "Your password can’t be too similar to your other personal information."
 msgstr "Your password can’t be too similar to your other personal information."
 
-#: .\helloapp\templates\helloapp\account_creation.html:75
+#: .\helloapp\templates\helloapp\account_creation.html:73
 msgid "Your password must contain at least 8 characters."
 msgstr "Your password must contain at least 8 characters."
 
-#: .\helloapp\templates\helloapp\account_creation.html:76
+#: .\helloapp\templates\helloapp\account_creation.html:74
 msgid "Your password can’t be a commonly used password."
 msgstr "Your password can’t be a commonly used password."
 
-#: .\helloapp\templates\helloapp\account_creation.html:77
+#: .\helloapp\templates\helloapp\account_creation.html:75
 msgid "Your password can’t be entirely numeric."
 msgstr "Your password can’t be entirely numeric."
 
-#: .\helloapp\templates\helloapp\account_creation.html:80
+#: .\helloapp\templates\helloapp\account_creation.html:78
 msgid "Confirm Password:"
 msgstr "Confirm Password:"
 
-#: .\helloapp\templates\helloapp\account_creation.html:85
+#: .\helloapp\templates\helloapp\account_creation.html:83
 msgid "Enter the same password as before, for verification."
 msgstr "Enter the same password as before, for verification."
 
