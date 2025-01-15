@@ -36,7 +36,7 @@ msgstr "Vorname:"
 
 #: .\helloapp\templates\helloapp\account_creation.html:33
 msgid "Preferred Language:"
-msgstr "Bevorzugste Sprache:"
+msgstr "Bevorzugte Sprache:"
 
 #: .\helloapp\templates\helloapp\account_creation.html:42
 msgid "Degree Level:"

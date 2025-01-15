@@ -98,7 +98,7 @@ msgstr "Home"
 # Homepage
 #: .\helloapp\templates\helloapp\homepage.html:11
 msgid "Hello, world!"
-msgstr "Englisch"
+msgstr "English"
 
 #: .\helloapp\templates\helloapp\homepage.html:15
 msgid "Your Name is:"

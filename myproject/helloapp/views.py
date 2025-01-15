@@ -20,17 +20,12 @@ from django.http import HttpResponse
 import os
 import sys
 
-
 def homepage(request):
     """
     Render the homepage template.
     """
     # Debug Test translate-stuff
-    if request.user.is_authenticated:
-        translation.activate('en')
-        
-    # End Debug
-
+    # translation.activate(curLen)
 
     homepage_text = HomepageText.objects.first()
     return render(request, 'helloapp/homepage.html', {"homepage_text": homepage_text})  
@@ -80,7 +75,6 @@ def login_view(request):
     Render the login form and handle login form submissions.
     """
     template_name = 'helloapp/login.html'
-    
     if request.method == "POST":
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -89,12 +83,12 @@ def login_view(request):
             user = authenticate(request, username=email, password=password)
             if user is not None:
                 # Nach iterationsmeeting auskommentieren!
-                #if user.is_permitted:
+                if user.is_permitted:
                     login(request, user)
                     messages.success(request, "Login was successful!")
                     return redirect('homepage')
-                #else:
-                #    messages.error(request, "Your account is not permitted yet. Please wait for approval.")
+                else:
+                    messages.error(request, "Your account is not permitted yet. Please wait for approval.")
             else:
                 messages.error(request, "Invalid email or password")
     else:
