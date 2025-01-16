@@ -41,22 +41,36 @@ Diese Anleitung beschreibt die Schritte, um das Projekt auf einem lokalen Rechne
 
 ### 3. Virtuelle Umgebung erstellen
 - Eine virtuelle Umgebung kann mit folgendem Befehl erstellt werden:
+  WINDOWS:
   ```bash
   python -m venv venv
   ```
+  MAC:
+  ```bash
+  python3 -m venv venv
+  ```
 - Die virtuelle Umgebung wird mit folgendem Befehl aktiviert:
+  WINDOWS:
   ```bash
   ./venv/scripts/activate
   ```
+  MAC:
+  ```bash
+  source ./venv/bin/activate
+  ``
   Sollte dabei ein Fehler auftreten, kann der folgende Befehl ausgeführt werden, um die PowerShell-Skriptausführungsrichtlinie anzupassen:
   ```bash
   Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
   ```
 - Die benötigten Abhängigkeiten können mit folgendem Befehl installiert werden:
+  WINDOWS:
   ```bash
   py -m pip install -r requirements.txt
   ```
-
+  MAC:
+  ```bash
+  python3 -m pip install -r requirements.txt
+  ``
 
 ### 4. Datenbank anlegen
 - Es kann überprüft werden, ob psql korrekt installiert wurde, indem der folgende Befehl ausgeführt wird:
@@ -92,9 +106,14 @@ Diese Anleitung beschreibt die Schritte, um das Projekt auf einem lokalen Rechne
 
 ### 5. Weitere Requirements installieren
 Die restlichen Abhängigkeiten können mit folgendem Befehl installiert werden:
+WINDOWS:
 ```bash
 py -m pip install -r requirements.txt
 ```
+MAC:
+```bash
+python3 -m pip install -r requirements.txt
+``
 
 
 ### 6. Migration ausführen
