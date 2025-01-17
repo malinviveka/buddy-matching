@@ -67,15 +67,15 @@ def run_matching():
     # safe matches in database
     with transaction.atomic():
         for buddy, students in matches.items():
-            # Füge die Students zum Buddy hinzu
+            # add students to buddy
             buddy.partners.add(*students)
-            # Für jeden Student: füge den Buddy hinzu
+            # for each student add buddy
             for student in students:
                 student.partners.add(buddy)
 
-            # Speichere den Buddy (obwohl .add() das normalerweise übernimmt)
+            # save buddy (update the partner count)
             buddy.save()
 
-            # Speichere jeden Student
+            # save students (update the partner count)
             for student in students:
                 student.save()
