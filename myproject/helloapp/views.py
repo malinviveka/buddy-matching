@@ -83,12 +83,12 @@ def login_view(request):
             user = authenticate(request, username=email, password=password)
             if user is not None:
                 # Nach iterationsmeeting auskommentieren!
-                if user.is_permitted:
+                #if user.is_permitted:
                     login(request, user)
                     messages.success(request, "Login was successful!")
                     return redirect('homepage')
-                else:
-                    messages.error(request, "Your account is not permitted yet. Please wait for approval.")
+                #else:
+                #    messages.error(request, "Your account is not permitted yet. Please wait for approval.")
             else:
                 messages.error(request, "Invalid email or password")
     else:
