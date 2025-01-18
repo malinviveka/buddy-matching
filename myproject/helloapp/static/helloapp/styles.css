@@ -61,7 +61,7 @@ h2 {
   font-weight: 700;
 }
 
-input{
+input, select, input[type="number"] {
   flex: 1; 
   padding:  var(--size-space-300) var(--size-space-400);
   border: var(--border-input-width) solid var(--border-input-color);
@@ -73,21 +73,68 @@ input{
 
 select {
   /*makes apperance uniform across devices*/
-  appearance: none; /* Entfernt die Browser-Standardeigenschaften */
-  -webkit-appearance: none; /* Für Safari */
-  -moz-appearance: none; /* Für Firefox */
-  background-color: white; /* Hintergrundfarbe */
+  appearance: none; /* removes default browser properties */
+  -webkit-appearance: none; /* for Safari */
+  -moz-appearance: none; /* for Firefox */
+  background-color: white; /* backgroundcolor */
 
-  /*styling same as input*/
-  flex: 1;
-  padding:  var(--size-space-300) var(--size-space-400);
-  border: var(--border-input-width) solid var(--border-input-color);
-  border-radius: var(--border-radius-200);
-  font-size: var(--small-body-font-size);
-  color: var(--text-color);
-  box-sizing: border-box; 
   cursor: pointer;
 }
+
+
+/*
+  REPEATED STYLES:
+*/
+
+/*BUTTONS (topnav has own definition)*/
+.button {
+  /* reset and box sizing */
+  all: unset;
+  box-sizing: border-box;
+  /* flexbox */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--size-space-200);
+  flex: 0 0 auto;
+  flex: 1;
+  flex-grow: 1;
+  align-self: stretch;
+  position: relative;
+  /* styling */
+  background-color: var(--ISS-medium-blue-color);
+  color: #fff;
+  border-radius: var(--border-radius-200);
+  overflow: hidden;
+  cursor: pointer;
+  padding: var(--size-space-300);
+}
+.button:hover {
+  background-color: var(--ISS-medium-blue-color);
+  color: black;
+  border-radius: var(--border-radius-200);
+}
+/* size and positioning per button id*/
+#submitAccountButton, 
+#loginButton {
+  width: 100%;
+}
+
+/*TEXT LINKS (href outside of buttons)*/
+.text-link {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  align-self: start;
+  width: 100%;
+  flex: 0 0 auto;
+  background-color: #fff;
+  color: #333;
+  font: var(--small-body-font-size);
+  font-weight: var(--body-font-weight);
+  text-decoration: underline;
+}
+
 
 
 /*
@@ -133,18 +180,18 @@ select {
   color: black;
   border-radius: var(--border-radius-200);
 }
-
 .topnav a:hover:not(.active){ /* add hover effect to all elements except the active one */
   background-color: var(--ISS-light-blue-color);
   color: black;
   border-radius: var(--border-radius-200);
 }
 
-/* Logout-Button*/
+/* Login- and Logout-Buttons */
+.topnav .loginButton,
 .topnav form {
   margin-left: auto;
 }
-
+.topnav .loginButton,
 .topnav button {
   /* base */
   font-size: var(--small-body-font-size);
@@ -161,6 +208,26 @@ select {
   border: none;
   border-radius: var(--border-radius-200);
   cursor: pointer;
+}
+
+/* Language Selection*/
+.languageSelector button {
+  /* position in the topnav */
+  position: absolute;
+  left: 98%; /*moves the button to the right*/
+  transform: translate(-50%, -50%); /* centers it both horizontally and vertically */
+
+  /* removes global styling of buttons (here unwanted) */
+  background: none;
+  border: none;
+  padding: 0;
+
+  cursor: pointer;
+}
+.flag-icon {
+  width: 30px;
+  height: auto;
+  border-radius: 3px; /* Optional: Rundere Kanten für schöneres Design */
 }
 
 
@@ -204,13 +271,13 @@ select {
   border: var(--border-box-width) solid var(--ISS-orange-color); 
 }
 
-.label {
+.loginLabel {
   position: relative;
   align-self: stretch;
   margin-bottom: -14px
 }
 
-.input {
+.loginInput {
   display: block;
   min-width: 240px;
   align-items: center;
@@ -222,48 +289,6 @@ select {
   margin-bottom: var(--size-space-200); 
 }
 
-
-.button {
-  all: unset;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--size-space-200);
-  align-self: stretch;
-  width: 100%;
-  flex: 0 0 auto;
-  padding: var(--size-space-300);
-  position: relative;
-  flex: 1;
-  flex-grow: 1;
-  background-color: var(--ISS-medium-blue-color);
-  color: #fff;
-  border-radius: var(--border-radius-200);
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.button:hover {
-  background-color: var(--ISS-medium-blue-color);
-  color: black;
-  border-radius: var(--border-radius-200);
-}
-
-
-.text-link {
-  display: flex;
-  align-items: flex-start;
-  position: relative;
-  align-self: start;
-  width: 100%;
-  flex: 0 0 auto;
-  background-color: #fff;
-  color: #333;
-  font: var(--small-body-font-size);
-  font-weight: var(--body-font-weight);
-  text-decoration: underline;
-}
 
 
 /*
@@ -281,9 +306,9 @@ select {
 }
 
 .form-box {
-  display: flex; /* Elemente nebeneinander platzieren */
-  align-items: center; /* Vertikal zentrieren */
-  gap: var(--size-space-400); /* Abstand zwischen Label und Input */
+  display: flex; /* places elements next to each other */
+  align-items: center; /* center vertically */
+  gap: var(--size-space-400); /* distance between label and input */
   padding: var(--size-space-100)
 }
 
@@ -316,3 +341,21 @@ select {
   color: gray;
 }
 
+/*
+    ADMIN:
+*/
+.toggle-permission {
+  all: unset;
+  background-color: var(--ISS-orange-color);
+  color: black;
+  border-radius: var(--border-radius-200);
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  padding: var(--size-space-100);
+}
+.toggle-permission:hover {
+  background-color: var(--ISS-orange-color);
+  color: #fff;
+  border-radius: var(--border-radius-200);
+}

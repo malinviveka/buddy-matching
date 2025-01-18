@@ -6,10 +6,13 @@
 
 {% block content %}
     <script src="{% static 'helloapp/main.js' %}" defer></script> <!-- Link to compiled JavaScript -->
-    <h1>{{ message }}</h1> <!--MOCK-->
+
+    <div class="homepage-header">
+        <img src="{% static 'images/no_background_iss_logo.png' %}" alt="Logo" class="iss_logo">
+        <h1>ISS Buddy Program</h1>
+    </div>
 
     <p>{% trans "Hello, world!" %}</p>
-
     <!-- Das folgende ist nur zum testen, damit man beim nachvollziehen kann, als was man gerade angemeldet ist, aber eigtl ist das doch ne ganz coole Idee, das man namentlich begrüßt wird, oder?-->
     {% if user.is_authenticated %}
     <p>{% trans "Your Name is:" %}{{ user.first_name }}!</p>
@@ -18,32 +21,7 @@
     <!-- Das folgende ist dynamisch anpassbarer Text, wie gefordert. (man kann ihn, wenn man als staff angemeldet ist unter admin user management verändern) Man kann das theoretisch natürlich noch erweitern, um auch Titel uns sowas zu verändern, aber das hier soll erstmal so ein proof of concept sein^^-->
     <p>{{ homepage_text.content }}</p>
 
-    <form action="{% url 'set_language' %}" method="post">
-        {% csrf_token %}
-        <select name="language">
-            {% get_current_language as LANGUAGE_CODE %}
-            {% get_available_languages as LANGUAGES %}
-            {% for lang in LANGUAGES %}
-                <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %}selected{% endif %}>
-                    {{ lang.1 }}
-                </option>
-            {% endfor %}
-        </select>
-        <button type="submit">Sprache ändern</button>
-    </form>
 
-
-    <div class="homepage-header">
-        <img src="{% static 'images/no_background_iss_logo.png' %}" alt="Logo" class="iss_logo">
-        <h1>ISS Buddy Program</h1>
-    </div>
-
-    <!-- <div>
-        NUR FÜR UNS ZUM TESTEN 
-        <button id="retrieveButton">Retrieve Entries</button>
-        <ul id="entriesDisplay"></ul> Display list of entries here
-    </div>
-
-    <a href="{% url 'logout' %}">Logout</a>  !!!!!-->
-
+    
+    
 {% endblock %}

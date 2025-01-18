@@ -9,11 +9,10 @@
 <script src="{% static 'helloapp/admin_user_list.js' %}"></script>
 <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
 
-    <h1>Admin User Management</h1>
+    <h2>Admin User Management</h2>
     <!--Sorry, dass die Seiteso hässlig ist, ich gebe sie -->
-    <a href="{% url 'edit_homepage_text' %}">Zur Homepage-Nachrichten-Bearbeitungs-Seite</a> <br>
 
-    <button type="submit">Matches zuweisen (Todo)</button> <br>
+    <button type="submit" id="assignMatchesButton" class="button" >Matches zuweisen (Todo)</button> <br>
 
     <table>
         <thead>

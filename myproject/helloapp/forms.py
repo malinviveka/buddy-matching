@@ -64,6 +64,12 @@ class BuddyMatchingUserCreationForm(UserCreationForm):
             
         if 'is_permitted' in self.fields:
             self.fields.pop('is_permitted')     
+        
+        # hides defaults values (see: models) on homepage
+        self.fields['first_name'].initial = ''
+        self.fields['surname'].initial = ''
+        self.fields['email'].initial = ''
+        self.fields['app_matr_number'].initial = None
 
 
 
