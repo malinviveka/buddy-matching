@@ -189,7 +189,7 @@ def start_matching(request):
         return redirect('admin_user_list')
     except Exception as e:
         # Falls ein Fehler auftritt, Fehlernachricht zurück an den User
-        return render(request, 'helloapp/admin_user_list.html', {'error': f"Fehler beim Matching: {str(e)}"})
+        return render(request, 'helloapp/admin_user_site.html', {'error': f"Fehler beim Matching: {str(e)}"})
 
 @login_required
 def show_partners(request):
