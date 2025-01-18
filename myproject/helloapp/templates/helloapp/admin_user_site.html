@@ -10,7 +10,7 @@
 <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
 
     <h2>Admin User Management</h2>
-    <!--Sorry, dass die Seiteso hässlig ist, ich gebe sie -->
+    <!--Sorry, dass die Seiteso hässlig ist-->
 
     <button type="submit" id="assignMatchesButton" class="button" >Matches zuweisen (Todo)</button> <br>
 
@@ -50,10 +50,5 @@
     </table>
 
     <br>
-
-    <form method="POST" action="{% url 'shutdown' %}">
-        {% csrf_token %}
-        <button type="submit" style="background-color: red; color: white;">Server stoppen (es ist wirklich nicht empfohlen, so einen Knopf überhaupt zu haben)</button>
-    </form>
 
 {% endblock %}

@@ -13,19 +13,12 @@ from django.views import View
 from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
 from .models import BuddyMatchingUser, HomepageText
-from django.utils import translation
 
-# Test
-from django.http import HttpResponse
-import os
-import sys
 
 def homepage(request):
     """
     Render the homepage template.
     """
-    # Debug Test translate-stuff
-    # translation.activate(curLen)
 
     homepage_text = HomepageText.objects.first()
     return render(request, 'helloapp/homepage.html', {"homepage_text": homepage_text})  
@@ -129,13 +122,6 @@ def edit_homepage_text(request):
         return redirect('admin_user_list')  # Zurück zur Admin-Seite
 
     return render(request, "helloapp/edit_homepage_text.html", {"homepage_text": homepage_text})
-
-
-def shutdown_server(request):
-    if not request.user.is_staff:
-        return HttpResponse("Unauthorized", status=401)
-    os._exit(0)  # Beendet den Python-Prozess (unsicher, aber funktional)
-    return HttpResponse("Server is shutting down...")
 
 # The following is old code from the helloWorld prototype. I leave it here for now, if someone needs to look something up
 

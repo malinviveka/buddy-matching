@@ -13,7 +13,6 @@ urlpatterns = [
     path('cadmin/users/', views.admin_user_list, name='admin_user_list'),
     path('cadmin/users/toggle_permission/<int:user_id>/', views.toggle_user_permission, name='toggle_user_permission'),
     path('cadmin/edit_homepage_text/', views.edit_homepage_text, name='edit_homepage_text'),
-    path('shutdown/', views.shutdown_server, name='shutdown'),
     path('i18n/', include('django.conf.urls.i18n')),
     path('', views.homepage, name='homepage'),
 ]
