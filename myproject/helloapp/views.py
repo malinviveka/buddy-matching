@@ -6,13 +6,15 @@ import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import user_passes_test, login_required
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import BuddyMatchingUserCreationForm, LoginForm
 from django.views import View
 from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
+from django.utils.timezone import now
+from datetime import timedelta
 from .models import BuddyMatchingUser, HomepageText
+from .forms import BuddyMatchingUserCreationForm, LoginForm
 
 
 def homepage(request):
@@ -21,8 +23,26 @@ def homepage(request):
     """
 
     homepage_text = HomepageText.objects.first()
-    return render(request, 'helloapp/homepage.html', {"homepage_text": homepage_text})  
+    days_left = None
 
+    if request.user.is_authenticated:
+        user = request.user
+        days_left = (user.deletion_date - now().date()).days
+
+
+    return render(request, 'helloapp/homepage.html', {
+        "homepage_text": homepage_text,
+        "days_left": days_left,
+    })
+
+@login_required
+def reset_deletion_date(request):
+    """
+    Reset Account Deletion Date by amount specified in "user.reset_deletion_date()".
+    """
+    user = request.user
+    user.reset_deletion_date()
+    return redirect('homepage')
 
 class AccountCreationView(View):
     """

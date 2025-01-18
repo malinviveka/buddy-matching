@@ -14,5 +14,6 @@ urlpatterns = [
     path('cadmin/users/toggle_permission/<int:user_id>/', views.toggle_user_permission, name='toggle_user_permission'),
     path('cadmin/edit_homepage_text/', views.edit_homepage_text, name='edit_homepage_text'),
     path('i18n/', include('django.conf.urls.i18n')),
+    path('reset-deletion-date/', views.reset_deletion_date, name='reset_deletion_date'),
     path('', views.homepage, name='homepage'),
 ]

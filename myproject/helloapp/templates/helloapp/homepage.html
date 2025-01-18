@@ -21,7 +21,16 @@
     <!-- Das folgende ist dynamisch anpassbarer Text, wie gefordert. (man kann ihn, wenn man als staff angemeldet ist unter admin user management verändern) Man kann das theoretisch natürlich noch erweitern, um auch Titel uns sowas zu verändern, aber das hier soll erstmal so ein proof of concept sein^^-->
     <p>{{ homepage_text.content }}</p>
 
-
-    
+    <div class="account-deletion-warning">
+        {% if user.is_authenticated and days_left is not None and days_left <= 30 %}
+            <p>{% trans "Your account will be deleted in" %} {{ days_left }} {% trans "days." %}</p>
+            
+            <form action="{% url 'reset_deletion_date' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">{% trans "Extend account for another year" %}</button>
+            </form>
+            
+        {% endif %}
+    </div>    
     
 {% endblock %}

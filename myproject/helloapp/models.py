@@ -4,7 +4,15 @@ from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.contrib.auth.models import BaseUserManager
 from multiselectfield import MultiSelectField
 from django.utils.translation import gettext_lazy as _
+from django.utils.timezone import now
+from datetime import timedelta
 
+# Sets default date until account delation
+def default_deletion_date():
+    return now().date() + timedelta(days=29)
+
+def default_last_reset():
+    return now().date()
 
 class BuddyMatchingUserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -149,6 +157,14 @@ class BuddyMatchingUser(AbstractUser):
     is_staff = models.BooleanField(
         default = False
     )
+    deletion_date = models.DateField(
+        default=default_deletion_date,
+        help_text="Das Datum, an dem der Account gelöscht wird."
+    )
+    last_reset = models.DateField(
+        default=default_last_reset,
+        help_text="Das letzte Mal, als der Countdown zurückgesetzt wurde."
+    )
 
     # set user to email
     username = None
@@ -195,8 +211,11 @@ class BuddyMatchingUser(AbstractUser):
         verbose_name="user permissions",
     ) """
 
-    
-
+    # Resets automatic deletion date of user by number of days specified in timedelta
+    def reset_deletion_date(self):
+        self.deletion_date = now().date() + timedelta(days=365)
+        self.last_reset = now().date()
+        self.save()
 
     def __str__(self):
         return (
