@@ -23,7 +23,7 @@
                 <a class= "title {% if request.path == '/cadmin/edit_homepage_text/' %}active{% endif %}" href="{% url 'edit_homepage_text' %}">Zur Homepage-Nachrichten-Bearbeitungs-Seite</a> <br>
             {% else %}
                 <!--User-->
-                <a class="title">{{ user.first_name }}, view your matches! </a>
+                <a class="title {% if request.path == '/your_matches/' %}active{% endif %}" href="{% url 'your_matches' %}">{{ user.first_name }}, view your matches! </a>
             {% endif %}  
 
             
