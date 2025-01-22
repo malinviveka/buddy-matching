@@ -15,4 +15,5 @@ urlpatterns = [
     path('cadmin/edit_homepage_text/', views.edit_homepage_text, name='edit_homepage_text'),
     path('i18n/', include('django.conf.urls.i18n')),
     path('', views.homepage, name='homepage'),
+    path('feedback/', views.submit_feedback, name='submit_feedback'),
 ]

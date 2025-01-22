@@ -3,16 +3,17 @@
 # helloapp/views.py
 
 import json
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import user_passes_test, login_required
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import BuddyMatchingUserCreationForm, LoginForm
+from .forms import BuddyMatchingUserCreationForm, LoginForm, FeedbackForm
 from django.views import View
 from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
-from .models import BuddyMatchingUser, HomepageText
+from .models import BuddyMatchingUser, HomepageText, Feedback
+import csv
 
 
 def homepage(request):
@@ -97,6 +98,7 @@ def logout_view(request):
     logout(request)
     return redirect('homepage')
 
+
 @user_passes_test(lambda u: u.is_staff)
 def admin_user_list(request):
     users = BuddyMatchingUser.objects.all()
@@ -123,6 +125,9 @@ def edit_homepage_text(request):
 
     return render(request, "helloapp/edit_homepage_text.html", {"homepage_text": homepage_text})
 
+
+
+
 # The following is old code from the helloWorld prototype. I leave it here for now, if someone needs to look something up
 
 @csrf_exempt
@@ -138,3 +143,18 @@ def get_entries(request):
     return JsonResponse({"entries": list(entries)})
 
 
+
+@login_required
+def submit_feedback(request):
+    if request.method == "POST":
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            feedback = form.save(commit=False)
+            feedback.student = request.user  # `request.user` will be an instance of BuddyMatchingUser
+            feedback.save()
+            messages.success(request, "Feedback submission was successful!")
+            return redirect('feedback')  # Replace with the actual success URL
+    else:
+        form = FeedbackForm()
+
+    return render(request, 'feedback_form.html', {'form': form})
