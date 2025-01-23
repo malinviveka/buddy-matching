@@ -157,4 +157,4 @@ def submit_feedback(request):
     else:
         form = FeedbackForm()
 
-    return render(request, 'feedback_form.html', {'form': form})
+    return render(request, 'feedback.html', {'form': form})

@@ -6,4 +6,22 @@
 
 {% block content %}
     <!--content here-->
+    <h2>Feedback</h2>
+    <form id=FeedbackForm method="POST" action="{% url 'submit_feedback' %}" class="feedback-login">
+        {% csrf_token %}
+
+        <div class="form-box"> 
+            <label for="id_rating_1"></label>
+            {{ form.rating_1 }}
+        </div>
+        <div class="form-box"> 
+            <label for="id_rating_2"></label>
+            {{ form.rating_2 }}
+        </div>
+        <div class="form-box"> 
+            <label for="id_text_feedback"></label>
+            {{ form.text_feedback }}
+        </div>
+    </form>
+
 {% endblock %}

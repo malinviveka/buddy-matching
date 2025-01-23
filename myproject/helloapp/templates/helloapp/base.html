@@ -24,11 +24,10 @@
             {% else %}
                 <!--User-->
                 <a class="title">{{ user.first_name }}, view your matches! </a>
+                <a class="title {% if request.path == '/feedback/' %}active{% endif %}" href="{% url 'submit_feedback' %}">Feedback</a>
             {% endif %}  
 
             
-            
-
             <!--Logout-->
             <form action="{%url 'logout'%}" method="post" class="nav-item">
                 {% csrf_token %}

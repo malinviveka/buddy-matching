@@ -61,6 +61,12 @@ h2 {
   font-weight: 700;
 }
 
+h3 {
+  color: var(--ISS-orange-color);
+  font-size: 32px;
+  font-weight: 700;
+}
+
 input, select, input[type="number"] {
   flex: 1; 
   padding:  var(--size-space-300) var(--size-space-400);
@@ -226,7 +232,7 @@ select {
 .flag-icon {
   width: 30px;
   height: auto;
-  border-radius: 3px; /* Optional: Rundere Kanten für schöneres Design */
+  border-radius: 3px; /* rounded corners */
 }
 
 
@@ -239,7 +245,6 @@ select {
   gap: var(--size-space-400); 
   padding: var(--size-space-400); 
 }
-
 .iss_logo {
   width: 150px;
   height: auto;
@@ -249,6 +254,37 @@ select {
   object-fit: cover;
 }
 
+.homepage-body{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row; /* Falls Flexbox standardmäßig Spaltenanordnung verwendet */
+  align-items: flex-start; /* Sorgt dafür, dass beides oben beginnt */
+}
+
+.cover_image {
+  /* position */
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 75vh;
+  width: auto;
+
+  /* rounded upper rigth corner */
+  border-top-right-radius: 50%;
+}
+
+.homepage-text {
+  flex: 1;
+  text-align: right;
+  font-size: var(--medium-body-font-size);
+  font-weight: var(--body-font-weight);
+}
+.admin-message {
+  border: solid var(--ISS-orange-color);
+  border-radius: var(--border-radius-200);
+  padding: var(--size-space-400);
+  margin: var(--size-space-500) 0; 
+}
 
 
 /*

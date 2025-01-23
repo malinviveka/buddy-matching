@@ -12,14 +12,39 @@
         <h1>ISS Buddy Program</h1>
     </div>
 
-    <p>{% trans "Hello, world!" %}</p>
+
+    <div class="hompage-body">
+        <img src="{% static 'images/homepage_iss_cover_image.png' %}" alt="Group Photo" class="cover_image">
+
+        <div class="homepage-text">
+            <!--todo: wo machen wir das hin?-->
+            {% if user.is_authenticated %}
+                <p>{% trans "Your Name is:" %}{{ user.first_name }}!</p>
+                <p>{% trans "Your Email is:" %}{{ user.email }}!</p>
+            {% endif %}
+
+            <h3>about us</h3>
+            <p>todo: programbeschreibung; link zur nettiquette</p>
+
+            <!--message from admin:-->
+            <p class="admin-message">{{ homepage_text.content }}</p>
+        </div>
+        
+    </div>
+    
+
+    <!--<p>{% trans "Hello, world!" %}</p>-->
+    
     <!-- Das folgende ist nur zum testen, damit man beim nachvollziehen kann, als was man gerade angemeldet ist, aber eigtl ist das doch ne ganz coole Idee, das man namentlich begrüßt wird, oder?-->
-    {% if user.is_authenticated %}
+    <!--{% if user.is_authenticated %}
     <p>{% trans "Your Name is:" %}{{ user.first_name }}!</p>
     <p>{% trans "Your Email is:" %}{{ user.email }}!</p>
-    {% endif %}
-    <!-- Das folgende ist dynamisch anpassbarer Text, wie gefordert. (man kann ihn, wenn man als staff angemeldet ist unter admin user management verändern) Man kann das theoretisch natürlich noch erweitern, um auch Titel uns sowas zu verändern, aber das hier soll erstmal so ein proof of concept sein^^-->
-    <p>{{ homepage_text.content }}</p>
+    {% endif %} -->
+
+
+    
+
+    
 
 
     
