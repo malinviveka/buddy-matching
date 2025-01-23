@@ -144,17 +144,55 @@ def get_entries(request):
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+class FeedbackView(View):
+    """
+    View to render the Feedback form and handle form submissions.
+    """
+    template_name = 'helloapp/feedback.html'
+    
+    def get(self, request):
+        form = FeedbackForm()
+        return render(request, self.template_name, {'form': form})
+        
+    def post(self, request):
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            feedback = form.save(commit=False)  # Erstelle ein Feedback-Objekt ohne es zu speichern
+            if isinstance(request.user, BuddyMatchingUser):
+                feedback.student = request.user  # Setze das `student`-Feld
+            else:
+                return JsonResponse({"error": "User is not a valid BuddyMatchingUser"}, status=400)
+            feedback.save()  # Speichere das Feedback-Objekt mit dem `student`-Wert
+            return JsonResponse({'message': 'Feedback submitted successfully!'}, status=201)
+        return JsonResponse({'errors': form.errors}, status=400)
+
+
 @login_required
 def submit_feedback(request):
+    """
+    Handle feedback form submissions.
+    """
     if request.method == "POST":
         form = FeedbackForm(request.POST)
         if form.is_valid():
             feedback = form.save(commit=False)
-            feedback.student = request.user  # `request.user` will be an instance of BuddyMatchingUser
+            if isinstance(request.user, BuddyMatchingUser):
+                feedback.student = request.user  # `request.user` will be an instance of BuddyMatchingUser
+            else:
+                return JsonResponse({"error": "User is not a valid BuddyMatchingUser"}, status=400)
             feedback.save()
-            messages.success(request, "Feedback submission was successful!")
-            return redirect('feedback')  # Replace with the actual success URL
+            return JsonResponse({"message": "Feedback submitter successfully!"}, status=201)
     else:
         form = FeedbackForm()
-
-    return render(request, 'feedback.html', {'form': form})
+    return JsonResponse({"errors": form.errors}, status=400)

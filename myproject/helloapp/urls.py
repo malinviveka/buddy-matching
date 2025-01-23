@@ -1,7 +1,7 @@
 # helloapp/urls.py
 from django.urls import path, include
 from . import views
-from .views import AccountCreationView
+from .views import AccountCreationView, FeedbackView
 
 urlpatterns = [
     path('create-account/', AccountCreationView.as_view(), name='create_account_view'),
@@ -15,5 +15,6 @@ urlpatterns = [
     path('cadmin/edit_homepage_text/', views.edit_homepage_text, name='edit_homepage_text'),
     path('i18n/', include('django.conf.urls.i18n')),
     path('', views.homepage, name='homepage'),
-    path('feedback/', views.submit_feedback, name='submit_feedback'),
+    path('feedback/', FeedbackView.as_view(), name='feedback'),
+    path('submit-feedback/', views.submit_feedback, name='submit_feedback'),
 ]
