@@ -173,7 +173,6 @@ select {
   color: white;
   border-radius: var(--border-radius-200);
 }
-
 .topnav a:hover.active,
 .topnav button:hover{
   background-color: var(--ISS-medium-blue-color);
