@@ -32,87 +32,87 @@ msgstr "Beides"
 
 #: .\helloapp\models.py:55
 msgid "Bachelors"
-msgstr ""
+msgstr "Bachelor"
 
 #: .\helloapp\models.py:56
 msgid "Masters"
-msgstr ""
+msgstr "Master"
 
 #: .\helloapp\models.py:60
 msgid "Law and Economics (FB 1)"
-msgstr ""
+msgstr "Rechts- und Wirtschaftswissenschaften (FB 1)"
 
 #: .\helloapp\models.py:61
 msgid "Social and Historical Sciences (FB 2)"
-msgstr ""
+msgstr "Gesellschafts- & Geschichtswissenschaften (FB 2)"
 
 #: .\helloapp\models.py:62
 msgid "Human Sciences (FB 3)"
-msgstr ""
+msgstr "Humanwissenschaften (FB 3)"
 
 #: .\helloapp\models.py:63
 msgid "Mathematics (FB 4)"
-msgstr ""
+msgstr "Mathematik (FB 4)"
 
 #: .\helloapp\models.py:64
 msgid "Physics (FB 5)"
-msgstr ""
+msgstr "Physik (FB 5)"
 
 #: .\helloapp\models.py:65
 msgid "Chemistry (FB 7)"
-msgstr ""
+msgstr "Chemie (FB 7)"
 
 #: .\helloapp\models.py:66
 msgid "Biology (FB 10)"
-msgstr ""
+msgstr "Biologie (FB 10)"
 
 #: .\helloapp\models.py:67
 msgid "Material and Earth Sciences (FB 11)"
-msgstr ""
+msgstr "Material- und Geowissenschaften (FB 11)"
 
 #: .\helloapp\models.py:68
 msgid "Civil and Environmental Engineering (FB 13)"
-msgstr ""
+msgstr "Bau- und Umweltingenieuerswissenschaften (FB 13)"
 
 #: .\helloapp\models.py:69
 msgid "Architecture (FB 15)"
-msgstr ""
+msgstr "Architektur (FB 15)"
 
 #: .\helloapp\models.py:70
 msgid "Mechanical Engineering (FB 16)"
-msgstr ""
+msgstr "Maschinenbau (FB 16)"
 
 #: .\helloapp\models.py:71
 msgid "Electrical Engineering and IT (FB 18)"
-msgstr ""
+msgstr "Elektrotechnik und Informationstechnik (FB 18)"
 
 #: .\helloapp\models.py:72
 msgid "Computer Science (FB 20)"
-msgstr ""
+msgstr "Informatik (FB 20)"
 
 #: .\helloapp\models.py:76
 msgid "International Student"
-msgstr ""
+msgstr "Internationaler Student"
 
 #: .\helloapp\models.py:77
 msgid "Buddy"
-msgstr ""
+msgstr "Buddy"
 
 #: .\helloapp\models.py:81
 msgid "Sports"
-msgstr ""
+msgstr "Sport"
 
 #: .\helloapp\models.py:82
 msgid "Culture"
-msgstr ""
+msgstr "Kultur"
 
 #: .\helloapp\models.py:83
 msgid "Nature"
-msgstr ""
+msgstr "Natur"
 
 #: .\helloapp\models.py:84
 msgid "Technology"
-msgstr ""
+msgstr "Technologie"
 
 #: .\helloapp\templates\helloapp\account_creation.html:12
 #: .\helloapp\templates\helloapp\base.html:32
@@ -163,7 +163,7 @@ msgstr "Interessen:"
 #: .\helloapp\templates\helloapp\account_creation.html:67
 #: .\helloapp\templates\helloapp\login.html:21
 msgid "Password:"
-msgstr "Passwort"
+msgstr "Passwort:"
 
 #: .\helloapp\templates\helloapp\account_creation.html:72
 msgid "Your password can’t be too similar to your other personal information."
