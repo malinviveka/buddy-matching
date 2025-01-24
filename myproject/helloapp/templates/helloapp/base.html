@@ -54,11 +54,11 @@
                 {% get_current_language as LANGUAGE_CODE %}
 
                 {% if LANGUAGE_CODE == "de" %} <!-- If the current language is German, show the English flag and vice versa -->
-                    <button type="submit" name="language" value="en">
+                    <button type="submit" id="languageButton" name="language" value="en">
                         <img src="{% static 'images/flags_uk.png' %}" alt="English" class="flag-icon">
                     </button>
                 {% else %}
-                    <button type="submit" name="language" value="de">
+                    <button type="submit" id="languageButton" name="language" value="de">
                         <img src="{% static 'images/flags_de.png' %}" alt="Deutsch" class="flag-icon">
                     </button>
                 {% endif %}

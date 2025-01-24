@@ -5,27 +5,25 @@
 {% load static i18n %}
 
 {% block content %}
-    <!--content here-->
     <h2>Feedback</h2>
-    <form id=FeedbackForm method="POST" action="{% url 'feedback' %}" class="feedback-login">
+
+    <form id=FeedbackForm method="POST" action="{% url 'feedback' %}" class="form-feedback">
         {% csrf_token %}
 
         <div class="form-box"> 
-            <label for="id_rating_1"></label>
+            <label for="id_rating_1">Question 1:</label>
             {{ form.rating_1 }}
         </div>
         <div class="form-box"> 
-            <label for="id_rating_2"></label>
+            <label for="id_rating_2">Question 2:</label>
             {{ form.rating_2 }}
         </div>
         <div class="form-box"> 
-            <label for="id_text_feedback"></label>
+            <label for="id_text_feedback">Comment:</label>
             {{ form.text_feedback }}
         </div>
 
-
-
-        <button type="submit" class="button">Submit</button>
+        <button type="submit" id="feedbackButton" class="button">Submit</button>
 
     </form>
 

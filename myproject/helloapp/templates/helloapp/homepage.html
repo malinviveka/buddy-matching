@@ -13,16 +13,10 @@
     </div>
 
 
-    <div class="hompage-body">
+    <div class="homepage-body">
         <img src="{% static 'images/homepage_iss_cover_image.png' %}" alt="Group Photo" class="cover_image">
 
         <div class="homepage-text">
-            <!--todo: wo machen wir das hin?-->
-            {% if user.is_authenticated %}
-                <p>{% trans "Your Name is:" %}{{ user.first_name }}!</p>
-                <p>{% trans "Your Email is:" %}{{ user.email }}!</p>
-            {% endif %}
-
             <h3>about us</h3>
             <p>todo: programbeschreibung; link zur nettiquette</p>
 
@@ -32,6 +26,12 @@
         
     </div>
     
+
+    <!--todo: wo machen wir das hin?-->
+    <!--{% if user.is_authenticated %}
+    <p>{% trans "Your Name is:" %}{{ user.first_name }}!</p>
+    <p>{% trans "Your Email is:" %}{{ user.email }}!</p>
+    {% endif %} -->
 
     <!--<p>{% trans "Hello, world!" %}</p>-->
     

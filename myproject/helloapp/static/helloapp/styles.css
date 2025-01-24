@@ -42,7 +42,7 @@
 */
 body {
   font-family: "Roboto", sans-serif; /* Roboto font is used in websites by TU Darmstadt (see: https://www.intern.tu-darmstadt.de/arbeitsmittel/corporate_design_vorlagen/index.de.jsp)*/
-  margin: 20px;
+  margin: var(--size-space-500);
   padding: 0;
   background-color: #f9f9f9;
   color: #333;
@@ -67,7 +67,8 @@ h3 {
   font-weight: 700;
 }
 
-input, select, input[type="number"] {
+/* general styling */
+input, select, input[type="number"], textarea {
   flex: 1; 
   padding:  var(--size-space-300) var(--size-space-400);
   border: var(--border-input-width) solid var(--border-input-color);
@@ -76,7 +77,7 @@ input, select, input[type="number"] {
   color: var(--text-color);
   box-sizing: border-box; 
 }
-
+/* specifics */
 select {
   /*makes apperance uniform across devices*/
   appearance: none; /* removes default browser properties */
@@ -86,7 +87,9 @@ select {
 
   cursor: pointer;
 }
-
+textarea {
+  resize: none;
+}
 
 /*
   REPEATED STYLES:
@@ -105,7 +108,6 @@ select {
   flex: 0 0 auto;
   flex: 1;
   flex-grow: 1;
-  align-self: stretch;
   position: relative;
   /* styling */
   background-color: var(--ISS-medium-blue-color);
@@ -123,7 +125,22 @@ select {
 /* size and positioning per button id*/
 #submitAccountButton, 
 #loginButton {
-  width: 100%;
+  align-self: stretch;
+}
+#feedbackButton {
+  align-self: flex-start;
+  width: 5%;
+}
+#languageButton{
+   /* position in the topnav */
+   position: absolute;
+   left: 98%; /*moves the button to the right*/
+   transform: translate(-50%, -50%); /* centers it both horizontally and vertically */
+ 
+   /* removes global styling of buttons (here unwanted) */
+   background: none;
+   border: none;
+   padding: 0;
 }
 
 /*TEXT LINKS (href outside of buttons)*/
@@ -140,6 +157,15 @@ select {
   font-weight: var(--body-font-weight);
   text-decoration: underline;
 }
+
+/*FORMBOX label + input (in account_creation and feedback)*/
+.form-box {
+  display: flex; /* places elements next to each other */
+  align-items: center; /* center vertically */
+  gap: var(--size-space-400); /* distance between label and input */
+  padding: var(--size-space-100)
+}
+
 
 
 
@@ -216,19 +242,6 @@ select {
 }
 
 /* Language Selection*/
-.languageSelector button {
-  /* position in the topnav */
-  position: absolute;
-  left: 98%; /*moves the button to the right*/
-  transform: translate(-50%, -50%); /* centers it both horizontally and vertically */
-
-  /* removes global styling of buttons (here unwanted) */
-  background: none;
-  border: none;
-  padding: 0;
-
-  cursor: pointer;
-}
 .flag-icon {
   width: 30px;
   height: auto;
@@ -254,32 +267,29 @@ select {
   object-fit: cover;
 }
 
-.homepage-body{
-  display: flex;
+.homepage-body {
+  display: flex; 
+  flex-wrap: wrap-reverse; /* default: image and text displayed next to each other; if zoomed in: text is displayed above image */
   justify-content: space-between;
-  flex-direction: row; /* Falls Flexbox standardmäßig Spaltenanordnung verwendet */
-  align-items: flex-start; /* Sorgt dafür, dass beides oben beginnt */
 }
-
 .cover_image {
   /* position */
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 75vh;
+  margin: calc(-1 * var(--size-space-500)); /* substracts margin, so that image starts at leftmost edge */
+  height: 79vh;
   width: auto;
-
+  
   /* rounded upper rigth corner */
   border-top-right-radius: 50%;
 }
-
 .homepage-text {
-  flex: 1;
   text-align: right;
   font-size: var(--medium-body-font-size);
   font-weight: var(--body-font-weight);
 }
-.admin-message {
+.admin-message{
+  text-align: center;
+
+  /* box */
   border: solid var(--ISS-orange-color);
   border-radius: var(--border-radius-200);
   padding: var(--size-space-400);
@@ -305,13 +315,11 @@ select {
   border-radius: var(--border-radius-200); 
   border: var(--border-box-width) solid var(--ISS-orange-color); 
 }
-
 .loginLabel {
   position: relative;
   align-self: stretch;
-  margin-bottom: -14px
+  margin-bottom: -14px;
 }
-
 .loginInput {
   display: block;
   min-width: 240px;
@@ -323,7 +331,6 @@ select {
   box-sizing: border-box;
   margin-bottom: var(--size-space-200); 
 }
-
 
 
 /*
@@ -338,13 +345,6 @@ select {
   /*centering*/
   width: 60%; 
   margin: var(--size-space-500) 0; 
-}
-
-.form-box {
-  display: flex; /* places elements next to each other */
-  align-items: center; /* center vertically */
-  gap: var(--size-space-400); /* distance between label and input */
-  padding: var(--size-space-100)
 }
 
 .password-box {
@@ -379,6 +379,14 @@ select {
 /*
     ADMIN:
 */
+/* edit homepage */
+.form-edit-homepage{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* user management */
 .toggle-permission {
   all: unset;
   background-color: var(--ISS-orange-color);
@@ -393,4 +401,12 @@ select {
   background-color: var(--ISS-orange-color);
   color: #fff;
   border-radius: var(--border-radius-200);
+}
+
+/* FEEDBACK */
+.form-feedback{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--size-space-200);
 }
