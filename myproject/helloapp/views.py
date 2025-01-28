@@ -196,3 +196,41 @@ def submit_feedback(request):
     else:
         form = FeedbackForm()
     return JsonResponse({"errors": form.errors}, status=400)
+
+
+
+
+
+@user_passes_test(lambda u: u.is_staff)
+def admin_feedback_list(request):
+    """
+    Render the feedback list for the admin.
+    """
+    feedbacks = Feedback.objects.all()  # get feedback from database
+    return render(request, 'helloapp/admin_feedback_list.html', {'feedbacks': feedbacks})
+
+
+@user_passes_test(lambda u: u.is_staff)
+def export_feedback_csv(request):
+    """
+    Export feedback data as CSV.
+    """
+    feedbacks = Feedback.objects.all()
+    
+    # Create the HttpResponse object with the appropriate CSV header.
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="feedback_export.csv"'
+
+    writer = csv.writer(response, delimiter=';')
+    writer.writerow(['Student', 'Text Feedback', 'Rating 1', 'Rating 2', 'Datum'])
+    
+    for feedback in feedbacks:
+        writer.writerow([
+            feedback.student.email,
+            feedback.text_feedback,
+            feedback.rating_1,
+            feedback.rating_2,
+            feedback.submitted_at.strftime('%Y-%m-%d'), # if time should be included: '%Y-%m-%d %H:%M:%S'
+        ])
+    
+    return response

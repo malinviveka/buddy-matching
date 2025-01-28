@@ -20,7 +20,9 @@
             {% if user.is_staff %}
                 <!--Admin-->
                 <a class="title {% if request.path == '/cadmin/users/' %}active{% endif %}" href="{% url 'admin_user_list' %}">Admin User Management</a>
-                <a class= "title {% if request.path == '/cadmin/edit_homepage_text/' %}active{% endif %}" href="{% url 'edit_homepage_text' %}">Zur Homepage-Nachrichten-Bearbeitungs-Seite</a> <br>
+                <a class= "title {% if request.path == '/cadmin/edit_homepage_text/' %}active{% endif %}" href="{% url 'edit_homepage_text' %}">Zur Homepage-Nachrichten-Bearbeitungs-Seite</a> 
+                <a class= "title {% if request.path == '/cadmin/feedback/' %}active{% endif %}" href="{% url 'admin_feedback_list' %}">Feedback Management</a>
+                <br>
             {% else %}
                 <!--User-->
                 <a class="title">{{ user.first_name }}, view your matches! </a>
