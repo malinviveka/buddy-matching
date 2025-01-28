@@ -131,6 +131,9 @@ textarea {
   align-self: flex-start;
   width: 5%;
 }
+#exportFeedbackButton{
+  width: 15%;
+}
 #languageButton{
    /* position in the topnav */
    position: absolute;
@@ -151,7 +154,6 @@ textarea {
   align-self: start;
   width: 100%;
   flex: 0 0 auto;
-  background-color: #fff;
   color: #333;
   font: var(--small-body-font-size);
   font-weight: var(--body-font-weight);
