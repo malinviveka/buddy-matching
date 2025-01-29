@@ -142,19 +142,6 @@ def get_entries(request):
     entries = BuddyMatchingUser.objects.all().values("first_name", "surname")
     return JsonResponse({"entries": list(entries)})
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 class FeedbackView(View):
     """
     View to render the Feedback form and handle form submissions.
@@ -168,12 +155,12 @@ class FeedbackView(View):
     def post(self, request):
         form = FeedbackForm(request.POST)
         if form.is_valid():
-            feedback = form.save(commit=False)  # Erstelle ein Feedback-Objekt ohne es zu speichern
+            feedback = form.save(commit=False)  # Create a feedback object without saving it
             if isinstance(request.user, BuddyMatchingUser):
-                feedback.student = request.user  # Setze das `student`-Feld
+                feedback.student = request.user  # Set the `student` field
             else:
                 return JsonResponse({"error": "User is not a valid BuddyMatchingUser"}, status=400)
-            feedback.save()  # Speichere das Feedback-Objekt mit dem `student`-Wert
+            feedback.save()  # Save the feedback object with the `student` value
             return JsonResponse({'message': 'Feedback submitted successfully!'}, status=201)
         return JsonResponse({'errors': form.errors}, status=400)
 
