@@ -10,13 +10,16 @@
     <!--ToDo: hidden ergänzen I guess-->
 
     <h2>Homepage-Text bearbeiten</h2>
-    <form method="POST">
+
+    <form method="POST" class="form-edit-homepage">
         {% csrf_token %}
+
         <textarea name="content" rows="10" cols="50">{{ homepage_text.content }}</textarea>
         <br>
         <button type="submit" id="submitHompageTextButton" class="button">Speichern</button>
+
     </form>
-    <a href="{% url 'admin_user_list' %}" class="text-link">Zurück zur Admin-Seite</a>
+    
 
 
 {% endblock %}
