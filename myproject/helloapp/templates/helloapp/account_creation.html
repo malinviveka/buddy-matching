@@ -9,6 +9,10 @@
     <script src="{% static 'helloapp/account_creation.js' %}" defer></script>
     <link rel="stylesheet" type="text/css" href="{% static 'helloapp/styles.css' %}"> <!-- Link to CSS file -->
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" /> <!-- select2 CSS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery (required for select2) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script> <!-- select2 JS -->
+
     <h2>{% trans "Create Account" %}</h2>
 
     {% get_current_language as LANGUAGE_CODE %}
@@ -66,6 +70,16 @@
             <label for="id_interests">{% trans "Interests:" %}</label>
             {{ form.interests }}
         </div>
+
+        <!-- initializing select2 field for country list -->
+        <script>
+            $(document).ready(function() {
+                $('#id_country').select2({
+                    placeholder: 'Select a country', 
+                    allowClear: true 
+                });
+            });
+        </script>
 
         <!-- PASSWORD SECTION-->
         <div class="password-box">
