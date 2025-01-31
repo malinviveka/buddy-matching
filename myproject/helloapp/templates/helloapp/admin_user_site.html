@@ -2,7 +2,7 @@
 
 {% block title %}Admin User Management{% endblock %}
 
-{% load static %}
+{% load static i18n %}
 
 {% block content %}
 
@@ -11,8 +11,10 @@
 
     <h2>Admin User Management</h2>
     <!--Sorry, dass die Seiteso hässlig ist-->
-
-    <button type="submit" id="assignMatchesButton" class="button" >Matches zuweisen (Todo)</button> <br>
+    <form action="{% url 'start_matching' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" id="assignMatchesButton" class="button">{% trans "Run Matching" %}</button>
+    </form>
 
     <table>
         <thead>
@@ -23,6 +25,7 @@
                 <th>App Matriculation Number</th>
                 <th>Status</th>
                 <th>Actions</th>
+                <th>Partners</th>
             </tr>
         </thead>
         <tbody>
@@ -39,10 +42,25 @@
                         Nicht zugelassen
                     {% endif %}
                 </td>
+                <!-- Button for toggling permission of a given user -->
                 <td>
                     <button class="toggle-permission" data-user-id="{{ user.id }}">
                         {% if user.is_permitted %}Entziehen{% else %}Zulassen{% endif %}
                     </button>
+                </td>
+                <td>
+                    {% if user.partner_names %}
+                        {{ user.partner_names|join:', ' }}
+                    {% else %}
+                        Keine Partner
+                    {% endif %}
+                </td>
+                <!-- Button for purging partners of a given user -->
+                <td>
+                    <form action="{% url 'delete_partners' user.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="button">Alle Partner löschen</button>
+                    </form>
                 </td>
             </tr>
             {% endfor %}

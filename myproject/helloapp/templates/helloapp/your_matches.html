@@ -1,0 +1,29 @@
+{% extends 'helloapp/base.html' %}
+
+{% load static i18n %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block content %}
+
+    <!-- Anzeige der Partner -->
+    <div id="partners-section"></div>
+    {% if user.is_authenticated %}
+
+        {% if partners %}
+            <h3>{% trans "Your Partners" %}</h3>
+            <ul>
+                {% for partner in partners %}
+                    <li>
+                        <strong>{{ partner.first_name }} {{ partner.surname }}</strong><br>
+                        Email: {{ partner.email }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>{% trans "You currently have no partners." %}</p>
+        {% endif %}
+    {% endif %}
+    </div>
+
+{% endblock %}

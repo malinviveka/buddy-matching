@@ -39,14 +39,18 @@
     <!--{% if user.is_authenticated %}
     <p>{% trans "Your Name is:" %}{{ user.first_name }}!</p>
     <p>{% trans "Your Email is:" %}{{ user.email }}!</p>
-    {% endif %} -->
 
 
-    
-
-    
-
-
-    
+    <div class="account-deletion-warning">
+        {% if user.is_authenticated and days_left is not None and days_left <= 30 %}
+            <h3>{% trans "Your account will be deleted in" %} {{ days_left }} {% trans "days." %}</h3>
+            
+            <form action="{% url 'reset_deletion_date' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">{% trans "Extend account for another year" %}</button>
+            </form>
+            
+        {% endif %}
+    </div>    
     
 {% endblock %}
