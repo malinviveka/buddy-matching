@@ -79,3 +79,4 @@ def run_matching():
             # save students (update the partner count)
             for student in students:
                 student.save()
+    print(f"Successfully completed matching with {len(matches)} matches.")            

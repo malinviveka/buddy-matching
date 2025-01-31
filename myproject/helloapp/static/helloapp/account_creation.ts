@@ -65,18 +65,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const countryLabel = countryField?.parentElement?.querySelector("label");
         if (getCurrentLanguage() === 'en') {
             if (selectedRole === "Buddy") {
-                countryLabel!.innerText = "Preferred Country";
+                countryLabel!.innerText = "Preferred Country:";
                 countryField.placeholder = "Enter preferred country";
             } else if (selectedRole === "International Student") {
-                countryLabel!.innerText = "Country of Sending University";
+                countryLabel!.innerText = "Country of Sending University:";
                 countryField.placeholder = "Enter country of sending university";
             }
         } else {
             if (selectedRole === "Buddy") {
-                countryLabel!.innerText = "Bevorzugtes Land";
+                countryLabel!.innerText = "Bevorzugtes Land:";
                 countryField.placeholder = "Gib dein bevorzugtes Land an";
             } else if (selectedRole === "International Student") {
-                countryLabel!.innerText = "Land der sendenden Universität";
+                countryLabel!.innerText = "Land der sendenden Universität:";
                 countryField.placeholder = "Gib das Land deiner sendenden Universität an";
             }
         }    

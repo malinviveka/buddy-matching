@@ -20,99 +20,99 @@ msgstr ""
 
 #: .\helloapp\models.py:49
 msgid "German"
-msgstr ""
+msgstr "German"
 
 #: .\helloapp\models.py:50
 msgid "English"
-msgstr ""
+msgstr "English"
 
 #: .\helloapp\models.py:51
 msgid "Both"
-msgstr ""
+msgstr "Both"
 
 #: .\helloapp\models.py:55
 msgid "Bachelors"
-msgstr ""
+msgstr "Bachelors"
 
 #: .\helloapp\models.py:56
 msgid "Masters"
-msgstr ""
+msgstr "Masters"
 
 #: .\helloapp\models.py:60
 msgid "Law and Economics (FB 1)"
-msgstr ""
+msgstr "Law and Economics (Dept. 1)"
 
 #: .\helloapp\models.py:61
 msgid "Social and Historical Sciences (FB 2)"
-msgstr ""
+msgstr "Social and Historical Sciences (Dept. 2)"
 
 #: .\helloapp\models.py:62
 msgid "Human Sciences (FB 3)"
-msgstr ""
+msgstr "Human Sciences (Dept. 3)"
 
 #: .\helloapp\models.py:63
 msgid "Mathematics (FB 4)"
-msgstr ""
+msgstr "Mathematics (Dept. 4)"
 
 #: .\helloapp\models.py:64
 msgid "Physics (FB 5)"
-msgstr ""
+msgstr "Physics (Dept. 5)"
 
 #: .\helloapp\models.py:65
 msgid "Chemistry (FB 7)"
-msgstr ""
+msgstr "Chemistry (Dept. 7)"
 
 #: .\helloapp\models.py:66
 msgid "Biology (FB 10)"
-msgstr ""
+msgstr "Biology (Dept. 10)"
 
 #: .\helloapp\models.py:67
 msgid "Material and Earth Sciences (FB 11)"
-msgstr ""
+msgstr "Material and Earth Sciences (Dept. 11)"
 
 #: .\helloapp\models.py:68
 msgid "Civil and Environmental Engineering (FB 13)"
-msgstr ""
+msgstr "Civil and Environmental Engineering (Dept. 13)"
 
 #: .\helloapp\models.py:69
 msgid "Architecture (FB 15)"
-msgstr ""
+msgstr "Architecture (Dept. 15)"
 
 #: .\helloapp\models.py:70
 msgid "Mechanical Engineering (FB 16)"
-msgstr ""
+msgstr "Mechanical Engineering (Dept. 16)"
 
 #: .\helloapp\models.py:71
 msgid "Electrical Engineering and IT (FB 18)"
-msgstr ""
+msgstr "Electrical Engineering and IT (Dept. 18)"
 
 #: .\helloapp\models.py:72
 msgid "Computer Science (FB 20)"
-msgstr ""
+msgstr "Computer Science (Dept. 20)"
 
 #: .\helloapp\models.py:76
 msgid "International Student"
-msgstr ""
+msgstr "International Student"
 
 #: .\helloapp\models.py:77
 msgid "Buddy"
-msgstr ""
+msgstr "Buddy"
 
 #: .\helloapp\models.py:81
 msgid "Sports"
-msgstr ""
+msgstr "Sports"
 
 #: .\helloapp\models.py:82
 msgid "Culture"
-msgstr ""
+msgstr "Culture"
 
 #: .\helloapp\models.py:83
 msgid "Nature"
-msgstr ""
+msgstr "Nature"
 
 #: .\helloapp\models.py:84
 msgid "Technology"
-msgstr ""
+msgstr "Technology"
 
 #: .\helloapp\templates\helloapp\account_creation.html:12
 #: .\helloapp\templates\helloapp\base.html:32
