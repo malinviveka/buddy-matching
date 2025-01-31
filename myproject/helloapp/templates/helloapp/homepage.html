@@ -25,32 +25,8 @@
         </div>
         
     </div>
+{% endblock %} 
+
+
     
 
-    <!--todo: wo machen wir das hin?-->
-    <!--{% if user.is_authenticated %}
-    <p>{% trans "Your Name is:" %}{{ user.first_name }}!</p>
-    <p>{% trans "Your Email is:" %}{{ user.email }}!</p>
-    {% endif %} -->
-
-    <!--<p>{% trans "Hello, world!" %}</p>-->
-    
-    <!-- Das folgende ist nur zum testen, damit man beim nachvollziehen kann, als was man gerade angemeldet ist, aber eigtl ist das doch ne ganz coole Idee, das man namentlich begrüßt wird, oder?-->
-    <!--{% if user.is_authenticated %}
-    <p>{% trans "Your Name is:" %}{{ user.first_name }}!</p>
-    <p>{% trans "Your Email is:" %}{{ user.email }}!</p>
-
-
-    <div class="account-deletion-warning">
-        {% if user.is_authenticated and days_left is not None and days_left <= 30 %}
-            <h3>{% trans "Your account will be deleted in" %} {{ days_left }} {% trans "days." %}</h3>
-            
-            <form action="{% url 'reset_deletion_date' %}" method="post">
-                {% csrf_token %}
-                <button type="submit">{% trans "Extend account for another year" %}</button>
-            </form>
-            
-        {% endif %}
-    </div>    
-    
-{% endblock %}
