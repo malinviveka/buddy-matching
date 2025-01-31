@@ -3,7 +3,7 @@
 # helloapp/views.py
 
 import json
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 from django.contrib.auth.decorators import user_passes_test, login_required
@@ -14,10 +14,10 @@ from django.contrib import messages
 from django.utils.timezone import now
 from datetime import timedelta
 from django.utils.translation import get_language
-from .models import BuddyMatchingUser, HomepageText
-from .forms import BuddyMatchingUserCreationForm, LoginForm
+from .models import BuddyMatchingUser, HomepageText, Feedback
+from .forms import BuddyMatchingUserCreationForm, LoginForm, FeedbackForm
 from .matching import run_matching
-
+import csv
 
 def homepage(request):
     """
@@ -136,6 +136,7 @@ def logout_view(request):
     logout(request)
     return redirect('homepage')
 
+
 @user_passes_test(lambda u: u.is_staff)
 def admin_user_list(request):
     users = BuddyMatchingUser.objects.all()
@@ -203,6 +204,7 @@ def show_partners(request):
 
     return render(request, 'helloapp/homepage.html', {'partners': partners})
 
+
 # The following is old code from the helloWorld prototype. I leave it here for now, if someone needs to look something up
 
 @csrf_exempt
@@ -217,4 +219,82 @@ def get_entries(request):
     entries = BuddyMatchingUser.objects.all().values("first_name", "surname")
     return JsonResponse({"entries": list(entries)})
 
+class FeedbackView(View):
+    """
+    View to render the Feedback form and handle form submissions.
+    """
+    template_name = 'helloapp/feedback.html'
+    
+    def get(self, request):
+        form = FeedbackForm()
+        return render(request, self.template_name, {'form': form})
+        
+    def post(self, request):
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            feedback = form.save(commit=False)  # Create a feedback object without saving it
+            if isinstance(request.user, BuddyMatchingUser):
+                feedback.student = request.user  # Set the `student` field
+            else:
+                return JsonResponse({"error": "User is not a valid BuddyMatchingUser"}, status=400)
+            feedback.save()  # Save the feedback object with the `student` value
+            return JsonResponse({'message': 'Feedback submitted successfully!'}, status=201)
+        return JsonResponse({'errors': form.errors}, status=400)
 
+
+@login_required
+def submit_feedback(request):
+    """
+    Handle feedback form submissions.
+    """
+    if request.method == "POST":
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            feedback = form.save(commit=False)
+            if isinstance(request.user, BuddyMatchingUser):
+                feedback.student = request.user  # `request.user` will be an instance of BuddyMatchingUser
+            else:
+                return JsonResponse({"error": "User is not a valid BuddyMatchingUser"}, status=400)
+            feedback.save()
+            return JsonResponse({"message": "Feedback submitter successfully!"}, status=201)
+    else:
+        form = FeedbackForm()
+    return JsonResponse({"errors": form.errors}, status=400)
+
+
+
+
+
+@user_passes_test(lambda u: u.is_staff)
+def admin_feedback_list(request):
+    """
+    Render the feedback list for the admin.
+    """
+    feedbacks = Feedback.objects.all()  # get feedback from database
+    return render(request, 'helloapp/admin_feedback_list.html', {'feedbacks': feedbacks})
+
+
+@user_passes_test(lambda u: u.is_staff)
+def export_feedback_csv(request):
+    """
+    Export feedback data as CSV.
+    """
+    feedbacks = Feedback.objects.all()
+    
+    # Create the HttpResponse object with the appropriate CSV header.
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="feedback_export.csv"'
+
+    writer = csv.writer(response, delimiter=';')
+    writer.writerow(['Student', 'Text Feedback', 'Rating 1', 'Rating 2', 'Datum'])
+    
+    for feedback in feedbacks:
+        writer.writerow([
+            feedback.student.email,
+            feedback.text_feedback,
+            feedback.rating_1,
+            feedback.rating_2,
+            feedback.submitted_at.strftime('%Y-%m-%d'), # if time should be included: '%Y-%m-%d %H:%M:%S'
+        ])
+    
+    return response

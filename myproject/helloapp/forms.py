@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth import authenticate
 from django.core.exceptions import ValidationError
-from .models import BuddyMatchingUser
+from .models import BuddyMatchingUser, Feedback
 from django.contrib.auth.forms import UserCreationForm
 
 
@@ -25,7 +25,7 @@ class BuddyMatchingUserCreationForm(UserCreationForm):
             'degree_level': forms.Select(attrs={'class': 'form-control'}),
             'app_matr_number': forms.NumberInput(attrs={'class': 'form-control'}),
             'department': forms.Select(attrs={'class': 'form-control'}),
-            'country': forms.TextInput(attrs={'class': 'form-control', 'id': 'id_country'}),
+            'country': forms.Select(attrs={'class': 'form-control', 'id': 'id_country'}),
             'preferred_number_of_partners': forms.NumberInput(attrs={'class': 'form-control', 'data-role-field': 'Buddy'}),
             'interests': forms.CheckboxSelectMultiple(attrs={'class': 'form-check'}),
         }
@@ -72,8 +72,6 @@ class BuddyMatchingUserCreationForm(UserCreationForm):
         self.fields['app_matr_number'].initial = None
 
 
-
-
 class LoginForm(forms.Form):
     email = forms.EmailField(label="Email", widget=forms.EmailInput, required=True)
     password = forms.CharField(label="Password", widget=forms.PasswordInput, required=True)
@@ -94,3 +92,14 @@ class LoginForm(forms.Form):
         # Set user if necessary
         self.user = user
         return cleaned_data       
+    
+
+class FeedbackForm(forms.ModelForm):
+    class Meta:
+        model = Feedback
+        fields = ['text_feedback', 'rating_1', 'rating_2']
+        widgets = {
+            'rating_1': forms.Select(attrs={'id': 'id_rating_1'}, choices=Feedback.RATING_CHOICES),
+            'rating_2': forms.Select(attrs={'id': 'id_rating_2'}, choices=Feedback.RATING_CHOICES),
+            'text_feedback': forms.Textarea(attrs={'id': 'id_text_feedback', 'rows': 4, 'cols': 40}),
+        }
