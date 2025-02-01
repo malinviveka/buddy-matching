@@ -24,11 +24,13 @@ def homepage(request):
     Render the homepage template.
     """
 
-    homepage_text = HomepageText.objects.first()
+    homepage_text = HomepageText.objects.create()
+
     days_left = None
 
     # Wählen Sie den Inhalt je nach Sprache
     language_code = get_language()  # Gibt den aktuellen Sprachcode zurück (z.B. 'de' oder 'en')
+
     if language_code == 'de':
         content = homepage_text.content_de
     else:
