@@ -107,20 +107,7 @@ Diese Anleitung beschreibt die Schritte, um das Projekt auf einem lokalen Rechne
   ```
 
 
-### 5. Weitere Requirements installieren
-Die restlichen Abhängigkeiten können mit folgendem Befehl installiert werden:
-
-WINDOWS:
-```bash
-py -m pip install -r requirements.txt
-```
-MAC:
-```bash
-python3 -m pip install -r requirements.txt
-``
-
-
-### 6. Migration ausführen
+### 5. Migration ausführen
 Die Migrationen, um die Datenbankstruktur zu erstellen, können mit den folgenden Befehlen ausgeführt werden:
 ```bash
 python manage.py makemigrations
