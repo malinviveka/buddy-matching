@@ -64,7 +64,8 @@
         <div class="form-box"> 
             <label for="id_preferred_number_of_partners">{% trans "Preferred Number of Partners:" %}</label>
             <!--{{ form.preferred_number_of_partners }}-->
-            <input type="number" name="preferred_number_of_partners" id="id_preferred_number_of_partners" class="form-control", data-role-field="Buddy">
+            <!-- value="1": preferred number of partners field is hidden from international students but still has to be filled out-->
+            <input type="number" name="preferred_number_of_partners" id="id_preferred_number_of_partners" class="form-control", data-role-field="Buddy", value="1">
         </div>
         <div class="form-box"> 
             <label for="id_interests">{% trans "Interests:" %}</label>
@@ -72,11 +73,25 @@
         </div>
 
         <!-- initializing select2 field for country list -->
-        <script>
+        <script class="country-searchbar">
             $(document).ready(function() {
                 $('#id_country').select2({
                     placeholder: 'Select a country', 
-                    allowClear: true 
+                    allowClear: true,
+                    width: '100%', //adjust to rest of form
+                    //dropdownCssClass: 'select2-dropdown-custom' // without search bar
+                });
+
+                  // same styling as in styles.css for input 
+                  $('.select2-selection').css({
+                    'width': '100%',
+                    'padding':  'var(--size-space-300) var(--size-space-400)',
+                    'border': 'var(--border-input-width) solid var(--border-input-color)',
+                    'border-radius': 'var(--border-radius-200)',
+                    'padding': 'var(--size-space-300) var(--size-space-400)',
+                    'font-size': 'var(--small-body-font-size)',
+                    'color': 'var(--text-color)',
+                    'height': 'auto'
                 });
             });
         </script>
@@ -101,14 +116,14 @@
             <p class="description">
                 {% trans "Enter the same password as before, for verification." %}
             </p>
-
-        
+        </div>
         
         <!-- SUBMIT BUTTON -->
-        </div>
-            <button type="submit" id="submitAccountButton" class="button">Create Account</button>
-        </div>
+        <button type="submit" id="submitAccountButton" class="button">Create Account</button>
+        
     </form>
+
+    <p>* Note that gender is not taken into account.</p>
 
     <div id="message" style="margin-top: 20px;"></div>
 
