@@ -6,12 +6,12 @@
 
 {% block content %}
 
-    <h1>{{ profile.first_name }}'s Profile</h1>
+    <h1>{{ profile.first_name }}{% trans "'s Profile" %}</h1>
 
     <div class="profile-content">
-        <p> Welcome {{ profile.first_name }}, you are logged in with following information:</p>
+        <p> {% trans "Welcome" %} {{ profile.first_name }}, {% trans "you are logged in with following information:" %}</p>
         <p>Email: {{ profile.email }}</p>
-        <p> Matriculation/Application Number: {{ profile.app_matr_number }}</p>
+        <p> {% trans "Matriculation/Application Number:" %} {{ profile.app_matr_number }}</p>
     </div>
     
     <div class="account-deletion-warning">

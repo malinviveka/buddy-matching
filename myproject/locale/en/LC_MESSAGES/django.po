@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-15 15:36+0100\n"
+"POT-Creation-Date: 2025-02-04 22:27+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,191 +18,1044 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\helloapp\models.py:49
+#: .\helloapp\models.py:57
 msgid "German"
 msgstr "German"
 
-#: .\helloapp\models.py:50
+#: .\helloapp\models.py:58
 msgid "English"
 msgstr "English"
 
-#: .\helloapp\models.py:51
+#: .\helloapp\models.py:59
 msgid "Both"
 msgstr "Both"
 
-#: .\helloapp\models.py:55
+#: .\helloapp\models.py:63
 msgid "Bachelors"
 msgstr "Bachelors"
 
-#: .\helloapp\models.py:56
+#: .\helloapp\models.py:64
 msgid "Masters"
 msgstr "Masters"
 
-#: .\helloapp\models.py:60
+#: .\helloapp\models.py:68
 msgid "Law and Economics (FB 1)"
 msgstr "Law and Economics (Dept. 1)"
 
-#: .\helloapp\models.py:61
+#: .\helloapp\models.py:69
 msgid "Social and Historical Sciences (FB 2)"
 msgstr "Social and Historical Sciences (Dept. 2)"
 
-#: .\helloapp\models.py:62
+#: .\helloapp\models.py:70
 msgid "Human Sciences (FB 3)"
 msgstr "Human Sciences (Dept. 3)"
 
-#: .\helloapp\models.py:63
+#: .\helloapp\models.py:71
 msgid "Mathematics (FB 4)"
 msgstr "Mathematics (Dept. 4)"
 
-#: .\helloapp\models.py:64
+#: .\helloapp\models.py:72
 msgid "Physics (FB 5)"
 msgstr "Physics (Dept. 5)"
 
-#: .\helloapp\models.py:65
+#: .\helloapp\models.py:73
 msgid "Chemistry (FB 7)"
 msgstr "Chemistry (Dept. 7)"
 
-#: .\helloapp\models.py:66
+#: .\helloapp\models.py:74
 msgid "Biology (FB 10)"
 msgstr "Biology (Dept. 10)"
 
-#: .\helloapp\models.py:67
+#: .\helloapp\models.py:75
 msgid "Material and Earth Sciences (FB 11)"
 msgstr "Material and Earth Sciences (Dept. 11)"
 
-#: .\helloapp\models.py:68
+#: .\helloapp\models.py:76
 msgid "Civil and Environmental Engineering (FB 13)"
 msgstr "Civil and Environmental Engineering (Dept. 13)"
 
-#: .\helloapp\models.py:69
+#: .\helloapp\models.py:77
 msgid "Architecture (FB 15)"
 msgstr "Architecture (Dept. 15)"
 
-#: .\helloapp\models.py:70
+#: .\helloapp\models.py:78
 msgid "Mechanical Engineering (FB 16)"
 msgstr "Mechanical Engineering (Dept. 16)"
 
-#: .\helloapp\models.py:71
+#: .\helloapp\models.py:79
 msgid "Electrical Engineering and IT (FB 18)"
 msgstr "Electrical Engineering and IT (Dept. 18)"
 
-#: .\helloapp\models.py:72
+#: .\helloapp\models.py:80
 msgid "Computer Science (FB 20)"
 msgstr "Computer Science (Dept. 20)"
 
-#: .\helloapp\models.py:76
+#: .\helloapp\models.py:84
 msgid "International Student"
 msgstr "International Student"
 
-#: .\helloapp\models.py:77
+#: .\helloapp\models.py:85
 msgid "Buddy"
 msgstr "Buddy"
 
-#: .\helloapp\models.py:81
+#: .\helloapp\models.py:89
 msgid "Sports"
 msgstr "Sports"
 
-#: .\helloapp\models.py:82
+#: .\helloapp\models.py:90
 msgid "Culture"
 msgstr "Culture"
 
-#: .\helloapp\models.py:83
+#: .\helloapp\models.py:91
 msgid "Nature"
 msgstr "Nature"
 
-#: .\helloapp\models.py:84
+#: .\helloapp\models.py:92
 msgid "Technology"
 msgstr "Technology"
 
-#: .\helloapp\templates\helloapp\account_creation.html:12
-#: .\helloapp\templates\helloapp\base.html:32
-#: .\helloapp\templates\helloapp\login.html:28
+#: .\helloapp\models.py:96
+msgid "Afghanistan"
+msgstr ""
+
+#: .\helloapp\models.py:97
+msgid "Albania"
+msgstr ""
+
+#: .\helloapp\models.py:98
+msgid "Algeria"
+msgstr ""
+
+#: .\helloapp\models.py:99
+msgid "American Samoa"
+msgstr ""
+
+#: .\helloapp\models.py:100
+msgid "Andorra"
+msgstr ""
+
+#: .\helloapp\models.py:101
+msgid "Angola"
+msgstr ""
+
+#: .\helloapp\models.py:102
+msgid "Antigua and Barbuda"
+msgstr ""
+
+#: .\helloapp\models.py:103
+msgid "Argentina"
+msgstr ""
+
+#: .\helloapp\models.py:104
+msgid "Armenia"
+msgstr ""
+
+#: .\helloapp\models.py:105
+msgid "Australia"
+msgstr ""
+
+#: .\helloapp\models.py:106
+msgid "Austria"
+msgstr ""
+
+#: .\helloapp\models.py:107
+msgid "Azerbaijan"
+msgstr ""
+
+#: .\helloapp\models.py:108
+msgid "Bahamas"
+msgstr ""
+
+#: .\helloapp\models.py:109
+msgid "Bahrain"
+msgstr ""
+
+#: .\helloapp\models.py:110
+msgid "Bangladesh"
+msgstr ""
+
+#: .\helloapp\models.py:111
+msgid "Barbados"
+msgstr ""
+
+#: .\helloapp\models.py:112
+msgid "Belarus"
+msgstr ""
+
+#: .\helloapp\models.py:113
+msgid "Belgium"
+msgstr ""
+
+#: .\helloapp\models.py:114
+msgid "Belize"
+msgstr ""
+
+#: .\helloapp\models.py:115
+msgid "Benin"
+msgstr ""
+
+#: .\helloapp\models.py:116
+msgid "Bhutan"
+msgstr ""
+
+#: .\helloapp\models.py:117
+msgid "Bolivia"
+msgstr ""
+
+#: .\helloapp\models.py:118
+msgid "Bosnia and Herzegovina"
+msgstr ""
+
+#: .\helloapp\models.py:119
+msgid "Botswana"
+msgstr ""
+
+#: .\helloapp\models.py:120
+msgid "Brazil"
+msgstr ""
+
+#: .\helloapp\models.py:121
+msgid "Brunei"
+msgstr ""
+
+#: .\helloapp\models.py:122
+msgid "Bulgaria"
+msgstr ""
+
+#: .\helloapp\models.py:123
+msgid "Burkina Faso"
+msgstr ""
+
+#: .\helloapp\models.py:124
+msgid "Burundi"
+msgstr ""
+
+#: .\helloapp\models.py:125
+msgid "Cabo Verde"
+msgstr ""
+
+#: .\helloapp\models.py:126
+msgid "Cambodia"
+msgstr ""
+
+#: .\helloapp\models.py:127
+msgid "Cameroon"
+msgstr ""
+
+#: .\helloapp\models.py:128
+msgid "Canada"
+msgstr ""
+
+#: .\helloapp\models.py:129
+msgid "Central African Republic"
+msgstr ""
+
+#: .\helloapp\models.py:130
+msgid "Chad"
+msgstr ""
+
+#: .\helloapp\models.py:131
+msgid "Chile"
+msgstr ""
+
+#: .\helloapp\models.py:132
+msgid "China"
+msgstr ""
+
+#: .\helloapp\models.py:133
+msgid "Colombia"
+msgstr ""
+
+#: .\helloapp\models.py:134
+msgid "Comoros"
+msgstr ""
+
+#: .\helloapp\models.py:135
+msgid "Congo (Brazzaville)"
+msgstr ""
+
+#: .\helloapp\models.py:136
+msgid "Congo (Kinshasa)"
+msgstr ""
+
+#: .\helloapp\models.py:137
+msgid "Costa Rica"
+msgstr ""
+
+#: .\helloapp\models.py:138
+msgid "Côte d’Ivoire"
+msgstr ""
+
+#: .\helloapp\models.py:139
+msgid "Croatia"
+msgstr ""
+
+#: .\helloapp\models.py:140
+msgid "Cuba"
+msgstr ""
+
+#: .\helloapp\models.py:141
+msgid "Cyprus"
+msgstr ""
+
+#: .\helloapp\models.py:142
+msgid "Czechia"
+msgstr ""
+
+#: .\helloapp\models.py:143
+msgid "Denmark"
+msgstr ""
+
+#: .\helloapp\models.py:144
+msgid "Djibouti"
+msgstr ""
+
+#: .\helloapp\models.py:145
+msgid "Dominica"
+msgstr ""
+
+#: .\helloapp\models.py:146
+msgid "Dominican Republic"
+msgstr ""
+
+#: .\helloapp\models.py:147
+msgid "Ecuador"
+msgstr ""
+
+#: .\helloapp\models.py:148
+msgid "Egypt"
+msgstr ""
+
+#: .\helloapp\models.py:149
+msgid "El Salvador"
+msgstr ""
+
+#: .\helloapp\models.py:150
+msgid "Equatorial Guinea"
+msgstr ""
+
+#: .\helloapp\models.py:151
+msgid "Eritrea"
+msgstr ""
+
+#: .\helloapp\models.py:152
+msgid "Estonia"
+msgstr ""
+
+#: .\helloapp\models.py:153
+msgid "Eswatini"
+msgstr ""
+
+#: .\helloapp\models.py:154
+msgid "Ethiopia"
+msgstr ""
+
+#: .\helloapp\models.py:155
+msgid "Fiji"
+msgstr ""
+
+#: .\helloapp\models.py:156
+msgid "Finland"
+msgstr ""
+
+#: .\helloapp\models.py:157
+msgid "France"
+msgstr ""
+
+#: .\helloapp\models.py:158
+msgid "Gabon"
+msgstr ""
+
+#: .\helloapp\models.py:159
+msgid "Gambia"
+msgstr ""
+
+#: .\helloapp\models.py:160
+msgid "Georgia"
+msgstr ""
+
+#: .\helloapp\models.py:161
+#, fuzzy
+#| msgid "German"
+msgid "Germany"
+msgstr "German"
+
+#: .\helloapp\models.py:162
+msgid "Ghana"
+msgstr ""
+
+#: .\helloapp\models.py:163
+msgid "Greece"
+msgstr ""
+
+#: .\helloapp\models.py:164
+msgid "Grenada"
+msgstr ""
+
+#: .\helloapp\models.py:165
+msgid "Guatemala"
+msgstr ""
+
+#: .\helloapp\models.py:166
+msgid "Guinea"
+msgstr ""
+
+#: .\helloapp\models.py:167
+msgid "Guinea-Bissau"
+msgstr ""
+
+#: .\helloapp\models.py:168
+msgid "Guyana"
+msgstr ""
+
+#: .\helloapp\models.py:169
+msgid "Haiti"
+msgstr ""
+
+#: .\helloapp\models.py:170
+msgid "Honduras"
+msgstr ""
+
+#: .\helloapp\models.py:171
+msgid "Hungary"
+msgstr ""
+
+#: .\helloapp\models.py:172
+msgid "Iceland"
+msgstr ""
+
+#: .\helloapp\models.py:173
+msgid "India"
+msgstr ""
+
+#: .\helloapp\models.py:174
+msgid "Indonesia"
+msgstr ""
+
+#: .\helloapp\models.py:175
+msgid "Iran"
+msgstr ""
+
+#: .\helloapp\models.py:176
+msgid "Iraq"
+msgstr ""
+
+#: .\helloapp\models.py:177
+msgid "Ireland"
+msgstr ""
+
+#: .\helloapp\models.py:178
+msgid "Israel"
+msgstr ""
+
+#: .\helloapp\models.py:179
+msgid "Italy"
+msgstr ""
+
+#: .\helloapp\models.py:180
+msgid "Jamaica"
+msgstr ""
+
+#: .\helloapp\models.py:181
+msgid "Japan"
+msgstr ""
+
+#: .\helloapp\models.py:182
+msgid "Jordan"
+msgstr ""
+
+#: .\helloapp\models.py:183
+msgid "Kazakhstan"
+msgstr ""
+
+#: .\helloapp\models.py:184
+msgid "Kenya"
+msgstr ""
+
+#: .\helloapp\models.py:185
+msgid "Kiribati"
+msgstr ""
+
+#: .\helloapp\models.py:186
+msgid "Korea (North)"
+msgstr ""
+
+#: .\helloapp\models.py:187
+msgid "Korea (South)"
+msgstr ""
+
+#: .\helloapp\models.py:188
+msgid "Kuwait"
+msgstr ""
+
+#: .\helloapp\models.py:189
+msgid "Kyrgyzstan"
+msgstr ""
+
+#: .\helloapp\models.py:190
+msgid "Laos"
+msgstr ""
+
+#: .\helloapp\models.py:191
+msgid "Latvia"
+msgstr ""
+
+#: .\helloapp\models.py:192
+msgid "Lebanon"
+msgstr ""
+
+#: .\helloapp\models.py:193
+msgid "Lesotho"
+msgstr ""
+
+#: .\helloapp\models.py:194
+msgid "Liberia"
+msgstr ""
+
+#: .\helloapp\models.py:195
+msgid "Libya"
+msgstr ""
+
+#: .\helloapp\models.py:196
+msgid "Liechtenstein"
+msgstr ""
+
+#: .\helloapp\models.py:197
+msgid "Lithuania"
+msgstr ""
+
+#: .\helloapp\models.py:198
+msgid "Luxembourg"
+msgstr ""
+
+#: .\helloapp\models.py:199
+msgid "Madagascar"
+msgstr ""
+
+#: .\helloapp\models.py:200
+msgid "Malawi"
+msgstr ""
+
+#: .\helloapp\models.py:201
+msgid "Malaysia"
+msgstr ""
+
+#: .\helloapp\models.py:202
+msgid "Maldives"
+msgstr ""
+
+#: .\helloapp\models.py:203
+msgid "Mali"
+msgstr ""
+
+#: .\helloapp\models.py:204
+msgid "Malta"
+msgstr ""
+
+#: .\helloapp\models.py:205
+msgid "Marshall Islands"
+msgstr ""
+
+#: .\helloapp\models.py:206
+msgid "Mauritania"
+msgstr ""
+
+#: .\helloapp\models.py:207
+msgid "Mauritius"
+msgstr ""
+
+#: .\helloapp\models.py:208
+msgid "Mexico"
+msgstr ""
+
+#: .\helloapp\models.py:209
+msgid "Micronesia"
+msgstr ""
+
+#: .\helloapp\models.py:210
+msgid "Moldova"
+msgstr ""
+
+#: .\helloapp\models.py:211
+msgid "Monaco"
+msgstr ""
+
+#: .\helloapp\models.py:212
+msgid "Mongolia"
+msgstr ""
+
+#: .\helloapp\models.py:213
+msgid "Montenegro"
+msgstr ""
+
+#: .\helloapp\models.py:214
+msgid "Morocco"
+msgstr ""
+
+#: .\helloapp\models.py:215
+msgid "Mozambique"
+msgstr ""
+
+#: .\helloapp\models.py:216
+msgid "Myanmar (Burma)"
+msgstr ""
+
+#: .\helloapp\models.py:217
+msgid "Namibia"
+msgstr ""
+
+#: .\helloapp\models.py:218
+msgid "Nauru"
+msgstr ""
+
+#: .\helloapp\models.py:219
+msgid "Nepal"
+msgstr ""
+
+#: .\helloapp\models.py:220
+msgid "Netherlands"
+msgstr ""
+
+#: .\helloapp\models.py:221
+msgid "New Zealand"
+msgstr ""
+
+#: .\helloapp\models.py:222
+msgid "Nicaragua"
+msgstr ""
+
+#: .\helloapp\models.py:223
+msgid "Niger"
+msgstr ""
+
+#: .\helloapp\models.py:224
+msgid "Nigeria"
+msgstr ""
+
+#: .\helloapp\models.py:225
+msgid "North Macedonia"
+msgstr ""
+
+#: .\helloapp\models.py:226
+msgid "Norway"
+msgstr ""
+
+#: .\helloapp\models.py:227
+msgid "Oman"
+msgstr ""
+
+#: .\helloapp\models.py:228
+msgid "Pakistan"
+msgstr ""
+
+#: .\helloapp\models.py:229
+msgid "Palau"
+msgstr ""
+
+#: .\helloapp\models.py:230
+msgid "Palestine"
+msgstr ""
+
+#: .\helloapp\models.py:231
+msgid "Panama"
+msgstr ""
+
+#: .\helloapp\models.py:232
+msgid "Papua New Guinea"
+msgstr ""
+
+#: .\helloapp\models.py:233
+msgid "Paraguay"
+msgstr ""
+
+#: .\helloapp\models.py:234
+msgid "Peru"
+msgstr ""
+
+#: .\helloapp\models.py:235
+msgid "Philippines"
+msgstr ""
+
+#: .\helloapp\models.py:236
+msgid "Poland"
+msgstr ""
+
+#: .\helloapp\models.py:237
+msgid "Portugal"
+msgstr ""
+
+#: .\helloapp\models.py:238
+msgid "Qatar"
+msgstr ""
+
+#: .\helloapp\models.py:239
+msgid "Romania"
+msgstr ""
+
+#: .\helloapp\models.py:240
+msgid "Russia"
+msgstr ""
+
+#: .\helloapp\models.py:241
+msgid "Rwanda"
+msgstr ""
+
+#: .\helloapp\models.py:242
+msgid "Saint Kitts and Nevis"
+msgstr ""
+
+#: .\helloapp\models.py:243
+msgid "Saint Lucia"
+msgstr ""
+
+#: .\helloapp\models.py:244
+msgid "Saint Vincent and the Grenadines"
+msgstr ""
+
+#: .\helloapp\models.py:245
+msgid "Samoa"
+msgstr ""
+
+#: .\helloapp\models.py:246
+msgid "San Marino"
+msgstr ""
+
+#: .\helloapp\models.py:247
+msgid "São Tomé and Príncipe"
+msgstr ""
+
+#: .\helloapp\models.py:248
+msgid "Saudi Arabia"
+msgstr ""
+
+#: .\helloapp\models.py:249
+msgid "Senegal"
+msgstr ""
+
+#: .\helloapp\models.py:250
+msgid "Serbia"
+msgstr ""
+
+#: .\helloapp\models.py:251
+msgid "Seychelles"
+msgstr ""
+
+#: .\helloapp\models.py:252
+msgid "Sierra Leone"
+msgstr ""
+
+#: .\helloapp\models.py:253
+msgid "Singapore"
+msgstr ""
+
+#: .\helloapp\models.py:254
+msgid "Slovakia"
+msgstr ""
+
+#: .\helloapp\models.py:255
+msgid "Slovenia"
+msgstr ""
+
+#: .\helloapp\models.py:256
+msgid "Solomon Islands"
+msgstr ""
+
+#: .\helloapp\models.py:257
+msgid "Somalia"
+msgstr ""
+
+#: .\helloapp\models.py:258
+msgid "South Africa"
+msgstr ""
+
+#: .\helloapp\models.py:259
+msgid "South Sudan"
+msgstr ""
+
+#: .\helloapp\models.py:260
+msgid "Spain"
+msgstr ""
+
+#: .\helloapp\models.py:261
+msgid "Sri Lanka"
+msgstr ""
+
+#: .\helloapp\models.py:262
+msgid "Sudan"
+msgstr ""
+
+#: .\helloapp\models.py:263
+#, fuzzy
+#| msgid "Surname:"
+msgid "Suriname"
+msgstr "Surname:"
+
+#: .\helloapp\models.py:264
+msgid "Sweden"
+msgstr ""
+
+#: .\helloapp\models.py:265
+msgid "Switzerland"
+msgstr ""
+
+#: .\helloapp\models.py:266
+msgid "Syria"
+msgstr ""
+
+#: .\helloapp\models.py:267
+msgid "Taiwan"
+msgstr ""
+
+#: .\helloapp\models.py:268
+msgid "Tajikistan"
+msgstr ""
+
+#: .\helloapp\models.py:269
+msgid "Tanzania"
+msgstr ""
+
+#: .\helloapp\models.py:270
+msgid "Thailand"
+msgstr ""
+
+#: .\helloapp\models.py:271
+msgid "Timor-Leste"
+msgstr ""
+
+#: .\helloapp\models.py:272
+msgid "Togo"
+msgstr ""
+
+#: .\helloapp\models.py:273
+msgid "Tonga"
+msgstr ""
+
+#: .\helloapp\models.py:274
+msgid "Trinidad and Tobago"
+msgstr ""
+
+#: .\helloapp\models.py:275
+msgid "Tunisia"
+msgstr ""
+
+#: .\helloapp\models.py:276
+msgid "Turkey"
+msgstr ""
+
+#: .\helloapp\models.py:277
+msgid "Turkmenistan"
+msgstr ""
+
+#: .\helloapp\models.py:278
+msgid "Tuvalu"
+msgstr ""
+
+#: .\helloapp\models.py:279
+msgid "Uganda"
+msgstr ""
+
+#: .\helloapp\models.py:280
+msgid "Ukraine"
+msgstr ""
+
+#: .\helloapp\models.py:281
+msgid "United Arab Emirates"
+msgstr ""
+
+#: .\helloapp\models.py:282
+msgid "United Kingdom"
+msgstr ""
+
+#: .\helloapp\models.py:283
+msgid "United States"
+msgstr ""
+
+#: .\helloapp\models.py:284
+msgid "Uruguay"
+msgstr ""
+
+#: .\helloapp\models.py:285
+msgid "Uzbekistan"
+msgstr ""
+
+#: .\helloapp\models.py:286
+msgid "Vanuatu"
+msgstr ""
+
+#: .\helloapp\models.py:287
+msgid "Vatican City"
+msgstr ""
+
+#: .\helloapp\models.py:288
+msgid "Venezuela"
+msgstr ""
+
+#: .\helloapp\models.py:289
+msgid "Vietnam"
+msgstr ""
+
+#: .\helloapp\models.py:290
+msgid "Yemen"
+msgstr ""
+
+#: .\helloapp\models.py:291
+msgid "Zambia"
+msgstr ""
+
+#: .\helloapp\models.py:292
+msgid "Zimbabwe"
+msgstr ""
+
+#: .\helloapp\models.py:436
+msgid "Content in German"
+msgstr ""
+
+#: .\helloapp\models.py:437
+msgid "Content in English"
+msgstr ""
+
+#: .\helloapp\templates\helloapp\account_creation.html:16
+#: .\helloapp\templates\helloapp\base.html:54
+#: .\helloapp\templates\helloapp\login.html:27
 msgid "Create Account"
 msgstr "Create Account"
 
-#: .\helloapp\templates\helloapp\account_creation.html:19
+#: .\helloapp\templates\helloapp\account_creation.html:27
 msgid "Role:"
 msgstr "Role:"
 
-#: .\helloapp\templates\helloapp\account_creation.html:23
+#: .\helloapp\templates\helloapp\account_creation.html:31
 msgid "Surname:"
 msgstr "Surname:"
 
-#: .\helloapp\templates\helloapp\account_creation.html:27
+#: .\helloapp\templates\helloapp\account_creation.html:35
 msgid "First Name:"
 msgstr "First Name:"
 
-#: .\helloapp\templates\helloapp\account_creation.html:31
+#: .\helloapp\templates\helloapp\account_creation.html:39
 msgid "Preferred Language:"
 msgstr "Preferred Language:"
 
-#: .\helloapp\templates\helloapp\account_creation.html:40
+#: .\helloapp\templates\helloapp\account_creation.html:48
 msgid "Degree Level:"
 msgstr "Degree Level:"
 
-#: .\helloapp\templates\helloapp\account_creation.html:44
+#: .\helloapp\templates\helloapp\account_creation.html:52
+#: .\helloapp\templates\helloapp\profile.html:14
 msgid "Matriculation/Application Number:"
 msgstr "Matriculation/Application Number:"
 
-#: .\helloapp\templates\helloapp\account_creation.html:49
+#: .\helloapp\templates\helloapp\account_creation.html:57
 msgid "Department:"
 msgstr "Department:"
 
-#: .\helloapp\templates\helloapp\account_creation.html:53
+#: .\helloapp\templates\helloapp\account_creation.html:61
 msgid "Country:"
 msgstr "Country:"
 
-#: .\helloapp\templates\helloapp\account_creation.html:57
+#: .\helloapp\templates\helloapp\account_creation.html:65
 msgid "Preferred Number of Partners:"
 msgstr "Preferred Number of Partners:"
 
-#: .\helloapp\templates\helloapp\account_creation.html:61
+#: .\helloapp\templates\helloapp\account_creation.html:71
 msgid "Interests:"
 msgstr "Interests:"
 
-#: .\helloapp\templates\helloapp\account_creation.html:67
-#: .\helloapp\templates\helloapp\login.html:21
+#: .\helloapp\templates\helloapp\account_creation.html:101
+#: .\helloapp\templates\helloapp\login.html:20
 msgid "Password:"
 msgstr "Password:"
 
-#: .\helloapp\templates\helloapp\account_creation.html:72
+#: .\helloapp\templates\helloapp\account_creation.html:106
 msgid "Your password can’t be too similar to your other personal information."
 msgstr "Your password can’t be too similar to your other personal information."
 
-#: .\helloapp\templates\helloapp\account_creation.html:73
+#: .\helloapp\templates\helloapp\account_creation.html:107
 msgid "Your password must contain at least 8 characters."
 msgstr "Your password must contain at least 8 characters."
 
-#: .\helloapp\templates\helloapp\account_creation.html:74
+#: .\helloapp\templates\helloapp\account_creation.html:108
 msgid "Your password can’t be a commonly used password."
 msgstr "Your password can’t be a commonly used password."
 
-#: .\helloapp\templates\helloapp\account_creation.html:75
+#: .\helloapp\templates\helloapp\account_creation.html:109
 msgid "Your password can’t be entirely numeric."
 msgstr "Your password can’t be entirely numeric."
 
-#: .\helloapp\templates\helloapp\account_creation.html:78
+#: .\helloapp\templates\helloapp\account_creation.html:112
 msgid "Confirm Password:"
 msgstr "Confirm Password:"
 
-#: .\helloapp\templates\helloapp\account_creation.html:83
+#: .\helloapp\templates\helloapp\account_creation.html:117
 msgid "Enter the same password as before, for verification."
 msgstr "Enter the same password as before, for verification."
+
+#: .\helloapp\templates\helloapp\admin_user_site.html:16
+msgid "Run Matching"
+msgstr ""
 
 # Base
 #: .\helloapp\templates\helloapp\base.html:16
 msgid "Home"
 msgstr "Home"
 
-# Homepage
-#: .\helloapp\templates\helloapp\homepage.html:11
-msgid "Hello, world!"
-msgstr "English"
+#: .\helloapp\templates\helloapp\base.html:29
+msgid "view your match"
+msgstr ""
 
-#: .\helloapp\templates\helloapp\homepage.html:15
-msgid "Your Name is:"
+#: .\helloapp\templates\helloapp\base.html:29
+msgid "es"
+msgstr ""
+
+#: .\helloapp\templates\helloapp\feedback.html:26
+msgid "Submit"
+msgstr ""
+
+#: .\helloapp\templates\helloapp\profile.html:9
+msgid "'s Profile"
+msgstr ""
+
+#: .\helloapp\templates\helloapp\profile.html:12
+msgid "Welcome"
+msgstr ""
+
+#: .\helloapp\templates\helloapp\profile.html:12
+msgid "you are logged in with following information:"
+msgstr ""
+
+#: .\helloapp\templates\helloapp\profile.html:19
+msgid "Your account will be deleted in"
+msgstr ""
+
+#: .\helloapp\templates\helloapp\profile.html:19
+msgid "days."
+msgstr ""
+
+#: .\helloapp\templates\helloapp\profile.html:23
+msgid "Extend account for another year"
+msgstr ""
+
+#: .\helloapp\templates\helloapp\your_matches.html:15
+#, fuzzy
+#| msgid "Your Name is:"
+msgid "Your Partners"
 msgstr "Your name is: "
 
-#: .\helloapp\templates\helloapp\homepage.html:16
-msgid "Your Email is:"
-msgstr "Your Email is: "
+#: .\helloapp\templates\helloapp\your_matches.html:15
+msgid "Your Partner"
+msgstr ""
+
+#: .\helloapp\templates\helloapp\your_matches.html:29
+msgid "You currently have no partners."
+msgstr ""
+
+#: .\helloapp\templates\helloapp\your_matches.html:29
+msgid "You currently have no partner."
+msgstr ""
+
+# Homepage
+#~ msgid "Hello, world!"
+#~ msgstr "English"
+
+#~ msgid "Your Email is:"
+#~ msgstr "Your Email is: "
