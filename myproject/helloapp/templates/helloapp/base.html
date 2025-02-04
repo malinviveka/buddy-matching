@@ -25,16 +25,29 @@
                 <br>
             {% else %}
                 <!--User-->
-                <a class="title">{{ user.first_name }}, view your matches! </a>
+                <a class="title {% if request.path == '/your_matches/' %}active{% endif %}" href="{% url 'your_matches' %}">
+                    {{ user.first_name }}, view your match{% if user.role == 'Buddy' %}es{% endif %}!</a> <!-- If the user is a buddy, the text should be "matches" instead of "match" -->
                 <a class="title {% if request.path == '/feedback/' %}active{% endif %}" href="{% url 'feedback' %}">Feedback</a>
             {% endif %}  
-
             
-            <!--Logout-->
-            <form action="{%url 'logout'%}" method="post" class="nav-item">
-                {% csrf_token %}
-                <button type="submit" class="logoutButton">Logout</button>
-            </form>
+           <!--Left Side of topnav:-->
+            <div class="profile-container">
+                 <!--Profile Icon-->
+                <!--<a class="title {% if request.path == '/profile/' %}active{% endif %}" href="{% url 'profile' %}">Profile</a>-->
+                {% load static %} <a href="{% url 'profile' %}"> <!--profile icon color changes if active-->
+                    <img src="{% if request.path == '/profile/' %}
+                                {% static 'images/profile_icon_dark-blue.png' %}
+                            {% else %}
+                                {% static 'images/profile_icon_text-color.png' %}
+                            {% endif %}" alt="Profile" class="profileIcon"></a>
+
+                <!--Logout-->
+                <form action="{%url 'logout'%}" method="post" class="nav-item">
+                    {% csrf_token %}
+                    <button type="submit" class="logoutButton">Logout</button>
+                </form>
+            </div>
+
 
         {% else %}
             <!-- Create Account (only needed if not already logged in)-->

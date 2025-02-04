@@ -1,0 +1,28 @@
+{% extends 'helloapp/base.html' %}
+
+{% load static i18n %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block content %}
+
+    <h1>{{ profile.first_name }}'s Profile</h1>
+
+    <div class="profile-content">
+        <p> Welcome {{ profile.first_name }}, you are logged in with following information:</p>
+        <p>Email: {{ profile.email }}</p>
+        <p> Matriculation/Application Number: {{ profile.app_matr_number }}</p>
+    </div>
+    
+    <div class="account-deletion-warning">
+        {% if user.is_authenticated and days_left is not None and days_left <= 30 %}
+            <p>{% trans "Your account will be deleted in" %} {{ days_left }} {% trans "days." %}</p>
+
+            <form action="{% url 'reset_deletion_date' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" id="extendAccountButton" class="button">{% trans "Extend account for another year" %}</button>
+            </form>
+        {% endif %}
+    </div>
+
+{% endblock %}

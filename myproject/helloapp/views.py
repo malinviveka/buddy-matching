@@ -25,7 +25,6 @@ def homepage(request):
     """
 
     homepage_text = HomepageText.objects.first()
-    days_left = None
 
     # Wählen Sie den Inhalt je nach Sprache
     language_code = get_language()  # Gibt den aktuellen Sprachcode zurück (z.B. 'de' oder 'en')
@@ -33,15 +32,9 @@ def homepage(request):
         content = homepage_text.content_de
     else:
         content = homepage_text.content_en
+    
+    return render(request, 'helloapp/homepage.html')
 
-    if request.user.is_authenticated:
-        user = request.user
-        days_left = (user.deletion_date - now().date()).days
-
-    return render(request, 'helloapp/homepage.html', {
-        "content": content,
-        "days_left": days_left,
-    })
 
 @login_required
 def your_matches(request):
@@ -298,3 +291,20 @@ def export_feedback_csv(request):
         ])
     
     return response
+
+@login_required
+def profile_view(request):
+    """
+    Shows the profile of the currently logged in user.
+    """
+    profile = request.user
+
+    # Calculate days left for account deletion
+    days_left = None
+    if profile.is_authenticated:
+        days_left = (profile.deletion_date - now().date()).days
+
+    return render(request, 'helloapp/profile.html', {
+        'profile': profile,
+        'days_left': days_left,  # Now the template can use this variable
+    })

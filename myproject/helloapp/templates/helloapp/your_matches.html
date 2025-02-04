@@ -6,23 +6,29 @@
 
 {% block content %}
 
-    <!-- Anzeige der Partner -->
-    <div id="partners-section"></div>
+    <!-- Display Partner(s) -->
+    <div id="partners-section"></div> <!-- todo: was macht das; brauchen wir das?-->
     {% if user.is_authenticated %}
-
+        <!--If user already has matches:-->
         {% if partners %}
-            <h3>{% trans "Your Partners" %}</h3>
-            <ul>
+            <!--a buddy can have multiple PARTNERS, an international student only has one PARTNER-->
+            {% if user.role == 'Buddy' %} <h2>{% trans "Your Partners" %}</h2> {% else %} <h2>{% trans "Your Partner" %}</h2> {% endif %}
+
+            <ul class="partners_list">
                 {% for partner in partners %}
-                    <li>
+                    <li class="partners_list_item">
                         <strong>{{ partner.first_name }} {{ partner.surname }}</strong><br>
                         Email: {{ partner.email }}
                     </li>
                 {% endfor %}
             </ul>
+        
+        <!--If user has no matches (yet):-->    
         {% else %}
-            <p>{% trans "You currently have no partners." %}</p>
+            <!--again multiple vs. one partner(s:-->
+            {% if user.role == 'Buddy' %} <p>{% trans "You currently have no partners." %}</p> {% else %} <p>{% trans "You currently have no partner." %}</p> {% endif %}
         {% endif %}
+
     {% endif %}
     </div>
 

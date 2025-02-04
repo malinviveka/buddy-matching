@@ -132,7 +132,7 @@ textarea {
   width: 5%;
 }
 #exportFeedbackButton{
-  width: 15%;
+  width: 20%;
 }
 #languageButton{
    /* position in the topnav */
@@ -144,6 +144,24 @@ textarea {
    background: none;
    border: none;
    padding: 0;
+}
+
+/* admin buttons: orange */
+.toggle-permission, #deletePartnersButton, #extendAccountButton {
+  all: unset;
+  background-color: var(--ISS-orange-color);
+  color: black;
+  border-radius: var(--border-radius-200);
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  padding: var(--size-space-100);
+  white-space: nowrap; /* only one line text */
+}
+.toggle-permission:hover, #deletePartnersButton:hover, #extendAccountButton:hover {
+  background-color: var(--ISS-orange-color);
+  color: #fff;
+  border-radius: var(--border-radius-200);
 }
 
 /*TEXT LINKS (href outside of buttons)*/
@@ -219,11 +237,25 @@ textarea {
   border-radius: var(--border-radius-200);
 }
 
+/* Profile Icon */
+.topnav .profileIcon{
+  width: 18px;
+  height: auto;
+}
+
+.topnav .profile-container {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--size-space-200)
+}
+
 /* Login- and Logout-Buttons */
 .topnav .loginButton,
 .topnav form {
   margin-left: auto;
 }
+
 .topnav .loginButton,
 .topnav button {
   /* base */
@@ -388,27 +420,72 @@ textarea {
   align-items: flex-start;
 }
 
-/* user management */
-.toggle-permission {
-  all: unset;
-  background-color: var(--ISS-orange-color);
-  color: black;
-  border-radius: var(--border-radius-200);
-  overflow: hidden;
-  cursor: pointer;
-  border: none;
-  padding: var(--size-space-100);
-}
-.toggle-permission:hover {
-  background-color: var(--ISS-orange-color);
-  color: #fff;
-  border-radius: var(--border-radius-200);
-}
 
 /* FEEDBACK */
 .form-feedback{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: var(--size-space-200);
+}
+
+/* MATCH(ES) */
+/* list with partners*/
+.partners_list {
+  list-style: none; /* removes bullet points */
+  padding: 0; /* removes default padding (originally space for bullet point) */
+
+  /* gap between list items*/
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-space-300);
+}
+.partners_list_item{
+  /* styles box */
+  border: var(--border-box-width) solid var(--border-input-color);
+  border-radius: var(--border-radius-200);
+  padding:  var(--size-space-300) var(--size-space-400);
+  box-sizing: border-box; 
+  /* styles text */
+  font-size: var(--body-font-size);
+  color: var(--text-color);
+}
+/* Add a pseudo-element for the custom bullet */
+.partners_list_item::before {
+  content: "";
+  display: inline-block;
+  width: 20px;  /* Adjust the size as needed */
+  height: 20px; /* Adjust the size as needed */
+  margin-right: var(--size-space-200); /* Space between the image and text */
+  background-image:  url('/static/images/profile_icon.png'); /* Path to your PNG file */
+  background-size: cover; /* Ensures the image covers the pseudo-element */
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+
+/* PROFILE */
+/* personal information */
+.profile-content {
+  /* styles box */
+  border: var(--border-box-width) solid var(--ISS-orange-color); 
+  border-radius: var(--border-radius-200); 
+  background-color: var(--ISS-light-orange-color);
+  padding: var(--size-space-300) var(--size-space-400);
+  box-sizing: border-box;
+
+  /* styles font */
+  font-size: var(--body-font-size);
+  font-weight: var(--body-font-weight);
+  color: var(--text-color);
+}
+.profile-content p:first-of-type { /* first p is highlighted*/
+  color: var(--ISS-orange-color); 
+  font-weight: bold;
+}
+
+/* account deletion */
+.account-deletion-warning {
+  display: flex;
+  align-items: center;
   gap: var(--size-space-200);
 }

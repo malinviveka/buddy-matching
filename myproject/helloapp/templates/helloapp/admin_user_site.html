@@ -59,7 +59,7 @@
                 <td>
                     <form action="{% url 'delete_partners' user.id %}" method="post">
                         {% csrf_token %}
-                        <button type="submit" class="button">Alle Partner löschen</button>
+                        <button type="submit" id= "deletePartnersButton" class="button">Alle Partner löschen</button>
                     </form>
                 </td>
             </tr>
