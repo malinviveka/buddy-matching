@@ -54,8 +54,8 @@ def gale_shapley(students, buddies, student_preferences, buddy_preferences):
 
 def run_matching():
     # load data
-    buddies = BuddyMatchingUser.objects.filter(role='Buddy', is_permitted=True).annotate(partner_count=Count('partners')).filter(preferred_number_of_partners__gte=F('partner_count'))
-    students = BuddyMatchingUser.objects.filter(role='International Student', is_permitted=True).annotate(partner_count=Count('partners')).filter(partner_count=0)
+    buddies = BuddyMatchingUser.objects.filter(role='Buddy', is_permitted=True, is_staff=False).annotate(partner_count=Count('partners')).filter(preferred_number_of_partners__gte=F('partner_count'))
+    students = BuddyMatchingUser.objects.filter(role='International Student', is_permitted=True, is_staff=False).annotate(partner_count=Count('partners')).filter(partner_count=0)
   
     # create preference lists
     student_preferences, buddy_preferences = create_preference_lists(students, buddies)
