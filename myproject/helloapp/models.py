@@ -282,7 +282,6 @@ class BuddyMatchingUser(AbstractUser):
         ('UG', _('Uganda')),
         ('UA', _('Ukraine')),
         ('AE', _('United Arab Emirates')),
-        ('GB', _('United Kingdom')),
         ('US', _('United States')),
         ('UY', _('Uruguay')),
         ('UZ', _('Uzbekistan')),
