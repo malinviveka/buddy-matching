@@ -24,7 +24,7 @@ def homepage(request):
     Render the homepage template.
     """
 
-    homepage_text = HomepageText.objects.create()
+    homepage_text, created = HomepageText.objects.get_or_create(id=1)
 
     days_left = None
 
@@ -36,7 +36,7 @@ def homepage(request):
     else:
         content = homepage_text.content_en
     
-    return render(request, 'helloapp/homepage.html')
+    return render(request, 'helloapp/homepage.html', {'content': content})
 
 
 @login_required
