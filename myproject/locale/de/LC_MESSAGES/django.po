@@ -997,11 +997,11 @@ msgstr "Startseite"
 
 #: .\helloapp\templates\helloapp\base.html:29
 msgid "view your match"
-msgstr "sieh dir deine Matches an"
+msgstr "sieh dir deine Matches "
 
 #: .\helloapp\templates\helloapp\base.html:29
 msgid "es"
-msgstr " "
+msgstr "an"
 
 #: .\helloapp\templates\helloapp\feedback.html:26
 msgid "Submit"
@@ -1052,4 +1052,4 @@ msgstr "Du hast noch keinen Partner."
 #~ msgstr "Deutsch"
 
 #~ msgid "Your Email is:"
-#~ msgstr "Deine Email ist: "
+#~ msgstr "Deine Email ist:"
