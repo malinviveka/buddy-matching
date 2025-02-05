@@ -25,8 +25,12 @@
                 <br>
             {% else %}
                 <!--User-->
-                <a class="title {% if request.path == '/your_matches/' %}active{% endif %}" href="{% url 'your_matches' %}">
-                    {{ user.first_name }}, {% trans "view your match" %}{% if user.role == 'Buddy' %}{% trans "es" %}{% endif %}!</a> <!-- If the user is a buddy, the text should be "matches" instead of "match" -->
+                    <!-- If the user is a buddy, the text should be "matches" instead of "match" -->
+                    {% if user.role == 'Buddy' %}
+                        <a class="title {% if request.path == '/your_matches/' %}active{% endif %}" href="{% url 'your_matches' %}">{{user.first_name}}{% trans ", view your matches!" %} </a>
+                    {% else %}
+                        <a class="title {% if request.path == '/your_matches/' %}active{% endif %}" href="{% url 'your_matches' %}">{{user.first_name}}{% trans "View your match!" %}</a>
+                    {% endif %}
                 <a class="title {% if request.path == '/feedback/' %}active{% endif %}" href="{% url 'feedback' %}">Feedback</a>
             {% endif %}  
             
