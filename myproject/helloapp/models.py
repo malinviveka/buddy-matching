@@ -91,7 +91,7 @@ class BuddyMatchingUser(AbstractUser):
         ('Nature', _('Nature')),
         ('Technology', _('Technology')),
     ]
-
+    
     COUNTRY_CHOICES = [
         ('AF', _('Afghanistan')),
         ('AL', _('Albania')),
@@ -147,6 +147,7 @@ class BuddyMatchingUser(AbstractUser):
         ('EC', _('Ecuador')),
         ('EG', _('Egypt')),
         ('SV', _('El Salvador')),
+        ('EN', _('England')),
         ('GQ', _('Equatorial Guinea')),
         ('ER', _('Eritrea')),
         ('EE', _('Estonia')),
@@ -220,6 +221,7 @@ class BuddyMatchingUser(AbstractUser):
         ('NL', _('Netherlands')),
         ('NZ', _('New Zealand')),
         ('NI', _('Nicaragua')),
+        ('NOI', _('Northern Ireland')),
         ('NE', _('Niger')),
         ('NG', _('Nigeria')),
         ('MK', _('North Macedonia')),
@@ -249,6 +251,7 @@ class BuddyMatchingUser(AbstractUser):
         ('SN', _('Senegal')),
         ('RS', _('Serbia')),
         ('SC', _('Seychelles')),
+        ('SCO', _('Scotland')),
         ('SL', _('Sierra Leone')),
         ('SG', _('Singapore')),
         ('SK', _('Slovakia')),
@@ -288,6 +291,7 @@ class BuddyMatchingUser(AbstractUser):
         ('VE', _('Venezuela')),
         ('VN', _('Vietnam')),
         ('YE', _('Yemen')),
+        ('WA', _('Wales')),
         ('ZM', _('Zambia')),
         ('ZW', _('Zimbabwe')),
     ]
