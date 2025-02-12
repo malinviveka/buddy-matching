@@ -384,37 +384,6 @@ class BuddyMatchingUser(AbstractUser):
         verbose_name = 'User' # Singular display name for the model
         verbose_name_plural = 'Users' # Plural display name for the model
         
-        """
-        # ANNA: kann auch nur ein me issue sein, aber mein terminal macht bei dem code oben:
-        
-        #ERRORS:
-        #auth.User.groups: (fields.E304) Reverse accessor 'Group.user_set' for 'auth.User.groups' clashes with reverse accessor for 'helloapp.BuddyMatchingUser.groups'.
-        #HINT: Add or change a related_name argument to the definition for 'auth.User.groups' or 'helloapp.BuddyMatchingUser.groups'.
-        #auth.User.user_permissions: (fields.E304) Reverse accessor 'Permission.user_set' for 'auth.User.user_permissions' clashes with reverse accessor for 'helloapp.BuddyMatchingUser.user_permissions'.
-        #HINT: Add or change a related_name argument to the definition for 'auth.User.user_permissions' or 'helloapp.BuddyMatchingUser.user_permissions'.
-        #helloapp.BuddyMatchingUser.groups: (fields.E304) Reverse accessor 'Group.user_set' for 'helloapp.BuddyMatchingUser.groups' clashes with reverse accessor for 'auth.User.groups'.
-        #HINT: Add or change a related_name argument to the definition for 'helloapp.BuddyMatchingUser.groups' or 'auth.User.groups'.
-        #helloapp.BuddyMatchingUser.user_permissions: (fields.E304) Reverse accessor 'Permission.user_set' for 'helloapp.BuddyMatchingUser.user_permissions' clashes with reverse accessor for 'auth.User.user_permissions'.
-        #HINT: Add or change a related_name argument to the definition for 'helloapp.BuddyMatchingUser.user_permissions' or 'auth.User.user_permissions'.
-        
-        verbose_name = 'Buddy Matching User'
-        verbose_name_plural = 'Buddy Matching Users'
-
-    groups = models.ManyToManyField(
-        Group,
-        related_name="buddy_matching_user_set",  # Provide unique related_name
-        blank=True,
-        help_text="The groups this user belongs to.",
-        verbose_name="groups",
-    )
-
-    user_permissions = models.ManyToManyField(
-        Permission,
-        related_name="buddy_matching_user_permissions",  # Provide unique related_name
-        blank=True,
-        help_text="Specific permissions for this user.",
-        verbose_name="user permissions",
-    ) """
 
     # Resets automatic deletion date of user by number of days specified in timedelta
     def reset_deletion_date(self):
