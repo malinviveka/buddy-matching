@@ -172,7 +172,6 @@ def edit_homepage_text(request):
         homepage_text.content_de = request.POST.get("content_de")
         homepage_text.content_en = request.POST.get("content_en")
         homepage_text.save()
-        return redirect('admin_user_list')  # Zurück zur Admin-Seite
 
     return render(request, "helloapp/edit_homepage_text.html", {"homepage_text": homepage_text})
 

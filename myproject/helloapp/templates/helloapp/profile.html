@@ -14,6 +14,7 @@
         <p> {% trans "Matriculation/Application Number:" %} {{ profile.app_matr_number }}</p>
     </div>
     
+    {% if user.is_staff == False %} <!-- Admin User should not receive this warning-->
     <div class="account-deletion-warning">
         {% if user.is_authenticated and days_left is not None and days_left <= 30 %}
             <p>{% trans "Your account will be deleted in" %} {{ days_left }} {% trans "days." %}</p>
@@ -24,5 +25,6 @@
             </form>
         {% endif %}
     </div>
+    {% endif %}
 
 {% endblock %}
