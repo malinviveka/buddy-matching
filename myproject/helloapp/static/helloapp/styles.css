@@ -141,11 +141,6 @@ textarea {
   width: fit-content;
 }
 #languageButton{
-   /* position in the topnav */
-   position: absolute;
-   left: 98%; /*moves the button to the right*/
-   transform: translate(-50%, -50%); /* centers it both horizontally and vertically */
- 
    /* removes global styling of buttons (here unwanted) */
    background: none;
    border: none;
@@ -178,6 +173,12 @@ textarea {
   align-self: start;
   width: 100%;
   flex: 0 0 auto;
+  color: #333;
+  font: var(--small-body-font-size);
+  font-weight: var(--body-font-weight);
+  text-decoration: underline;
+}
+.pdf-link {
   color: #333;
   font: var(--small-body-font-size);
   font-weight: var(--body-font-weight);
@@ -285,7 +286,14 @@ textarea {
   height: auto;
   border-radius: 3px; /* rounded corners */
 }
-
+.languageSelector{
+  position: relative;
+  /* push outside the viewport */
+  transform: translateX(160%);
+  transition: transform 0.3s ease;
+  /* distance from login/ logout */
+  margin-left: calc(-1 * var(--size-space-600));
+}
 
 /*
     HOMEPAGE
@@ -307,8 +315,7 @@ textarea {
 
 .homepage-body {
   display: flex; 
-  flex-wrap: wrap-reverse; /* default: image and text displayed next to each other; if zoomed in: text is displayed above image */
-  justify-content: space-between;
+  flex-wrap: nowrap;
 }
 .cover_image {
   /* position */
@@ -323,15 +330,31 @@ textarea {
   text-align: right;
   font-size: var(--medium-body-font-size);
   font-weight: var(--body-font-weight);
+
+  max-width: 30%;
+  margin-left: auto; 
 }
+.about-us-text .line{
+  display: block;
+  margin-top: var(--size-space-200);
+}
+
 .admin-message{
+  flex: 1;
   text-align: center;
+  position: relative;
 
   /* box */
   border: solid var(--ISS-orange-color);
   border-radius: var(--border-radius-200);
   padding: var(--size-space-400);
-  margin: var(--size-space-500) 0; 
+  margin: var(--size-space-500) 0 var(--size-space-500) auto;
+
+
+  /* ensures breaks if words are too long */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 
 
@@ -360,7 +383,6 @@ textarea {
 }
 .loginInput {
   display: block;
-  min-width: 240px;
   align-items: center;
   padding: var(--size-space-300) var(--size-space-400);
   width: 100%;
@@ -383,6 +405,13 @@ textarea {
   /*centering*/
   width: 60%; 
   margin: var(--size-space-500) 0; 
+}
+
+.privacy-container {
+  margin: var(--size-space-100) 0;
+}
+.checkbox-privacy-policy input[type="checkbox"] {
+  vertical-align: middle;
 }
 
 .password-box {
@@ -502,7 +531,7 @@ textarea {
 /*
   MOBILE STYLES
 */
-@media only screen and (max-width: 600px) { /*break-point according to https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp*/
+@media only screen and (max-width: 600px) { /*break-point according to https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp */
   /*
     GLOBAL STYLES
   */
@@ -541,38 +570,30 @@ textarea {
     width: 100px;
     margin-left: -30px;
   }
-  
-
   .homepage-body {
     display: flex; 
     flex-wrap: wrap-reverse; /* default: image and text displayed next to each other; if zoomed in: text is displayed above image */
     justify-content: space-between;
+    gap: var(--size-space-300); 
   }
-  .cover_image {
-    /* position */
-    
-    margin: calc(-1 * var(--size-space-500)); /* substracts margin, so that image starts at leftmost edge */
-    height: 79vh;
-    width: auto;
-    
-    /* rounded upper rigth corner */
-    border-top-right-radius: 50%;
+  .cover_image {  
+    /* positions at left-most edge */        
+    position: relative;
+    left: -10%;  
+    margin-top: var(--size-radius-200);   
+    margin-bottom: calc(-1 * var(--size-space-600));
+
+    height: auto;
+    width: 105%;
+
+     /* rounded upper rigth corner */
+     border-top-right-radius: 1%;
+     border-bottom-right-radius: 50%;
   }
   .homepage-text {
-    text-align: right;
-    font-size: var(--medium-body-font-size);
-    font-weight: var(--body-font-weight);
+    max-width: 100%;
+    margin-left: auto; 
   }
-  .admin-message{
-    text-align: center;
-  
-    /* box */
-    border: solid var(--ISS-orange-color);
-    border-radius: var(--border-radius-200);
-    padding: var(--size-space-400);
-    margin: var(--size-space-500) 0; 
-  }
-
 
   /*
       LOGIN:
@@ -605,9 +626,7 @@ textarea {
     margin-right: var(--size-radius-200);
   }
 
-  /*
-      ADMIN: TODO?
-  */
+  /* ADMIN: TODO? */
 
   /* 
     FEEDBACK: 
@@ -632,3 +651,25 @@ textarea {
 
 }
 
+/*
+  TABLET STYLES
+  currently more to make zooming in look more dynamic; could be expanded in future iterations
+*/
+@media only screen and (max-width: 768px){ /*break-point according to https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp */
+  .homepage-body {
+    display: flex; 
+    flex-wrap: wrap-reverse;
+    justify-content: space-between;
+    gap: var(--size-space-300); 
+
+    flex-direction: column;
+  }
+  .cover_image {
+    height: auto;
+    width: 100%;
+  }
+  .homepage-text {
+    max-width: 100%;
+    margin-left: auto; 
+  }
+}

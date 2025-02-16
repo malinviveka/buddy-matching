@@ -117,10 +117,26 @@
                 {% trans "Enter the same password as before, for verification." %}
             </p>
         </div>
+
+         <!--DATA PROTECTION AGREEMENT-->
+         <div class="privacy-container">
+            <p><strong> Privacy Policy </strong></p>
+
+            <p> Please read the
+            <a class= "pdf-link" href="{% static 'docs/datenschutzinformation_vorlage_v3.pdf' %}" target="_blank"> Privacy Policy</a>
+            and then confirm. </p>
+            
+            <p class="checkbox-privacy-policy">
+                <input type="checkbox" id="privacy_policy" name="privacy_policy" required>
+                <label for="privacy_policy">I have read and agree to the Privacy Policy.</label>
+            </p>
+        </div>
         
+         
         <!-- SUBMIT BUTTON -->
         <button type="submit" id="submitAccountButton" class="button">{% trans "Create Account" %}</button>
-        
+
+       
     </form>
 
     <div id="message" style="margin-top: 20px;"></div>
