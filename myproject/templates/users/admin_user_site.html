@@ -1,4 +1,4 @@
-{% extends 'helloapp/base.html' %}
+{% extends 'homepage/base.html' %}
 
 {% block title %}Admin User Management{% endblock %}
 
@@ -6,7 +6,7 @@
 
 {% block content %}
 
-<script src="{% static 'helloapp/admin_user_list.js' %}"></script>
+<script src="{% static 'users/admin_user_list.js' %}"></script>
 <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
 
     <h2>Admin User Management</h2>

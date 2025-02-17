@@ -1,6 +1,6 @@
 from django.urls import path, include
 from . import views
-from .views import AccountCreationView, FeedbackView
+from .views import AccountCreationView
 
 urlpatterns = [
     path('create-account/', AccountCreationView.as_view(), name='create_account_view'),
@@ -10,5 +10,6 @@ urlpatterns = [
     path('cadmin/users/', views.admin_user_list, name='admin_user_list'),
     path('cadmin/users/toggle_permission/<int:user_id>/', views.toggle_user_permission, name='toggle_user_permission'),
     path('reset-deletion-date/', views.reset_deletion_date, name='reset_deletion_date'),
-    path('profile/', views.profile_view, name='profile')
+    path('profile/', views.profile_view, name='profile'),
+    path('', views.homepage, name='homepage'),
 ]

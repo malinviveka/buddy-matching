@@ -1,21 +1,6 @@
 from django.db import models
-#from django.contrib.auth.models import AbstractUser
-from django.contrib.auth.models import AbstractUser, Group, Permission
-from django.contrib.auth.models import BaseUserManager
-from multiselectfield import MultiSelectField
 from django.utils.translation import gettext_lazy as _
-from django.utils.timezone import now
-from datetime import timedelta
-
-
-class HomepageText(models.Model):
-    content_de = models.TextField(_("Content in German"), default="Willkommen auf der Seite!")
-    content_en = models.TextField(_("Content in English"), default="Welcome to the page!")
-    last_updated = models.DateTimeField(auto_now=True)  # Wird bei jeder Änderung automatisch aktualisiert
-
-    def __str__(self):
-        return f"Homepage Text (aktualisiert am {self.last_updated})"
-    
+from users.models import BuddyMatchingUser
 
 
 class Feedback(models.Model):

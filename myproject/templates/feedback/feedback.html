@@ -1,10 +1,12 @@
-{% extends 'helloapp/base.html' %}
+{% extends 'homepage/base.html' %}
 
 {% block title %}Feedback{% endblock %}
 
 {% load static i18n %}
 
 {% block content %}
+<script src="{% static 'feedback/feedback.js' %}"></script>
+
     <h2>Feedback</h2>
 
     <form id=FeedbackForm method="POST" action="{% url 'feedback' %}" class="form-feedback">

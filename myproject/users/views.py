@@ -1,4 +1,3 @@
-import json
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 from django.contrib.auth.decorators import user_passes_test, login_required
@@ -8,7 +7,8 @@ from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
 from django.utils.timezone import now
 from django.utils.translation import get_language
-from .models import BuddyMatchingUser, HomepageText
+from .models import BuddyMatchingUser
+from homepage.models import HomepageText
 from .forms import BuddyMatchingUserCreationForm, LoginForm
 
 
@@ -17,7 +17,7 @@ def homepage(request):
     Render the homepage template.
     """
 
-    homepage_text = HomepageText.objects.first()
+    homepage_text, created = HomepageText.objects.get_or_create(id=1)
     days_left = None
 
     # Wählen Sie den Inhalt je nach Sprache
@@ -31,9 +31,8 @@ def homepage(request):
         user = request.user
         days_left = (user.deletion_date - now().date()).days
 
-    return render(request, 'helloapp/homepage.html', {
+    return render(request, 'homepage/homepage.html', {
         "content": content,
-        "days_left": days_left,
     })
 
 
@@ -50,7 +49,7 @@ class AccountCreationView(View):
     """
     View to render the account creation form and handle form submissions.
     """
-    template_name = 'helloapp/account_creation.html'
+    template_name = 'users/account_creation.html'
     
     def get(self, request):
         form = BuddyMatchingUserCreationForm()
@@ -87,7 +86,7 @@ def login_view(request):
     """
     Render the login form and handle login form submissions.
     """
-    template_name = 'helloapp/login.html'
+    template_name = 'users/login.html'
     if request.method == "POST":
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -124,7 +123,7 @@ def admin_user_list(request):
         # Die Partner für den jeweiligen User abrufen
         user.partner_names = [partner.first_name + " " + partner.surname + " " + partner.email for partner in user.partners.all()]
     
-    return render(request, 'helloapp/admin_user_site.html', {'users': users})
+    return render(request, 'users/admin_user_site.html', {'users': users})
 
 @user_passes_test(lambda u: u.is_staff)
 def toggle_user_permission(request, user_id):
@@ -134,3 +133,20 @@ def toggle_user_permission(request, user_id):
         user.save()
         return JsonResponse({'is_permitted': user.is_permitted})
     return JsonResponse({'error': 'Invalid request'}, status=400)
+
+@login_required
+def profile_view(request):
+    """
+    Shows the profile of the currently logged in user.
+    """
+    profile = request.user
+
+    # Calculate days left for account deletion
+    days_left = None
+    if profile.is_authenticated:
+        days_left = (profile.deletion_date - now().date()).days
+
+    return render(request, 'users/profile.html', {
+        'profile': profile,
+        'days_left': days_left,  # Now the template can use this variable
+    })

@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
-from .models import BuddyMatchingUser
-from .forms import BuddyMatchingUserCreationForm, LoginForm
+from users.models import BuddyMatchingUser
+from ..feedback.forms import BuddyMatchingUserCreationForm, LoginForm
 from ..matching.matching import run_matching, gale_shapley
 from ..matching.matching_utils import create_preference_lists, calculate_match_score
 from collections import defaultdict

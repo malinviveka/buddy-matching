@@ -35,6 +35,7 @@ LANGUAGE_CODE = 'en'
 
 # Zeit- und Datumsformatierung basierend auf der Sprache
 USE_L10N = True
+USE_I18N = True
 
 # Verfügbare Sprachen
 LANGUAGES = [
@@ -55,9 +56,11 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'helloapp', 
+    'django.contrib.staticfiles', 
     'matching',
+    'users',
+    'feedback',    
+    'homepage',
 ]
 
 MIDDLEWARE = [
@@ -76,7 +79,7 @@ ROOT_URLCONF = 'myproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,7 +137,7 @@ PASSWORD_HASHERS = [
     "django.contrib.auth.hashers.ScryptPasswordHasher",
 ]
 
-AUTH_USER_MODEL = 'helloapp.BuddyMatchingUser'  # Set the custom user model
+AUTH_USER_MODEL = 'users.BuddyMatchingUser'  # Set the custom user model
 
 
 # Internationalization
@@ -153,6 +156,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

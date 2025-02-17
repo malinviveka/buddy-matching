@@ -1,4 +1,4 @@
-// helloapp/static/helloapp/main.ts
+// /static/core/main.ts
 
 const retrieveButton = document.getElementById("retrieveButton") as HTMLButtonElement;
 const entriesDisplay = document.getElementById("entriesDisplay") as HTMLUListElement;

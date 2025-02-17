@@ -1,7 +1,7 @@
 # helloapp/management/commands/delete_expired_accounts.py
 
 from django.core.management.base import BaseCommand
-from helloapp.models import BuddyMatchingUser
+from users.models import BuddyMatchingUser
 from django.utils.timezone import now
 
 class Command(BaseCommand):

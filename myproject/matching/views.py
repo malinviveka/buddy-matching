@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import user_passes_test, login_required
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import BuddyMatchingUser
+from users.models import BuddyMatchingUser
 from .matching import run_matching
 # Create your views here.
 
@@ -11,7 +11,7 @@ def your_matches(request):
     if request.user.is_authenticated:
         user = request.user
         partners = user.partners.all() 
-    return render(request, 'helloapp/your_matches.html', {
+    return render(request, 'matching/your_matches.html', {
         "partners": partners,
     })
     
@@ -39,7 +39,7 @@ def start_matching(request):
         return redirect('admin_user_list')
     except Exception as e:
         # Falls ein Fehler auftritt, Fehlernachricht zurück an den User
-        return render(request, 'helloapp/admin_user_site.html', {'error': f"Fehler beim Matching: {str(e)}"})
+        return render(request, 'users/admin_user_site.html', {'error': f"Fehler beim Matching: {str(e)}"})
 
 @login_required
 def show_partners(request):
@@ -51,4 +51,4 @@ def show_partners(request):
     else:
         partners = []
 
-    return render(request, 'helloapp/homepage.html', {'partners': partners})
+    return render(request, 'homepage/homepage.html', {'partners': partners})

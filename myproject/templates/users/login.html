@@ -1,13 +1,13 @@
 
-{% extends 'helloapp/base.html' %}
+{% extends 'homepage/base.html' %}
 
 {% block title %}Login{% endblock %}
 
 {% load static i18n %}
 
 {% block content %}
-    <link rel="stylesheet" type="text/css" href="{% static 'helloapp/styles.css' %}"> <!-- Link to CSS file -->
-    <script src="{% static 'helloapp/login.js' %}" defer></script> <!-- Link to compiled JavaScript -->
+    <link rel="stylesheet" type="text/css" href="{% static 'core/styles.css' %}"> <!-- Link to CSS file -->
+    <script src="{% static 'users/login.js' %}" defer></script> <!-- Link to compiled JavaScript -->
     
     
     <form method="post" action="{% url 'login' %}" class="form-login">
