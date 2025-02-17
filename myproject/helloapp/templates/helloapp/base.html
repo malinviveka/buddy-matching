@@ -7,6 +7,7 @@
     <meta name="viewport" content="initial-scale=1, width=device-width"> <!-- mobile vs. desktop devices; Website is opend at 100% zoom ("normal"); width is taken from screen dimensions -->
     <title>{% block title %}Default Title{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'helloapp/styles.css' %}">  <!-- Link to CSS file -->
+    <script src="{% static 'helloapp/base.js' %}" defer></script>
 </head>
 <body>
   
@@ -52,7 +53,6 @@
                 </form>
             </div>
 
-
         {% else %}
             <!-- Create Account (only needed if not already logged in)-->
             <a class="title {% if request.path == '/create-account/' %}active{% endif %}" href="{% url 'create_account_view' %}">{% trans "Create Account" %}</a>
@@ -86,9 +86,26 @@
 
     </div>
 
-    <!-- Page Content -->
-    {% block content %}
-    {% endblock %}
+    
+    <div class="sidenav-container">
+        <!-- Hamburger Menu (for mobile devices) -->
+        <button id="hamburgerToggle" class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <!-- Page Content -->
+        <div class="page-content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+
+    <!--TODO mabye ins ts moven, war mir unsicher wegen Abhängigkeit vom base-->
+    <script>
+       
+    </script>
 
 </body>
 </html>

@@ -295,6 +295,10 @@ textarea {
   margin-left: calc(-1 * var(--size-space-600));
 }
 
+.hamburger {
+  display: none;
+}
+
 /*
     HOMEPAGE
 */
@@ -317,9 +321,10 @@ textarea {
   display: flex; 
   flex-wrap: nowrap;
 }
+/* var(--variable, fallbackValue), because browser sometimes has rendering problems */
 .cover_image {
   /* position */
-  margin: calc(-1 * var(--size-space-500)); /* substracts margin, so that image starts at leftmost edge */
+  margin: calc(-1 * var(--size-space-500, 20px)); /* substracts margin, so that image starts at leftmost edge */
   height: 79vh;
   width: auto;
   
@@ -336,7 +341,7 @@ textarea {
 }
 .about-us-text .line{
   display: block;
-  margin-top: var(--size-space-200);
+  margin-top: var(--size-space-200, 8px);
 }
 
 .admin-message{
@@ -348,8 +353,7 @@ textarea {
   border: solid var(--ISS-orange-color);
   border-radius: var(--border-radius-200);
   padding: var(--size-space-400);
-  margin: var(--size-space-500) 0 var(--size-space-500) auto;
-
+  margin: var(--size-space-500, 20px) 0 var(--size-space-500, 20px) auto;
 
   /* ensures breaks if words are too long */
   word-wrap: break-word;
@@ -554,12 +558,116 @@ textarea {
   }
 
   /*
-  REPEATED STYLES:
-  */
- 
-  /*
       NAVIGATION:
   */
+  /* Turn the horizontal topnav into a vertical sidebar */
+  .topnav {
+    flex-direction: column; 
+
+    width: 200px;                     
+    height: 100vh;   
+
+    /* positioning */
+    position: fixed;         
+    top: 0;
+    right: 0;               
+    padding: var(--size-space-250)  var(--size-space-250) var(--size-space-250);               
+
+    /* makes sure it sits on top */
+    z-index: 1000;  
+
+    /* add opaque background color */
+    background-color: var(--ISS-medium-blue-color); 
+  }
+  .topnav a,
+  .topnav button,
+  .topnav form {
+    width: 100%;
+    margin: 0;
+    text-align: left;                   
+  }
+
+  /* moves login/ logout button and profile in the middle */
+  .topnav .loginButton,
+  .topnav form,
+  .topnav .profile-container { 
+    margin-left: 0;
+  }
+  .topnav .loginButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+  }
+  .languageSelector {
+    position: static;                
+    transform: none;                  
+  }
+
+
+  /* move buttons down*/
+  .topnav > *:first-child{
+    margin-top: 50px; 
+  }
+  /* move profile and login button to the bottom */
+  .topnav > div.profile-container,
+  .topnav > div.loginButton {
+    order: 99;
+    margin-top: auto;
+  }
+  .topnav > div.languageSelector {
+    order: 100;
+    margin-bottom: 100px;
+  }
+
+ 
+    
+
+  /* Hamburger menu */
+  .hamburger {
+    align-self: flex-end;
+    
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    padding: 10px;
+    /* bars underneath each other*/
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-space-100);
+  }
+  .hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    transition: all 0.3s ease;
+  }
+  /* move hamburger to the right */
+  .sidenav-container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* move and show sidenav */
+  .topnav {
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+  .nav-open .topnav {
+    transform: translateX(0);
+  }
+  
+  /* move the page content to the left */
+  .page-content {
+    transition: transform 0.3s ease;
+  }
+  .nav-open .sidenav-container {
+    transform: translateX(-220px);
+  }
+
+
   /*
       HOMEPAGE:
   */
