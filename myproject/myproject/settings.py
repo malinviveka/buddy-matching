@@ -56,7 +56,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'helloapp',  # Füge die App hier hinzu
+    'helloapp', 
+    'matching',
 ]
 
 MIDDLEWARE = [

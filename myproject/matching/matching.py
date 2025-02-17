@@ -1,4 +1,4 @@
-from helloapp.models import BuddyMatchingUser
+from ..users.models import BuddyMatchingUser
 from .matching_utils import create_preference_lists
 from collections import defaultdict, deque
 from django.db import transaction
