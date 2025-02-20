@@ -43,7 +43,7 @@ def reset_deletion_date(request):
     """
     user = request.user
     user.reset_deletion_date()
-    return redirect('homepage')
+    return redirect('profile')
 
 class AccountCreationView(View):
     """

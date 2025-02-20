@@ -7,9 +7,11 @@ from django.utils.translation import gettext_lazy as _
 from django.utils.timezone import now
 from datetime import timedelta
 
+
+userLifetime = 183
 # Sets default date until account delation
 def default_deletion_date():
-    return now().date() + timedelta(days=29)
+    return now().date() + timedelta(days=userLifetime)
 
 def default_last_reset():
     return now().date()
@@ -417,7 +419,7 @@ class BuddyMatchingUser(AbstractUser):
 
     # Resets automatic deletion date of user by number of days specified in timedelta
     def reset_deletion_date(self):
-        self.deletion_date = now().date() + timedelta(days=365)
+        self.deletion_date = now().date() + timedelta(days=userLifetime)
         self.last_reset = now().date()
         self.save()
 
