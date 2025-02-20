@@ -150,3 +150,36 @@ def profile_view(request):
         'profile': profile,
         'days_left': days_left,  # Now the template can use this variable
     })
+
+@login_required
+def delete_user_confirm(request):
+    """
+    Render a confirmation page before deleting the user's account.
+    :param request: HTTP request object.
+    :return: Rendered confirmation page.
+    """
+    return render(request, "users/delete_confirm.html")
+
+@login_required
+def delete_user(request):
+    """
+    Delete the authenticated user's account upon confirmation.
+    
+    Steps:
+    1. Ensure the request method is POST to prevent accidental deletions via GET requests.
+    2. Retrieve the currently logged-in user.
+    3. Log the user out to ensure session cleanup.
+    4. Delete the user from the database.
+    5. Display a success message and redirect to the homepage.
+
+    :param request: HTTP request object.
+    :return: Redirect to the homepage after deletion or back to confirmation page.
+    """
+    if request.method == "POST":
+        user = request.user  # Get the currently logged-in user
+        logout(request)  # Log the user out before deleting the account
+        user.delete()  # Remove the user from the database
+        messages.success(request, "Your account has been successfully deleted.")
+        return redirect("homepage")  # Redirect to the homepage or login page
+
+    return redirect("delete_user_confirm")  # If not POST, return to confirmation page

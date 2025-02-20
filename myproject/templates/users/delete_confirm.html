@@ -1,0 +1,16 @@
+{% extends "homepage/base.html" %}
+
+{% block content %}
+  <div class="container">
+    <h2>Konto löschen</h2>
+    <p>Sind Sie sicher, dass Sie Ihr Konto löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.</p>
+    
+    <form method="post" action="{% url 'delete_user' %}">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger">Ja, Konto löschen</button>
+      <a href="{% url 'profile' %}" class="btn btn-secondary">Abbrechen</a>
+    </form>
+  </div>
+{% endblock %}
+
+
