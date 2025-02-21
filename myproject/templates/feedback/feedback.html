@@ -13,18 +13,45 @@
         {% csrf_token %}
 
         <div class="form-box"> 
-            <label for="id_rating_1">Question 1:</label>
-            {{ form.rating_1 }}
+            <label for="id_q1">I participated in the Buddy Programme as</label>
+            {{ form.q1 }}
         </div>
         <div class="form-box"> 
-            <label for="id_rating_2">Question 2:</label>
-            {{ form.rating_2 }}
+            <label for="id_q2">On a scale from 1(very dissatisfied) to 5 (very satisfied) how good was the buddy-matching for you?</label>
+            {{ form.q2 }}
         </div>
         <div class="form-box"> 
-            <label for="id_text_feedback">Comment:</label>
-            {{ form.text_feedback }}
+            <label for="id_q3">On a scale from 1 (not helpful at all) to 5 (very helpful) how helpful was the overall experience for you?</label>
+            {{ form.q3}}
         </div>
-
+        <div class="form-box"> 
+            <label for="id_q4">How did you find out about the Buddy-Programme?</label>
+            {{ form.q4}}
+        </div>
+        <div class="form-box"> 
+            <label for="id_q5">Were the International Student Services helpful in the support?</label>
+            {{ form.q5}}
+        </div>
+        <div class="form-box"> 
+            <label for="id_q6">How was the first contact with your matching-buddy?</label>
+            {{ form.q6}}
+        </div>
+        <div class="form-box"> 
+            <label for="id_q7">How would you rate the overall contact with your matching-buddy? </label>
+            {{ form.q7}}
+        </div>
+        <div class="form-box"> 
+            <label for="id_q8">Did you encounter any problems with your matching-buddy?</label>
+            {{ form.q8}}
+        </div>
+        <div class="form-box"> 
+            <label for="id_q9">Would you recommend this experience to other fellow students?</label>
+            {{ form.q9}}
+        </div>
+        <div class="form-box"> 
+            <label for="id_q10">Do you have any suggestions for us in order to improve the programme?</label>
+            {{ form.q10}}
+        </div>
         <button type="submit" id="feedbackButton" class="button">{% trans "Submit" %}</button>
 
     </form>

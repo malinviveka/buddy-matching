@@ -45,7 +45,7 @@ def submit_feedback(request):
             else:
                 return JsonResponse({"error": "User is not a valid BuddyMatchingUser"}, status=400)
             feedback.save()
-            return JsonResponse({"message": "Feedback submitter successfully!"}, status=201)
+            return JsonResponse({"message": "Feedback submitted successfully!"}, status=201)
     else:
         form = FeedbackForm()
     return JsonResponse({"errors": form.errors}, status=400)
