@@ -8,8 +8,7 @@ from django.utils.timezone import now
 from datetime import timedelta
 
 
-userLifetime = 183
-# Sets default date until account delation
+userLifetime = 183 # Sets default date until account deletion in days. Default is 183 (half a year).
 def default_deletion_date():
     return now().date() + timedelta(days=userLifetime)
 
