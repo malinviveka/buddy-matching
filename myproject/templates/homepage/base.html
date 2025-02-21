@@ -4,9 +4,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!--<meta name="viewport" content="initial-scale=1, width=device-width"> < Website is opend at 100% zoom ("normal"); width is taken from screen dimensions -->
+    <meta name="viewport" content="initial-scale=1, width=device-width"> <!-- mobile vs. desktop devices; Website is opend at 100% zoom ("normal"); width is taken from screen dimensions -->
     <title>{% block title %}Default Title{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'core/styles.css' %}">  <!-- Link to CSS file -->
+    <script src="{% static 'core/base.js' %}" defer></script>
 </head>
 <body>
   
@@ -29,7 +30,7 @@
                     {% if user.role == 'Buddy' %}
                         <a class="title {% if request.path == '/your_matches/' %}active{% endif %}" href="{% url 'your_matches' %}">{{user.first_name}}{% trans ", view your matches!" %} </a>
                     {% else %}
-                        <a class="title {% if request.path == '/your_matches/' %}active{% endif %}" href="{% url 'your_matches' %}">{{user.first_name}}{% trans ", view your match!" %}</a>
+                        <a class="title {% if request.path == '/your_matches/' %}active{% endif %}" href="{% url 'your_matches' %}">{{user.first_name}}{% trans "View your match!" %}</a>
                     {% endif %}
                 <a class="title {% if request.path == '/feedback/' %}active{% endif %}" href="{% url 'feedback' %}">Feedback</a>
             {% endif %}  
@@ -51,7 +52,6 @@
                     <button type="submit" class="logoutButton">Logout</button>
                 </form>
             </div>
-
 
         {% else %}
             <!-- Create Account (only needed if not already logged in)-->
@@ -86,9 +86,26 @@
 
     </div>
 
-    <!-- Page Content -->
-    {% block content %}
-    {% endblock %}
+    
+    <div class="sidenav-container">
+        <!-- Hamburger Menu (for mobile devices) -->
+        <button id="hamburgerToggle" class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <!-- Page Content -->
+        <div class="page-content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+
+    <!--TODO mabye ins ts moven, war mir unsicher wegen Abhängigkeit vom base-->
+    <script>
+       
+    </script>
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-/* /static/core/styles.css */
+/* helloapp/static/helloapp/styles.css */
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
@@ -7,6 +7,7 @@
 */
 :root {
   /*margin sizes*/
+  --size-space-250: 10px; /* for mobile devices */
   --size-space-500: 20px;
 
   /*border*/
@@ -36,6 +37,11 @@
   --ISS-light-orange-color: #fff7e6;
   --text-color: #333;
 }
+
+/*
+  NOTE: we followed a desktop-first approach for the styling of the website; the implementation for mobile devices can
+  be found at the end of the file
+*/
 
 /*
     GLOBAL STYLES
@@ -129,17 +135,12 @@ textarea {
 }
 #feedbackButton {
   align-self: flex-start;
-  width: 5%;
+  width: fit-content;
 }
 #exportFeedbackButton{
-  width: 20%;
+  width: fit-content;
 }
 #languageButton{
-   /* position in the topnav */
-   position: absolute;
-   left: 98%; /*moves the button to the right*/
-   transform: translate(-50%, -50%); /* centers it both horizontally and vertically */
- 
    /* removes global styling of buttons (here unwanted) */
    background: none;
    border: none;
@@ -177,6 +178,12 @@ textarea {
   font-weight: var(--body-font-weight);
   text-decoration: underline;
 }
+.pdf-link {
+  color: #333;
+  font: var(--small-body-font-size);
+  font-weight: var(--body-font-weight);
+  text-decoration: underline;
+}
 
 /*FORMBOX label + input (in account_creation and feedback)*/
 .form-box {
@@ -185,8 +192,6 @@ textarea {
   gap: var(--size-space-400); /* distance between label and input */
   padding: var(--size-space-100)
 }
-
-
 
 
 /*
@@ -281,7 +286,18 @@ textarea {
   height: auto;
   border-radius: 3px; /* rounded corners */
 }
+.languageSelector{
+  position: relative;
+  /* push outside the viewport */
+  transform: translateX(160%);
+  transition: transform 0.3s ease;
+  /* distance from login/ logout */
+  margin-left: calc(-1 * var(--size-space-600));
+}
 
+.hamburger {
+  display: none;
+}
 
 /*
     HOMEPAGE
@@ -303,12 +319,12 @@ textarea {
 
 .homepage-body {
   display: flex; 
-  flex-wrap: wrap-reverse; /* default: image and text displayed next to each other; if zoomed in: text is displayed above image */
-  justify-content: space-between;
+  flex-wrap: nowrap;
 }
+/* var(--variable, fallbackValue), because browser sometimes has rendering problems */
 .cover_image {
   /* position */
-  margin: calc(-1 * var(--size-space-500)); /* substracts margin, so that image starts at leftmost edge */
+  margin: calc(-1 * var(--size-space-500, 20px)); /* substracts margin, so that image starts at leftmost edge */
   height: 79vh;
   width: auto;
   
@@ -319,15 +335,30 @@ textarea {
   text-align: right;
   font-size: var(--medium-body-font-size);
   font-weight: var(--body-font-weight);
+
+  max-width: 30%;
+  margin-left: auto; 
 }
+.about-us-text .line{
+  display: block;
+  margin-top: var(--size-space-200, 8px);
+}
+
 .admin-message{
+  flex: 1;
   text-align: center;
+  position: relative;
 
   /* box */
   border: solid var(--ISS-orange-color);
   border-radius: var(--border-radius-200);
   padding: var(--size-space-400);
-  margin: var(--size-space-500) 0; 
+  margin: var(--size-space-500, 20px) 0 var(--size-space-500, 20px) auto;
+
+  /* ensures breaks if words are too long */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 
 
@@ -341,7 +372,7 @@ textarea {
   padding: var(--size-space-600);
 
   /*centering*/
-  width: 400px; 
+  width: 28%;
   margin: var(--size-space-500) 0; 
 
   /*styling of "box"*/
@@ -356,7 +387,6 @@ textarea {
 }
 .loginInput {
   display: block;
-  min-width: 240px;
   align-items: center;
   padding: var(--size-space-300) var(--size-space-400);
   width: 100%;
@@ -379,6 +409,13 @@ textarea {
   /*centering*/
   width: 60%; 
   margin: var(--size-space-500) 0; 
+}
+
+.privacy-container {
+  margin: var(--size-space-100) 0;
+}
+.checkbox-privacy-policy input[type="checkbox"] {
+  vertical-align: middle;
 }
 
 .password-box {
@@ -420,8 +457,9 @@ textarea {
   align-items: flex-start;
 }
 
-
-/* FEEDBACK */
+/* 
+  FEEDBACK: 
+*/
 .form-feedback{
   display: flex;
   flex-direction: column;
@@ -429,7 +467,9 @@ textarea {
   gap: var(--size-space-200);
 }
 
-/* MATCH(ES) */
+/* 
+  MATCH(ES): 
+*/
 /* list with partners*/
 .partners_list {
   list-style: none; /* removes bullet points */
@@ -463,7 +503,9 @@ textarea {
   vertical-align: middle;
 }
 
-/* PROFILE */
+/* 
+  PROFILE: 
+*/
 /* personal information */
 .profile-content {
   /* styles box */
@@ -488,4 +530,254 @@ textarea {
   display: flex;
   align-items: center;
   gap: var(--size-space-200);
+}
+
+/*
+  MOBILE STYLES
+*/
+@media only screen and (max-width: 600px) { /*break-point according to https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp */
+  /*
+    GLOBAL STYLES
+  */
+  body{ /*reduce margins for smaller screens*/
+    margin: var(--size-space-250);
+    /*background-color: red; /* for testing */
+  }
+  h1 {
+    font-size: 26px;
+  }
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+  }
+  h3 {
+    font-size: 24px;
+  }
+  input, select, input[type="number"], textarea {
+    width: 100%; 
+  }
+
+  /*
+      NAVIGATION:
+  */
+  /* Turn the horizontal topnav into a vertical sidebar */
+  .topnav {
+    flex-direction: column; 
+
+    width: 200px;                     
+    height: 100vh;   
+
+    /* positioning */
+    position: fixed;         
+    top: 0;
+    right: 0;               
+    padding: var(--size-space-250)  var(--size-space-250) var(--size-space-250);               
+
+    /* makes sure it sits on top */
+    z-index: 1000;  
+
+    /* add opaque background color */
+    background-color: var(--ISS-medium-blue-color); 
+  }
+  .topnav a,
+  .topnav button,
+  .topnav form {
+    width: 100%;
+    margin: 0;
+    text-align: left;                   
+  }
+
+  /* moves login/ logout button and profile in the middle */
+  .topnav .loginButton,
+  .topnav form,
+  .topnav .profile-container { 
+    margin-left: 0;
+  }
+  .topnav .loginButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+  }
+  .languageSelector {
+    position: static;                
+    transform: none;                  
+  }
+
+
+  /* move buttons down*/
+  .topnav > *:first-child{
+    margin-top: 50px; 
+  }
+  /* move profile and login button to the bottom */
+  .topnav > div.profile-container,
+  .topnav > div.loginButton {
+    order: 99;
+    margin-top: auto;
+  }
+  .topnav > div.languageSelector {
+    order: 100;
+    margin-bottom: 100px;
+  }
+
+ 
+    
+
+  /* Hamburger menu */
+  .hamburger {
+    align-self: flex-end;
+    
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    padding: 10px;
+    /* bars underneath each other*/
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-space-100);
+  }
+  .hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    transition: all 0.3s ease;
+  }
+  /* move hamburger to the right */
+  .sidenav-container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* move and show sidenav */
+  .topnav {
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+  .nav-open .topnav {
+    transform: translateX(0);
+  }
+  
+  /* move the page content to the left */
+  .page-content {
+    transition: transform 0.3s ease;
+  }
+  .nav-open .sidenav-container {
+    transform: translateX(-220px);
+  }
+
+
+  /*
+      HOMEPAGE:
+  */
+  .homepage-header {
+    gap: var(--size-space-200); 
+  }
+  .iss_logo {
+    width: 100px;
+    margin-left: -30px;
+  }
+  .homepage-body {
+    display: flex; 
+    flex-wrap: wrap-reverse; /* default: image and text displayed next to each other; if zoomed in: text is displayed above image */
+    justify-content: space-between;
+    gap: var(--size-space-300); 
+  }
+  .cover_image {  
+    /* positions at left-most edge */        
+    position: relative;
+    left: -10%;  
+    margin-top: var(--size-radius-200);   
+    margin-bottom: calc(-1 * var(--size-space-600));
+
+    height: auto;
+    width: 105%;
+
+     /* rounded upper rigth corner */
+     border-top-right-radius: 1%;
+     border-bottom-right-radius: 50%;
+  }
+  .homepage-text {
+    max-width: 100%;
+    margin-left: auto; 
+  }
+
+  /*
+      LOGIN:
+  */
+  .form-login {
+    gap: var(--size-space-400);
+    padding: var(--size-space-400);
+    width: 90%; 
+    margin: var(--size-space-500) auto; 
+  }
+  .loginInput {
+    margin-bottom: var(--size-space-100); 
+  }
+  
+  /*
+      CREATE ACCOUNT:
+  */
+  .form-account-creation{
+    width: 100%; /* full width */
+  }
+  .form-account-creation .form-box { /* for mobile: not as repeated style/ not in feedback */
+    flex-direction: column;
+    align-items: flex-start; 
+    gap: 0; 
+    margin-bottom: var(--border-radius-200);
+  }
+  input[type="checkbox"] { /* checkboxes need special treatment somehow */
+    flex: 0;
+    width: auto;
+    margin-right: var(--size-radius-200);
+  }
+
+  /* ADMIN: TODO? */
+
+  /* 
+    FEEDBACK: 
+  */
+  .form-feedback{
+    gap: var(--size-space-200);
+  }
+
+  /* 
+    PROFILE: 
+  */
+  .profile-content {
+    padding: var(--size-space-200) var(--size-space-300);
+  }
+  .account-deletion-warning {
+    gap: calc(-1* var(--size-space-200));
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* MATCH(ES): no changes*/
+
+}
+
+/*
+  TABLET STYLES
+  currently more to make zooming in look more dynamic; could be expanded in future iterations
+*/
+@media only screen and (max-width: 768px){ /*break-point according to https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp */
+  .homepage-body {
+    display: flex; 
+    flex-wrap: wrap-reverse;
+    justify-content: space-between;
+    gap: var(--size-space-300); 
+
+    flex-direction: column;
+  }
+  .cover_image {
+    height: auto;
+    width: 100%;
+  }
+  .homepage-text {
+    max-width: 100%;
+    margin-left: auto; 
+  }
 }
