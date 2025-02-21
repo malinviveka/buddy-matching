@@ -1,0 +1,30 @@
+
+{% extends 'homepage/base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% load static i18n %}
+
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'core/styles.css' %}"> <!-- Link to CSS file -->
+    <script src="{% static 'users/login.js' %}" defer></script> <!-- Link to compiled JavaScript -->
+    
+    
+    <form method="post" action="{% url 'login' %}" class="form-login">
+        {% csrf_token %}
+        <!-- E-Mail -->  
+        <label class="loginLabel" for="email">E-Mail:</label>
+        <input type="email" id="id_email" name="email" class="loginInput" placeholder="@stud.tu-darmstadt.de" required>
+           
+        <!-- Password -->
+        <label class="loginLabel" for="password">{% trans "Password:" %}</label>
+        <input type="password" id="id_password" name="password" class="loginInput" placeholder="" required>
+
+        <!-- Login Button -->
+        <button type="submit" id="loginButton" class="button">Login</button>
+
+        <!-- Create Account Link -->
+        <a href="{% url 'create_account_view' %}" class="text-link" >{% trans "Create Account" %}</a>
+    </form>
+    
+{% endblock %}

@@ -1,0 +1,31 @@
+
+{% extends 'homepage/base.html' %}
+
+{% block title %}Edit Homepage Text{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+    <!--ToDo: hidden ergänzen I guess-->
+
+    <h2>Homepage-Text bearbeiten</h2>
+
+    <form method="POST" class="form-edit-homepage">
+        {% csrf_token %}
+        
+        <label for="content_de">Deutscher Text:</label><br>
+        <textarea name="content_de" rows="10" cols="50">{{ homepage_text.content_de }}</textarea>
+        <br>
+        
+        <label for="content_en">Englischer Text:</label><br>
+        <textarea name="content_en" rows="10" cols="50">{{ homepage_text.content_en }}</textarea>
+        <br>
+
+        <button type="submit" id="submitHompageTextButton" class="button">Speichern</button>
+
+    </form>
+    
+
+
+{% endblock %}
