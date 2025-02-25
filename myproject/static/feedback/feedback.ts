@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+/* document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("FeedbackForm") as HTMLFormElement;
   const q1Input = document.getElementById("id_q1") as HTMLInputElement;
   const q2Input = document.getElementById("id_q2") as HTMLInputElement;
@@ -87,3 +87,41 @@ document.addEventListener("DOMContentLoaded", () => {
       return true;
   }
 });
+*/
+
+document.addEventListener("DOMContentLoaded", () => {
+  function toggleDetails(selectId: string, detailsBoxId: string, triggerValue: string) {
+      const selectElement = document.getElementById(selectId) as HTMLSelectElement | null;
+      const detailsBox = document.getElementById(detailsBoxId) as HTMLDivElement | null;
+
+      if (selectElement && detailsBox) {
+          // Ensure the field is hidden initially
+          detailsBox.style.display = "none";
+          
+          selectElement.addEventListener("change", () => {
+              detailsBox.style.display = selectElement.value.toLowerCase() === triggerValue.toLowerCase() ? "block" : "none";
+          });
+      }
+  }
+
+  // Initialize fields as hidden on page load
+  document.getElementById("q5_details_box")!.style.display = "none";
+  document.getElementById("q8_details_box")!.style.display = "none";
+  document.getElementById("q9_details_box")!.style.display = "none";
+
+  // Setup event listeners for select fields
+  toggleDetails("id_q5", "q5_details_box", "no");  // Falls "No" -> Zusatzfeld
+  toggleDetails("id_q8", "q8_details_box", "yes"); // Falls "Yes" -> Zusatzfeld für Probleme
+  toggleDetails("id_q9", "q9_details_box", "no");  // Falls "No" -> Zusatzfeld für Empfehlung
+
+  const feedbackForm = document.getElementById("FeedbackForm") as HTMLFormElement | null;
+  if (feedbackForm) {
+      feedbackForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+          alert("Feedback submitted successfully!");
+          feedbackForm.reset();
+      });
+  }
+});
+
+
