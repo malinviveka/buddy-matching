@@ -72,14 +72,24 @@ def export_feedback_csv(request):
     response['Content-Disposition'] = 'attachment; filename="feedback_export.csv"'
 
     writer = csv.writer(response, delimiter=';')
-    writer.writerow(['Student', 'Text Feedback', 'Rating 1', 'Rating 2', 'Datum'])
+    writer.writerow(['Role', 'Satisfaction', 'Helpfulness', 'Source', 'Helpfulness of ISS', 'Issues with help', 'First contact', 'Overall contact', 'Problems', 'Share problems', 'Recommendation', 'Why not', 'Suggestions', 'Date'])  # add 'Student' in the beginning, if feedback should not be ananomous
     
     for feedback in feedbacks:
         writer.writerow([
-            feedback.student.email,
-            feedback.text_feedback,
-            feedback.rating_1,
-            feedback.rating_2,
+            # feedback.student.email, # if student, who submitted feedback, should be displayed
+            feedback.q1,
+            feedback.q2,
+            feedback.q3,
+            feedback.q4,
+            feedback.q5,
+            feedback.q5_details,
+            feedback.q6,
+            feedback.q7,
+            feedback.q8,
+            feedback.q8_details,
+            feedback.q9,
+            feedback.q9_details,
+            feedback.q10,
             feedback.submitted_at.strftime('%Y-%m-%d'), # if time should be included: '%Y-%m-%d %H:%M:%S'
         ])
     

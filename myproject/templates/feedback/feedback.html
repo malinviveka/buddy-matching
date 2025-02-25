@@ -32,6 +32,10 @@
             <label for="id_q5">Were the International Student Services helpful in the support?</label>
             {{ form.q5}}
         </div>
+        <div class="form-box" id="q5_details_box" style="display: none;">
+            <label for="id_q5_details">If no, please specify the issue you encountered</label>
+            <input type="text" name="q5_details" id="id_q5_details" class="form-control">
+        </div>
         <div class="form-box"> 
             <label for="id_q6">How was the first contact with your matching-buddy?</label>
             {{ form.q6}}
@@ -43,6 +47,14 @@
         <div class="form-box"> 
             <label for="id_q8">Did you encounter any problems with your matching-buddy?</label>
             {{ form.q8}}
+        </div>
+        <div class="form-box" id="q8_details_box" style="display: none;">
+            <label for="id_q8_details">Please specify the problems encountered</label>
+            <input type="text" name="q8_details" id="id_q8_details" class="form-control">
+        </div>
+        <div class="form-box" id="q9_details_box" style="display: none;">
+            <label for="id_q9_details">If no, please specify why</label>
+            <input type="text" name="q9_details" id="id_q9_details" class="form-control">
         </div>
         <div class="form-box"> 
             <label for="id_q9">Would you recommend this experience to other fellow students?</label>
