@@ -142,3 +142,7 @@ Um den Container zu stoppen kann `docker compose down` verwendet werden. Insbeso
 
 Zu beachten ist zusätzlich, dass jedes Mal `python manage.py migrate` ausgeführt werden muss, wenn die Datenbank neu initalisiert wurde.
 Zusätzlich ist der Port gerade auf `5433` eingestellt, damit er sich nicht mit möglichen existierenden Datenbanken schneidet. Damit also diese Datenbank verwendet wird, muss auch in den `settings.py` der `PORT` unter `DATABASE` auf `5433` gestellt werden. 
+
+- - - 
+
+Um Typescript Dateien in JavaScript zu kompilieren, kann über das Terminal der Befehl `tsc` ausgeführt werden. Durch diesen werden die Typescript files dann in Javascript "übersetzt".
