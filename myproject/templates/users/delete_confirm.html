@@ -1,14 +1,16 @@
 {% extends "homepage/base.html" %}
 
+{% load static i18n %}
+
 {% block content %}
   <div class="container">
-    <h2>Konto löschen</h2>
-    <p>Sind Sie sicher, dass Sie Ihr Konto löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.</p>
-    
+    <h2>{% trans "Delete Account" %}</h2>
+    <p>{% trans "Are you sure you want to delete this account? This action cannot be reversed." %}</p>
+
     <form method="post" action="{% url 'delete_user' %}">
       {% csrf_token %}
-      <button type="submit" class="btn btn-danger">Ja, Konto löschen</button>
-      <a href="{% url 'profile' %}" class="btn btn-secondary">Abbrechen</a>
+      <button type="submit" class="btn btn-danger">{% trans "Yes, delete account" %}</button>
+      <a href="{% url 'profile' %}" class="btn btn-secondary">{% trans "Cancel" %}</a>
     </form>
   </div>
 {% endblock %}
