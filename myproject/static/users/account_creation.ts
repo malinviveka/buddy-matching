@@ -24,7 +24,10 @@ submitAccountButton.addEventListener("click", async (event) => {
             messageDiv.innerText = result.message;
             messageDiv.style.color = "green";
             accountCreationForm.reset();
-            // todo: redirect to home page (see views.py todo)
+            // redirect to home page with timeout
+            setTimeout(() => {
+                window.location.href = "/";
+            }, 2000);
         } else {
             const errors = await response.json();
             messageDiv.innerText = `Errors: ${JSON.stringify(errors.errors)}`;
