@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-27 14:37+0100\n"
+"POT-Creation-Date: 2025-02-27 14:55+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -186,24 +186,24 @@ msgstr "Enter the same password as before, for verification."
 msgid "Run Matching"
 msgstr ""
 
-#: .\templates\users\delete_confirm.html:5
+#: .\templates\users\delete_confirm.html:7 .\templates\users\profile.html:17
 #, fuzzy
 #| msgid "Create Account"
 msgid "Delete Account"
 msgstr "Create Account"
 
-#: .\templates\users\delete_confirm.html:6
+#: .\templates\users\delete_confirm.html:8
 msgid ""
 "Are you sure you want to delete this account? This action cannot be reversed."
 msgstr ""
 
-#: .\templates\users\delete_confirm.html:10
+#: .\templates\users\delete_confirm.html:12
 #, fuzzy
 #| msgid "Create Account"
 msgid "Yes, delete account"
 msgstr "Create Account"
 
-#: .\templates\users\delete_confirm.html:11
+#: .\templates\users\delete_confirm.html:13
 msgid "Cancel"
 msgstr ""
 
