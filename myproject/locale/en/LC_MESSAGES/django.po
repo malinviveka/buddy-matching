@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-27 14:55+0100\n"
+"POT-Creation-Date: 2025-02-27 15:19+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,6 +40,7 @@ msgid "User Management"
 msgstr ""
 
 #: .\templates\homepage\base.html:24
+#: .\templates\homepage\edit_homepage_text.html:12
 msgid "Edit Homepage Messages"
 msgstr ""
 
@@ -59,6 +60,18 @@ msgstr ""
 #: .\templates\users\account_creation.html:136 .\templates\users\login.html:27
 msgid "Create Account"
 msgstr "Create Account"
+
+#: .\templates\homepage\edit_homepage_text.html:17
+msgid "Homepage text in german:"
+msgstr ""
+
+#: .\templates\homepage\edit_homepage_text.html:21
+msgid "Homepage text in english:"
+msgstr ""
+
+#: .\templates\homepage\edit_homepage_text.html:25
+msgid "Save"
+msgstr ""
 
 #: .\templates\homepage\homepage.html:13
 msgid "ISS Buddy Programme"
@@ -184,6 +197,64 @@ msgstr "Enter the same password as before, for verification."
 
 #: .\templates\users\admin_user_site.html:16
 msgid "Run Matching"
+msgstr ""
+
+#: .\templates\users\admin_user_site.html:22
+msgid "Email"
+msgstr ""
+
+#: .\templates\users\admin_user_site.html:23
+#, fuzzy
+#| msgid "First Name:"
+msgid "First Name"
+msgstr "First Name:"
+
+#: .\templates\users\admin_user_site.html:24
+#, fuzzy
+#| msgid "First Name:"
+msgid "Last Name"
+msgstr "First Name:"
+
+#: .\templates\users\admin_user_site.html:25
+#, fuzzy
+#| msgid "Matriculation/Application Number:"
+msgid "Application / Matriculation Number"
+msgstr "Matriculation/Application Number:"
+
+#: .\templates\users\admin_user_site.html:26
+msgid "Status"
+msgstr ""
+
+#: .\templates\users\admin_user_site.html:27
+msgid "Actions"
+msgstr ""
+
+#: .\templates\users\admin_user_site.html:28
+msgid "Matches"
+msgstr ""
+
+#: .\templates\users\admin_user_site.html:40
+msgid "permitted"
+msgstr ""
+
+#: .\templates\users\admin_user_site.html:42
+msgid "not permitted"
+msgstr ""
+
+#: .\templates\users\admin_user_site.html:48
+msgid "revoke"
+msgstr ""
+
+#: .\templates\users\admin_user_site.html:48
+msgid "permit"
+msgstr ""
+
+#: .\templates\users\admin_user_site.html:55
+msgid "no matches"
+msgstr ""
+
+#: .\templates\users\admin_user_site.html:62
+msgid "Delete all matches"
 msgstr ""
 
 #: .\templates\users\delete_confirm.html:7 .\templates\users\profile.html:17

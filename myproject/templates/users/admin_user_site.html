@@ -19,13 +19,13 @@
     <table>
         <thead>
             <tr>
-                <th>Email</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>App Matriculation Number</th>
-                <th>Status</th>
-                <th>Actions</th>
-                <th>Partners</th>
+                <th>{% trans "Email" %}</th>
+                <th>{% trans "First Name" %}</th>
+                <th>{% trans "Last Name" %}</th>
+                <th>{% trans "Application / Matriculation Number" %}</th>
+                <th>{% trans "Status" %}</th>
+                <th>{% trans "Actions" %}</th>
+                <th>{% trans "Matches" %}</th>
             </tr>
         </thead>
         <tbody>
@@ -37,29 +37,29 @@
                 <td>{{ user.app_matr_number }}</td>
                 <td class="status">
                     {% if user.is_permitted %}
-                        Zugelassen
+                        {% trans "permitted" %}
                     {% else %}
-                        Nicht zugelassen
+                        {% trans "not permitted" %}
                     {% endif %}
                 </td>
                 <!-- Button for toggling permission of a given user -->
                 <td>
                     <button class="toggle-permission" data-user-id="{{ user.id }}">
-                        {% if user.is_permitted %}Entziehen{% else %}Zulassen{% endif %}
+                        {% if user.is_permitted %}{% trans "revoke" %}{% else %}{% trans "permit" %}{% endif %}
                     </button>
                 </td>
                 <td>
                     {% if user.partner_names %}
                         {{ user.partner_names|join:', ' }}
                     {% else %}
-                        Keine Partner
+                        {% trans "no matches" %}
                     {% endif %}
                 </td>
                 <!-- Button for purging partners of a given user -->
                 <td>
                     <form action="{% url 'delete_partners' user.id %}" method="post">
                         {% csrf_token %}
-                        <button type="submit" id= "deletePartnersButton" class="button">Alle Partner löschen</button>
+                        <button type="submit" id= "deletePartnersButton" class="button">{% trans "Delete all matches" %}</button>
                     </form>
                 </td>
             </tr>
