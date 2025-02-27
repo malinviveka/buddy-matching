@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-25 18:13+0100\n"
+"POT-Creation-Date: 2025-02-27 14:37+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,19 +60,19 @@ msgstr ""
 msgid "Create Account"
 msgstr "Create Account"
 
-#: .\templates\homepage\homepage.html:12
+#: .\templates\homepage\homepage.html:13
 msgid "ISS Buddy Programme"
 msgstr ""
 
-#: .\templates\homepage\homepage.html:20
+#: .\templates\homepage\homepage.html:21
 msgid "about us"
 msgstr ""
 
-#: .\templates\homepage\homepage.html:22
+#: .\templates\homepage\homepage.html:23
 msgid "Welcome to the TU Darmstadt Buddy Programme!"
 msgstr ""
 
-#: .\templates\homepage\homepage.html:23
+#: .\templates\homepage\homepage.html:24
 msgid ""
 "Are you an exchange student looking for local support and a friendly face at "
 "TU Darmstadt? Or are you a local student eager to connect with "
@@ -80,7 +80,7 @@ msgid ""
 "abroad?"
 msgstr ""
 
-#: .\templates\homepage\homepage.html:24
+#: .\templates\homepage\homepage.html:25
 msgid ""
 "Our Buddy Programme brings international and local students together for "
 "cultural exchange, friendship, and mutual support. Whether you need help "
@@ -88,11 +88,11 @@ msgid ""
 "program is for you!"
 msgstr ""
 
-#: .\templates\homepage\homepage.html:25
+#: .\templates\homepage\homepage.html:26
 msgid "Sign up today and start your journey with a Buddy at TU Darmstadt!"
 msgstr ""
 
-#: .\templates\homepage\homepage.html:27
+#: .\templates\homepage\homepage.html:28
 msgid "Privacy Policy"
 msgstr ""
 
@@ -184,6 +184,27 @@ msgstr "Enter the same password as before, for verification."
 
 #: .\templates\users\admin_user_site.html:16
 msgid "Run Matching"
+msgstr ""
+
+#: .\templates\users\delete_confirm.html:5
+#, fuzzy
+#| msgid "Create Account"
+msgid "Delete Account"
+msgstr "Create Account"
+
+#: .\templates\users\delete_confirm.html:6
+msgid ""
+"Are you sure you want to delete this account? This action cannot be reversed."
+msgstr ""
+
+#: .\templates\users\delete_confirm.html:10
+#, fuzzy
+#| msgid "Create Account"
+msgid "Yes, delete account"
+msgstr "Create Account"
+
+#: .\templates\users\delete_confirm.html:11
+msgid "Cancel"
 msgstr ""
 
 #: .\templates\users\profile.html:9
