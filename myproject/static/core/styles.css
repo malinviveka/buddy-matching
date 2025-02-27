@@ -148,7 +148,7 @@ textarea {
 }
 
 /* admin buttons: orange */
-.toggle-permission, #deletePartnersButton, #extendAccountButton {
+.toggle-permission, #deletePartnersButton, #extendAccountButton, .btn_btn-warning {
   all: unset;
   background-color: var(--ISS-orange-color);
   color: black;
@@ -159,7 +159,7 @@ textarea {
   padding: var(--size-space-100);
   white-space: nowrap; /* only one line text */
 }
-.toggle-permission:hover, #deletePartnersButton:hover, #extendAccountButton:hover {
+.toggle-permission:hover, #deletePartnersButton:hover, #extendAccountButton:hover, .btn_btn-warning:hover {
   background-color: var(--ISS-orange-color);
   color: #fff;
   border-radius: var(--border-radius-200);
@@ -530,6 +530,10 @@ textarea {
   display: flex;
   align-items: center;
   gap: var(--size-space-200);
+}
+.btn_btn-warning{
+  display: inline-block; 
+  margin-top: var(--size-space-200);
 }
 
 /*
