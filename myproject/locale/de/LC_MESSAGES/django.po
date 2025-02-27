@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-27 15:19+0100\n"
+"POT-Creation-Date: 2025-02-27 15:40+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,6 +25,14 @@ msgstr "Inhalt auf Deutsch"
 #: .\homepage\models.py:6
 msgid "Content in English"
 msgstr "Inhalt auf Englisch"
+
+#: .\templates\feedback\admin_feedback_list.html:14
+msgid "Export Feedback (CSV)"
+msgstr "Feeback exportieren (CSV)"
+
+#: .\templates\feedback\admin_feedback_list.html:37
+msgid "No feedback Entries found."
+msgstr "Keine Feedback-Einträge gefunden."
 
 #: .\templates\feedback\feedback.html:28
 msgid "Submit"
@@ -53,8 +61,8 @@ msgid ", view your matches!"
 msgstr ", sieh dir deine Matches an!"
 
 #: .\templates\homepage\base.html:33
-msgid "View your match!"
-msgstr ", sieh dir dein Match an! "
+msgid ", view your match!"
+msgstr ", sieh dir dein Match an!"
 
 #: .\templates\homepage\base.html:58 .\templates\users\account_creation.html:15
 #: .\templates\users\account_creation.html:136 .\templates\users\login.html:27
@@ -62,11 +70,15 @@ msgid "Create Account"
 msgstr "Account Erstellen"
 
 #: .\templates\homepage\edit_homepage_text.html:17
-msgid "Homepage text in german:"
+#, fuzzy
+#| msgid "Homepage text in german:"
+msgid "Homepage Text in German:"
 msgstr "Homepage-Text auf Deutsch"
 
 #: .\templates\homepage\edit_homepage_text.html:21
-msgid "Homepage text in english:"
+#, fuzzy
+#| msgid "Homepage text in english:"
+msgid "Homepage Text in English:"
 msgstr "Homepage-Text auf Englisch"
 
 #: .\templates\homepage\edit_homepage_text.html:25
@@ -1200,11 +1212,11 @@ msgstr "Sambia"
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
 
+#~ msgid "View your match!"
+#~ msgstr ", sieh dir dein Match an! "
+
 #~ msgid "United Kingdom"
 #~ msgstr "Vereinigtes Königreich"
-
-#~ msgid ", view your match!"
-#~ msgstr ", sieh dir dein Match an!"
 
 # Homepage
 #~ msgid "Hello, world!"

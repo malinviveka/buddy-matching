@@ -11,7 +11,7 @@
 <h2>Admin Feedback Management</h2>
 
 <!-- Optional buttons for actions (e.g. export) -->
-<a href="{% url 'export_feedback_csv' %}" id="exportFeedbackButton" class="button">Feedback exportieren (CSV)</a> <br><br>
+<a href="{% url 'export_feedback_csv' %}" id="exportFeedbackButton" class="button">{% trans "Export Feedback (CSV)" %}</a> <br><br>
 
 <table>
     <thead>
@@ -34,7 +34,7 @@
         </tr>
         {% empty %}
         <tr>
-            <td colspan="5">Keine Feedback-Einträge gefunden.</td>
+            <td colspan="5">{% trans "No feedback Entries found." %}</td>
         </tr>
         {% endfor %}
     </tbody>

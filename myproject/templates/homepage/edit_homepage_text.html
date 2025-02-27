@@ -14,11 +14,11 @@
     <form method="POST" class="form-edit-homepage">
         {% csrf_token %}
         
-        <label for="content_de">{% trans "Homepage text in german:" %}</label><br>
+        <label for="content_de">{% trans "Homepage Text in German:" %}</label><br>
         <textarea name="content_de" rows="10" cols="50">{{ homepage_text.content_de }}</textarea>
         <br>
         
-        <label for="content_en">{% trans "Homepage text in english:" %}</label><br>
+        <label for="content_en">{% trans "Homepage Text in English:" %}</label><br>
         <textarea name="content_en" rows="10" cols="50">{{ homepage_text.content_en }}</textarea>
         <br>
 
