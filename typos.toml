@@ -1,6 +1,6 @@
 [default]
 # Set the language for spell checking
-locale = "en"
+locale = ["en", "de"]
 
 [files]
 # Exclude common auto-generated directories (safe default)
