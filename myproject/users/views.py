@@ -17,7 +17,7 @@ def homepage(request):
     Render the homepage template.
     """
 
-    homepage_text, created = HomepageText.objects.get_or_create(id=1)
+    homepage_text, _ = HomepageText.objects.get_or_create(id=1)
 
     # Wählen Sie den Inhalt je nach Sprache
     language_code = get_language()  # Gibt den aktuellen Sprachcode zurück (z.B. 'de' oder 'en')
@@ -25,9 +25,6 @@ def homepage(request):
         content = homepage_text.content_de
     else:
         content = homepage_text.content_en
-
-    if request.user.is_authenticated:
-        user = request.user
 
     return render(request, 'homepage/homepage.html', {
         "content": content,
