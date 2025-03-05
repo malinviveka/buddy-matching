@@ -47,7 +47,8 @@
     GLOBAL STYLES
 */
 body {
-  font-family: "Roboto", sans-serif; /* Roboto font is used in websites by TU Darmstadt (see: https://www.intern.tu-darmstadt.de/arbeitsmittel/corporate_design_vorlagen/index.de.jsp)*/
+  font-family:
+    "Roboto", sans-serif; /* Roboto font is used in websites by TU Darmstadt (see: https://www.intern.tu-darmstadt.de/arbeitsmittel/corporate_design_vorlagen/index.de.jsp)*/
   margin: var(--size-space-500);
   padding: 0;
   background-color: #f9f9f9;
@@ -74,14 +75,17 @@ h3 {
 }
 
 /* general styling */
-input, select, input[type="number"], textarea {
-  flex: 1; 
-  padding:  var(--size-space-300) var(--size-space-400);
+input,
+select,
+input[type="number"],
+textarea {
+  flex: 1;
+  padding: var(--size-space-300) var(--size-space-400);
   border: var(--border-input-width) solid var(--border-input-color);
   border-radius: var(--border-radius-200);
   font-size: var(--small-body-font-size);
   color: var(--text-color);
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 /* specifics */
 select {
@@ -129,7 +133,7 @@ textarea {
   border-radius: var(--border-radius-200);
 }
 /* size and positioning per button id*/
-#submitAccountButton, 
+#submitAccountButton,
 #loginButton {
   align-self: stretch;
 }
@@ -137,18 +141,21 @@ textarea {
   align-self: flex-start;
   width: fit-content;
 }
-#exportFeedbackButton{
+#exportFeedbackButton {
   width: fit-content;
 }
-#languageButton{
-   /* removes global styling of buttons (here unwanted) */
-   background: none;
-   border: none;
-   padding: 0;
+#languageButton {
+  /* removes global styling of buttons (here unwanted) */
+  background: none;
+  border: none;
+  padding: 0;
 }
 
 /* admin buttons: orange */
-.toggle-permission, #deletePartnersButton, #extendAccountButton, .btn_btn-warning {
+.toggle-permission,
+#deletePartnersButton,
+#extendAccountButton,
+.btn_btn-warning {
   all: unset;
   background-color: var(--ISS-orange-color);
   color: black;
@@ -159,7 +166,10 @@ textarea {
   padding: var(--size-space-100);
   white-space: nowrap; /* only one line text */
 }
-.toggle-permission:hover, #deletePartnersButton:hover, #extendAccountButton:hover, .btn_btn-warning:hover {
+.toggle-permission:hover,
+#deletePartnersButton:hover,
+#extendAccountButton:hover,
+.btn_btn-warning:hover {
   background-color: var(--ISS-orange-color);
   color: #fff;
   border-radius: var(--border-radius-200);
@@ -190,9 +200,8 @@ textarea {
   display: flex; /* places elements next to each other */
   align-items: center; /* center vertically */
   gap: var(--size-space-400); /* distance between label and input */
-  padding: var(--size-space-100)
+  padding: var(--size-space-100);
 }
-
 
 /*
     NAVIGATION
@@ -201,16 +210,20 @@ textarea {
   display: flex;
   flex-wrap: wrap;
 
-  width: calc(100% - 80px); /* full width: topnav spans full width of website; nav-items start further right*/
+  width: calc(
+    100% - 80px
+  ); /* full width: topnav spans full width of website; nav-items start further right*/
   margin-left: -20px;
   padding: 0px var(--size-space-1600);
-  
+
   height: auto;
   align-items: center;
   gap: var(--size-space-200);
   position: relative;
-  
-  background-color: var(--ISS-light-blue-color); /* add light blue color to the top navigation bar*/
+
+  background-color: var(
+    --ISS-light-blue-color
+  ); /* add light blue color to the top navigation bar*/
 }
 
 .topnav a {
@@ -231,19 +244,20 @@ textarea {
   border-radius: var(--border-radius-200);
 }
 .topnav a:hover.active,
-.topnav button:hover{
+.topnav button:hover {
   background-color: var(--ISS-medium-blue-color);
   color: black;
   border-radius: var(--border-radius-200);
 }
-.topnav a:hover:not(.active){ /* add hover effect to all elements except the active one */
+.topnav a:hover:not(.active) {
+  /* add hover effect to all elements except the active one */
   background-color: var(--ISS-light-blue-color);
   color: black;
   border-radius: var(--border-radius-200);
 }
 
 /* Profile Icon */
-.topnav .profileIcon{
+.topnav .profileIcon {
   width: 18px;
   height: auto;
 }
@@ -252,7 +266,7 @@ textarea {
   margin-left: auto;
   display: flex;
   align-items: center;
-  gap: var(--size-space-200)
+  gap: var(--size-space-200);
 }
 
 /* Login- and Logout-Buttons */
@@ -286,7 +300,7 @@ textarea {
   height: auto;
   border-radius: 3px; /* rounded corners */
 }
-.languageSelector{
+.languageSelector {
   position: relative;
   /* push outside the viewport */
   transform: translateX(160%);
@@ -303,10 +317,10 @@ textarea {
     HOMEPAGE
 */
 .homepage-header {
-  display: flex; 
-  align-items: center; 
-  gap: var(--size-space-400); 
-  padding: var(--size-space-400); 
+  display: flex;
+  align-items: center;
+  gap: var(--size-space-400);
+  padding: var(--size-space-400);
 }
 .iss_logo {
   width: 150px;
@@ -318,16 +332,18 @@ textarea {
 }
 
 .homepage-body {
-  display: flex; 
+  display: flex;
   flex-wrap: nowrap;
 }
 /* var(--variable, fallbackValue), because browser sometimes has rendering problems */
 .cover_image {
   /* position */
-  margin: calc(-1 * var(--size-space-500, 20px)); /* substracts margin, so that image starts at leftmost edge */
+  margin: calc(
+    -1 * var(--size-space-500, 20px)
+  ); /* substracts margin, so that image starts at leftmost edge */
   height: 79vh;
   width: auto;
-  
+
   /* rounded upper rigth corner */
   border-top-right-radius: 50%;
 }
@@ -337,14 +353,14 @@ textarea {
   font-weight: var(--body-font-weight);
 
   max-width: 30%;
-  margin-left: auto; 
+  margin-left: auto;
 }
-.about-us-text .line{
+.about-us-text .line {
   display: block;
   margin-top: var(--size-space-200, 8px);
 }
 
-.admin-message{
+.admin-message {
   flex: 1;
   text-align: center;
   position: relative;
@@ -361,24 +377,23 @@ textarea {
   white-space: normal;
 }
 
-
 /*
     LOGIN:
 */
 .form-login {
-  display: flex; 
+  display: flex;
   flex-direction: column;
   gap: var(--size-space-600);
   padding: var(--size-space-600);
 
   /*centering*/
   width: 28%;
-  margin: var(--size-space-500) 0; 
+  margin: var(--size-space-500) 0;
 
   /*styling of "box"*/
   background-color: white;
-  border-radius: var(--border-radius-200); 
-  border: var(--border-box-width) solid var(--ISS-orange-color); 
+  border-radius: var(--border-radius-200);
+  border: var(--border-box-width) solid var(--ISS-orange-color);
 }
 .loginLabel {
   position: relative;
@@ -393,22 +408,21 @@ textarea {
   border-radius: var(--border-radius-200);
   border: var(--border-input-width) solid var(--border-input-color);
   box-sizing: border-box;
-  margin-bottom: var(--size-space-200); 
+  margin-bottom: var(--size-space-200);
 }
-
 
 /*
     CREATE ACCOUNT:
 */
-.form-account-creation{
-  display: flex; 
+.form-account-creation {
+  display: flex;
   flex-direction: column;
   gap: 0;
   padding: 0;
 
   /*centering*/
-  width: 60%; 
-  margin: var(--size-space-500) 0; 
+  width: 60%;
+  margin: var(--size-space-500) 0;
 }
 
 .privacy-container {
@@ -419,31 +433,31 @@ textarea {
 }
 
 .password-box {
-  padding: var(--size-space-400); 
-  border: var(--border-box-width) solid var(--ISS-orange-color); 
-  border-radius: var(--border-radius-200); 
+  padding: var(--size-space-400);
+  border: var(--border-box-width) solid var(--ISS-orange-color);
+  border-radius: var(--border-radius-200);
   background-color: var(--ISS-light-orange-color);
-  margin-top: var(--size-space-400); 
+  margin-top: var(--size-space-400);
   margin-bottom: var(--size-space-400);
 }
 .password-box label {
   display: block;
-  margin-bottom: var(--size-space-200); 
+  margin-bottom: var(--size-space-200);
   font-size: var(--body-font-size);
-  color: var(--text-color)
+  color: var(--text-color);
 }
 .password-box input {
-  width: 100%; 
-  padding: 10px; 
-  border: var(--border-input-width) solid var(--border-input-color); 
+  width: 100%;
+  padding: 10px;
+  border: var(--border-input-width) solid var(--border-input-color);
   border-radius: var(--border-radius-200);
   box-sizing: border-box;
   margin-bottom: var(--size-space-200);
 }
 .password-box .description {
   margin-top: var(--size-radius-200);
-  font-size: var(--small-body-font-size); 
-  line-height: 1.5; 
+  font-size: var(--small-body-font-size);
+  line-height: 1.5;
   color: gray;
 }
 
@@ -451,7 +465,7 @@ textarea {
     ADMIN:
 */
 /* edit homepage */
-.form-edit-homepage{
+.form-edit-homepage {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -460,7 +474,7 @@ textarea {
 /* 
   FEEDBACK: 
 */
-.form-feedback{
+.form-feedback {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -480,12 +494,12 @@ textarea {
   flex-direction: column;
   gap: var(--size-space-300);
 }
-.partners_list_item{
+.partners_list_item {
   /* styles box */
   border: var(--border-box-width) solid var(--border-input-color);
   border-radius: var(--border-radius-200);
-  padding:  var(--size-space-300) var(--size-space-400);
-  box-sizing: border-box; 
+  padding: var(--size-space-300) var(--size-space-400);
+  box-sizing: border-box;
   /* styles text */
   font-size: var(--body-font-size);
   color: var(--text-color);
@@ -494,10 +508,10 @@ textarea {
 .partners_list_item::before {
   content: "";
   display: inline-block;
-  width: 20px;  /* Adjust the size as needed */
+  width: 20px; /* Adjust the size as needed */
   height: 20px; /* Adjust the size as needed */
   margin-right: var(--size-space-200); /* Space between the image and text */
-  background-image:  url('/static/images/profile_icon.png'); /* Path to your PNG file */
+  background-image: url("/static/images/profile_icon.png"); /* Path to your PNG file */
   background-size: cover; /* Ensures the image covers the pseudo-element */
   background-repeat: no-repeat;
   vertical-align: middle;
@@ -509,8 +523,8 @@ textarea {
 /* personal information */
 .profile-content {
   /* styles box */
-  border: var(--border-box-width) solid var(--ISS-orange-color); 
-  border-radius: var(--border-radius-200); 
+  border: var(--border-box-width) solid var(--ISS-orange-color);
+  border-radius: var(--border-radius-200);
   background-color: var(--ISS-light-orange-color);
   padding: var(--size-space-300) var(--size-space-400);
   box-sizing: border-box;
@@ -520,8 +534,9 @@ textarea {
   font-weight: var(--body-font-weight);
   color: var(--text-color);
 }
-.profile-content p:first-of-type { /* first p is highlighted*/
-  color: var(--ISS-orange-color); 
+.profile-content p:first-of-type {
+  /* first p is highlighted*/
+  color: var(--ISS-orange-color);
   font-weight: bold;
 }
 
@@ -531,19 +546,21 @@ textarea {
   align-items: center;
   gap: var(--size-space-200);
 }
-.btn_btn-warning{
-  display: inline-block; 
+.btn_btn-warning {
+  display: inline-block;
   margin-top: var(--size-space-200);
 }
 
 /*
   MOBILE STYLES
 */
-@media only screen and (max-width: 600px) { /*break-point according to https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp */
+@media only screen and (max-width: 600px) {
+  /*break-point according to https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp */
   /*
     GLOBAL STYLES
   */
-  body{ /*reduce margins for smaller screens*/
+  body {
+    /*reduce margins for smaller screens*/
     margin: var(--size-space-250);
     /*background-color: red; /* for testing */
   }
@@ -557,8 +574,11 @@ textarea {
   h3 {
     font-size: 24px;
   }
-  input, select, input[type="number"], textarea {
-    width: 100%; 
+  input,
+  select,
+  input[type="number"],
+  textarea {
+    width: 100%;
   }
 
   /*
@@ -566,35 +586,35 @@ textarea {
   */
   /* Turn the horizontal topnav into a vertical sidebar */
   .topnav {
-    flex-direction: column; 
+    flex-direction: column;
 
-    width: 200px;                     
-    height: 100vh;   
+    width: 200px;
+    height: 100vh;
 
     /* positioning */
-    position: fixed;         
+    position: fixed;
     top: 0;
-    right: 0;               
-    padding: var(--size-space-250)  var(--size-space-250) var(--size-space-250);               
+    right: 0;
+    padding: var(--size-space-250) var(--size-space-250) var(--size-space-250);
 
     /* makes sure it sits on top */
-    z-index: 1000;  
+    z-index: 1000;
 
     /* add opaque background color */
-    background-color: var(--ISS-medium-blue-color); 
+    background-color: var(--ISS-medium-blue-color);
   }
   .topnav a,
   .topnav button,
   .topnav form {
     width: 100%;
     margin: 0;
-    text-align: left;                   
+    text-align: left;
   }
 
   /* moves login/ logout button and profile in the middle */
   .topnav .loginButton,
   .topnav form,
-  .topnav .profile-container { 
+  .topnav .profile-container {
     margin-left: 0;
   }
   .topnav .loginButton {
@@ -604,14 +624,13 @@ textarea {
     width: 40%;
   }
   .languageSelector {
-    position: static;                
-    transform: none;                  
+    position: static;
+    transform: none;
   }
 
-
   /* move buttons down*/
-  .topnav > *:first-child{
-    margin-top: 50px; 
+  .topnav > *:first-child {
+    margin-top: 50px;
   }
   /* move profile and login button to the bottom */
   .topnav > div.profile-container,
@@ -624,13 +643,10 @@ textarea {
     margin-bottom: 100px;
   }
 
- 
-    
-
   /* Hamburger menu */
   .hamburger {
     align-self: flex-end;
-    
+
     background: none;
     border: none;
     cursor: pointer;
@@ -649,7 +665,7 @@ textarea {
     transition: all 0.3s ease;
   }
   /* move hamburger to the right */
-  .sidenav-container{
+  .sidenav-container {
     display: flex;
     flex-direction: column;
   }
@@ -662,7 +678,7 @@ textarea {
   .nav-open .topnav {
     transform: translateX(0);
   }
-  
+
   /* move the page content to the left */
   .page-content {
     transition: transform 0.3s ease;
@@ -671,40 +687,39 @@ textarea {
     transform: translateX(-220px);
   }
 
-
   /*
       HOMEPAGE:
   */
   .homepage-header {
-    gap: var(--size-space-200); 
+    gap: var(--size-space-200);
   }
   .iss_logo {
     width: 100px;
     margin-left: -30px;
   }
   .homepage-body {
-    display: flex; 
+    display: flex;
     flex-wrap: wrap-reverse; /* default: image and text displayed next to each other; if zoomed in: text is displayed above image */
     justify-content: space-between;
-    gap: var(--size-space-300); 
+    gap: var(--size-space-300);
   }
-  .cover_image {  
-    /* positions at left-most edge */        
+  .cover_image {
+    /* positions at left-most edge */
     position: relative;
-    left: -10%;  
-    margin-top: var(--size-radius-200);   
+    left: -10%;
+    margin-top: var(--size-radius-200);
     margin-bottom: calc(-1 * var(--size-space-600));
 
     height: auto;
     width: 105%;
 
-     /* rounded upper rigth corner */
-     border-top-right-radius: 1%;
-     border-bottom-right-radius: 50%;
+    /* rounded upper rigth corner */
+    border-top-right-radius: 1%;
+    border-bottom-right-radius: 50%;
   }
   .homepage-text {
     max-width: 100%;
-    margin-left: auto; 
+    margin-left: auto;
   }
 
   /*
@@ -713,26 +728,28 @@ textarea {
   .form-login {
     gap: var(--size-space-400);
     padding: var(--size-space-400);
-    width: 90%; 
-    margin: var(--size-space-500) auto; 
+    width: 90%;
+    margin: var(--size-space-500) auto;
   }
   .loginInput {
-    margin-bottom: var(--size-space-100); 
+    margin-bottom: var(--size-space-100);
   }
-  
+
   /*
       CREATE ACCOUNT:
   */
-  .form-account-creation{
+  .form-account-creation {
     width: 100%; /* full width */
   }
-  .form-account-creation .form-box { /* for mobile: not as repeated style/ not in feedback */
+  .form-account-creation .form-box {
+    /* for mobile: not as repeated style/ not in feedback */
     flex-direction: column;
-    align-items: flex-start; 
-    gap: 0; 
+    align-items: flex-start;
+    gap: 0;
     margin-bottom: var(--border-radius-200);
   }
-  input[type="checkbox"] { /* checkboxes need special treatment somehow */
+  input[type="checkbox"] {
+    /* checkboxes need special treatment somehow */
     flex: 0;
     width: auto;
     margin-right: var(--size-radius-200);
@@ -743,7 +760,7 @@ textarea {
   /* 
     FEEDBACK: 
   */
-  .form-feedback{
+  .form-feedback {
     gap: var(--size-space-200);
   }
 
@@ -754,25 +771,25 @@ textarea {
     padding: var(--size-space-200) var(--size-space-300);
   }
   .account-deletion-warning {
-    gap: calc(-1* var(--size-space-200));
+    gap: calc(-1 * var(--size-space-200));
     flex-direction: column;
     align-items: flex-start;
   }
 
   /* MATCH(ES): no changes*/
-
 }
 
 /*
   TABLET STYLES
   currently more to make zooming in look more dynamic; could be expanded in future iterations
 */
-@media only screen and (max-width: 768px){ /*break-point according to https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp */
+@media only screen and (max-width: 768px) {
+  /*break-point according to https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp */
   .homepage-body {
-    display: flex; 
+    display: flex;
     flex-wrap: wrap-reverse;
     justify-content: space-between;
-    gap: var(--size-space-300); 
+    gap: var(--size-space-300);
 
     flex-direction: column;
   }
@@ -782,6 +799,6 @@ textarea {
   }
   .homepage-text {
     max-width: 100%;
-    margin-left: auto; 
+    margin-left: auto;
   }
 }
