@@ -1,0 +1,81 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_USER: buddymatchinguser
+          POSTGRES_PASSWORD: P455w0rd
+          POSTGRES_DB: buddymatchingdatabase
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Python dependencies
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install -r requirements.txt
+          pip install ruff djlint
+
+      - name: Install Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      # code quality checks
+      - name: Check Python code formatting & Lints
+        run: |
+          source venv/bin/activate
+          ruff format --check
+          ruff check --output-format=github .
+
+      - name: Check Django template formatting
+        run: |
+          source venv/bin/activate
+          djlint . --check
+
+      - name: Check JavaScript & CSS formatting
+        run: |
+          cd frontend
+          npx prettier --check "**/*.{js,css}"
+
+      - name: Check for typos
+        uses: crate-ci/typos@v1.27.2
+        with:
+          config: ./typos.toml
+
+      # testing
+      - name: Django Migrations & Tests
+        env:
+          DATABASE_URL: postgres://buddymatchinguser:P455w0rd@localhost:5432/mydatabase
+        run: |
+          source venv/bin/activate
+          python manage.py migrate
+          python manage.py test
