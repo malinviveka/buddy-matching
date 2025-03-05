@@ -64,8 +64,7 @@ jobs:
 
       - name: Check JavaScript & CSS formatting
         run: |
-          cd frontend
-          npx prettier --check "**/*.{js,css}"
+          npx prettier --check "myproject/static/**/*.js" "myproject/static/**/*.ts" "myproject/static/**/*.css"
 
       - name: Check for typos
         uses: crate-ci/typos@v1.27.2
