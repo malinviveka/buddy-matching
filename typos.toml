@@ -1,9 +1,0 @@
-[default]
-# Set the language for spell checking
-locale = ["en", "de"]
-
-[files]
-# Exclude common auto-generated directories (safe default)
-extend-exclude = [
-    ".git/",
-]

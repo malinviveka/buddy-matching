@@ -66,11 +66,14 @@ jobs:
         run: |
           npx prettier --check "myproject/static/**/*.js" "myproject/static/**/*.ts" "myproject/static/**/*.css"
 
-      - name: Check for typos
-        uses: crate-ci/typos@v1.27.2
-        with:
-          config: ./typos.toml
+      - name: Install LanguageTool
+        run: |
+          pip install languagetool
 
+      - name: Check for typos using LanguageTool (English and German)
+        run: |
+          languagetool -l en-US -l de-DE . --skip .git,*.md,node_modules
+          
       # testing
       - name: Django Migrations & Tests
         env:
