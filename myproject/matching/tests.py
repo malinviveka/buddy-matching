@@ -2,8 +2,8 @@
 
 from django.test import TestCase
 from feedback.models import BuddyMatchingUser  
-from matching.matching import run_matching, gale_shapley
-from matching.matching_utils import create_preference_lists, calculate_match_score
+from matching.matching import gale_shapley
+from matching.matching_utils import create_preference_lists
 
 class MatchingTestCase(TestCase):
     def setUp(self):

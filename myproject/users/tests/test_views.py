@@ -1,8 +1,6 @@
 from django.test import TestCase, Client
 from django.urls import reverse
 from users.models import BuddyMatchingUser
-from users.forms import BuddyMatchingUserCreationForm
-import json
 
 class AccountCreationViewTests(TestCase):
     def setUp(self):

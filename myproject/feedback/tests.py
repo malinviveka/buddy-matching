@@ -4,7 +4,6 @@ from django.test import TestCase
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 from .models import Feedback, BuddyMatchingUser
-import random
 User = get_user_model()
 class FeedbackTestCase(TestCase):
     def setUp(self):
@@ -55,7 +54,7 @@ class FeedbackTestCase(TestCase):
         self.client.login(email='buddy@test.com', password='test123')
 
        
-        response = self.client.post(reverse('submit_feedback'), {
+        self.client.post(reverse('submit_feedback'), { #removed response = as it is never used
             'student': self.student.id,
             'rating_1': 'Awesome',  # invalid rating
             'rating_2': 'G',  # valid rating

@@ -18,7 +18,6 @@ def homepage(request):
     """
 
     homepage_text, created = HomepageText.objects.get_or_create(id=1)
-    days_left = None
 
     # Wählen Sie den Inhalt je nach Sprache
     language_code = get_language()  # Gibt den aktuellen Sprachcode zurück (z.B. 'de' oder 'en')
@@ -29,7 +28,6 @@ def homepage(request):
 
     if request.user.is_authenticated:
         user = request.user
-        days_left = (user.deletion_date - now().date()).days
 
     return render(request, 'homepage/homepage.html', {
         "content": content,
