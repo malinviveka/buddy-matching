@@ -1,38 +1,37 @@
 {% extends 'homepage/base.html' %}
-
 {% load static i18n %}
-
 {% block title %}Homepage{% endblock %}
-
 {% block content %}
     <script src="{% static 'core/main.js' %}" defer></script> <!-- Link to compiled JavaScript -->
-
-    
     <div class="homepage-header">
-        <img src="{% static 'images/no_background_iss_logo.png' %}" alt="Logo" class="iss_logo">
+        <img src="{% static 'images/no_background_iss_logo.png' %}"
+             alt="Logo"
+             class="iss_logo">
         <h1>{% trans "ISS Buddy Programme" %}</h1>
     </div>
-
-
     <div class="homepage-body">
-        <img src="{% static 'images/homepage_iss_cover_image.png' %}" alt="Group Photo" class="cover_image">
-
+        <img src="{% static 'images/homepage_iss_cover_image.png' %}"
+             alt="Group Photo"
+             class="cover_image">
         <div class="homepage-text">
             <h3>{% trans "about us" %}</h3>
             <p class="about-us-text">
-                <strong>{% trans "Welcome to the TU Darmstadt Buddy Programme!" %}</strong> <br>
+                <strong>{% trans "Welcome to the TU Darmstadt Buddy Programme!" %}</strong>
+                <br>
                 <span class="line">{% trans "Are you an exchange student looking for local support and a friendly face at TU Darmstadt? Or are you a local student eager to connect with internationals, gain intercultural experience, and prepare for your own stay abroad?" %}</span>
                 <span class="line"></span>{% trans "Our Buddy Programme brings international and local students together for cultural exchange, friendship, and mutual support. Whether you need help settling in, discovering the city, or simply want to meet new people – this program is for you!" %}</span>
                 <span class="line"></span>{% trans "Sign up today and start your journey with a Buddy at TU Darmstadt!" %}</span>
                 <span class="line">
-                    <a class="pdf-link" href="{% static 'docs/datenschutzinformation_vorlage_v3.pdf' %}" target="_blank"> {% trans "Privacy Policy" %}</a>
-                    <a class= "pdf-link" href="{% static 'docs/Netiquette.pdf' %}" target="_blank"> Netiquette </a>
+                    <a class="pdf-link"
+                       href="{% static 'docs/datenschutzinformation_vorlage_v3.pdf' %}"
+                       target="_blank">{% trans "Privacy Policy" %}</a>
+                    <a class="pdf-link"
+                       href="{% static 'docs/Netiquette.pdf' %}"
+                       target="_blank">Netiquette</a>
                 </span>
             </p>
-
             <!--message from admin:-->
             <p class="admin-message">{{ content }}</p>
         </div>
-    
     </div>
-{% endblock %} 
+{% endblock %}

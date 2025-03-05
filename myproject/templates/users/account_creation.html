@@ -1,76 +1,85 @@
-
 {% extends 'homepage/base.html' %}
-
 {% block title %}Create Account{% endblock %}
-
 {% load static i18n %}
-
 {% block content %}
     <script src="{% static 'users/account_creation.js' %}" defer></script>
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" /> <!-- select2 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"
+          rel="stylesheet" />
+    <!-- select2 CSS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery (required for select2) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script> <!-- select2 JS -->
-
     <h2>{% trans "Create Account" %}</h2>
-
     {% get_current_language as LANGUAGE_CODE %}
     <div id="language-info" data-language="{{ LANGUAGE_CODE }}"></div>
-    
-    
-    <form id="accountCreationForm" method="POST" action="{% url 'create_account' %}" class="form-account-creation">
+    <form id="accountCreationForm"
+          method="POST"
+          action="{% url 'create_account' %}"
+          class="form-account-creation">
         {% csrf_token %}
-        
         <!-- LABELS AND INPUT FIELDS -->
-        <div class="form-box"> 
+        <div class="form-box">
             <label for="id_role">{% trans "Role:" %}</label>
             {{ form.role }}
         </div>
-        <div class="form-box"> 
+        <div class="form-box">
             <label for="id_surname">{% trans "Surname:" %}</label>
             {{ form.surname }}
         </div>
-        <div class="form-box"> 
+        <div class="form-box">
             <label for="id_first_name">{% trans "First Name:" %}</label>
             {{ form.first_name }}
         </div>
-        <div class="form-box"> 
+        <div class="form-box">
             <label for="id_preferred_language">{% trans "Preferred Language:" %}</label>
             {{ form.preferred_language }}
         </div>
-        <div class="form-box"> 
+        <div class="form-box">
             <label for="id_email">E-Mail:</label>
             <!--{{ form.email }}-->
-            <input type="email" name="email" id="id_email" class="form-control" placeholder="@stud.tu-darmstadt.de", required>
+            <input type="email"
+                   name="email"
+                   id="id_email"
+                   class="form-control"
+                   placeholder="@stud.tu-darmstadt.de"
+                   required>
         </div>
-        <div class="form-box"> 
+        <div class="form-box">
             <label for="id_degree_level">{% trans "Degree Level:" %}</label>
             {{ form.degree_level }}
         </div>
-        <div class="form-box"> 
+        <div class="form-box">
             <label for="id_app_matr_number">{% trans "Matriculation/Application Number:" %}</label>
             <!--{{ form.app_matr_number }}-->
-            <input type="text" name="app_matr_number" id="id_app_matr_number" class="form-control" placeholder="0123456", required>
+            <input type="text"
+                   name="app_matr_number"
+                   id="id_app_matr_number"
+                   class="form-control"
+                   placeholder="0123456"
+                   required>
         </div>
-        <div class="form-box"> 
+        <div class="form-box">
             <label for="id_department">{% trans "Department:" %}</label>
             {{ form.department }}
         </div>
-        <div class="form-box">     
+        <div class="form-box">
             <label for="id_country">{% trans "Country:" %}</label>
             {{ form.country }}
         </div>
-        <div class="form-box"> 
+        <div class="form-box">
             <label for="id_preferred_number_of_partners">{% trans "Preferred Number of Partners:" %}</label>
             <!--{{ form.preferred_number_of_partners }}-->
             <!-- value="1": preferred number of partners field is hidden from international students but still has to be filled out-->
-            <input type="number" name="preferred_number_of_partners" id="id_preferred_number_of_partners" class="form-control", data-role-field="Buddy", value="1">
+            <input type="number"
+                   name="preferred_number_of_partners"
+                   id="id_preferred_number_of_partners"
+                   class="form-control"
+                   data-role-field="Buddy"
+                   value="1">
         </div>
-        <div class="form-box"> 
+        <div class="form-box">
             <label for="id_interests">{% trans "Interests:" %}</label>
             {{ form.interests }}
         </div>
-
         <!-- initializing select2 field for country list -->
         <script class="country-searchbar">
             $(document).ready(function() {
@@ -94,50 +103,52 @@
                 });
             });
         </script>
-
         <!-- PASSWORD SECTION-->
         <div class="password-box">
             <label for="id_password1">{% trans "Password:" %}</label>
             <!--{{ form.password1 }}-->
-            <input type="password" name="password1" id="id_password1" class="form-control" required>
-
+            <input type="password"
+                   name="password1"
+                   id="id_password1"
+                   class="form-control"
+                   required>
             <p class="description">
-                {% trans "Your password can’t be too similar to your other personal information." %} <br> 
-                {% trans "Your password must contain at least 8 characters." %} <br>
-                {% trans "Your password can’t be a commonly used password." %} <br>
+                {% trans "Your password can’t be too similar to your other personal information." %}
+                <br>
+                {% trans "Your password must contain at least 8 characters." %}
+                <br>
+                {% trans "Your password can’t be a commonly used password." %}
+                <br>
                 {% trans "Your password can’t be entirely numeric." %}
             </p>
-
             <label for="id_password2">{% trans "Confirm Password:" %}</label>
             <!--{{ form.password2 }}-->
-            <input type="password" name="password2" id="id_password2" class="form-control" required>
-
-            <p class="description">
-                {% trans "Enter the same password as before, for verification." %}
-            </p>
+            <input type="password"
+                   name="password2"
+                   id="id_password2"
+                   class="form-control"
+                   required>
+            <p class="description">{% trans "Enter the same password as before, for verification." %}</p>
         </div>
-
-         <!--DATA PROTECTION AGREEMENT-->
-         <div class="privacy-container">
-            <p><strong> Privacy Policy </strong></p>
-
-            <p> Please read the
-            <a class= "pdf-link" href="{% static 'docs/datenschutzinformation_vorlage_v3.pdf' %}" target="_blank"> Privacy Policy</a>
-            and then confirm. </p>
-            
+        <!--DATA PROTECTION AGREEMENT-->
+        <div class="privacy-container">
+            <p>
+                <strong>Privacy Policy</strong>
+            </p>
+            <p>
+                Please read the
+                <a class="pdf-link"
+                   href="{% static 'docs/datenschutzinformation_vorlage_v3.pdf' %}"
+                   target="_blank">Privacy Policy</a>
+                and then confirm.
+            </p>
             <p class="checkbox-privacy-policy">
                 <input type="checkbox" id="privacy_policy" name="privacy_policy" required>
                 <label for="privacy_policy">I have read and agree to the Privacy Policy.</label>
             </p>
         </div>
-        
-         
         <!-- SUBMIT BUTTON -->
         <button type="submit" id="submitAccountButton" class="button">{% trans "Create Account" %}</button>
-
-       
     </form>
-
     <div id="message" style="margin-top: 20px;"></div>
-
 {% endblock %}

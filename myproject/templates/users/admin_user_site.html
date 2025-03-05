@@ -1,21 +1,15 @@
 {% extends 'homepage/base.html' %}
-
 {% block title %}Admin User Management{% endblock %}
-
 {% load static i18n %}
-
 {% block content %}
-
-<script src="{% static 'users/admin_user_list.js' %}"></script>
-<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
-
+    <script src="{% static 'users/admin_user_list.js' %}"></script>
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
     <h2>Admin User Management</h2>
     <!--Sorry, dass die Seiteso hässlig ist-->
     <form action="{% url 'start_matching' %}" method="post">
         {% csrf_token %}
         <button type="submit" id="assignMatchesButton" class="button">{% trans "Run Matching" %}</button>
     </form>
-
     <table>
         <thead>
             <tr>
@@ -30,43 +24,45 @@
         </thead>
         <tbody>
             {% for user in users %}
-            <tr id="user-{{ user.id }}">
-                <td>{{ user.email }}</td>
-                <td>{{ user.first_name }}</td>
-                <td>{{ user.surname }}</td>
-                <td>{{ user.app_matr_number }}</td>
-                <td class="status">
-                    {% if user.is_permitted %}
-                        {% trans "permitted" %}
-                    {% else %}
-                        {% trans "not permitted" %}
-                    {% endif %}
-                </td>
-                <!-- Button for toggling permission of a given user -->
-                <td>
-                    <button class="toggle-permission" data-user-id="{{ user.id }}">
-                        {% if user.is_permitted %}{% trans "revoke" %}{% else %}{% trans "permit" %}{% endif %}
-                    </button>
-                </td>
-                <td>
-                    {% if user.partner_names %}
-                        {{ user.partner_names|join:', ' }}
-                    {% else %}
-                        {% trans "no matches" %}
-                    {% endif %}
-                </td>
-                <!-- Button for purging partners of a given user -->
-                <td>
-                    <form action="{% url 'delete_partners' user.id %}" method="post">
-                        {% csrf_token %}
-                        <button type="submit" id= "deletePartnersButton" class="button">{% trans "Delete all matches" %}</button>
-                    </form>
-                </td>
-            </tr>
+                <tr id="user-{{ user.id }}">
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.first_name }}</td>
+                    <td>{{ user.surname }}</td>
+                    <td>{{ user.app_matr_number }}</td>
+                    <td class="status">
+                        {% if user.is_permitted %}
+                            {% trans "permitted" %}
+                        {% else %}
+                            {% trans "not permitted" %}
+                        {% endif %}
+                    </td>
+                    <!-- Button for toggling permission of a given user -->
+                    <td>
+                        <button class="toggle-permission" data-user-id="{{ user.id }}">
+                            {% if user.is_permitted %}
+                                {% trans "revoke" %}
+                            {% else %}
+                                {% trans "permit" %}
+                            {% endif %}
+                        </button>
+                    </td>
+                    <td>
+                        {% if user.partner_names %}
+                            {{ user.partner_names|join:', ' }}
+                        {% else %}
+                            {% trans "no matches" %}
+                        {% endif %}
+                    </td>
+                    <!-- Button for purging partners of a given user -->
+                    <td>
+                        <form action="{% url 'delete_partners' user.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" id= "deletePartnersButton" class="button">{% trans "Delete all matches" %}</button>
+                        </form>
+                    </td>
+                </tr>
             {% endfor %}
         </tbody>
     </table>
-
     <br>
-
 {% endblock %}

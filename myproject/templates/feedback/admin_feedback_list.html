@@ -1,44 +1,41 @@
 {% extends 'homepage/base.html' %}
-
 {% block title %}Admin Feedback Management{% endblock %}
-
 {% load static %}
-
 {% block content %}
-<!-- <script src="{% static 'helloapp/admin_feedback_list.js' %}"></script> Warning! File does not seem to exist? -->
-<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
-
-<h2>Admin Feedback Management</h2>
-
-<!-- Optional buttons for actions (e.g. export) -->
-<a href="{% url 'export_feedback_csv' %}" id="exportFeedbackButton" class="button">{% trans "Export Feedback (CSV)" %}</a> <br><br>
-
-<table>
-    <thead>
-        <tr>
-            <th>Email des Studenten</th>
-            <th>Text Feedback</th>
-            <th>Bewertung 1</th>
-            <th>Bewertung 2</th>
-            <th>Datum</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for feedback in feedbacks %}
-        <tr id="feedback-{{ feedback.id }}">
-            <td>{{ feedback.student.email }}</td>
-            <td>{{ feedback.text_feedback }}</td>
-            <td>{{ feedback.rating_1 }}</td>
-            <td>{{ feedback.rating_2 }}</td>
-            <td>{{ feedback.submitted_at }}</td>
-        </tr>
-        {% empty %}
-        <tr>
-            <td colspan="5">{% trans "No feedback Entries found." %}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-
-<br>
+    <!-- <script src="{% static 'helloapp/admin_feedback_list.js' %}"></script> Warning! File does not seem to exist? -->
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+    <h2>Admin Feedback Management</h2>
+    <!-- Optional buttons for actions (e.g. export) -->
+    <a href="{% url 'export_feedback_csv' %}"
+       id="exportFeedbackButton"
+       class="button">{% trans "Export Feedback (CSV)" %}</a>
+    <br>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Email des Studenten</th>
+                <th>Text Feedback</th>
+                <th>Bewertung 1</th>
+                <th>Bewertung 2</th>
+                <th>Datum</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for feedback in feedbacks %}
+                <tr id="feedback-{{ feedback.id }}">
+                    <td>{{ feedback.student.email }}</td>
+                    <td>{{ feedback.text_feedback }}</td>
+                    <td>{{ feedback.rating_1 }}</td>
+                    <td>{{ feedback.rating_2 }}</td>
+                    <td>{{ feedback.submitted_at }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5">{% trans "No feedback Entries found." %}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
 {% endblock %}
