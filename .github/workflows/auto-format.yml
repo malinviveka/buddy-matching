@@ -1,4 +1,4 @@
-name: Auto-format and fix typos on comment
+name: Auto-format
 
 on:
   issue_comment:
