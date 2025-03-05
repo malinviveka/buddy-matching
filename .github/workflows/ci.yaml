@@ -53,6 +53,7 @@ jobs:
       - name: Check Python code formatting & Lints
         run: |
           source venv/bin/activate
+          ruff format
           ruff format --check
           ruff check --output-format=github .
 
