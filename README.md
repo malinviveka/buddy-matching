@@ -146,3 +146,18 @@ Zusätzlich ist der Port gerade auf `5433` eingestellt, damit er sich nicht mit 
 - - - 
 
 Um Typescript Dateien in JavaScript zu kompilieren, kann über das Terminal der Befehl `tsc` ausgeführt werden. Durch diesen werden die Typescript files dann in Javascript "übersetzt".
+
+- - - 
+## Continuous Integration (CI) und Auto-Formatierung
+In diesem Projekt nutzen wir GitHub Actions, um die Codequalität sicherzustellen und automatisierte Formatierungen durchzuführen.
+
+### Continuous Integration (CI)
+Die CI-Pipeline wird bei jedem Push oder Pull-Request auf den main-Branch ausgelöst. Sie führt eine Reihe von Schritten durch:
+
+**Code-Formatierung & Linting**: Überprüft den Python-Code mit ruff, die Django-Templates mit djlint und JavaScript/CSS mit prettier auf Formatierungsfehler.
+**Testing & Migrationen**: Führt Django-Migrationen und Tests aus, um sicherzustellen, dass der Code funktional ist und die Datenbank korrekt migriert wurde.
+**Auto-Formatierung**:
+Über die GitHub Action „Auto-format and fix typos on comment“ können Benutzer auf einen Pull-Request mit dem Kommentar `/format` eine automatische Formatierung auslösen. Diese Action:
+  - Formatiert JavaScript, TypeScript und CSS-Dateien mit `prettier`.
+  - Formatiert Python-Code und Django-Templates mit `ruff` und `djlint`.
+  - Wenn Änderungen vorgenommen wurden, werden diese automatisch zurück in den Branch gepusht.
