@@ -6,6 +6,9 @@ on:
 
 jobs:
   format:
+    permissions:
+      pull-requests: read
+      contents: write
     if: ${{ github.event.issue.pull_request && github.event.comment.body == '/format' }}
     runs-on: ubuntu-latest
 
