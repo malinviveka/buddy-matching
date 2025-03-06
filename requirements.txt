@@ -4,3 +4,6 @@ bcrypt==4.2.1
 django-multiselectfield==0.1.13
 selenium==4.8.0
 webdriver-manager
+ruff
+djlint
+
