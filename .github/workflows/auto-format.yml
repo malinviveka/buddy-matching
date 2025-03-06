@@ -55,7 +55,11 @@ jobs:
       - name: Check for changes
         id: git-check
         run: |
-          git diff --quiet || echo "changes=true" >> $GITHUB_ENV
+          if git diff --quiet; then
+            echo "changes=false" >> $GITHUB_ENV
+          else
+            echo "changes=true" >> $GITHUB_ENV
+          fi
 
       - name: Commit changes
         if: env.changes == 'true'
@@ -63,5 +67,5 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add -A
-          git commit -m "Apply automatic formatting and fix typos"
+          git commit -m "Apply automatic formatting"
           git push
