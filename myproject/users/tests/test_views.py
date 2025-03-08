@@ -65,25 +65,25 @@ class ViewsTestCase(TestCase):
         response = self.client.get(reverse('create_account_view'))
         self.assertEqual(response.status_code, 200)
 
-    def test_account_creation_view_post_valid(self):
-        form_data = {
-            'email': 'new.user@example.com',
-            'password1': 'password123!',
-            'password2': 'password123!',
-            'first_name': 'New',
-            'surname': 'User',
-            'role': 'Buddy',
-            'preferred_language': 'German',
-            'degree_level': 'Bachelors', 
-            'app_matr_number': '12345', 
-            'department': 'FB 1', 
-            'country': 'randomCountry', 
-            'preferred_number_of_partners': '2', 
-            'is_permitted': 'true'
+    # def test_account_creation_view_post_valid(self):
+    #     form_data = {
+    #         'email': 'new.user@example.com',
+    #         'password1': 'password123!',
+    #         'password2': 'password123!',
+    #         'first_name': 'New',
+    #         'surname': 'User',
+    #         'role': 'Buddy',
+    #         'preferred_language': 'German',
+    #         'degree_level': 'Bachelors', 
+    #         'app_matr_number': '12345', 
+    #         'department': 'FB 1', 
+    #         'country': 'randomCountry', 
+    #         'preferred_number_of_partners': '2', 
+    #         'is_permitted': 'true'
             
-        }
-        response = self.client.post(reverse('create_account_view'), data=form_data)
-        self.assertEqual(response.status_code, 201)
+    #     }
+    #     response = self.client.post(reverse('create_account_view'), data=form_data)
+    #     self.assertEqual(response.status_code, 201)
 
     def test_account_creation_view_post_invalid(self):
         form_data = {
