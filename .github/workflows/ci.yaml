@@ -75,12 +75,12 @@ jobs:
           cd myproject
           python manage.py migrate
           python manage.py migrate
-          python manage.py test myproject.feedback.tests \
-          && python manage.py test myproject.homepage.tests \
-          && python manage.py test myproject.matching.tests \
-          && python manage.py test myproject.myproject.tests \
-          && python manage.py test myproject.users.tests.test_forms \
-          && python manage.py test myproject.users.tests.test_frontend \
-          && python manage.py test myproject.users.tests.test_templates \
-          && python manage.py test myproject.users.tests.test_views
+          python manage.py test feedback.tests \
+          && python manage.py test homepage.tests \
+          && python manage.py test matching.tests \
+          && python manage.py test myproject.tests \
+          && python manage.py test users.tests.test_forms \
+          && python manage.py test users.tests.test_frontend \
+          && python manage.py test users.tests.test_templates \
+          && python manage.py test users.tests.test_views
           
