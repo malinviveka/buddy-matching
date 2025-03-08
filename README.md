@@ -148,16 +148,13 @@ Zusätzlich ist der Port gerade auf `5433` eingestellt, damit er sich nicht mit 
 Um Typescript Dateien in JavaScript zu kompilieren, kann über das Terminal der Befehl `tsc` ausgeführt werden. Durch diesen werden die Typescript files dann in Javascript "übersetzt".
 
 - - - 
-## Continuous Integration (CI) und Auto-Formatierung
-In diesem Projekt nutzen wir GitHub Actions, um die Codequalität sicherzustellen und automatisierte Formatierungen durchzuführen.
+## Continuous Integration
 
-### Continuous Integration (CI)
-Die CI-Pipeline wird bei jedem Push oder Pull-Request auf den main-Branch ausgelöst. Sie führt eine Reihe von Schritten durch:
+Unser Projekt verwendet GitHub Actions für die **Continuous Integration (CI)**, um die Qualität und Wartbarkeit des Codes zu gewährleisten (s. `.github/workflows/ci.yaml`). Die CI-Pipeline läuft automatisch bei jeder Push- und Pull-Anfrage an den main-Branch.
 
-**Code-Formatierung & Linting**: Überprüft den Python-Code mit ruff, die Django-Templates mit djlint und JavaScript/CSS mit prettier auf Formatierungsfehler.
-**Testing & Migrationen**: Führt Django-Migrationen und Tests aus, um sicherzustellen, dass der Code funktional ist und die Datenbank korrekt migriert wurde.
-**Auto-Formatierung**:
-Über die GitHub Action „Auto-format and fix typos on comment“ können Benutzer auf einen Pull-Request mit dem Kommentar `/format` eine automatische Formatierung auslösen. Diese Action:
-  - Formatiert JavaScript, TypeScript und CSS-Dateien mit `prettier`.
-  - Formatiert Python-Code und Django-Templates mit `ruff` und `djlint`.
-  - Wenn Änderungen vorgenommen wurden, werden diese automatisch zurück in den Branch gepusht.
+### Was wird von CI geprüft?
+- Check Python code formatting & Lints (ruff): überprüft Python Formatierungs- und Linting-Fehler
+- Check Django template formatting (djlint): sorgt für konsistente Formatierung in Django-Templates
+- Check JavaScript & CSS formatting (Prettier): stellt sicher, dass JavaScript- und CSS-Dateien der Standardformatierung folgen
+- Django Migrations & Tests: Führt Datenbankmigrationen durch und führt Django-Tests aus, um die Funktionalität sicherzustellen
+	- Hierbei sind in der CI Files alle Test-Dateien aus den verschiedenen Apps aufgelistet, um sicherzustellen, dass alle Tests ausgeführt werden. Sollten weitere Test-Files hinzugefügt werden, sollten diese hier ebenfalls ergänzt werden.
