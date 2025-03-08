@@ -82,5 +82,6 @@ jobs:
           && python manage.py test users.tests.test_forms \
           && python manage.py test users.tests.test_frontend \
           && python manage.py test users.tests.test_templates \
+          && python manage.py test users.tests.test_models \
           && python manage.py test users.tests.test_views
           
