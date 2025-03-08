@@ -150,11 +150,19 @@ Um Typescript Dateien in JavaScript zu kompilieren, kann über das Terminal der 
 - - - 
 ## Continuous Integration
 
-Unser Projekt verwendet GitHub Actions für die **Continuous Integration (CI)**, um die Qualität und Wartbarkeit des Codes zu gewährleisten (s. `.github/workflows/ci.yaml`). Die CI-Pipeline läuft automatisch bei jeder Push- und Pull-Anfrage an den main-Branch.
+Unser Projekt verwendet GitHub Actions für die **Continuous Integration (CI)**, um die Qualität und Wartbarkeit des Codes zu gewährleisten. Die CI-Pipeline läuft automatisch bei jeder Push- und Pull-Anfrage an den main-Branch.
 
-### Was wird von CI geprüft?
+### Was wird von CI geprüft? (`ci.yaml`)
 - Check Python code formatting & Lints (ruff): überprüft Python Formatierungs- und Linting-Fehler
 - Check Django template formatting (djlint): sorgt für konsistente Formatierung in Django-Templates
 - Check JavaScript & CSS formatting (Prettier): stellt sicher, dass JavaScript- und CSS-Dateien der Standardformatierung folgen
 - Django Migrations & Tests: Führt Datenbankmigrationen durch und führt Django-Tests aus, um die Funktionalität sicherzustellen
 	- Hierbei sind in der CI Files alle Test-Dateien aus den verschiedenen Apps aufgelistet, um sicherzustellen, dass alle Tests ausgeführt werden. Sollten weitere Test-Files hinzugefügt werden, sollten diese hier ebenfalls ergänzt werden.
+
+## Automatische Formattierung (`auto-format.yml`)
+In dieser CI-Workflow-Konfiguration wurde eine automatisierte Formatierung implementiert, die auf das Kommando `/format` in Pull-Request-Kommentaren reagiert. Wenn dieses Kommando ausgelöst wird, passiert folgendes:
+- Prüfung des betroffenen Pull-Request-Branch
+- Installation der erforderlichen Abhängigkeiten (einschließlich Python-Tools wie Ruff und Djlint sowie das JavaScript-Tool Prettier) 
+- Ausführung der Code-Formattierung 
+- Prüfung nach Änderungen -> sollten Änderungen vorgenommen sein, werden diese automatisch committet und in das Repository gepusht
+Diese Automatisierung stellt sicher, dass der Code immer einheitlich und nach den definierten Konventionen formatiert ist, ohne manuelle Eingriffe.
