@@ -49,8 +49,8 @@ jobs:
           npx prettier --write "myproject/static/**/*.js" "myproject/static/**/*.ts" "myproject/static/**/*.css"
           
           # Format Python & Django templates
-          ruff format .
-          djlint . --reformat
+          ruff format . || true
+          djlint . --reformat || true
 
       - name: Check for changes
         id: git-check
