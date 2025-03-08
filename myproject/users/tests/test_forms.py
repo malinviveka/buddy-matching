@@ -1,5 +1,5 @@
 from django.test import TestCase
-from users.forms import BuddyMatchingUserCreationForm, LoginForm
+from users.forms import BuddyMatchingUserCreationForm#, LoginForm
 
 class AccountCreationFormTests(TestCase):
     def test_valid_form(self):
@@ -50,7 +50,7 @@ class FormsTestCase(TestCase):
     #         'degree_level': 'Bachelors', 
     #         'app_matr_number': '12345', 
     #         'department': 'FB 1', 
-    #         'country': 'randomCountry', 
+    #         'country': 'Spain', 
     #         'preferred_number_of_partners': '2', 
     #         'is_permitted': 'true'
     #     }
