@@ -43,14 +43,19 @@ jobs:
           pip install ruff djlint
           npm install --global prettier
 
-      - name: Run formatters (Prettier, Djlint, Ruff)
+      - name: Run Prettier
         run: |
-          # Format JavaScript, TypeScript, and CSS
-          npx prettier --write "myproject/static/**/*.js" "myproject/static/**/*.ts" "myproject/static/**/*.css"
+          npx prettier --write "myproject/static/**/*.js" "myproject/static/**/*.ts" "myproject/static/**/*.css" || true
           
-          # Format Python & Django templates
-          ruff format . || true
+          
+      - name: Run Djlint
+        run: |
           djlint . --reformat || true
+            
+      - name: Run Ruff
+        run: |
+          ruff format . || true
+
 
       - name: Check for changes
         id: git-check
