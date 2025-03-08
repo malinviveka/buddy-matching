@@ -4,20 +4,38 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='HomepageText',
+            name="HomepageText",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('content_de', models.TextField(default='Willkommen auf der Seite!', verbose_name='Content in German')),
-                ('content_en', models.TextField(default='Welcome to the page!', verbose_name='Content in English')),
-                ('last_updated', models.DateTimeField(auto_now=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "content_de",
+                    models.TextField(
+                        default="Willkommen auf der Seite!",
+                        verbose_name="Content in German",
+                    ),
+                ),
+                (
+                    "content_en",
+                    models.TextField(
+                        default="Welcome to the page!",
+                        verbose_name="Content in English",
+                    ),
+                ),
+                ("last_updated", models.DateTimeField(auto_now=True)),
             ],
         ),
     ]

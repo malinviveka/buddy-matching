@@ -1,89 +1,101 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("FeedbackForm");
-    const q1Input = document.getElementById("id_q1");
-    const q2Input = document.getElementById("id_q2");
-    const q3Input = document.getElementById("id_q3");
-    const q4Input = document.getElementById("id_q4");
-    const q5Input = document.getElementById("id_q5");
-    const q5_details = document.getElementById("id_q5_details");
-    const q6Input = document.getElementById("id_q6");
-    const q7Input = document.getElementById("id_q7");
-    const q8Input = document.getElementById("id_q8");
-    const q8_details = document.getElementById("id_q8_details");
-    const q9Input = document.getElementById("id_q9");
-    const q9_details = document.getElementById("id_q9_details");
-    const q10Input = document.getElementById("id_q10");
-    const feedbackButton = document.getElementById("feedbackButton");
-  
-    const updateDetailsFields = () => {
-      // Anzeige von q5_details (Falls q5 = "No")
-      if (q5Input.value === 'No') {
-          q5_details.style.display = "block";
-      } else {
-          q5_details.style.display = "none";
-      }
+  const form = document.getElementById("FeedbackForm");
+  const q1Input = document.getElementById("id_q1");
+  const q2Input = document.getElementById("id_q2");
+  const q3Input = document.getElementById("id_q3");
+  const q4Input = document.getElementById("id_q4");
+  const q5Input = document.getElementById("id_q5");
+  const q5_details = document.getElementById("id_q5_details");
+  const q6Input = document.getElementById("id_q6");
+  const q7Input = document.getElementById("id_q7");
+  const q8Input = document.getElementById("id_q8");
+  const q8_details = document.getElementById("id_q8_details");
+  const q9Input = document.getElementById("id_q9");
+  const q9_details = document.getElementById("id_q9_details");
+  const q10Input = document.getElementById("id_q10");
+  const feedbackButton = document.getElementById("feedbackButton");
 
-      // Anzeige von q8_details (Falls q8 = "Yes" oder "Sometimes")
-      if (q8Input.value === 'Yes' || q8Input.value === 'Sometimes') {
-          q8_details.style.display = "block";
-      } else {
-          q8_details.style.display = "none";
-      }
-
-      // Anzeige von q9_details (Falls q9 = "No")
-      if (q9Input.value === 'No') {
-          q9_details.style.display = "block";
-      } else {
-          q9_details.style.display = "none";
-      }
-    };
-
-    // Listener for changes of q5, q8 and q9
-    q5Input.addEventListener("change", updateDetailsFields);
-    q8Input.addEventListener("change", updateDetailsFields);
-    q9Input.addEventListener("change", updateDetailsFields);
-
-    // Initial Update of Details Fields
-    updateDetailsFields();
-
-
-    // Listener for the submit button
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-  
-      if (!validateForm()) {
-        return;
-      }
-  
-      // Collect and log feedback data
-      console.log("Feedback submitted:", {
-        q1: q1Input.value,
-        q2: q2Input.value,
-        q3: q3Input.value,
-        q4: q4Input.value,
-        q5: q5Input.value,
-        q5_details: q5_details.value.trim() !== "" ? q5_details.value : "No comment",
-        q6: q6Input.value,
-        q7: q7Input.value,
-        q8: q8Input.value,
-        q8_details: q8_details.value.trim() !== "" ? q8_details.value : "No comment",
-        q9: q9Input.value,
-        q9_details: q9_details.value.trim() !== "" ? q9_details.value : "No comment",
-        q10: q10Input.value.trim() !== "" ? q10Input.value : "No comment",
-      });
-  
-      form.reset();
-      alert("Your feedback has been successfully submitted!");
-    });
-  
-    function validateForm() {
-      const requiredFields = ["id_q1", "id_q2", "id_q3", "id_q4", "id_q5", "id_q6", "id_q7", "id_q8", "id_q9"];
-      for (const fieldId of requiredFields) {
-          if (document.getElementById(fieldId).value.trim() === "") {
-              alert("Please answer all rating questions.");
-              return false;
-          }
-      }
-      return true;
+  const updateDetailsFields = () => {
+    // Anzeige von q5_details (Falls q5 = "No")
+    if (q5Input.value === "No") {
+      q5_details.style.display = "block";
+    } else {
+      q5_details.style.display = "none";
     }
+
+    // Anzeige von q8_details (Falls q8 = "Yes" oder "Sometimes")
+    if (q8Input.value === "Yes" || q8Input.value === "Sometimes") {
+      q8_details.style.display = "block";
+    } else {
+      q8_details.style.display = "none";
+    }
+
+    // Anzeige von q9_details (Falls q9 = "No")
+    if (q9Input.value === "No") {
+      q9_details.style.display = "block";
+    } else {
+      q9_details.style.display = "none";
+    }
+  };
+
+  // Listener for changes of q5, q8 and q9
+  q5Input.addEventListener("change", updateDetailsFields);
+  q8Input.addEventListener("change", updateDetailsFields);
+  q9Input.addEventListener("change", updateDetailsFields);
+
+  // Initial Update of Details Fields
+  updateDetailsFields();
+
+  // Listener for the submit button
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
+    // Collect and log feedback data
+    console.log("Feedback submitted:", {
+      q1: q1Input.value,
+      q2: q2Input.value,
+      q3: q3Input.value,
+      q4: q4Input.value,
+      q5: q5Input.value,
+      q5_details:
+        q5_details.value.trim() !== "" ? q5_details.value : "No comment",
+      q6: q6Input.value,
+      q7: q7Input.value,
+      q8: q8Input.value,
+      q8_details:
+        q8_details.value.trim() !== "" ? q8_details.value : "No comment",
+      q9: q9Input.value,
+      q9_details:
+        q9_details.value.trim() !== "" ? q9_details.value : "No comment",
+      q10: q10Input.value.trim() !== "" ? q10Input.value : "No comment",
+    });
+
+    form.reset();
+    alert("Your feedback has been successfully submitted!");
   });
+
+  function validateForm() {
+    const requiredFields = [
+      "id_q1",
+      "id_q2",
+      "id_q3",
+      "id_q4",
+      "id_q5",
+      "id_q6",
+      "id_q7",
+      "id_q8",
+      "id_q9",
+    ];
+    for (const fieldId of requiredFields) {
+      if (document.getElementById(fieldId).value.trim() === "") {
+        alert("Please answer all rating questions.");
+        return false;
+      }
+    }
+    return true;
+  }
+});

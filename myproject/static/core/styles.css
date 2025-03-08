@@ -41,7 +41,8 @@
     GLOBAL STYLES
 */
 body {
-  font-family: "Roboto", sans-serif; /* Roboto font is used in websites by TU Darmstadt (see: https://www.intern.tu-darmstadt.de/arbeitsmittel/corporate_design_vorlagen/index.de.jsp)*/
+  font-family:
+    "Roboto", sans-serif; /* Roboto font is used in websites by TU Darmstadt (see: https://www.intern.tu-darmstadt.de/arbeitsmittel/corporate_design_vorlagen/index.de.jsp)*/
   margin: var(--size-space-500);
   padding: 0;
   background-color: #f9f9f9;
@@ -68,14 +69,17 @@ h3 {
 }
 
 /* general styling */
-input, select, input[type="number"], textarea {
-  flex: 1; 
-  padding:  var(--size-space-300) var(--size-space-400);
+input,
+select,
+input[type="number"],
+textarea {
+  flex: 1;
+  padding: var(--size-space-300) var(--size-space-400);
   border: var(--border-input-width) solid var(--border-input-color);
   border-radius: var(--border-radius-200);
   font-size: var(--small-body-font-size);
   color: var(--text-color);
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 /* specifics */
 select {
@@ -123,7 +127,7 @@ textarea {
   border-radius: var(--border-radius-200);
 }
 /* size and positioning per button id*/
-#submitAccountButton, 
+#submitAccountButton,
 #loginButton {
   align-self: stretch;
 }
@@ -131,23 +135,28 @@ textarea {
   align-self: flex-start;
   width: 5%;
 }
-#exportFeedbackButton{
+#exportFeedbackButton {
   width: 20%;
 }
-#languageButton{
-   /* position in the topnav */
-   position: absolute;
-   left: 98%; /*moves the button to the right*/
-   transform: translate(-50%, -50%); /* centers it both horizontally and vertically */
- 
-   /* removes global styling of buttons (here unwanted) */
-   background: none;
-   border: none;
-   padding: 0;
+#languageButton {
+  /* position in the topnav */
+  position: absolute;
+  left: 98%; /*moves the button to the right*/
+  transform: translate(
+    -50%,
+    -50%
+  ); /* centers it both horizontally and vertically */
+
+  /* removes global styling of buttons (here unwanted) */
+  background: none;
+  border: none;
+  padding: 0;
 }
 
 /* admin buttons: orange */
-.toggle-permission, #deletePartnersButton, #extendAccountButton {
+.toggle-permission,
+#deletePartnersButton,
+#extendAccountButton {
   all: unset;
   background-color: var(--ISS-orange-color);
   color: black;
@@ -158,7 +167,9 @@ textarea {
   padding: var(--size-space-100);
   white-space: nowrap; /* only one line text */
 }
-.toggle-permission:hover, #deletePartnersButton:hover, #extendAccountButton:hover {
+.toggle-permission:hover,
+#deletePartnersButton:hover,
+#extendAccountButton:hover {
   background-color: var(--ISS-orange-color);
   color: #fff;
   border-radius: var(--border-radius-200);
@@ -183,11 +194,8 @@ textarea {
   display: flex; /* places elements next to each other */
   align-items: center; /* center vertically */
   gap: var(--size-space-400); /* distance between label and input */
-  padding: var(--size-space-100)
+  padding: var(--size-space-100);
 }
-
-
-
 
 /*
     NAVIGATION
@@ -196,16 +204,20 @@ textarea {
   display: flex;
   flex-wrap: wrap;
 
-  width: calc(100% - 80px); /* full width: topnav spans full width of website; nav-items start further right*/
+  width: calc(
+    100% - 80px
+  ); /* full width: topnav spans full width of website; nav-items start further right*/
   margin-left: -20px;
   padding: 0px var(--size-space-1600);
-  
+
   height: auto;
   align-items: center;
   gap: var(--size-space-200);
   position: relative;
-  
-  background-color: var(--ISS-light-blue-color); /* add light blue color to the top navigation bar*/
+
+  background-color: var(
+    --ISS-light-blue-color
+  ); /* add light blue color to the top navigation bar*/
 }
 
 .topnav a {
@@ -226,19 +238,20 @@ textarea {
   border-radius: var(--border-radius-200);
 }
 .topnav a:hover.active,
-.topnav button:hover{
+.topnav button:hover {
   background-color: var(--ISS-medium-blue-color);
   color: black;
   border-radius: var(--border-radius-200);
 }
-.topnav a:hover:not(.active){ /* add hover effect to all elements except the active one */
+.topnav a:hover:not(.active) {
+  /* add hover effect to all elements except the active one */
   background-color: var(--ISS-light-blue-color);
   color: black;
   border-radius: var(--border-radius-200);
 }
 
 /* Profile Icon */
-.topnav .profileIcon{
+.topnav .profileIcon {
   width: 18px;
   height: auto;
 }
@@ -247,7 +260,7 @@ textarea {
   margin-left: auto;
   display: flex;
   align-items: center;
-  gap: var(--size-space-200)
+  gap: var(--size-space-200);
 }
 
 /* Login- and Logout-Buttons */
@@ -282,15 +295,14 @@ textarea {
   border-radius: 3px; /* rounded corners */
 }
 
-
 /*
     HOMEPAGE
 */
 .homepage-header {
-  display: flex; 
-  align-items: center; 
-  gap: var(--size-space-400); 
-  padding: var(--size-space-400); 
+  display: flex;
+  align-items: center;
+  gap: var(--size-space-400);
+  padding: var(--size-space-400);
 }
 .iss_logo {
   width: 150px;
@@ -302,16 +314,18 @@ textarea {
 }
 
 .homepage-body {
-  display: flex; 
+  display: flex;
   flex-wrap: wrap-reverse; /* default: image and text displayed next to each other; if zoomed in: text is displayed above image */
   justify-content: space-between;
 }
 .cover_image {
   /* position */
-  margin: calc(-1 * var(--size-space-500)); /* substracts margin, so that image starts at leftmost edge */
+  margin: calc(
+    -1 * var(--size-space-500)
+  ); /* substracts margin, so that image starts at leftmost edge */
   height: 79vh;
   width: auto;
-  
+
   /* rounded upper rigth corner */
   border-top-right-radius: 50%;
 }
@@ -320,34 +334,33 @@ textarea {
   font-size: var(--medium-body-font-size);
   font-weight: var(--body-font-weight);
 }
-.admin-message{
+.admin-message {
   text-align: center;
 
   /* box */
   border: solid var(--ISS-orange-color);
   border-radius: var(--border-radius-200);
   padding: var(--size-space-400);
-  margin: var(--size-space-500) 0; 
+  margin: var(--size-space-500) 0;
 }
-
 
 /*
     LOGIN:
 */
 .form-login {
-  display: flex; 
+  display: flex;
   flex-direction: column;
   gap: var(--size-space-600);
   padding: var(--size-space-600);
 
   /*centering*/
-  width: 400px; 
-  margin: var(--size-space-500) 0; 
+  width: 400px;
+  margin: var(--size-space-500) 0;
 
   /*styling of "box"*/
   background-color: white;
-  border-radius: var(--border-radius-200); 
-  border: var(--border-box-width) solid var(--ISS-orange-color); 
+  border-radius: var(--border-radius-200);
+  border: var(--border-box-width) solid var(--ISS-orange-color);
 }
 .loginLabel {
   position: relative;
@@ -363,50 +376,49 @@ textarea {
   border-radius: var(--border-radius-200);
   border: var(--border-input-width) solid var(--border-input-color);
   box-sizing: border-box;
-  margin-bottom: var(--size-space-200); 
+  margin-bottom: var(--size-space-200);
 }
-
 
 /*
     CREATE ACCOUNT:
 */
-.form-account-creation{
-  display: flex; 
+.form-account-creation {
+  display: flex;
   flex-direction: column;
   gap: 0;
   padding: 0;
 
   /*centering*/
-  width: 60%; 
-  margin: var(--size-space-500) 0; 
+  width: 60%;
+  margin: var(--size-space-500) 0;
 }
 
 .password-box {
-  padding: var(--size-space-400); 
-  border: var(--border-box-width) solid var(--ISS-orange-color); 
-  border-radius: var(--border-radius-200); 
+  padding: var(--size-space-400);
+  border: var(--border-box-width) solid var(--ISS-orange-color);
+  border-radius: var(--border-radius-200);
   background-color: var(--ISS-light-orange-color);
-  margin-top: var(--size-space-400); 
+  margin-top: var(--size-space-400);
   margin-bottom: var(--size-space-400);
 }
 .password-box label {
   display: block;
-  margin-bottom: var(--size-space-200); 
+  margin-bottom: var(--size-space-200);
   font-size: var(--body-font-size);
-  color: var(--text-color)
+  color: var(--text-color);
 }
 .password-box input {
-  width: 100%; 
-  padding: 10px; 
-  border: var(--border-input-width) solid var(--border-input-color); 
+  width: 100%;
+  padding: 10px;
+  border: var(--border-input-width) solid var(--border-input-color);
   border-radius: var(--border-radius-200);
   box-sizing: border-box;
   margin-bottom: var(--size-space-200);
 }
 .password-box .description {
   margin-top: var(--size-radius-200);
-  font-size: var(--small-body-font-size); 
-  line-height: 1.5; 
+  font-size: var(--small-body-font-size);
+  line-height: 1.5;
   color: gray;
 }
 
@@ -414,15 +426,14 @@ textarea {
     ADMIN:
 */
 /* edit homepage */
-.form-edit-homepage{
+.form-edit-homepage {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-
 /* FEEDBACK */
-.form-feedback{
+.form-feedback {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -440,12 +451,12 @@ textarea {
   flex-direction: column;
   gap: var(--size-space-300);
 }
-.partners_list_item{
+.partners_list_item {
   /* styles box */
   border: var(--border-box-width) solid var(--border-input-color);
   border-radius: var(--border-radius-200);
-  padding:  var(--size-space-300) var(--size-space-400);
-  box-sizing: border-box; 
+  padding: var(--size-space-300) var(--size-space-400);
+  box-sizing: border-box;
   /* styles text */
   font-size: var(--body-font-size);
   color: var(--text-color);
@@ -454,10 +465,10 @@ textarea {
 .partners_list_item::before {
   content: "";
   display: inline-block;
-  width: 20px;  /* Adjust the size as needed */
+  width: 20px; /* Adjust the size as needed */
   height: 20px; /* Adjust the size as needed */
   margin-right: var(--size-space-200); /* Space between the image and text */
-  background-image:  url('/static/images/profile_icon.png'); /* Path to your PNG file */
+  background-image: url("/static/images/profile_icon.png"); /* Path to your PNG file */
   background-size: cover; /* Ensures the image covers the pseudo-element */
   background-repeat: no-repeat;
   vertical-align: middle;
@@ -467,8 +478,8 @@ textarea {
 /* personal information */
 .profile-content {
   /* styles box */
-  border: var(--border-box-width) solid var(--ISS-orange-color); 
-  border-radius: var(--border-radius-200); 
+  border: var(--border-box-width) solid var(--ISS-orange-color);
+  border-radius: var(--border-radius-200);
   background-color: var(--ISS-light-orange-color);
   padding: var(--size-space-300) var(--size-space-400);
   box-sizing: border-box;
@@ -478,8 +489,9 @@ textarea {
   font-weight: var(--body-font-weight);
   color: var(--text-color);
 }
-.profile-content p:first-of-type { /* first p is highlighted*/
-  color: var(--ISS-orange-color); 
+.profile-content p:first-of-type {
+  /* first p is highlighted*/
+  color: var(--ISS-orange-color);
   font-weight: bold;
 }
 

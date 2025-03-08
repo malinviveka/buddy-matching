@@ -4,6 +4,7 @@ from django.core.management.base import BaseCommand
 from users.models import BuddyMatchingUser
 from django.utils.timezone import now
 
+
 class Command(BaseCommand):
     help = "Deletes all user accounts whose deletion date has passed, except staff members."
 
@@ -27,6 +28,8 @@ class Command(BaseCommand):
 
         if count > 0:
             expired_users.delete()
-            self.stdout.write(self.style.SUCCESS(f"{count} expired user accounts have been deleted."))
+            self.stdout.write(
+                self.style.SUCCESS(f"{count} expired user accounts have been deleted.")
+            )
         else:
             self.stdout.write(self.style.WARNING("No expired user accounts found."))
