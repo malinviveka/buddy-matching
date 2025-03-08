@@ -4,6 +4,7 @@ from django.test import TestCase
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 from .models import Feedback, BuddyMatchingUser
+
 User = get_user_model()
 class FeedbackTestCase(TestCase):
     def setUp(self):

@@ -95,7 +95,7 @@ class MatchingTestCase(TestCase):
 
 
 
-class MatchingTestCase(TestCase):
+class MatchingTestCase2(TestCase):
     def setUp(self):
         # set up dummy buddies and students
         self.buddy1 = BuddyMatchingUser.objects.create(
