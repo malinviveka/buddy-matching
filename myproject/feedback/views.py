@@ -22,7 +22,7 @@ class FeedbackView(View):
         if form.is_valid():
             feedback = form.save(commit=False)  # Create a feedback object without saving it
             if isinstance(request.user, BuddyMatchingUser):
-                feedback.student = request.user  # Set the `student` field
+                feedback.student = request.user.email  # Set the `student` field
             else:
                 return JsonResponse({"error": "User is not a valid BuddyMatchingUser"}, status=400)
             feedback.save()  # Save the feedback object with the `student` value
@@ -40,7 +40,7 @@ def submit_feedback(request):
         if form.is_valid():
             feedback = form.save(commit=False)
             if isinstance(request.user, BuddyMatchingUser):
-                feedback.student = request.user  # `request.user` will be an instance of BuddyMatchingUser
+                feedback.student_email = request.user.email  # `request.user` will be an instance of BuddyMatchingUser and request.user.email is a string
             else:
                 return JsonResponse({"error": "User is not a valid BuddyMatchingUser"}, status=400)
             feedback.save()
