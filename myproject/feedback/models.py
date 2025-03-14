@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.timezone import now
+from users.models import BuddyMatchingUser # noqa: F401
 from datetime import timedelta
 
 FeedbackLifetime = 183 # Sets default date until account deletion in days. Default is 183 (half a year).
