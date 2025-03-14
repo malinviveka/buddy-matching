@@ -1,45 +1,42 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("FeedbackForm") as HTMLFormElement;
-  const rating1Input = document.getElementById(
-    "id_rating_1",
-  ) as HTMLInputElement;
-  const rating2Input = document.getElementById(
-    "id_rating_2",
-  ) as HTMLInputElement;
-  const textFeedbackInput = document.getElementById(
-    "id_text_feedback",
-  ) as HTMLTextAreaElement;
-  const feedbackButton = document.getElementById(
-    "feedbackButton",
-  ) as HTMLButtonElement;
+  
+  function toggleDetails(selectId: string, detailsBoxId: string, triggerValue: string) {
+    const selectElement = document.getElementById(selectId) as HTMLSelectElement | null;
+    const detailsBox = document.getElementById(detailsBoxId) as HTMLDivElement | null;
 
-  //listener for submit feedback button
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
+    if (selectElement && detailsBox) {
+        // Verstecke das gesamte umschließende Element
+        detailsBox.style.display = "none";
 
-    if (!validateForm()) {
-      return;
+        selectElement.addEventListener("change", () => {
+            detailsBox.style.display = selectElement.value.toLowerCase() === triggerValue.toLowerCase() ? "block" : "none";
+        });
     }
+}
 
-    //submit feedback with the respective values for each question
-    console.log("Feedback submitted:", {
-      rating_1: rating1Input.value,
-      rating_2: rating2Input.value,
-      text_feedback:
-        textFeedbackInput.value.trim() !== ""
-          ? textFeedbackInput.value
-          : "No comment", //if last field is empty, overwrite with "no comment" instead
-    });
-
-    form.reset();
-    alert("Your feedback has been successfully submitted!");
-  });
-
-  function validateForm(): boolean {
-    if (rating1Input.value.trim() === "" || rating2Input.value.trim() === "") {
-      alert("Please answers all rating questions."); //check if all rating questions are answered
-      return false;
-    }
-    return true;
+  // Initialisiere die Felder als versteckt auf der Seite
+  const q5Details = document.getElementById("q5_details_box");
+  if (q5Details && q5Details.parentElement) {
+      q5Details.style.display = "none";
   }
+
+  const q8Details = document.getElementById("q8_details_box");
+  if (q8Details && q8Details.parentElement) {
+      q8Details.style.display = "none";
+  }
+
+  const q9Details = document.getElementById("q9_details_box");
+  if (q9Details && q9Details.parentElement) {
+      q9Details.style.display = "none";
+  }
+
+  // Setup event listeners für die Auswahlfelder
+  toggleDetails("id_q5", "q5_details_box", "no");
+  toggleDetails("id_q8", "q8_details_box", "yes");
+  toggleDetails("id_q9", "q9_details_box", "no");
+
 });
+
+
+
+

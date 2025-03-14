@@ -1,41 +1,62 @@
 {% extends 'homepage/base.html' %}
+
 {% block title %}Admin Feedback Management{% endblock %}
-{% load static i18n %}
+
+{% load static %}
+
 {% block content %}
-    <!-- <script src="{% static 'helloapp/admin_feedback_list.js' %}"></script> Warning! File does not seem to exist? -->
-    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
-    <h2>Admin Feedback Management</h2>
-    <!-- Optional buttons for actions (e.g. export) -->
-    <a href="{% url 'export_feedback_csv' %}"
-       id="exportFeedbackButton"
-       class="button">{% trans "Export Feedback (CSV)" %}</a>
-    <br>
-    <br>
-    <table>
-        <thead>
-            <tr>
-                <th>Email des Studenten</th>
-                <th>Text Feedback</th>
-                <th>Bewertung 1</th>
-                <th>Bewertung 2</th>
-                <th>Datum</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for feedback in feedbacks %}
-                <tr id="feedback-{{ feedback.id }}">
-                    <td>{{ feedback.student.email }}</td>
-                    <td>{{ feedback.text_feedback }}</td>
-                    <td>{{ feedback.rating_1 }}</td>
-                    <td>{{ feedback.rating_2 }}</td>
-                    <td>{{ feedback.submitted_at }}</td>
-                </tr>
-            {% empty %}
-                <tr>
-                    <td colspan="5">{% trans "No feedback Entries found." %}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <br>
+<!-- <script src="{% static 'helloapp/admin_feedback_list.js' %}"></script> Warning! File does not seem to exist? -->
+<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+<h2>Admin Feedback Management</h2>
+
+<!-- Optional buttons for actions (e.g. export) -->
+<a href="{% url 'export_feedback_csv' %}" id="exportFeedbackButton" class="button">Feedback exportieren (CSV)</a> <br><br>
+
+<table>
+    <thead>
+        <tr>
+            <th>Role</th>
+            <th>Satisfaction</th>
+            <th>Helpfulness</th>
+            <th>Source</th>
+            <th>Helpfulness of ISS</th>
+            <th>Issues with help</th>
+            <th>First contact</th>
+            <th>Overall contact</th>
+            <th>Problems</th>
+            <th>Share problems</th>
+            <th>Recommendation</th>
+            <th>Why not</th>
+            <th>Suggestions</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for feedback in feedbacks %}
+        <tr id="feedback-{{ feedback.id }}">
+            <td>{{ feedback.q1 }}</td>
+            <td>{{ feedback.q2 }}</td>
+            <td>{{ feedback.q3 }}</td>
+            <td>{{ feedback.q4 }}</td>
+            <td>{{ feedback.q5 }}</td>
+            <td>{{ feedback.q5_details }}</td>
+            <td>{{ feedback.q6 }}</td>
+            <td>{{ feedback.q7 }}</td>
+            <td>{{ feedback.q8 }}</td>
+            <td>{{ feedback.q8_details }}</td>
+            <td>{{ feedback.q9 }}</td>
+            <td>{{ feedback.q9_details }}</td>
+            <td>{{ feedback.q10 }}</td>
+            <td>{{ feedback.submitted_at }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">Keine Feedback-Einträge gefunden.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<br>
 {% endblock %}

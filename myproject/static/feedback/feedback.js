@@ -1,56 +1,32 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("FeedbackForm");
-  const rating1Input = document.getElementById("id_rating_1");
-  const rating2Input = document.getElementById("id_rating_2");
-  const textFeedbackInput = document.getElementById("id_text_feedback");
-  const feedbackButton = document.getElementById("feedbackButton");
-
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    if (!validateForm()) {
-      return;
-    }
-
-    const formData = new FormData(form);
-
-    fetch(form.action, {
-      method: "POST",
-      headers: {
-        "X-CSRFToken": getCookie("csrftoken"), // CSRF-Token setzen
-      },
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.message) {
-          alert("Your feedback has been successfully submitted!");
-          form.reset();
-        } else {
-          alert("Error submitting feedback: " + JSON.stringify(data.errors));
+    
+    function toggleDetails(selectId, detailsBoxId, triggerValue) {
+        const selectElement = document.getElementById(selectId);
+        const detailsBox = document.getElementById(detailsBoxId);
+        if (selectElement && detailsBox) {
+            // Verstecke das gesamte umschließende Element
+            detailsBox.style.display = "none";
+            selectElement.addEventListener("change", () => {
+                detailsBox.style.display = selectElement.value.toLowerCase() === triggerValue.toLowerCase() ? "block" : "none";
+            });
         }
-      })
-      .catch((error) => console.error("Error:", error));
-  });
-
-  function validateForm() {
-    if (rating1Input.value.trim() === "" || rating2Input.value.trim() === "") {
-      alert("Please answer all rating questions.");
-      return false;
     }
-    return true;
-  }
-
-  function getCookie(name) {
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== "") {
-      document.cookie.split(";").forEach((cookie) => {
-        let trimmedCookie = cookie.trim();
-        if (trimmedCookie.startsWith(name + "=")) {
-          cookieValue = decodeURIComponent(trimmedCookie.split("=")[1]);
-        }
-      });
+    // Initialisiere die Felder als versteckt auf der Seite
+    const q5Details = document.getElementById("q5_details_box");
+    if (q5Details && q5Details.parentElement) {
+        q5Details.style.display = "none";
     }
-    return cookieValue;
-  }
+    const q8Details = document.getElementById("q8_details_box");
+    if (q8Details && q8Details.parentElement) {
+        q8Details.style.display = "none";
+    }
+    const q9Details = document.getElementById("q9_details_box");
+    if (q9Details && q9Details.parentElement) {
+        q9Details.style.display = "none";
+    }
+    // Setup event listeners für die Auswahlfelder
+    toggleDetails("id_q5", "q5_details_box", "no");
+    toggleDetails("id_q8", "q8_details_box", "yes");
+    toggleDetails("id_q9", "q9_details_box", "no");    
+    
 });
