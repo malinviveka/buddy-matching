@@ -21,8 +21,10 @@ def homepage(request):
     days_left = None
 
     # Wählen Sie den Inhalt je nach Sprache
-    language_code = get_language()  # Gibt den aktuellen Sprachcode zurück (z.B. 'de' oder 'en')
-    if language_code == 'de':
+    language_code = (
+        get_language()
+    )  # Gibt den aktuellen Sprachcode zurück (z.B. 'de' oder 'en')
+    if language_code == "de":
         content = homepage_text.content_de
     else:
         content = homepage_text.content_en
@@ -31,9 +33,13 @@ def homepage(request):
         user = request.user
         days_left = (user.deletion_date - now().date()).days
 
-    return render(request, 'homepage/homepage.html', {
-        "content": content,
-    })
+    return render(
+        request,
+        "homepage/homepage.html",
+        {
+            "content": content,
+        },
+    )
 
 
 @login_required
@@ -43,24 +49,28 @@ def reset_deletion_date(request):
     """
     user = request.user
     user.reset_deletion_date()
-    return redirect('profile')
+    return redirect("profile")
+
 
 class AccountCreationView(View):
     """
     View to render the account creation form and handle form submissions.
     """
-    template_name = 'users/account_creation.html'
-    
+
+    template_name = "users/account_creation.html"
+
     def get(self, request):
         form = BuddyMatchingUserCreationForm()
-        return render(request, self.template_name, {'form': form})
-        
+        return render(request, self.template_name, {"form": form})
+
     def post(self, request):
         form = BuddyMatchingUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return JsonResponse({'message': 'Account created successfully!'}, status=201)
-        return JsonResponse({'errors': form.errors}, status=400)    
+            return JsonResponse(
+                {"message": "Account created successfully!"}, status=201
+            )
+        return JsonResponse({"errors": form.errors}, status=400)
 
 
 @require_http_methods(["POST"])
@@ -71,9 +81,12 @@ def create_account(request):
     form = BuddyMatchingUserCreationForm(request.POST)
     if form.is_valid():
         email = form.cleaned_data.get("email")
-   
+
         if BuddyMatchingUser.objects.filter(email=email).exists():
-            return JsonResponse({"error": "There is already an existing user with this email address."}, status=400)
+            return JsonResponse(
+                {"error": "There is already an existing user with this email address."},
+                status=400,
+            )
 
         messages.success(request, "Account created successfully!")
 
@@ -86,7 +99,7 @@ def login_view(request):
     """
     Render the login form and handle login form submissions.
     """
-    template_name = 'users/login.html'
+    template_name = "users/login.html"
     if request.method == "POST":
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -97,15 +110,17 @@ def login_view(request):
                 if user.is_permitted:
                     login(request, user)
                     messages.success(request, "Login was successful!")
-                    return redirect('homepage')
+                    return redirect("homepage")
                 else:
-                    messages.error(request, "Your account is not permitted yet. Please wait for approval.")
+                    messages.error(
+                        request,
+                        "Your account is not permitted yet. Please wait for approval.",
+                    )
             else:
                 messages.error(request, "Invalid email or password")
     else:
         form = LoginForm()
-    return render(request, template_name, {'form': form})    
-
+    return render(request, template_name, {"form": form})
 
 
 def logout_view(request):
@@ -113,7 +128,8 @@ def logout_view(request):
     Log the user out and redirect to the homepage.
     """
     logout(request)
-    return redirect('homepage')
+    return redirect("homepage")
+
 
 @user_passes_test(lambda u: u.is_staff)
 def admin_user_list(request):
@@ -121,9 +137,13 @@ def admin_user_list(request):
 
     for user in users:
         # Die Partner für den jeweiligen User abrufen
-        user.partner_names = [partner.first_name + " " + partner.surname + " " + partner.email for partner in user.partners.all()]
-    
-    return render(request, 'users/admin_user_site.html', {'users': users})
+        user.partner_names = [
+            partner.first_name + " " + partner.surname + " " + partner.email
+            for partner in user.partners.all()
+        ]
+
+    return render(request, "users/admin_user_site.html", {"users": users})
+
 
 @user_passes_test(lambda u: u.is_staff)
 def toggle_user_permission(request, user_id):
@@ -131,8 +151,9 @@ def toggle_user_permission(request, user_id):
         user = get_object_or_404(BuddyMatchingUser, id=user_id)
         user.is_permitted = not user.is_permitted
         user.save()
-        return JsonResponse({'is_permitted': user.is_permitted})
-    return JsonResponse({'error': 'Invalid request'}, status=400)
+        return JsonResponse({"is_permitted": user.is_permitted})
+    return JsonResponse({"error": "Invalid request"}, status=400)
+
 
 @login_required
 def profile_view(request):
@@ -146,10 +167,15 @@ def profile_view(request):
     if profile.is_authenticated:
         days_left = (profile.deletion_date - now().date()).days
 
-    return render(request, 'users/profile.html', {
-        'profile': profile,
-        'days_left': days_left,  # Now the template can use this variable
-    })
+    return render(
+        request,
+        "users/profile.html",
+        {
+            "profile": profile,
+            "days_left": days_left,  # Now the template can use this variable
+        },
+    )
+
 
 @login_required
 def delete_user_confirm(request):
@@ -160,11 +186,12 @@ def delete_user_confirm(request):
     """
     return render(request, "users/delete_confirm.html")
 
+
 @login_required
 def delete_user(request):
     """
     Delete the authenticated user's account upon confirmation.
-    
+
     Steps:
     1. Ensure the request method is POST to prevent accidental deletions via GET requests.
     2. Retrieve the currently logged-in user.

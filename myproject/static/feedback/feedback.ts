@@ -1,7 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
-  function toggleDetails(selectId: string, detailsBoxId: string, triggerValue: string) {
-      const selectElement = document.getElementById(selectId) as HTMLSelectElement | null;
-      const detailsBox = document.getElementById(detailsBoxId) as HTMLDivElement | null;
+  function toggleDetails(
+    selectId: string,
+    detailsBoxId: string,
+    triggerValue: string,
+  ) {
+    const selectElement = document.getElementById(
+      selectId,
+    ) as HTMLSelectElement | null;
+    const detailsBox = document.getElementById(
+      detailsBoxId,
+    ) as HTMLDivElement | null;
 
       if (selectElement && detailsBox) {
           // Verstecke das gesamte umschließende Element
@@ -34,14 +42,4 @@ document.addEventListener("DOMContentLoaded", () => {
   toggleDetails("id_q8", "q8_details_box", "yes");
   toggleDetails("id_q9", "q9_details_box", "no");
 
-  const feedbackForm = document.getElementById("FeedbackForm") as HTMLFormElement | null;
-  if (feedbackForm) {
-      feedbackForm.addEventListener("submit", (event) => {
-          event.preventDefault();
-          alert("Feedback submitted successfully!");
-          feedbackForm.reset();
-      });
-  }
 });
-
-
