@@ -1,5 +1,4 @@
 from django.db import models
-from users.models import BuddyMatchingUser
 from django.utils.timezone import now
 from datetime import timedelta
 
