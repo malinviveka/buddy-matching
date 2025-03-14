@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('users', '0002_alter_buddymatchinguser_is_staff'),
+        ("users", "0002_alter_buddymatchinguser_is_staff"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='buddymatchinguser',
-            name='is_staff',
+            model_name="buddymatchinguser",
+            name="is_staff",
             field=models.BooleanField(default=False),
         ),
     ]

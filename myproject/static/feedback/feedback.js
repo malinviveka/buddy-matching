@@ -1,85 +1,87 @@
 document.addEventListener("DOMContentLoaded", () => {
-    
-    function toggleDetails(selectId, detailsBoxId, triggerValue) {
-        const selectElement = document.getElementById(selectId);
-        const detailsBox = document.getElementById(detailsBoxId);
-        if (selectElement && detailsBox) {
-            // Verstecke das gesamte umschließende Element
-            detailsBox.style.display = "none";
-            selectElement.addEventListener("change", () => {
-                detailsBox.style.display = selectElement.value.toLowerCase() === triggerValue.toLowerCase() ? "block" : "none";
-            });
-        }
+  function toggleDetails(selectId, detailsBoxId, triggerValue) {
+    const selectElement = document.getElementById(selectId);
+    const detailsBox = document.getElementById(detailsBoxId);
+    if (selectElement && detailsBox) {
+      // Verstecke das gesamte umschließende Element
+      detailsBox.style.display = "none";
+      selectElement.addEventListener("change", () => {
+        detailsBox.style.display =
+          selectElement.value.toLowerCase() === triggerValue.toLowerCase()
+            ? "block"
+            : "none";
+      });
     }
-    // Initialisiere die Felder als versteckt auf der Seite
-    const q5Details = document.getElementById("q5_details_box");
-    if (q5Details && q5Details.parentElement) {
-        q5Details.style.display = "none";
-    }
-    const q8Details = document.getElementById("q8_details_box");
-    if (q8Details && q8Details.parentElement) {
-        q8Details.style.display = "none";
-    }
-    const q9Details = document.getElementById("q9_details_box");
-    if (q9Details && q9Details.parentElement) {
-        q9Details.style.display = "none";
-    }
-    // Setup event listeners für die Auswahlfelder
-    toggleDetails("id_q5", "q5_details_box", "no");
-    toggleDetails("id_q8", "q8_details_box", "yes");
-    toggleDetails("id_q9", "q9_details_box", "no");    
+  }
+  // Initialisiere die Felder als versteckt auf der Seite
+  const q5Details = document.getElementById("q5_details_box");
+  if (q5Details && q5Details.parentElement) {
+    q5Details.style.display = "none";
+  }
+  const q8Details = document.getElementById("q8_details_box");
+  if (q8Details && q8Details.parentElement) {
+    q8Details.style.display = "none";
+  }
+  const q9Details = document.getElementById("q9_details_box");
+  if (q9Details && q9Details.parentElement) {
+    q9Details.style.display = "none";
+  }
+  // Setup event listeners für die Auswahlfelder
+  toggleDetails("id_q5", "q5_details_box", "no");
+  toggleDetails("id_q8", "q8_details_box", "yes");
+  toggleDetails("id_q9", "q9_details_box", "no");
 
+  // Funktion zum Anzeigen des Modals mit einer Nachricht
+  function showModal(message) {
+    const modalOverlay = document.createElement("div");
+    modalOverlay.classList.add("modal-overlay");
 
+    const modalContent = document.createElement("div");
+    modalContent.classList.add("modal-content");
+    modalContent.innerHTML = `<p>${message}</p><button id="closeModal">Close</button>`;
 
-    // Funktion zum Anzeigen des Modals mit einer Nachricht
-    function showModal(message) {
-        const modalOverlay = document.createElement('div');
-        modalOverlay.classList.add('modal-overlay');
-        
-        const modalContent = document.createElement('div');
-        modalContent.classList.add('modal-content');
-        modalContent.innerHTML = `<p>${message}</p><button id="closeModal">Close</button>`;
-        
-        modalOverlay.appendChild(modalContent);
-        document.body.appendChild(modalOverlay);
-        
-        // Modal anzeigen
-        modalOverlay.style.display = 'flex';
+    modalOverlay.appendChild(modalContent);
+    document.body.appendChild(modalOverlay);
 
-        // Event-Listener für Schließen des Modals
-        document.getElementById('closeModal').addEventListener('click', () => {
-            modalOverlay.style.display = 'none';
-            document.getElementById('content-container').classList.remove('blur');
-            modalOverlay.remove();
-        });
-    }
+    // Modal anzeigen
+    modalOverlay.style.display = "flex";
+
+    // Event-Listener für Schließen des Modals
+    document.getElementById("closeModal").addEventListener("click", () => {
+      modalOverlay.style.display = "none";
+      document.getElementById("content-container").classList.remove("blur");
+      modalOverlay.remove();
+    });
+  }
 
   // Form submission handler
-    const feedbackForm = document.getElementById("FeedbackForm");
-    feedbackForm.addEventListener("submit", function(event) {
-        event.preventDefault();
+  const feedbackForm = document.getElementById("FeedbackForm");
+  feedbackForm.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-        const formData = new FormData(feedbackForm);
+    const formData = new FormData(feedbackForm);
 
-        fetch(feedbackForm.action, {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
+    fetch(feedbackForm.action, {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
         // Zeige das Pop-up je nach Antwort
-            if (data.message) {
-                showModal(data.message);
-            } else if (data.errors) {
-                showModal("Es gab ein Problem mit dem Feedback: " + JSON.stringify(data.errors));
-            }
-        })
-        .catch(error => {
-            showModal("Ein Fehler ist aufgetreten: " + error);
-        });
+        if (data.message) {
+          showModal(data.message);
+        } else if (data.errors) {
+          showModal(
+            "Es gab ein Problem mit dem Feedback: " +
+              JSON.stringify(data.errors),
+          );
+        }
+      })
+      .catch((error) => {
+        showModal("Ein Fehler ist aufgetreten: " + error);
+      });
 
-        // Füge den Blur-Effekt auf den Container hinzu
-        document.getElementById('content-container').classList.add('blur');
-    });
-
+    // Füge den Blur-Effekt auf den Container hinzu
+    document.getElementById("content-container").classList.add("blur");
+  });
 });

@@ -20,42 +20,42 @@
             <div class="topnav">
                 <!-- Home -->
                 <a class="title {% if request.path == '/' %}active{% endif %}"
-                href="{% url 'homepage' %}">{% trans "Home" %}</a>
+                   href="{% url 'homepage' %}">{% trans "Home" %}</a>
                 {% if user.is_authenticated %}
                     <!-- Dynamic Login/ Logout Button: is the user logged in?-->
                     <!-- Logged in Admin or User? -->
                     {% if user.is_staff %}
                         <!--Admin-->
                         <a class="title {% if request.path == '/cadmin/users/' %}active{% endif %}"
-                        href="{% url 'admin_user_list' %}">{% trans "User Management" %}</a>
+                           href="{% url 'admin_user_list' %}">{% trans "User Management" %}</a>
                         <a class="title {% if request.path == '/cadmin/edit_homepage_text/' %}active{% endif %}"
-                        href="{% url 'edit_homepage_text' %}">{% trans "Edit Homepage Messages" %}</a>
+                           href="{% url 'edit_homepage_text' %}">{% trans "Edit Homepage Messages" %}</a>
                         <a class="title {% if request.path == '/cadmin/feedback/' %}active{% endif %}"
-                        href="{% url 'admin_feedback_list' %}">{% trans "Feedback Management" %}</a>
+                           href="{% url 'admin_feedback_list' %}">{% trans "Feedback Management" %}</a>
                         <br>
                     {% else %}
                         <!--User-->
                         <!-- If the user is a buddy, the text should be "matches" instead of "match" -->
                         {% if user.role == 'Buddy' %}
                             <a class="title {% if request.path == '/your_matches/' %}active{% endif %}"
-                            href="{% url 'your_matches' %}">{{ user.first_name }}{% trans ", view your matches!" %}</a>
+                               href="{% url 'your_matches' %}">{{ user.first_name }}{% trans ", view your matches!" %}</a>
                         {% else %}
                             <a class="title {% if request.path == '/your_matches/' %}active{% endif %}"
-                            href="{% url 'your_matches' %}">{{ user.first_name }}{% trans ", view your match!" %}</a>
+                               href="{% url 'your_matches' %}">{{ user.first_name }}{% trans ", view your match!" %}</a>
                         {% endif %}
                         <a class="title {% if request.path == '/feedback/' %}active{% endif %}"
-                        href="{% url 'feedback' %}">Feedback</a>
+                           href="{% url 'feedback' %}">Feedback</a>
                     {% endif %}
                     <!--Left Side of topnav:-->
                     <div class="profile-container">
                         <!--Profile Icon-->
                         <!--<a class="title {% if request.path == '/profile/' %}active{% endif %}"
-    href="{% url 'profile' %}">Profile</a>-->
+   href="{% url 'profile' %}">Profile</a>-->
                         {% load static %}
                         <a href="{% url 'profile' %}"> <!--profile icon color changes if active-->
                             <img src="{% if request.path == '/profile/' %} {% static 'images/profile_icon_dark-blue.png' %} {% else %} {% static 'images/profile_icon_text-color.png' %} {% endif %}"
-                                alt="Profile"
-                                class="profileIcon">
+                                 alt="Profile"
+                                 class="profileIcon">
                         </a>
                         <!--Logout-->
                         <form action="{% url 'logout' %}" method="post" class="nav-item">
@@ -66,12 +66,12 @@
                 {% else %}
                     <!-- Create Account (only needed if not already logged in)-->
                     <a class="title {% if request.path == '/create-account/' %}active{% endif %}"
-                    href="{% url 'create_account_view' %}">{% trans "Create Account" %}</a>
+                       href="{% url 'create_account_view' %}">{% trans "Create Account" %}</a>
                     <!-- Login -->
                     <div class = "loginButton">
                         <!-- extra div class to make login and logout button uniform in css -->
                         <a class="title {% if request.path == '/login/' %}active{% endif %}"
-                        href="{% url 'login' %}">Login</a>
+                           href="{% url 'login' %}">Login</a>
                     </div>
                 {% endif %}
                 <!-- Language -->
@@ -83,14 +83,14 @@
                             <!-- If the current language is German, show the English flag and vice versa -->
                             <button type="submit" id="languageButton" name="language" value="en">
                                 <img src="{% static 'images/flags_uk.png' %}"
-                                    alt="English"
-                                    class="flag-icon">
+                                     alt="English"
+                                     class="flag-icon">
                             </button>
                         {% else %}
                             <button type="submit" id="languageButton" name="language" value="de">
                                 <img src="{% static 'images/flags_de.png' %}"
-                                    alt="Deutsch"
-                                    class="flag-icon">
+                                     alt="Deutsch"
+                                     class="flag-icon">
                             </button>
                         {% endif %}
                     </form>

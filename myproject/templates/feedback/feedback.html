@@ -1,71 +1,70 @@
 {% extends 'homepage/base.html' %}
-
 {% block title %}Feedback{% endblock %}
-
 {% load static i18n %}
-
 {% block content %}
-<script src="{% static 'feedback/feedback.js' %}"></script>
-    
-        <h2>Feedback</h2>
-
-        <form id="FeedbackForm" method="POST" action="{% url 'feedback' %}" class="form-feedback">
-            {% csrf_token %}
-
-            <div class="form-box"> 
-                <label for="id_q1">{% trans "I participated in the Buddy Programme as" %}</label>
-                {{ form.q1 }}
-            </div>
-            <div class="form-box"> 
-                <label for="id_q2">{% trans "On a scale from 1(very dissatisfied) to 5 (very satisfied) how good was the buddy-matching for you?" %}</label>
-                {{ form.q2 }}
-            </div>
-            <div class="form-box"> 
-                <label for="id_q3">{% trans "On a scale from 1 (not helpful at all) to 5 (very helpful) how helpful was the overall experience for you?" %}</label>
-                {{ form.q3 }}
-            </div>
-            <div class="form-box"> 
-                <label for="id_q4">{% trans "How did you find out about the Buddy-Programme?" %}</label>
-                {{ form.q4 }}
-            </div>
-            <div class="form-box"> 
-                <label for="id_q5">{% trans "Were the International Student Services helpful in the support?" %}</label>
-                {{ form.q5 }}
-            </div>
-            <div class="form-box hidden" id="q5_details_box">
-                <label for="id_q5_details">{% trans "If no, please specify the issue you encountered: " %}</label>
-                <input type="text" name="q5_details" id="id_q5_details" class="form-control">
-            </div>
-            <div class="form-box"> 
-                <label for="id_q6">{% trans "How was the first contact with your matching-buddy?" %}</label>
-                {{ form.q6 }}
-            </div>
-            <div class="form-box"> 
-                <label for="id_q7">{% trans "How would you rate the overall contact with your matching-buddy?" %}</label>
-                {{ form.q7 }}
-            </div>
-            <div class="form-box"> 
-                <label for="id_q8">{% trans "Did you encounter any problems with your matching-buddy?" %}</label>
-                {{ form.q8 }}
-            </div>
-            <div class="form-box hidden" id="q8_details_box">
-                <label for="id_q8_details">{% trans "Please specify the problems encountered: " %}</label>
-                <input type="text" name="q8_details" id="id_q8_details" class="form-control">
-            </div>
-            <div class="form-box"> 
-                <label for="id_q9">{% trans "Would you recommend this experience to other fellow students?" %}</label>
-                {{ form.q9 }}
-            </div>
-            <div class="form-box hidden" id="q9_details_box">
-                <label for="id_q9_details">{% trans "If no, please specify why: " %}</label>
-                <input type="text" name="q9_details" id="id_q9_details" class="form-control">
-            </div>
-            <div class="form-box"> 
-                <label for="id_q10">{% trans "Do you have any suggestions for us in order to improve the programme?" %}</label>
-                {{ form.q10 }}
-            </div>
-            <button type="submit" id="feedbackButton" class="button">{% trans "Submit" %}</button>
-        </form>
-
-
+    <script src="{% static 'feedback/feedback.js' %}"></script>
+    <h2>Feedback</h2>
+    <form id="FeedbackForm"
+          method="POST"
+          action="{% url 'feedback' %}"
+          class="form-feedback">
+        {% csrf_token %}
+        <div class="form-box">
+            <label for="id_q1">{% trans "I participated in the Buddy Programme as" %}</label>
+            {{ form.q1 }}
+        </div>
+        <div class="form-box">
+            <label for="id_q2">
+                {% trans "On a scale from 1(very dissatisfied) to 5 (very satisfied) how good was the buddy-matching for you?" %}
+            </label>
+            {{ form.q2 }}
+        </div>
+        <div class="form-box">
+            <label for="id_q3">
+                {% trans "On a scale from 1 (not helpful at all) to 5 (very helpful) how helpful was the overall experience for you?" %}
+            </label>
+            {{ form.q3 }}
+        </div>
+        <div class="form-box">
+            <label for="id_q4">{% trans "How did you find out about the Buddy-Programme?" %}</label>
+            {{ form.q4 }}
+        </div>
+        <div class="form-box">
+            <label for="id_q5">{% trans "Were the International Student Services helpful in the support?" %}</label>
+            {{ form.q5 }}
+        </div>
+        <div class="form-box hidden" id="q5_details_box">
+            <label for="id_q5_details">{% trans "If no, please specify the issue you encountered: " %}</label>
+            <input type="text" name="q5_details" id="id_q5_details" class="form-control">
+        </div>
+        <div class="form-box">
+            <label for="id_q6">{% trans "How was the first contact with your matching-buddy?" %}</label>
+            {{ form.q6 }}
+        </div>
+        <div class="form-box">
+            <label for="id_q7">{% trans "How would you rate the overall contact with your matching-buddy?" %}</label>
+            {{ form.q7 }}
+        </div>
+        <div class="form-box">
+            <label for="id_q8">{% trans "Did you encounter any problems with your matching-buddy?" %}</label>
+            {{ form.q8 }}
+        </div>
+        <div class="form-box hidden" id="q8_details_box">
+            <label for="id_q8_details">{% trans "Please specify the problems encountered: " %}</label>
+            <input type="text" name="q8_details" id="id_q8_details" class="form-control">
+        </div>
+        <div class="form-box">
+            <label for="id_q9">{% trans "Would you recommend this experience to other fellow students?" %}</label>
+            {{ form.q9 }}
+        </div>
+        <div class="form-box hidden" id="q9_details_box">
+            <label for="id_q9_details">{% trans "If no, please specify why: " %}</label>
+            <input type="text" name="q9_details" id="id_q9_details" class="form-control">
+        </div>
+        <div class="form-box">
+            <label for="id_q10">{% trans "Do you have any suggestions for us in order to improve the programme?" %}</label>
+            {{ form.q10 }}
+        </div>
+        <button type="submit" id="feedbackButton" class="button">{% trans "Submit" %}</button>
+    </form>
 {% endblock %}

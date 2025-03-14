@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-9o-%69r14(j89r36^72g9atb_6eh#3sfk(3zzj_@2(_37+v(p3'
+SECRET_KEY = "django-insecure-9o-%69r14(j89r36^72g9atb_6eh#3sfk(3zzj_@2(_37+v(p3"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 USE_I18N = True
 
 # Standard-Sprache (Fallback)
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = "en"
 
 # Zeit- und Datumsformatierung basierend auf der Sprache
 USE_L10N = True
@@ -40,54 +40,54 @@ USE_I18N = True
 
 # Verfügbare Sprachen
 LANGUAGES = [
-    ('en', 'English'),
-    ('de', 'Deutsch'),
+    ("en", "English"),
+    ("de", "Deutsch"),
 ]
 
 # Pfad zu Übersetzungsdateien
 LOCALE_PATHS = [
-    BASE_DIR / 'locale',
+    BASE_DIR / "locale",
 ]
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles', 
-    'matching',
-    'users',
-    'feedback',    
-    'homepage',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "matching",
+    "users",
+    "feedback",
+    "homepage",
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = 'myproject.urls'
+ROOT_URLCONF = "myproject.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / "templates"],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [BASE_DIR / "templates"],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
                 #'django.template.context_processors.media',
                 #'django.template.context_processors.static',
             ],
@@ -95,20 +95,20 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'myproject.wsgi.application'
+WSGI_APPLICATION = "myproject.wsgi.application"
 
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'buddymatchingdatabase',
-        'USER': 'buddymatchinguser',
-        'PASSWORD': 'P455w0rd',
-        'HOST': 'localhost',  # Set to your database host
-        'PORT': '5432',       # Default PostgreSQL port
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "buddymatchingdatabase",
+        "USER": "buddymatchinguser",
+        "PASSWORD": "P455w0rd",
+        "HOST": "localhost",  # Set to your database host
+        "PORT": "5432",  # Default PostgreSQL port
     }
 }
 
@@ -118,16 +118,16 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
@@ -140,15 +140,15 @@ PASSWORD_HASHERS = [
     "django.contrib.auth.hashers.ScryptPasswordHasher",
 ]
 
-AUTH_USER_MODEL = 'users.BuddyMatchingUser'  # Set the custom user model
+AUTH_USER_MODEL = "users.BuddyMatchingUser"  # Set the custom user model
 
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -158,27 +158,26 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static",  
+    BASE_DIR / "static",
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-SESSION_ENGINE = 'django.contrib.sessions.backends.db'
-
-
-LOGIN_URL = '/login/'
+SESSION_ENGINE = "django.contrib.sessions.backends.db"
 
 
-LOGIN_REDIRECT_URL = '/'  # Standard-Weiterleitung nach Login
-LOGOUT_REDIRECT_URL = '/'  # Standard-Weiterleitung nach Logout
+LOGIN_URL = "/login/"
+
+
+LOGIN_REDIRECT_URL = "/"  # Standard-Weiterleitung nach Login
+LOGOUT_REDIRECT_URL = "/"  # Standard-Weiterleitung nach Logout
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # Sitzung endet mit dem Schließen des Browsers
 SESSION_COOKIE_AGE = 3600  # Sitzung ist für 1 Stunde aktiv (in Sekunden)
-
