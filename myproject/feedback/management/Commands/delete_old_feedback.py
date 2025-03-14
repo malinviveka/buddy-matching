@@ -5,13 +5,14 @@ from feedback.models import Feedback
 from django.utils.timezone import now
 from datetime import timedelta
 
+
 class Command(BaseCommand):
     help = "Deletes all feedback entries older than 6 months."
 
     def handle(self, *args, **kwargs):
         """
         Deletes feedback that is older than 183 days (6 months).
-        
+
         Steps:
         1. Calculate the date threshold.
         2. Query and count feedback older than this date.
@@ -25,6 +26,8 @@ class Command(BaseCommand):
 
         if count > 0:
             old_feedback.delete()
-            self.stdout.write(self.style.SUCCESS(f"{count} old feedback entries deleted."))
+            self.stdout.write(
+                self.style.SUCCESS(f"{count} old feedback entries deleted.")
+            )
         else:
             self.stdout.write(self.style.WARNING("No old feedback entries found."))

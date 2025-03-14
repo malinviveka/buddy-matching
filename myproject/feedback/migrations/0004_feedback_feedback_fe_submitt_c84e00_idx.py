@@ -4,14 +4,15 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('feedback', '0003_remove_feedback_student_feedback_student_email'),
+        ("feedback", "0003_remove_feedback_student_feedback_student_email"),
     ]
 
     operations = [
         migrations.AddIndex(
-            model_name='feedback',
-            index=models.Index(fields=['submitted_at'], name='feedback_fe_submitt_c84e00_idx'),
+            model_name="feedback",
+            index=models.Index(
+                fields=["submitted_at"], name="feedback_fe_submitt_c84e00_idx"
+            ),
         ),
     ]
