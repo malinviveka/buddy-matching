@@ -166,3 +166,8 @@ In dieser CI-Workflow-Konfiguration wurde eine automatisierte Formatierung imple
 - Ausführung der Code-Formattierung 
 - Prüfung nach Änderungen -> sollten Änderungen vorgenommen sein, werden diese automatisch committet und in das Repository gepusht
 Diese Automatisierung stellt sicher, dass der Code immer einheitlich und nach den definierten Konventionen formatiert ist, ohne manuelle Eingriffe.
+
+- - - 
+## Zukünftige Erweiterung
+Für die nächste Projektgruppe: 
+Es muss eine Server-Funktionalität implementiert werden, die die Befehle `delete_expired_accounts` und `feedback` in regelmäßigen Abständen ausführt. Unter Linux kann dies beispielsweise über einen Cronjob realisiert werden.
