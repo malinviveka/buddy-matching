@@ -170,4 +170,4 @@ Diese Automatisierung stellt sicher, dass der Code immer einheitlich und nach de
 - - - 
 ## Zukünftige Erweiterung
 Für die nächste Projektgruppe: 
-Es muss eine Server-Funktionalität implementiert werden, die die Befehle delete_expired_accounts und feedback in regelmäßigen Abständen ausführt. Unter Linux kann dies beispielsweise über einen Cronjob realisiert werden.
+Es muss eine Server-Funktionalität implementiert werden, die die Befehle `delete_expired_accounts` und `feedback` in regelmäßigen Abständen ausführt. Unter Linux kann dies beispielsweise über einen Cronjob realisiert werden.
