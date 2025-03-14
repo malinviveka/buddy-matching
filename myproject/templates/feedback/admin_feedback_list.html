@@ -1,6 +1,6 @@
 {% extends 'homepage/base.html' %}
 {% block title %}Admin Feedback Management{% endblock %}
-{% load static %}
+{% load static i18n %}
 {% block content %}
     <!-- <script src="{% static 'helloapp/admin_feedback_list.js' %}"></script> Warning! File does not seem to exist? -->
     <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
