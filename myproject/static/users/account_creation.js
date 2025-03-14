@@ -41,6 +41,9 @@ submitAccountButton.addEventListener("click", (event) =>
     const csrfToken = document.querySelector(
       "[name=csrfmiddlewaretoken]",
     ).value;
+    //remove blur preemptively just to be sure (may be unnecessary)
+    document.getElementById('content-container').classList.remove('blur'); 
+
     try {
       const response = yield fetch(accountCreationForm.action, {
         method: "POST",
@@ -51,6 +54,10 @@ submitAccountButton.addEventListener("click", (event) =>
       });
       if (response.ok) {
         const result = yield response.json();
+
+        showModal(result.message || "Account created successfully!"); 
+        document.getElementById('content-container').classList.add('blur');
+
         var __awaiter =
           (this && this.__awaiter) ||
           function (thisArg, _arguments, P, generator) {
@@ -201,6 +208,9 @@ submitAccountButton.addEventListener("click", (event) =>
         }, 2000);
       } else {
         const errors = yield response.json();
+        showModal(`Errors: ${JSON.stringify(errors.errors)}`); 
+        document.getElementById('content-container').classList.add('blur');
+
         messageDiv.innerText = `Errors: ${JSON.stringify(errors.errors)}`;
         messageDiv.style.color = "red";
       }
@@ -208,6 +218,9 @@ submitAccountButton.addEventListener("click", (event) =>
       messageDiv.innerText =
         "An error occurred while creating the account: " + error;
       messageDiv.style.color = "red";
+
+      showModal("An error occurred while creating the account.");
+      document.getElementById('content-container').classList.add('blur');
     }
   }),
 );
@@ -261,6 +274,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   roleSelect.addEventListener("change", updateSpecialFields);
   updateSpecialFields(); // Initial visibility setup
+
 });
 function getCurrentLanguage() {
   const languageElement = document.getElementById("language-info");
@@ -269,4 +283,27 @@ function getCurrentLanguage() {
       ? void 0
       : languageElement.getAttribute("data-language")) || "en"
   ); // Fallback zu Englisch
+}
+
+function showModal(message) {
+  const modalOverlay = document.createElement('div');
+  modalOverlay.classList.add('modal-overlay');
+  
+  const modalContent = document.createElement('div');
+  modalContent.classList.add('modal-content');
+  modalContent.innerHTML = `<p>${message}</p><button id="closeModal">OK</button>`;
+  
+  modalOverlay.appendChild(modalContent);
+  document.body.appendChild(modalOverlay);
+
+  // Modal anzeigen
+  modalOverlay.style.display = 'flex';
+
+  // Event-Listener für das Schließen des Modals
+  document.getElementById('closeModal').addEventListener('click', () => {
+    modalOverlay.style.display = 'none';
+    // Entferne den Blur-Effekt nach dem Schließen des Modals
+    document.getElementById('content-container').classList.remove('blur');
+    modalOverlay.remove();
+  });
 }
