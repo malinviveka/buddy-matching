@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const selectElement = document.getElementById(selectId);
     const detailsBox = document.getElementById(detailsBoxId);
     if (selectElement && detailsBox) {
-      // Verstecke das gesamte umschließende Element
+      //Hiding detailsBox
       detailsBox.style.display = "none";
       selectElement.addEventListener("change", () => {
         detailsBox.style.display =
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   }
-  // Initialisiere die Felder als versteckt auf der Seite
+  //Initialize dynamic fields as hidden
   const q5Details = document.getElementById("q5_details_box");
   if (q5Details && q5Details.parentElement) {
     q5Details.style.display = "none";
@@ -26,12 +26,12 @@ document.addEventListener("DOMContentLoaded", () => {
   if (q9Details && q9Details.parentElement) {
     q9Details.style.display = "none";
   }
-  // Setup event listeners für die Auswahlfelder
+  //Setup event listeners for dynamic fields
   toggleDetails("id_q5", "q5_details_box", "no");
   toggleDetails("id_q8", "q8_details_box", "yes");
   toggleDetails("id_q9", "q9_details_box", "no");
 
-  // Funktion zum Anzeigen des Modals mit einer Nachricht
+  //Function showing the modal with message
   function showModal(message) {
     const modalOverlay = document.createElement("div");
     modalOverlay.classList.add("modal-overlay");
@@ -43,10 +43,10 @@ document.addEventListener("DOMContentLoaded", () => {
     modalOverlay.appendChild(modalContent);
     document.body.appendChild(modalOverlay);
 
-    // Modal anzeigen
+    //Show modal
     modalOverlay.style.display = "flex";
 
-    // Event-Listener für Schließen des Modals
+    //Closing modal
     document.getElementById("closeModal").addEventListener("click", () => {
       modalOverlay.style.display = "none";
       document.getElementById("content-container").classList.remove("blur");
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Form submission handler
+  //Form submission handler
   const feedbackForm = document.getElementById("FeedbackForm");
   feedbackForm.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        // Zeige das Pop-up je nach Antwort
+        //Showing popup field, depending on answer
         if (data.message) {
           showModal(data.message);
         } else if (data.errors) {
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
         showModal("Ein Fehler ist aufgetreten: " + error);
       });
 
-    // Füge den Blur-Effekt auf den Container hinzu
+    //Adding blurr effect on container
     document.getElementById("content-container").classList.add("blur");
   });
 });

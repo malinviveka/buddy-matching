@@ -34,9 +34,7 @@ class FeedbackView(View):
             return JsonResponse(
                 {"message": "Feedback submitted successfully!"}, status=201
             )
-            # return render(request, self.template_name, {'form': form, 'success_message': 'Feedback submitted successfully!'})
         return JsonResponse({"errors": form.errors}, status=400)
-        # return render(request, self.template_name, {'form': form, 'error_message': 'There was an error with your submission.'})
 
 
 @login_required

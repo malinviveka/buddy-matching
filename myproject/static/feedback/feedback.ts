@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ) as HTMLDivElement | null;
 
     if (selectElement && detailsBox) {
-      // Verstecke das gesamte umschließende Element
+      //Hiding detailsBox
       detailsBox.style.display = "none";
 
       selectElement.addEventListener("change", () => {
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Initialisiere die Felder als versteckt auf der Seite
+  //Initialize dynamic fields as hidden
   const q5Details = document.getElementById("q5_details_box");
   if (q5Details && q5Details.parentElement) {
     q5Details.style.display = "none";
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     q9Details.style.display = "none";
   }
 
-  // Setup event listeners für die Auswahlfelder
+  //Setup event listeners for dynamic fields 
   toggleDetails("id_q5", "q5_details_box", "no");
   toggleDetails("id_q8", "q8_details_box", "yes");
   toggleDetails("id_q9", "q9_details_box", "no");
