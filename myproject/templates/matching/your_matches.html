@@ -4,8 +4,6 @@
 {% block content %}
     <!-- Display Partner(s) -->
     <div id="partners-section"></div>
-    <!-- todo: was macht das; brauchen wir das?-->
-    {% if user.is_authenticated %}
         <!--If user already has matches:-->
         {% if partners %}
             <!--a buddy can have multiple PARTNERS, an international student only has one PARTNER-->
@@ -32,6 +30,5 @@
                 <p>{% trans "You currently have no partner." %}</p>
             {% endif %}
         {% endif %}
-    {% endif %}
 </div>
 {% endblock %}

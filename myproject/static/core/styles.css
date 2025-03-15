@@ -1,5 +1,4 @@
-/* helloapp/static/helloapp/styles.css */
-
+/* imports font according to TUDa Corporate Design (https://www.intern.tu-darmstadt.de/arbeitsmittel/corporate_design_vorlagen/index.de.jsp) */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
 /*
@@ -115,7 +114,6 @@ textarea {
   align-items: center;
   justify-content: center;
   gap: var(--size-space-200);
-  flex: 0 0 auto;
   flex: 1;
   flex-grow: 1;
   position: relative;
@@ -146,8 +144,7 @@ textarea {
 }
 #languageButton {
   /* removes global styling of buttons (here unwanted) */
-  background: none;
-  border: none;
+  all: unset;
   padding: 0;
 }
 
@@ -562,7 +559,6 @@ textarea {
   body {
     /*reduce margins for smaller screens*/
     margin: var(--size-space-250);
-    /*background-color: red; /* for testing */
   }
   h1 {
     font-size: 26px;
@@ -755,7 +751,7 @@ textarea {
     margin-right: var(--size-radius-200);
   }
 
-  /* ADMIN: TODO? */
+  /* ADMIN: not yet optimized for smaller screens */
 
   /* 
     FEEDBACK: 
