@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-16 13:26+0100\n"
+"POT-Creation-Date: 2025-03-16 14:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,86 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\feedback\models.py:20
+msgid "Student"
+msgstr "Studierender"
+
+#: .\feedback\models.py:21 .\users\models.py:90
+msgid "Buddy"
+msgstr "Buddy"
+
+#: .\feedback\models.py:25
+msgid "Admission letter"
+msgstr "Zulassungsschreiben"
+
+#: .\feedback\models.py:28
+msgid "International Relations Unit website"
+msgstr "Website Refereat Internationale Beziehungen"
+
+#: .\feedback\models.py:32
+msgid "International Student Services website"
+msgstr "Website International Student Services"
+
+#: .\feedback\models.py:34
+msgid "Orientation Programmes"
+msgstr "Orientierungsprogramm"
+
+#: .\feedback\models.py:35
+msgid "Social-media channels"
+msgstr "Social-Media-Kanäle"
+
+#: .\feedback\models.py:36
+msgid "Friends and fellow students"
+msgstr "Freunde und Kommilitionen"
+
+#: .\feedback\models.py:40 .\feedback\models.py:59 .\feedback\models.py:65
+msgid "Yes"
+msgstr "Ja"
+
+#: .\feedback\models.py:41 .\feedback\models.py:60 .\feedback\models.py:66
+msgid "No"
+msgstr "Nein"
+
+#: .\feedback\models.py:42
+msgid "I did not need any support"
+msgstr "Ich habe keine Unterstützung benötigt"
+
+#: .\feedback\models.py:46
+msgid "Late"
+msgstr "Verspätet"
+
+#: .\feedback\models.py:47
+msgid "Easy"
+msgstr "Einfach"
+
+#: .\feedback\models.py:48
+msgid "Difficult"
+msgstr "Schwierig"
+
+#: .\feedback\models.py:49
+msgid "I was never contacted"
+msgstr "Ich wurde nie kontaktiert"
+
+#: .\feedback\models.py:53
+msgid "Regular"
+msgstr "Regelmäßig"
+
+#: .\feedback\models.py:54
+msgid "Low"
+msgstr "Niedrig"
+
+#: .\feedback\models.py:55
+msgid "Inexistent"
+msgstr "Ich hatte keinen Kontakt"
+
+#: .\feedback\models.py:61
+msgid "Sometimes"
+msgstr "Manchmal"
+
+#: .\feedback\models.py:67
+msgid "Maybe"
+msgstr "Vielleicht"
 
 #: .\homepage\models.py:7
 msgid "Content in German"
@@ -35,8 +115,8 @@ msgid ""
 "On a scale from 1(very dissatisfied) to 5 (very satisfied) how good was the "
 "buddy-matching for you?"
 msgstr ""
-"Auf einer Skala von 1 (sehr enttäuschend) bis 5 (sehr zufrieden), wie gut war die "
-"Matching-Zuteilung für dich?"
+"Auf einer Skala von 1 (sehr enttäuschend) bis 5 (sehr zufrieden), wie gut "
+"war die Matching-Zuteilung für dich?"
 
 #: .\templates\feedback\feedback.html:24
 msgid ""
@@ -52,7 +132,9 @@ msgstr "Wie hast du von dem Buddy-Programm erfahren?"
 
 #: .\templates\feedback\feedback.html:33
 msgid "Were the International Student Services helpful in the support?"
-msgstr "Hast du Unterstützung von dem Team des International Student Services erhalten?"
+msgstr ""
+"Hast du Unterstützung von dem Team des International Student Services "
+"erhalten?"
 
 #: .\templates\feedback\feedback.html:37
 msgid "If no, please specify the issue you encountered: "
@@ -287,59 +369,59 @@ msgstr "durch und bestätige."
 msgid "I have read and agree to the Privacy Policy."
 msgstr "Ich habe die Datenschutzvereinbarung gelesen und stimme ihr zu."
 
-#: .\templates\users\admin_user_site.html:11
+#: .\templates\users\admin_user_site.html:10
 msgid "Run Matching"
 msgstr "Matching starten"
 
-#: .\templates\users\admin_user_site.html:16
+#: .\templates\users\admin_user_site.html:15
 msgid "Email"
 msgstr "Email"
 
-#: .\templates\users\admin_user_site.html:17
+#: .\templates\users\admin_user_site.html:16
 msgid "First Name"
 msgstr "Vorname"
 
-#: .\templates\users\admin_user_site.html:18
+#: .\templates\users\admin_user_site.html:17
 msgid "Last Name"
 msgstr "Nachname"
 
-#: .\templates\users\admin_user_site.html:19
+#: .\templates\users\admin_user_site.html:18
 msgid "Application / Matriculation Number"
 msgstr "Matrikelnummer/Bewerbungsnummer"
 
-#: .\templates\users\admin_user_site.html:20
+#: .\templates\users\admin_user_site.html:19
 msgid "Status"
 msgstr "Status"
 
-#: .\templates\users\admin_user_site.html:21
+#: .\templates\users\admin_user_site.html:20
 msgid "Actions"
 msgstr "Aktionen"
 
-#: .\templates\users\admin_user_site.html:22
+#: .\templates\users\admin_user_site.html:21
 msgid "Matches"
 msgstr "Matches"
 
-#: .\templates\users\admin_user_site.html:34
+#: .\templates\users\admin_user_site.html:33
 msgid "permitted"
 msgstr "Zugelassen"
 
-#: .\templates\users\admin_user_site.html:36
+#: .\templates\users\admin_user_site.html:35
 msgid "not permitted"
 msgstr "Nicht zugelassen"
 
-#: .\templates\users\admin_user_site.html:43
+#: .\templates\users\admin_user_site.html:42
 msgid "revoke"
 msgstr "Entziehen"
 
-#: .\templates\users\admin_user_site.html:45
+#: .\templates\users\admin_user_site.html:44
 msgid "permit"
 msgstr "Zulassen"
 
-#: .\templates\users\admin_user_site.html:53
+#: .\templates\users\admin_user_site.html:52
 msgid "no matches"
 msgstr "keine Matches"
 
-#: .\templates\users\admin_user_site.html:60
+#: .\templates\users\admin_user_site.html:59
 msgid "Delete all matches"
 msgstr "Alle Matches löschen"
 
@@ -461,10 +543,6 @@ msgstr "Informatik (FB 20)"
 #: .\users\models.py:89
 msgid "International Student"
 msgstr "Internationaler Student"
-
-#: .\users\models.py:90
-msgid "Buddy"
-msgstr "Buddy"
 
 #: .\users\models.py:94
 msgid "Sports"

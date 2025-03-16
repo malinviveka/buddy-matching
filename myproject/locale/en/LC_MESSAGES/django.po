@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-16 13:26+0100\n"
+"POT-Creation-Date: 2025-03-16 14:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,88 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\feedback\models.py:20
+msgid "Student"
+msgstr ""
+
+#: .\feedback\models.py:21 .\users\models.py:90
+msgid "Buddy"
+msgstr "Buddy"
+
+#: .\feedback\models.py:25
+msgid "Admission letter"
+msgstr ""
+
+#: .\feedback\models.py:28
+msgid "International Relations Unit website"
+msgstr ""
+
+#: .\feedback\models.py:32
+#, fuzzy
+#| msgid "International Student"
+msgid "International Student Services website"
+msgstr "International Student"
+
+#: .\feedback\models.py:34
+msgid "Orientation Programmes"
+msgstr ""
+
+#: .\feedback\models.py:35
+msgid "Social-media channels"
+msgstr ""
+
+#: .\feedback\models.py:36
+msgid "Friends and fellow students"
+msgstr ""
+
+#: .\feedback\models.py:40 .\feedback\models.py:59 .\feedback\models.py:65
+msgid "Yes"
+msgstr ""
+
+#: .\feedback\models.py:41 .\feedback\models.py:60 .\feedback\models.py:66
+msgid "No"
+msgstr ""
+
+#: .\feedback\models.py:42
+msgid "I did not need any support"
+msgstr ""
+
+#: .\feedback\models.py:46
+msgid "Late"
+msgstr ""
+
+#: .\feedback\models.py:47
+msgid "Easy"
+msgstr ""
+
+#: .\feedback\models.py:48
+msgid "Difficult"
+msgstr ""
+
+#: .\feedback\models.py:49
+msgid "I was never contacted"
+msgstr ""
+
+#: .\feedback\models.py:53
+msgid "Regular"
+msgstr ""
+
+#: .\feedback\models.py:54
+msgid "Low"
+msgstr ""
+
+#: .\feedback\models.py:55
+msgid "Inexistent"
+msgstr ""
+
+#: .\feedback\models.py:61
+msgid "Sometimes"
+msgstr ""
+
+#: .\feedback\models.py:67
+msgid "Maybe"
+msgstr ""
 
 #: .\homepage\models.py:7
 msgid "Content in German"
@@ -271,65 +353,65 @@ msgstr ""
 msgid "I have read and agree to the Privacy Policy."
 msgstr ""
 
-#: .\templates\users\admin_user_site.html:11
+#: .\templates\users\admin_user_site.html:10
 msgid "Run Matching"
 msgstr ""
 
-#: .\templates\users\admin_user_site.html:16
+#: .\templates\users\admin_user_site.html:15
 msgid "Email"
 msgstr ""
 
-#: .\templates\users\admin_user_site.html:17
+#: .\templates\users\admin_user_site.html:16
 #, fuzzy
 #| msgid "First Name:"
 msgid "First Name"
 msgstr "First Name:"
 
-#: .\templates\users\admin_user_site.html:18
+#: .\templates\users\admin_user_site.html:17
 #, fuzzy
 #| msgid "First Name:"
 msgid "Last Name"
 msgstr "First Name:"
 
-#: .\templates\users\admin_user_site.html:19
+#: .\templates\users\admin_user_site.html:18
 #, fuzzy
 #| msgid "Matriculation/Application Number:"
 msgid "Application / Matriculation Number"
 msgstr "Matriculation/Application Number:"
 
-#: .\templates\users\admin_user_site.html:20
+#: .\templates\users\admin_user_site.html:19
 msgid "Status"
 msgstr ""
 
-#: .\templates\users\admin_user_site.html:21
+#: .\templates\users\admin_user_site.html:20
 msgid "Actions"
 msgstr ""
 
-#: .\templates\users\admin_user_site.html:22
+#: .\templates\users\admin_user_site.html:21
 msgid "Matches"
 msgstr ""
 
-#: .\templates\users\admin_user_site.html:34
+#: .\templates\users\admin_user_site.html:33
 msgid "permitted"
 msgstr ""
 
-#: .\templates\users\admin_user_site.html:36
+#: .\templates\users\admin_user_site.html:35
 msgid "not permitted"
 msgstr ""
 
-#: .\templates\users\admin_user_site.html:43
+#: .\templates\users\admin_user_site.html:42
 msgid "revoke"
 msgstr ""
 
-#: .\templates\users\admin_user_site.html:45
+#: .\templates\users\admin_user_site.html:44
 msgid "permit"
 msgstr ""
 
-#: .\templates\users\admin_user_site.html:53
+#: .\templates\users\admin_user_site.html:52
 msgid "no matches"
 msgstr ""
 
-#: .\templates\users\admin_user_site.html:60
+#: .\templates\users\admin_user_site.html:59
 msgid "Delete all matches"
 msgstr ""
 
@@ -453,10 +535,6 @@ msgstr "Computer Science (Dept. 20)"
 #: .\users\models.py:89
 msgid "International Student"
 msgstr "International Student"
-
-#: .\users\models.py:90
-msgid "Buddy"
-msgstr "Buddy"
 
 #: .\users\models.py:94
 msgid "Sports"
