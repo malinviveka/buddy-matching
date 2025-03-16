@@ -152,7 +152,8 @@ textarea {
 .toggle-permission,
 #deletePartnersButton,
 #extendAccountButton,
-.btn_btn-warning {
+.btn_btn-warning,
+#delete_user {
   all: unset;
   background-color: var(--ISS-orange-color);
   color: black;
@@ -166,7 +167,8 @@ textarea {
 .toggle-permission:hover,
 #deletePartnersButton:hover,
 #extendAccountButton:hover,
-.btn_btn-warning:hover {
+.btn_btn-warning:hover,
+#delete_user:hover {
   background-color: var(--ISS-orange-color);
   color: #fff;
   border-radius: var(--border-radius-200);
@@ -190,6 +192,17 @@ textarea {
   font: var(--small-body-font-size);
   font-weight: var(--body-font-weight);
   text-decoration: underline;
+}
+#cancle_delete{
+  background-color: var(--ISS-medium-blue-color);
+  color: #fff;
+  border-radius: var(--border-radius-200);
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  padding: var(--size-space-100);
+  white-space: nowrap; /* only one line text */
+  text-decoration: none;
 }
 
 /*FORMBOX label + input (in account_creation and feedback)*/
@@ -338,6 +351,8 @@ textarea {
   margin: calc(
     -1 * var(--size-space-500, 20px)
   ); /* substracts margin, so that image starts at leftmost edge */
+  overflow: hidden;
+
   height: 79vh;
   width: auto;
 
@@ -345,7 +360,7 @@ textarea {
   border-top-right-radius: 50%;
 }
 .homepage-text {
-  text-align: right;
+  text-align: justify;
   font-size: var(--medium-body-font-size);
   font-weight: var(--body-font-weight);
 
@@ -471,12 +486,22 @@ textarea {
 /* 
   FEEDBACK: 
 */
-.form-feedback {
+.form-feedback {  /* similar to account creation */
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: var(--size-space-200);
+  gap: 0;
+  padding: 0;
+
+  /*centering*/
+  width: 70%;
+  margin: var(--size-space-500) 0;  
 }
+
+.form-control{
+  margin-top: var(--size-space-100);
+  width: 100%;
+}
+
 
 /* 
   MATCH(ES): 
@@ -738,7 +763,7 @@ textarea {
     width: 100%; /* full width */
   }
   .form-account-creation .form-box {
-    /* for mobile: not as repeated style/ not in feedback */
+    /* for mobile: not as repeated style */
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
@@ -757,7 +782,15 @@ textarea {
     FEEDBACK: 
   */
   .form-feedback {
-    gap: var(--size-space-200);
+    width: 100%; /* full width */
+    
+  }
+  .form-feedback .form-box {
+    /* for mobile: not as repeated style */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    margin-bottom: var(--size-space-300);
   }
 
   /* 
@@ -826,3 +859,5 @@ textarea {
   width: 100%;
   z-index: 10000; /* make sure that modal is in front of everything */
 }
+
+
