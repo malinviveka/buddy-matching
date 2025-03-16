@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.timezone import now
 from users.models import BuddyMatchingUser # noqa: F401
+from django.utils.translation import gettext_lazy as _
 from datetime import timedelta
 
 FeedbackLifetime = 183  # Sets default date until account deletion in days. Default is 183 (half a year).
@@ -16,54 +17,54 @@ class Feedback(models.Model):
     """
 
     ROLE_CHOICES = [
-        ("Student", "Student"),
-        ("Buddy", "Buddy"),
+        ("Student", _("Student")),
+        ("Buddy", _("Buddy")),
     ]
 
     DISCOVERY_CHOICES = [
-        ("Admission letter", "Admission letter"),
+        ("Admission letter", _("Admission letter")),
         (
             "International Relations Unit website",
-            "International Relations Unit website",
+            _("International Relations Unit website")
         ),
         (
             "International Student Services website",
-            "International Student Services website",
+            _("International Student Services website")
         ),
-        ("Orientation Programmes", "Orientation Programmes"),
-        ("Social-media channels", "Social-media channels"),
-        ("Friends and fellow students", "Friends and fellow students"),
+        ("Orientation Programmes", _("Orientation Programmes")),
+        ("Social-media channels", _("Social-media channels")),
+        ("Friends and fellow students", _("Friends and fellow students")),
     ]
 
     SUPPORT_CHOICES = [
-        ("Yes", "Yes"),
-        ("No", "No"),
-        ("I did not need any support", "I did not need any support"),
+        ("Yes", _("Yes")),
+        ("No", _("No")),
+        ("I did not need any support", _("I did not need any support")),
     ]
 
     FIRST_CONTACT_CHOICES = [
-        ("Late", "Late"),
-        ("Easy", "Easy"),
-        ("Difficult", "Difficult"),
-        ("I was never contacted", "I was never contacted"),
+        ("Late", _("Late")),
+        ("Easy", _("Easy")),
+        ("Difficult", _("Difficult")),
+        ("I was never contacted", _("I was never contacted")),
     ]
 
     CONTACT_CHOICES = [
-        ("Regular", "Regular"),
-        ("Low", "Low"),
-        ("Inexistent", "Inexistent"),
+        ("Regular", _("Regular")),
+        ("Low", _("Low")),
+        ("Inexistent", _("Inexistent")),
     ]
 
     PROBLEMS_CHOICES = [
-        ("Yes", "Yes"),
-        ("No", "No"),
-        ("Sometimes", "Sometimes"),
+        ("Yes", _("Yes")),
+        ("No", _("No")),
+        ("Sometimes", _("Sometimes")),
     ]
 
     RECOMMENDATION_CHOICES = [
-        ("Yes", "Yes"),
-        ("No", "No"),
-        ("Maybe", "Maybe"),
+        ("Yes", _("Yes")),
+        ("No", _("No")),
+        ("Maybe", _("Maybe")),
     ]
 
     student_email = models.EmailField(
