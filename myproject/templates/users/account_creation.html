@@ -84,7 +84,7 @@
         <script class="country-searchbar">
             $(document).ready(function() {
                 $('#id_country').select2({
-                    placeholder: 'Select a country', 
+                    placeholder: "{% trans 'Select a country' %}", 
                     allowClear: true,
                     width: '100%', //adjust to rest of form
                     //dropdownCssClass: 'select2-dropdown-custom' // without search bar
@@ -133,18 +133,18 @@
         <!--DATA PROTECTION AGREEMENT-->
         <div class="privacy-container">
             <p>
-                <strong>Privacy Policy</strong>
+                <strong>{% trans "Privacy Policy" %}</strong>
             </p>
             <p>
-                Please read the
+                {% trans "Please read the" %}
                 <a class="pdf-link"
                    href="{% static 'docs/datenschutzinformation_vorlage_v3.pdf' %}"
-                   target="_blank">Privacy Policy</a>
-                and then confirm.
+                   target="_blank">{% trans "Privacy Policy" %}</a>
+                {% trans "and then confirm." %}
             </p>
             <p class="checkbox-privacy-policy">
                 <input type="checkbox" id="privacy_policy" name="privacy_policy" required>
-                <label for="privacy_policy">I have read and agree to the Privacy Policy.</label>
+                <label for="privacy_policy">{% trans "I have read and agree to the Privacy Policy." %}</label>
             </p>
         </div>
         <!-- SUBMIT BUTTON -->
