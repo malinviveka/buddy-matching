@@ -4,7 +4,7 @@ from django.urls import path, include
 from django.http import HttpResponse
 
 
-def dummy_admin(request):  # Admin erstmal fake faken weil eh noch nichts da
+def dummy_admin(request):  # faking admin
     return HttpResponse("Mock Admin")
 
 

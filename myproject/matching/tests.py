@@ -131,7 +131,7 @@ class MatchingTestCase2(TestCase):
             degree_level="Masters",
         )
 
-        # Dummy Internationale Studierende erstellen
+        # set up dummy international students 
         self.student1 = BuddyMatchingUser.objects.create(
             role="International Student",
             email="student1@test.com",
@@ -245,7 +245,7 @@ class MatchingTestCase2(TestCase):
         self.assertIn(self.student2, self.buddy2.partners.all())
         self.assertIn(self.student3, self.buddy1.partners.all())
 
-        # Optional: Test die Gegenseitigkeit der Verknüpfungen
+        # Optional: test the reciprocity of the matches
         self.assertIn(self.buddy2, self.student2.partners.all())
         self.assertIn(self.buddy1, self.student1.partners.all())
         self.assertIn(self.buddy1, self.student3.partners.all())

@@ -99,5 +99,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function getCurrentLanguage(): string {
   const languageElement = document.getElementById("language-info");
-  return languageElement?.getAttribute("data-language") || "en"; // Fallback zu Englisch
+  return languageElement?.getAttribute("data-language") || "en"; // Fallback to english
 }

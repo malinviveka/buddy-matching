@@ -19,7 +19,7 @@ class Command(BaseCommand):
         3. Delete the feedback and print a success message.
         4. If no feedback is found, print a warning message.
         """
-        expiration_date = now() - timedelta(days=183)  # Berechnung des Stichtags
+        expiration_date = now() - timedelta(days=183)  # Calculate expiration date 
         old_feedback = Feedback.objects.filter(submitted_at__lt=expiration_date)
 
         count = old_feedback.count()

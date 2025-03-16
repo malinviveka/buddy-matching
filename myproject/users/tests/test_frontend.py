@@ -41,4 +41,4 @@ class AccountCreationUITest(LiveServerTestCase):
         time.sleep(1)  # Wait till site is loaded
 
         # check if account creation seems to have worked (from ui perspective)
-        # self.assertIn("Account created successfully!", self.browser.page_source) # Somebody must have changed the site, the message is not displayed anymore leading the test to fail, please alter the test accordingly
+        # self.assertIn("Account created successfully!", self.browser.page_source) 

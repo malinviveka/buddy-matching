@@ -121,7 +121,7 @@ submitAccountButton.addEventListener("click", (event) =>
                   result.message || "Account created successfully!";
                 messageDiv.style.color = "green";
                 accountCreationForm.reset();
-                // redirect to home page with timeout of 2 secondes
+                // redirect to homepage with timeout of 2 secondes
                 setTimeout(() => {
                   window.location.href = "/";
                 }, 2000);
@@ -195,7 +195,7 @@ submitAccountButton.addEventListener("click", (event) =>
             (languageElement === null || languageElement === void 0
               ? void 0
               : languageElement.getAttribute("data-language")) || "en"
-          ); // Fallback zu Englisch
+          ); // Fallback to english
         }
 
         messageDiv.innerText = result.message;
@@ -281,7 +281,7 @@ function getCurrentLanguage() {
     (languageElement === null || languageElement === void 0
       ? void 0
       : languageElement.getAttribute("data-language")) || "en"
-  ); // Fallback zu Englisch
+  ); // Fallback to english
 }
 
 function showModal(message) {
@@ -295,13 +295,13 @@ function showModal(message) {
   modalOverlay.appendChild(modalContent);
   document.body.appendChild(modalOverlay);
 
-  // Modal anzeigen
+  // show modal
   modalOverlay.style.display = "flex";
 
-  // Event-Listener für das Schließen des Modals
+  // Event-listener for closing the modal
   document.getElementById("closeModal").addEventListener("click", () => {
     modalOverlay.style.display = "none";
-    // Entferne den Blur-Effekt nach dem Schließen des Modals
+    // Remove blurr effect after closing the modal
     document.getElementById("content-container").classList.remove("blur");
     modalOverlay.remove();
   });

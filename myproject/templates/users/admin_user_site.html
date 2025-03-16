@@ -5,7 +5,6 @@
     <script src="{% static 'users/admin_user_list.js' %}"></script>
     <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
     <h2>Admin User Management</h2>
-    <!--Sorry, dass die Seiteso hässlig ist-->
     <form action="{% url 'start_matching' %}" method="post">
         {% csrf_token %}
         <button type="submit" id="assignMatchesButton" class="button">{% trans "Run Matching" %}</button>

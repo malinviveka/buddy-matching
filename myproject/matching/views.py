@@ -28,21 +28,21 @@ def delete_partners(request, user_id):
     """
     user = get_object_or_404(BuddyMatchingUser, id=user_id)
 
-    # Alle Partner des Benutzers entfernen
-    user.partners.clear()  # Dies entfernt alle Partnerschaften des Benutzers
+    # Delete all partners of a user 
+    user.partners.clear()  
 
-    return redirect("admin_user_list")  # Nach dem Löschen zurück zur Admin-Seite
+    return redirect("admin_user_list")  # Return to admin page after deletion 
 
 
 @login_required
 def start_matching(request):
     try:
-        # Matching-Prozess ausführen
+        # run matching process 
         run_matching()
-        # Erfolg: Nach dem Matching zurück zur Homepage
+        # If successful: return to homepage 
         return redirect("admin_user_list")
     except Exception as e:
-        # Falls ein Fehler auftritt, Fehlernachricht zurück an den User
+        # If problem occurs, throw error message directly to user 
         return render(
             request,
             "users/admin_user_site.html",

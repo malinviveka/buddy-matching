@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "helloapp",  # Füge die App hier hinzu
+    "helloapp",  # Add apps here
 ]
 
 MIDDLEWARE = [
@@ -61,10 +61,9 @@ TEMPLATES = [
 STATIC_URL = "/static/"
 
 
-# STATICFILES_DIRS = [BASE_DIR / 'static']
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    # Entferne nicht existierende Pfade wie 'helloapp'
+    # delete non-existent paths like 'helloapp'
 ]
 
 LOGIN_URL = "/login/"

@@ -28,28 +28,28 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# Aktivieren der Internationalisierung
+# Activate internationalization
 USE_I18N = True
 
-# Standard-Sprache (Fallback)
+# Standard language (Fallback)
 LANGUAGE_CODE = "en"
 
-# Zeit- und Datumsformatierung basierend auf der Sprache
+# Formatting time and date based on language settings 
 USE_L10N = True
 USE_I18N = True
 
-# Verfügbare Sprachen
+# Available languages
 LANGUAGES = [
     ("en", "English"),
     ("de", "Deutsch"),
 ]
 
-# Pfad zu Übersetzungsdateien
+# Path to translation files 
 LOCALE_PATHS = [
     BASE_DIR / "locale",
 ]
 
-# Application definition
+# Definition of application 
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -88,8 +88,6 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                #'django.template.context_processors.media',
-                #'django.template.context_processors.static',
             ],
         },
     },
@@ -131,7 +129,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# password hashers, first is default, rest is fallback
+# Password hashers, first is default, rest is fallback
 PASSWORD_HASHERS = [
     "django.contrib.auth.hashers.BCryptSHA256PasswordHasher",
     "django.contrib.auth.hashers.PBKDF2PasswordHasher",
@@ -177,7 +175,7 @@ SESSION_ENGINE = "django.contrib.sessions.backends.db"
 LOGIN_URL = "/login/"
 
 
-LOGIN_REDIRECT_URL = "/"  # Standard-Weiterleitung nach Login
-LOGOUT_REDIRECT_URL = "/"  # Standard-Weiterleitung nach Logout
-SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # Sitzung endet mit dem Schließen des Browsers
-SESSION_COOKIE_AGE = 3600  # Sitzung ist für 1 Stunde aktiv (in Sekunden)
+LOGIN_REDIRECT_URL = "/"  # Standard-redirect after login
+LOGOUT_REDIRECT_URL = "/"  # Standard-redirect after logout
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # Session ends when browser is closed
+SESSION_COOKIE_AGE = 3600  # Session is active for 1 hour (in seconds) 

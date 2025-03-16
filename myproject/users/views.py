@@ -19,10 +19,10 @@ def homepage(request):
 
     homepage_text, _ = HomepageText.objects.get_or_create(id=1)
 
-    # Wählen Sie den Inhalt je nach Sprache
+    # Select content depending on language 
     language_code = (
         get_language()
-    )  # Gibt den aktuellen Sprachcode zurück (z.B. 'de' oder 'en')
+    )  # Return current language code ('de' or 'en')
     if language_code == "de":
         content = homepage_text.content_de
     else:
@@ -131,7 +131,7 @@ def admin_user_list(request):
     users = BuddyMatchingUser.objects.all()
 
     for user in users:
-        # Die Partner für den jeweiligen User abrufen
+        # Return partner(s) for respective user
         user.partner_names = [
             partner.first_name + " " + partner.surname + " " + partner.email
             for partner in user.partners.all()
