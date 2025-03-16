@@ -114,6 +114,13 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
+### 6. Übersetzung der Website
+Übersetzungen, die im Code als solche markiert wurden, können über folgende Befehle in der entprechenden Datei erstellt und kompliliert werden: 
+```bash
+python manage.py makemessages -l de -l en
+python manage.py compilemessages
+```
+
 ---
 
 
