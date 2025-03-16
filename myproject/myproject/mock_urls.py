@@ -3,15 +3,16 @@
 from django.urls import path, include
 from django.http import HttpResponse
 
-def dummy_admin(request): # Admin erstmal fake faken weil eh noch nichts da
-   return HttpResponse("Mock Admin")
+
+def dummy_admin(request):  # Admin erstmal fake faken weil eh noch nichts da
+    return HttpResponse("Mock Admin")
+
 
 urlpatterns = [
     # urls for mock
-    path('', include('helloapp.mock.mock_urls')),
-    path('admin/', dummy_admin, name='mock_admin'),
-    path('login/', include("django.contrib.auth.urls")),
-
+    path("", include("helloapp.mock.mock_urls")),
+    path("admin/", dummy_admin, name="mock_admin"),
+    path("login/", include("django.contrib.auth.urls")),
     # urls from main version
-    path('', include('helloapp.urls')),
+    path("", include("helloapp.urls")),
 ]

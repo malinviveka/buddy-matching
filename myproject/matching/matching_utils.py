@@ -8,7 +8,7 @@ def calculate_match_score(buddy, student):
     # use 10**n to give higher priority to certain attributes
 
     # language
-    if buddy.preferred_language in ('Both', student.preferred_language):
+    if buddy.preferred_language in ("Both", student.preferred_language):
         score += 10**4
 
     # country of sending university or country of preference
@@ -17,7 +17,7 @@ def calculate_match_score(buddy, student):
 
     # interests
     common_interests = set(buddy.interests).intersection(set(student.interests))
-    score += len(common_interests)*(10**2)
+    score += len(common_interests) * (10**2)
 
     # department (at TU Darmstadt)
     if buddy.department == student.department:
@@ -28,7 +28,6 @@ def calculate_match_score(buddy, student):
         score += 10**0
 
     return score
-
 
 
 def create_preference_lists(students, buddies):
@@ -47,7 +46,7 @@ def create_preference_lists(students, buddies):
         student_preferences[student] = sorted(
             [(buddy, scores[(buddy, student)]) for buddy in buddies],
             key=lambda x: x[1],  # Sort by score
-            reverse=True  # Descending order
+            reverse=True,  # Descending order
         )
 
     # Create preference lists for buddies
@@ -56,7 +55,7 @@ def create_preference_lists(students, buddies):
         buddy_preferences[buddy] = sorted(
             [(student, scores[(buddy, student)]) for student in students],
             key=lambda x: x[1],  # Sort by score
-            reverse=True  # Descending order
+            reverse=True,  # Descending order
         )
 
     return student_preferences, buddy_preferences

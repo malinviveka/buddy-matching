@@ -4,19 +4,22 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('feedback', '0002_initial'),
+        ("feedback", "0002_initial"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='feedback',
-            name='student',
+            model_name="feedback",
+            name="student",
         ),
         migrations.AddField(
-            model_name='feedback',
-            name='student_email',
-            field=models.EmailField(default='Email Not Found', help_text='Email of the student who submitted the feedback.', max_length=254),
+            model_name="feedback",
+            name="student_email",
+            field=models.EmailField(
+                default="Email Not Found",
+                help_text="Email of the student who submitted the feedback.",
+                max_length=254,
+            ),
         ),
     ]
