@@ -45,77 +45,77 @@ class FeedbackTestCase(TestCase):
             reverse("submit_feedback"),
             {
                 "student": self.student.id,
-                "rating_1": "EX",  # valid feedback
-                "rating_2": "G",  # valid feedback
-                "text_feedback": "Sehr nette Person!",
+                "q1": "Student",
+                "q2": "5",
+                "q3": "5",
+                "q4": "Admission letter",
+                "q5": "I did not need any support",
+                "q6": "Easy",
+                "q7": "Regular",
+                "q8": "No",
+                "q9": "Yes",
+                "q10": "No comment.",
+
             },
         )
 
         self.assertEqual(response.status_code, 201)
 
         feedback = Feedback.objects.first()
-        self.assertEqual(feedback.rating_1, "EX")
-        self.assertEqual(feedback.rating_2, "G")
-        self.assertEqual(feedback.text_feedback, "Sehr nette Person!")
-
+        self.assertEqual(feedback.q1, "Student")
+        self.assertEqual(feedback.q2, 5)
+        self.assertEqual(feedback.q3, 5)
+        self.assertEqual(feedback.q4, "Admission letter")
+        self.assertEqual(feedback.q5, "I did not need any support")
+        self.assertEqual(feedback.q6, "Easy")
+        self.assertEqual(feedback.q7, "Regular")
+        self.assertEqual(feedback.q8, "No")
+        self.assertEqual(feedback.q9, "Yes")
+        self.assertEqual(feedback.q10, "No comment.")
+        
     def test_feedback_invalid_submission(self):
-        """test whether invalid values are rejected"""
-
-        self.client.login(email="buddy@test.com", password="test123")
-
-        self.client.post(
-            reverse("submit_feedback"),
-            {  # removed response = as it is never used
-                "student": self.student.id,
-                "rating_1": "Awesome",  # invalid rating
-                "rating_2": "G",  # valid rating
-                "text_feedback": "Nicht gültige Antwort!",
-            },
-        )
-
-    def test_feedback_na_submission(self):
-        """Tests if 'N/A' is accepted as a valid rating."""
-        self.client.login(email="buddy@test.com", password="test123")
+        """Test whether invalid feedback is rejected"""
         response = self.client.post(
             reverse("submit_feedback"),
             {
                 "student": self.student.id,
-                "rating_1": "NA",  # 'N/A' as a rating
-                "rating_2": "NA",
-                "text_feedback": "No comment.",
+                "q1": "InvalidRole",  # Invalid choice
+                "q2": "6",  # Out of range (valid range is 1-5)
+                "q3": "-1",  # Negative number, invalid
+                "q4": "Unknown Source",  # Not in DISCOVERY_CHOICES
+                "q5": "Maybe",  # Not in SUPPORT_CHOICES
+                "q6": "",  # Missing required field
+                "q7": "Regular",
+                "q8": "Sometimes",
+                "q9": "Yes",
+                "q10": "",
             },
         )
-        self.assertEqual(response.status_code, 201)
-        feedback = Feedback.objects.first()
-        self.assertEqual(feedback.rating_1, "NA")  # Check if 'N/A' is saved correctly
 
+        self.assertNotEqual(response.status_code, 201)  # Expecting failure
+        self.assertEqual(Feedback.objects.count(), 0)  # No feedback should be saved
+
+    
     def test_multiple_feedback_submission(self):
-        """Tests if the same user can submit feedback multiple times."""
+        """Test whether the same user can submit feedback multiple times"""
         self.client.login(email="buddy@test.com", password="test123")
+        feedback_data = {
+            "student": self.student.id,
+            "q1": "Student",
+            "q2": "5",
+            "q3": "5",
+            "q4": "Admission letter",
+            "q5": "I did not need any support",
+            "q6": "Easy",
+            "q7": "Regular",
+            "q8": "No",
+            "q9": "Yes",
+            "q10": "No comment.",
+        }
 
-        # First feedback submission
-        response1 = self.client.post(
-            reverse("submit_feedback"),
-            {
-                "student": self.student.id,
-                "rating_1": "EX",
-                "rating_2": "VG",
-                "text_feedback": "Very good feedback!",
-            },
-        )
+        response1 = self.client.post(reverse("submit_feedback"), feedback_data)
+        response2 = self.client.post(reverse("submit_feedback"), feedback_data)
+
         self.assertEqual(response1.status_code, 201)
-
-        # Second feedback submission
-        response2 = self.client.post(
-            reverse("submit_feedback"),
-            {
-                "student": self.student.id,
-                "rating_1": "G",
-                "rating_2": "F",
-                "text_feedback": "Improvement potential!",
-            },
-        )
         self.assertEqual(response2.status_code, 201)
-
-        feedback_count = Feedback.objects.count()
-        self.assertEqual(feedback_count, 2)  # Both feedbacks should be saved
+        self.assertEqual(Feedback.objects.count(), 2)  # Ensure two submissions exist
