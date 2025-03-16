@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     q9Details.style.display = "none";
   }
 
-  //Setup event listeners for dynamic fields 
+  //Setup event listeners for dynamic fields
   toggleDetails("id_q5", "q5_details_box", "no");
   toggleDetails("id_q8", "q8_details_box", "yes");
   toggleDetails("id_q9", "q9_details_box", "no");
