@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-27 15:40+0100\n"
+"POT-Creation-Date: 2025-03-16 13:26+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,86 +18,138 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\homepage\models.py:5
+#: .\homepage\models.py:7
 msgid "Content in German"
 msgstr "Inhalt auf Deutsch"
 
-#: .\homepage\models.py:6
+#: .\homepage\models.py:10
 msgid "Content in English"
 msgstr "Inhalt auf Englisch"
 
-#: .\templates\feedback\admin_feedback_list.html:14
-msgid "Export Feedback (CSV)"
-msgstr "Feeback exportieren (CSV)"
+#: .\templates\feedback\feedback.html:13
+msgid "I participated in the Buddy Programme as"
+msgstr "Ich habe am Buddy Programm teilgenommen als"
 
-#: .\templates\feedback\admin_feedback_list.html:37
-msgid "No feedback Entries found."
-msgstr "Keine Feedback-Einträge gefunden."
+#: .\templates\feedback\feedback.html:18
+msgid ""
+"On a scale from 1(very dissatisfied) to 5 (very satisfied) how good was the "
+"buddy-matching for you?"
+msgstr ""
+"Auf einer Skala von 1 (sehr enttäuschend) bis 5 (sehr zufrieden), wie gut war die "
+"Matching-Zuteilung für dich?"
 
-#: .\templates\feedback\feedback.html:28
+#: .\templates\feedback\feedback.html:24
+msgid ""
+"On a scale from 1 (not helpful at all) to 5 (very helpful) how helpful was "
+"the overall experience for you?"
+msgstr ""
+"Auf einer Skala von 1 (unnötig) bis 5 (sehr hilfreich), wie hilfreich war "
+"das allgemeine Erlebnis für dich?"
+
+#: .\templates\feedback\feedback.html:29
+msgid "How did you find out about the Buddy-Programme?"
+msgstr "Wie hast du von dem Buddy-Programm erfahren?"
+
+#: .\templates\feedback\feedback.html:33
+msgid "Were the International Student Services helpful in the support?"
+msgstr "Hast du Unterstützung von dem Team des International Student Services erhalten?"
+
+#: .\templates\feedback\feedback.html:37
+msgid "If no, please specify the issue you encountered: "
+msgstr "Falls nein, bitte beschreibe dein Anliegen: "
+
+#: .\templates\feedback\feedback.html:41
+msgid "How was the first contact with your matching-buddy?"
+msgstr "Wie war dein erster Kontakt zu dem zugeordneten Buddy?"
+
+#: .\templates\feedback\feedback.html:45
+msgid "How would you rate the overall contact with your matching-buddy?"
+msgstr "Wie würdest du den allgemeienen Kontakt mit deinem Buddy bewerten?"
+
+#: .\templates\feedback\feedback.html:49
+msgid "Did you encounter any problems with your matching-buddy?"
+msgstr "Gab es Probleme mit deinem zugeordneten Buddy?"
+
+#: .\templates\feedback\feedback.html:53
+msgid "Please specify the problems encountered: "
+msgstr "Falls ja oder manchmal, bitte beschreibe das Problem: "
+
+#: .\templates\feedback\feedback.html:57
+msgid "Would you recommend this experience to other fellow students?"
+msgstr "Würdest du das Programm an andere Studierende weiterempfehlen?"
+
+#: .\templates\feedback\feedback.html:61
+msgid "If no, please specify why: "
+msgstr "Falls nein oder vielleicht, bitte erkläre kurz den Grund: "
+
+#: .\templates\feedback\feedback.html:65
+msgid "Do you have any suggestions for us in order to improve the programme?"
+msgstr "Hast du Vorschläge, wie das Programm verbessert werden könnte?"
+
+#: .\templates\feedback\feedback.html:68
 msgid "Submit"
 msgstr "Abschicken"
 
 # Base
-#: .\templates\homepage\base.html:17
+#: .\templates\homepage\base.html:23
 msgid "Home"
 msgstr "Startseite"
 
-#: .\templates\homepage\base.html:23
+#: .\templates\homepage\base.html:30
 msgid "User Management"
 msgstr "Benutzermamagement"
 
-#: .\templates\homepage\base.html:24
-#: .\templates\homepage\edit_homepage_text.html:12
+#: .\templates\homepage\base.html:32
+#: .\templates\homepage\edit_homepage_text.html:6
 msgid "Edit Homepage Messages"
 msgstr "Homepage Nachrichten bearbeiten"
 
-#: .\templates\homepage\base.html:25
+#: .\templates\homepage\base.html:34
 msgid "Feedback Management"
 msgstr "Feedbackmanagement"
 
-#: .\templates\homepage\base.html:31
+#: .\templates\homepage\base.html:41
 msgid ", view your matches!"
 msgstr ", sieh dir deine Matches an!"
 
-#: .\templates\homepage\base.html:33
+#: .\templates\homepage\base.html:44
 msgid ", view your match!"
 msgstr ", sieh dir dein Match an!"
 
-#: .\templates\homepage\base.html:58 .\templates\users\account_creation.html:15
-#: .\templates\users\account_creation.html:136 .\templates\users\login.html:27
+#: .\templates\homepage\base.html:69 .\templates\users\account_creation.html:11
+#: .\templates\users\account_creation.html:151 .\templates\users\login.html:31
 msgid "Create Account"
 msgstr "Account Erstellen"
 
-#: .\templates\homepage\edit_homepage_text.html:17
+#: .\templates\homepage\edit_homepage_text.html:9
 #, fuzzy
 #| msgid "Homepage text in german:"
 msgid "Homepage Text in German:"
 msgstr "Homepage-Text auf Deutsch"
 
-#: .\templates\homepage\edit_homepage_text.html:21
+#: .\templates\homepage\edit_homepage_text.html:13
 #, fuzzy
 #| msgid "Homepage text in english:"
 msgid "Homepage Text in English:"
 msgstr "Homepage-Text auf Englisch"
 
-#: .\templates\homepage\edit_homepage_text.html:25
+#: .\templates\homepage\edit_homepage_text.html:17
 msgid "Save"
 msgstr "Speichern"
 
-#: .\templates\homepage\homepage.html:13
+#: .\templates\homepage\homepage.html:9
 msgid "ISS Buddy Programme"
 msgstr "ISS Buddy Programm"
 
-#: .\templates\homepage\homepage.html:21
+#: .\templates\homepage\homepage.html:16
 msgid "about us"
 msgstr "über uns"
 
-#: .\templates\homepage\homepage.html:23
+#: .\templates\homepage\homepage.html:18
 msgid "Welcome to the TU Darmstadt Buddy Programme!"
 msgstr "Willkommen beim Buddy Matching Programm der TU Darmstadt!"
 
-#: .\templates\homepage\homepage.html:24
+#: .\templates\homepage\homepage.html:20
 msgid ""
 "Are you an exchange student looking for local support and a friendly face at "
 "TU Darmstadt? Or are you a local student eager to connect with "
@@ -110,7 +162,7 @@ msgstr ""
 "interkulturelle Erfahrungen sammeln und sich auf Ihren eigenen "
 "Auslandsaufenthalt vorbereiten möchte?"
 
-#: .\templates\homepage\homepage.html:25
+#: .\templates\homepage\homepage.html:21
 msgid ""
 "Our Buddy Programme brings international and local students together for "
 "cultural exchange, friendship, and mutual support. Whether you need help "
@@ -123,45 +175,47 @@ msgstr ""
 "neue Leute kennenlernen wollen - dieses Programm ist genau das Richtige für "
 "dich!"
 
-#: .\templates\homepage\homepage.html:26
+#: .\templates\homepage\homepage.html:22
 msgid "Sign up today and start your journey with a Buddy at TU Darmstadt!"
 msgstr ""
 "Melde dich noch heute an und beginne deine Reise mit einem Buddy an der TU "
 "Darmstadt!"
 
-#: .\templates\homepage\homepage.html:28
+#: .\templates\homepage\homepage.html:26
+#: .\templates\users\account_creation.html:136
+#: .\templates\users\account_creation.html:142
 msgid "Privacy Policy"
 msgstr "Datenschutzvereinbarung"
 
-#: .\templates\matching\your_matches.html:15
+#: .\templates\matching\your_matches.html:11
 msgid "Your Partners"
 msgstr "Deine Partner"
 
-#: .\templates\matching\your_matches.html:15
+#: .\templates\matching\your_matches.html:13
 msgid "Your Partner"
 msgstr "Dein Partner"
 
-#: .\templates\matching\your_matches.html:29
+#: .\templates\matching\your_matches.html:28
 msgid "You currently have no partners."
 msgstr "Du hast noch keine Partner."
 
-#: .\templates\matching\your_matches.html:29
+#: .\templates\matching\your_matches.html:30
 msgid "You currently have no partner."
 msgstr "Du hast noch keinen Partner."
 
-#: .\templates\users\account_creation.html:26
+#: .\templates\users\account_creation.html:21
 msgid "Role:"
 msgstr "Rolle:"
 
-#: .\templates\users\account_creation.html:30
+#: .\templates\users\account_creation.html:25
 msgid "Surname:"
 msgstr "Nachname:"
 
-#: .\templates\users\account_creation.html:34
+#: .\templates\users\account_creation.html:29
 msgid "First Name:"
 msgstr "Vorname:"
 
-#: .\templates\users\account_creation.html:38
+#: .\templates\users\account_creation.html:33
 msgid "Preferred Language:"
 msgstr "Bevorzugte Sprache:"
 
@@ -169,1058 +223,1067 @@ msgstr "Bevorzugte Sprache:"
 msgid "Degree Level:"
 msgstr "Abschluss:"
 
-#: .\templates\users\account_creation.html:51 .\templates\users\profile.html:14
+#: .\templates\users\account_creation.html:51 .\templates\users\profile.html:9
 msgid "Matriculation/Application Number:"
 msgstr "Matrikelnummer/Bewerbungsnummer:"
 
-#: .\templates\users\account_creation.html:56
+#: .\templates\users\account_creation.html:61
 msgid "Department:"
 msgstr "Fachbereich:"
 
-#: .\templates\users\account_creation.html:60
+#: .\templates\users\account_creation.html:65
 msgid "Country:"
 msgstr "Land:"
 
-#: .\templates\users\account_creation.html:64
+#: .\templates\users\account_creation.html:69
 msgid "Preferred Number of Partners:"
 msgstr "Gewünschte Anzahl an Partnern:"
 
-#: .\templates\users\account_creation.html:70
+#: .\templates\users\account_creation.html:80
 msgid "Interests:"
 msgstr "Interessen:"
 
-#: .\templates\users\account_creation.html:100 .\templates\users\login.html:20
+#: .\templates\users\account_creation.html:87
+msgid "Select a country"
+msgstr "Land auswählen"
+
+#: .\templates\users\account_creation.html:108 .\templates\users\login.html:21
 msgid "Password:"
 msgstr "Passwort:"
 
-#: .\templates\users\account_creation.html:105
+#: .\templates\users\account_creation.html:116
 msgid "Your password can’t be too similar to your other personal information."
 msgstr "Dein Passwort darf deinen anderen information nicht zu ähnlich sein."
 
-#: .\templates\users\account_creation.html:106
+#: .\templates\users\account_creation.html:118
 msgid "Your password must contain at least 8 characters."
 msgstr "Dein Passwort muss aus mindestens 8 Zeichen bestehen."
 
-#: .\templates\users\account_creation.html:107
+#: .\templates\users\account_creation.html:120
 msgid "Your password can’t be a commonly used password."
 msgstr "Dein Passwort kann kein häufig verwendetes Passwort sein."
 
-#: .\templates\users\account_creation.html:108
+#: .\templates\users\account_creation.html:122
 msgid "Your password can’t be entirely numeric."
 msgstr "Dein Passwort kann nicht nur aus Nummern bestehen."
 
-#: .\templates\users\account_creation.html:111
+#: .\templates\users\account_creation.html:124
 msgid "Confirm Password:"
 msgstr "Passwort bestätigen:"
 
-#: .\templates\users\account_creation.html:116
+#: .\templates\users\account_creation.html:131
 msgid "Enter the same password as before, for verification."
 msgstr "Gib das gewählte Passwort erneut ein, um es zu bestätigen."
 
-#: .\templates\users\admin_user_site.html:16
+#: .\templates\users\account_creation.html:139
+msgid "Please read the"
+msgstr "Bitte lies dir die"
+
+#: .\templates\users\account_creation.html:143
+msgid "and then confirm."
+msgstr "durch und bestätige."
+
+#: .\templates\users\account_creation.html:147
+msgid "I have read and agree to the Privacy Policy."
+msgstr "Ich habe die Datenschutzvereinbarung gelesen und stimme ihr zu."
+
+#: .\templates\users\admin_user_site.html:11
 msgid "Run Matching"
 msgstr "Matching starten"
 
-#: .\templates\users\admin_user_site.html:22
+#: .\templates\users\admin_user_site.html:16
 msgid "Email"
 msgstr "Email"
 
-#: .\templates\users\admin_user_site.html:23
+#: .\templates\users\admin_user_site.html:17
 msgid "First Name"
 msgstr "Vorname"
 
-#: .\templates\users\admin_user_site.html:24
+#: .\templates\users\admin_user_site.html:18
 msgid "Last Name"
 msgstr "Nachname"
 
-#: .\templates\users\admin_user_site.html:25
+#: .\templates\users\admin_user_site.html:19
 msgid "Application / Matriculation Number"
 msgstr "Matrikelnummer/Bewerbungsnummer"
 
-#: .\templates\users\admin_user_site.html:26
+#: .\templates\users\admin_user_site.html:20
 msgid "Status"
 msgstr "Status"
 
-#: .\templates\users\admin_user_site.html:27
+#: .\templates\users\admin_user_site.html:21
 msgid "Actions"
 msgstr "Aktionen"
 
-#: .\templates\users\admin_user_site.html:28
+#: .\templates\users\admin_user_site.html:22
 msgid "Matches"
 msgstr "Matches"
 
-#: .\templates\users\admin_user_site.html:40
+#: .\templates\users\admin_user_site.html:34
 msgid "permitted"
 msgstr "Zugelassen"
 
-#: .\templates\users\admin_user_site.html:42
+#: .\templates\users\admin_user_site.html:36
 msgid "not permitted"
 msgstr "Nicht zugelassen"
 
-#: .\templates\users\admin_user_site.html:48
+#: .\templates\users\admin_user_site.html:43
 msgid "revoke"
 msgstr "Entziehen"
 
-#: .\templates\users\admin_user_site.html:48
+#: .\templates\users\admin_user_site.html:45
 msgid "permit"
 msgstr "Zulassen"
 
-#: .\templates\users\admin_user_site.html:55
+#: .\templates\users\admin_user_site.html:53
 msgid "no matches"
 msgstr "keine Matches"
 
-#: .\templates\users\admin_user_site.html:62
+#: .\templates\users\admin_user_site.html:60
 msgid "Delete all matches"
 msgstr "Alle Matches löschen"
 
-#: .\templates\users\delete_confirm.html:7 .\templates\users\profile.html:17
+#: .\templates\users\delete_confirm.html:5 .\templates\users\profile.html:11
 msgid "Delete Account"
 msgstr "Account löschen"
 
-#: .\templates\users\delete_confirm.html:8
+#: .\templates\users\delete_confirm.html:6
 msgid ""
 "Are you sure you want to delete this account? This action cannot be reversed."
 msgstr ""
 "Sind Sie sicher, dass Sie Ihr Konto löschen möchten? Diese Aktion kann nicht "
 "rückgängig gemacht werden."
 
-#: .\templates\users\delete_confirm.html:12
+#: .\templates\users\delete_confirm.html:9
 msgid "Yes, delete account"
 msgstr "Ja, Account löschen"
 
-#: .\templates\users\delete_confirm.html:13
+#: .\templates\users\delete_confirm.html:10
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: .\templates\users\profile.html:9
+#: .\templates\users\profile.html:5
 msgid "'s Profile"
 msgstr "s Profil"
 
-#: .\templates\users\profile.html:12
+#: .\templates\users\profile.html:7
 msgid "Welcome"
 msgstr "Willkommen"
 
-#: .\templates\users\profile.html:12
+#: .\templates\users\profile.html:7
 msgid "you are logged in with following information:"
 msgstr "Du bist mit den folgenden Informationen angemeldet:"
 
-#: .\templates\users\profile.html:21
+#: .\templates\users\profile.html:14
 msgid "Your account will be deleted in"
 msgstr "Dein Account wird in"
 
-#: .\templates\users\profile.html:21
+#: .\templates\users\profile.html:14
 msgid "days."
 msgstr "Tagen gelöscht."
 
-#: .\templates\users\profile.html:25
+#: .\templates\users\profile.html:17
 msgid "Extend account for another year"
 msgstr "Verlängere deinen Account für ein weiteres Jahr"
 
-#: .\users\models.py:58
+#: .\users\models.py:62
 msgid "German"
 msgstr "Deutsch"
 
-#: .\users\models.py:59
+#: .\users\models.py:63
 msgid "English"
 msgstr "Englisch"
 
-#: .\users\models.py:60
+#: .\users\models.py:64
 msgid "Both"
 msgstr "Beides"
 
-#: .\users\models.py:64
+#: .\users\models.py:68
 msgid "Bachelors"
 msgstr "Bachelor"
 
-#: .\users\models.py:65
+#: .\users\models.py:69
 msgid "Masters"
 msgstr "Master"
 
-#: .\users\models.py:69
+#: .\users\models.py:73
 msgid "Law and Economics (FB 1)"
 msgstr "Rechts- und Wirtschaftswissenschaften (FB 1)"
 
-#: .\users\models.py:70
+#: .\users\models.py:74
 msgid "Social and Historical Sciences (FB 2)"
 msgstr "Gesellschafts- & Geschichtswissenschaften (FB 2)"
 
-#: .\users\models.py:71
+#: .\users\models.py:75
 msgid "Human Sciences (FB 3)"
 msgstr "Humanwissenschaften (FB 3)"
 
-#: .\users\models.py:72
+#: .\users\models.py:76
 msgid "Mathematics (FB 4)"
 msgstr "Mathematik (FB 4)"
 
-#: .\users\models.py:73
+#: .\users\models.py:77
 msgid "Physics (FB 5)"
 msgstr "Physik (FB 5)"
 
-#: .\users\models.py:74
+#: .\users\models.py:78
 msgid "Chemistry (FB 7)"
 msgstr "Chemie (FB 7)"
 
-#: .\users\models.py:75
+#: .\users\models.py:79
 msgid "Biology (FB 10)"
 msgstr "Biologie (FB 10)"
 
-#: .\users\models.py:76
+#: .\users\models.py:80
 msgid "Material and Earth Sciences (FB 11)"
 msgstr "Material- und Geowissenschaften (FB 11)"
 
-#: .\users\models.py:77
+#: .\users\models.py:81
 msgid "Civil and Environmental Engineering (FB 13)"
 msgstr "Bau- und Umweltingenieuerswissenschaften (FB 13)"
 
-#: .\users\models.py:78
+#: .\users\models.py:82
 msgid "Architecture (FB 15)"
 msgstr "Architektur (FB 15)"
 
-#: .\users\models.py:79
+#: .\users\models.py:83
 msgid "Mechanical Engineering (FB 16)"
 msgstr "Maschinenbau (FB 16)"
 
-#: .\users\models.py:80
+#: .\users\models.py:84
 msgid "Electrical Engineering and IT (FB 18)"
 msgstr "Elektrotechnik und Informationstechnik (FB 18)"
 
-#: .\users\models.py:81
+#: .\users\models.py:85
 msgid "Computer Science (FB 20)"
 msgstr "Informatik (FB 20)"
 
-#: .\users\models.py:85
+#: .\users\models.py:89
 msgid "International Student"
 msgstr "Internationaler Student"
 
-#: .\users\models.py:86
+#: .\users\models.py:90
 msgid "Buddy"
 msgstr "Buddy"
 
-#: .\users\models.py:90
+#: .\users\models.py:94
 msgid "Sports"
 msgstr "Sport"
 
-#: .\users\models.py:91
+#: .\users\models.py:95
 msgid "Culture"
 msgstr "Kultur"
 
-#: .\users\models.py:92
+#: .\users\models.py:96
 msgid "Nature"
 msgstr "Natur"
 
-#: .\users\models.py:93
+#: .\users\models.py:97
 msgid "Technology"
 msgstr "Technologie"
 
-#: .\users\models.py:97
+#: .\users\models.py:101
 msgid "Afghanistan"
 msgstr "Afghanistan"
 
-#: .\users\models.py:98
+#: .\users\models.py:102
 msgid "Albania"
 msgstr "Albanien"
 
-#: .\users\models.py:99
+#: .\users\models.py:103
 msgid "Algeria"
 msgstr "Algerien"
 
-#: .\users\models.py:100
+#: .\users\models.py:104
 msgid "American Samoa"
 msgstr "Amerikanisch-Samoa"
 
-#: .\users\models.py:101
+#: .\users\models.py:105
 msgid "Andorra"
 msgstr "Andorra"
 
-#: .\users\models.py:102
+#: .\users\models.py:106
 msgid "Angola"
 msgstr "Angola"
 
-#: .\users\models.py:103
+#: .\users\models.py:107
 msgid "Antigua and Barbuda"
 msgstr "Antigua und Barbuda"
 
-#: .\users\models.py:104
+#: .\users\models.py:108
 msgid "Argentina"
 msgstr "Argentinien"
 
-#: .\users\models.py:105
+#: .\users\models.py:109
 msgid "Armenia"
 msgstr "Armenien"
 
-#: .\users\models.py:106
+#: .\users\models.py:110
 msgid "Australia"
 msgstr "Australien"
 
-#: .\users\models.py:107
+#: .\users\models.py:111
 msgid "Austria"
 msgstr "Österreich"
 
-#: .\users\models.py:108
+#: .\users\models.py:112
 msgid "Azerbaijan"
 msgstr "Aserbaidschan"
 
-#: .\users\models.py:109
+#: .\users\models.py:113
 msgid "Bahamas"
 msgstr "Bahamas"
 
-#: .\users\models.py:110
+#: .\users\models.py:114
 msgid "Bahrain"
 msgstr "Bahrain"
 
-#: .\users\models.py:111
+#: .\users\models.py:115
 msgid "Bangladesh"
 msgstr "Bangladesch"
 
-#: .\users\models.py:112
+#: .\users\models.py:116
 msgid "Barbados"
 msgstr "Barbados"
 
-#: .\users\models.py:113
+#: .\users\models.py:117
 msgid "Belarus"
 msgstr "Belarus"
 
-#: .\users\models.py:114
+#: .\users\models.py:118
 msgid "Belgium"
 msgstr "Belgien"
 
-#: .\users\models.py:115
+#: .\users\models.py:119
 msgid "Belize"
 msgstr "Belize"
 
-#: .\users\models.py:116
+#: .\users\models.py:120
 msgid "Benin"
 msgstr "Benin"
 
-#: .\users\models.py:117
+#: .\users\models.py:121
 msgid "Bhutan"
 msgstr "Bhutan"
 
-#: .\users\models.py:118
+#: .\users\models.py:122
 msgid "Bolivia"
 msgstr "Bolivien"
 
-#: .\users\models.py:119
+#: .\users\models.py:123
 msgid "Bosnia and Herzegovina"
 msgstr "Bosnien und Herzegowina"
 
-#: .\users\models.py:120
+#: .\users\models.py:124
 msgid "Botswana"
 msgstr "Botsuana"
 
-#: .\users\models.py:121
+#: .\users\models.py:125
 msgid "Brazil"
 msgstr "Brasilien"
 
-#: .\users\models.py:122
+#: .\users\models.py:126
 msgid "Brunei"
 msgstr "Brunei"
 
-#: .\users\models.py:123
+#: .\users\models.py:127
 msgid "Bulgaria"
 msgstr "Bulgarien"
 
-#: .\users\models.py:124
+#: .\users\models.py:128
 msgid "Burkina Faso"
 msgstr "Burkina Faso"
 
-#: .\users\models.py:125
+#: .\users\models.py:129
 msgid "Burundi"
 msgstr "Burundi"
 
-#: .\users\models.py:126
+#: .\users\models.py:130
 msgid "Cabo Verde"
 msgstr "Cabo Verde"
 
-#: .\users\models.py:127
+#: .\users\models.py:131
 msgid "Cambodia"
 msgstr "Kambodscha"
 
-#: .\users\models.py:128
+#: .\users\models.py:132
 msgid "Cameroon"
 msgstr "Kamerun"
 
-#: .\users\models.py:129
+#: .\users\models.py:133
 msgid "Canada"
 msgstr "Kanada"
 
-#: .\users\models.py:130
+#: .\users\models.py:134
 msgid "Central African Republic"
 msgstr "Zentralafrikanische Republik"
 
-#: .\users\models.py:131
+#: .\users\models.py:135
 msgid "Chad"
 msgstr "Tschad"
 
-#: .\users\models.py:132
+#: .\users\models.py:136
 msgid "Chile"
 msgstr "Chile"
 
-#: .\users\models.py:133
+#: .\users\models.py:137
 msgid "China"
 msgstr "China"
 
-#: .\users\models.py:134
+#: .\users\models.py:138
 msgid "Colombia"
 msgstr "Kolumbien"
 
-#: .\users\models.py:135
+#: .\users\models.py:139
 msgid "Comoros"
 msgstr "Komoren"
 
-#: .\users\models.py:136
+#: .\users\models.py:140
 msgid "Congo (Brazzaville)"
 msgstr "Kongo (Brazzaville)"
 
-#: .\users\models.py:137
+#: .\users\models.py:141
 msgid "Congo (Kinshasa)"
 msgstr "Kongo (Kinshasa)"
 
-#: .\users\models.py:138
+#: .\users\models.py:142
 msgid "Costa Rica"
 msgstr "Costa Rica"
 
-#: .\users\models.py:139
+#: .\users\models.py:143
 msgid "Côte d’Ivoire"
 msgstr "Elfenbeinküste"
 
-#: .\users\models.py:140
+#: .\users\models.py:144
 msgid "Croatia"
 msgstr "Kroatien"
 
-#: .\users\models.py:141
+#: .\users\models.py:145
 msgid "Cuba"
 msgstr "Kuba"
 
-#: .\users\models.py:142
+#: .\users\models.py:146
 msgid "Cyprus"
 msgstr "Zypern"
 
-#: .\users\models.py:143
+#: .\users\models.py:147
 msgid "Czechia"
 msgstr "Tschechien"
 
-#: .\users\models.py:144
+#: .\users\models.py:148
 msgid "Denmark"
 msgstr "Dänemark"
 
-#: .\users\models.py:145
+#: .\users\models.py:149
 msgid "Djibouti"
 msgstr "Dschibuti"
 
-#: .\users\models.py:146
+#: .\users\models.py:150
 msgid "Dominica"
 msgstr "Dominica"
 
-#: .\users\models.py:147
+#: .\users\models.py:151
 msgid "Dominican Republic"
 msgstr "Dominikanische Republik"
 
-#: .\users\models.py:148
+#: .\users\models.py:152
 msgid "Ecuador"
 msgstr "Ecuador"
 
-#: .\users\models.py:149
+#: .\users\models.py:153
 msgid "Egypt"
 msgstr "Ägypten"
 
-#: .\users\models.py:150
+#: .\users\models.py:154
 msgid "El Salvador"
 msgstr "El Salvador"
 
-#: .\users\models.py:151
+#: .\users\models.py:155
 msgid "England"
 msgstr "England"
 
-#: .\users\models.py:152
+#: .\users\models.py:156
 msgid "Equatorial Guinea"
 msgstr "Äquatorialguinea"
 
-#: .\users\models.py:153
+#: .\users\models.py:157
 msgid "Eritrea"
 msgstr "Eritrea"
 
-#: .\users\models.py:154
+#: .\users\models.py:158
 msgid "Estonia"
 msgstr "Estland"
 
-#: .\users\models.py:155
+#: .\users\models.py:159
 msgid "Eswatini"
 msgstr "Eswatini"
 
-#: .\users\models.py:156
+#: .\users\models.py:160
 msgid "Ethiopia"
 msgstr "Äthiopien"
 
-#: .\users\models.py:157
+#: .\users\models.py:161
 msgid "Fiji"
 msgstr "Fiji"
 
-#: .\users\models.py:158
+#: .\users\models.py:162
 msgid "Finland"
 msgstr "Finnland"
 
-#: .\users\models.py:159
+#: .\users\models.py:163
 msgid "France"
 msgstr "Frankreich"
 
-#: .\users\models.py:160
+#: .\users\models.py:164
 msgid "Gabon"
 msgstr "Gabun"
 
-#: .\users\models.py:161
+#: .\users\models.py:165
 msgid "Gambia"
 msgstr "Gambia"
 
-#: .\users\models.py:162
+#: .\users\models.py:166
 msgid "Georgia"
 msgstr "Georgien"
 
-#: .\users\models.py:163
+#: .\users\models.py:167
 msgid "Germany"
 msgstr "Deutschland"
 
-#: .\users\models.py:164
+#: .\users\models.py:168
 msgid "Ghana"
 msgstr "Ghana"
 
-#: .\users\models.py:165
+#: .\users\models.py:169
 msgid "Greece"
 msgstr "Griechenland"
 
-#: .\users\models.py:166
+#: .\users\models.py:170
 msgid "Grenada"
 msgstr "Grenada"
 
-#: .\users\models.py:167
+#: .\users\models.py:171
 msgid "Guatemala"
 msgstr "Guatemala"
 
-#: .\users\models.py:168
+#: .\users\models.py:172
 msgid "Guinea"
 msgstr "Guinea"
 
-#: .\users\models.py:169
+#: .\users\models.py:173
 msgid "Guinea-Bissau"
 msgstr "Guinea-Bissau"
 
-#: .\users\models.py:170
+#: .\users\models.py:174
 msgid "Guyana"
 msgstr "Guyana"
 
-#: .\users\models.py:171
+#: .\users\models.py:175
 msgid "Haiti"
 msgstr "Haiti"
 
-#: .\users\models.py:172
+#: .\users\models.py:176
 msgid "Honduras"
 msgstr "Honduras"
 
-#: .\users\models.py:173
+#: .\users\models.py:177
 msgid "Hungary"
 msgstr "Ungarn"
 
-#: .\users\models.py:174
+#: .\users\models.py:178
 msgid "Iceland"
 msgstr "Island"
 
-#: .\users\models.py:175
+#: .\users\models.py:179
 msgid "India"
 msgstr "Indien"
 
-#: .\users\models.py:176
+#: .\users\models.py:180
 msgid "Indonesia"
 msgstr "Indonesien"
 
-#: .\users\models.py:177
+#: .\users\models.py:181
 msgid "Iran"
 msgstr "Iran"
 
-#: .\users\models.py:178
+#: .\users\models.py:182
 msgid "Iraq"
 msgstr "Irak"
 
-#: .\users\models.py:179
+#: .\users\models.py:183
 msgid "Ireland"
 msgstr "Irland"
 
-#: .\users\models.py:180
+#: .\users\models.py:184
 msgid "Israel"
 msgstr "Israel"
 
-#: .\users\models.py:181
+#: .\users\models.py:185
 msgid "Italy"
 msgstr "Italien"
 
-#: .\users\models.py:182
+#: .\users\models.py:186
 msgid "Jamaica"
 msgstr "Jamaika"
 
-#: .\users\models.py:183
+#: .\users\models.py:187
 msgid "Japan"
 msgstr "Japan"
 
-#: .\users\models.py:184
+#: .\users\models.py:188
 msgid "Jordan"
 msgstr "Jordanien"
 
-#: .\users\models.py:185
+#: .\users\models.py:189
 msgid "Kazakhstan"
 msgstr "Kasachstan"
 
-#: .\users\models.py:186
+#: .\users\models.py:190
 msgid "Kenya"
 msgstr "Kenia"
 
-#: .\users\models.py:187
+#: .\users\models.py:191
 msgid "Kiribati"
 msgstr "Kiribati"
 
-#: .\users\models.py:188
+#: .\users\models.py:192
 msgid "Korea (North)"
 msgstr "Nordkorea"
 
-#: .\users\models.py:189
+#: .\users\models.py:193
 msgid "Korea (South)"
 msgstr "Südkorea"
 
-#: .\users\models.py:190
+#: .\users\models.py:194
 msgid "Kuwait"
 msgstr "Kuwait"
 
-#: .\users\models.py:191
+#: .\users\models.py:195
 msgid "Kyrgyzstan"
 msgstr "Kirgistan"
 
-#: .\users\models.py:192
+#: .\users\models.py:196
 msgid "Laos"
 msgstr "Laos"
 
-#: .\users\models.py:193
+#: .\users\models.py:197
 msgid "Latvia"
 msgstr "Lettland"
 
-#: .\users\models.py:194
+#: .\users\models.py:198
 msgid "Lebanon"
 msgstr "Libanon"
 
-#: .\users\models.py:195
+#: .\users\models.py:199
 msgid "Lesotho"
 msgstr "Lesotho"
 
-#: .\users\models.py:196
+#: .\users\models.py:200
 msgid "Liberia"
 msgstr "Liberia"
 
-#: .\users\models.py:197
+#: .\users\models.py:201
 msgid "Libya"
 msgstr "Libyen"
 
-#: .\users\models.py:198
+#: .\users\models.py:202
 msgid "Liechtenstein"
 msgstr "Liechtenstein"
 
-#: .\users\models.py:199
+#: .\users\models.py:203
 msgid "Lithuania"
 msgstr "Litauen"
 
-#: .\users\models.py:200
+#: .\users\models.py:204
 msgid "Luxembourg"
 msgstr "Luxemberg"
 
-#: .\users\models.py:201
+#: .\users\models.py:205
 msgid "Madagascar"
 msgstr "Madagaskar"
 
-#: .\users\models.py:202
+#: .\users\models.py:206
 msgid "Malawi"
 msgstr "Malawi"
 
-#: .\users\models.py:203
+#: .\users\models.py:207
 msgid "Malaysia"
 msgstr "Malaysia"
 
-#: .\users\models.py:204
+#: .\users\models.py:208
 msgid "Maldives"
 msgstr "Malediven"
 
-#: .\users\models.py:205
+#: .\users\models.py:209
 msgid "Mali"
 msgstr "Mali"
 
-#: .\users\models.py:206
+#: .\users\models.py:210
 msgid "Malta"
 msgstr "Malta"
 
-#: .\users\models.py:207
+#: .\users\models.py:211
 msgid "Marshall Islands"
 msgstr "Marshallinseln"
 
-#: .\users\models.py:208
+#: .\users\models.py:212
 msgid "Mauritania"
 msgstr "Mauretanien"
 
-#: .\users\models.py:209
+#: .\users\models.py:213
 msgid "Mauritius"
 msgstr "Mauritius"
 
-#: .\users\models.py:210
+#: .\users\models.py:214
 msgid "Mexico"
 msgstr "Mexiko"
 
-#: .\users\models.py:211
+#: .\users\models.py:215
 msgid "Micronesia"
 msgstr "Mikronesien"
 
-#: .\users\models.py:212
+#: .\users\models.py:216
 msgid "Moldova"
 msgstr "Moldawien"
 
-#: .\users\models.py:213
+#: .\users\models.py:217
 msgid "Monaco"
 msgstr "Monaco"
 
-#: .\users\models.py:214
+#: .\users\models.py:218
 msgid "Mongolia"
 msgstr "Mongolei"
 
-#: .\users\models.py:215
+#: .\users\models.py:219
 msgid "Montenegro"
 msgstr "Montenegro"
 
-#: .\users\models.py:216
+#: .\users\models.py:220
 msgid "Morocco"
 msgstr "Marokko"
 
-#: .\users\models.py:217
+#: .\users\models.py:221
 msgid "Mozambique"
 msgstr "Mosambik"
 
-#: .\users\models.py:218
+#: .\users\models.py:222
 msgid "Myanmar (Burma)"
 msgstr "Myanmar (Burma)"
 
-#: .\users\models.py:219
+#: .\users\models.py:223
 msgid "Namibia"
 msgstr "Namibia"
 
-#: .\users\models.py:220
+#: .\users\models.py:224
 msgid "Nauru"
 msgstr "Nauru"
 
-#: .\users\models.py:221
+#: .\users\models.py:225
 msgid "Nepal"
 msgstr "Nepal"
 
-#: .\users\models.py:222
+#: .\users\models.py:226
 msgid "Netherlands"
 msgstr "Niederlande"
 
-#: .\users\models.py:223
+#: .\users\models.py:227
 msgid "New Zealand"
 msgstr "Neuseeland"
 
-#: .\users\models.py:224
+#: .\users\models.py:228
 msgid "Nicaragua"
 msgstr "Nicaragua"
 
-#: .\users\models.py:225
+#: .\users\models.py:229
 msgid "Northern Ireland"
 msgstr "Nordirland"
 
-#: .\users\models.py:226
+#: .\users\models.py:230
 msgid "Niger"
 msgstr "Niger"
 
-#: .\users\models.py:227
+#: .\users\models.py:231
 msgid "Nigeria"
 msgstr "Nigeria"
 
-#: .\users\models.py:228
+#: .\users\models.py:232
 msgid "North Macedonia"
 msgstr "Nordmazedonien"
 
-#: .\users\models.py:229
+#: .\users\models.py:233
 msgid "Norway"
 msgstr "Norwegen"
 
-#: .\users\models.py:230
+#: .\users\models.py:234
 msgid "Oman"
 msgstr "Oman"
 
-#: .\users\models.py:231
+#: .\users\models.py:235
 msgid "Pakistan"
 msgstr "Pakistan"
 
-#: .\users\models.py:232
+#: .\users\models.py:236
 msgid "Palau"
 msgstr "Palau"
 
-#: .\users\models.py:233
+#: .\users\models.py:237
 msgid "Palestine"
 msgstr "Palästina"
 
-#: .\users\models.py:234
+#: .\users\models.py:238
 msgid "Panama"
 msgstr "Panama"
 
-#: .\users\models.py:235
+#: .\users\models.py:239
 msgid "Papua New Guinea"
 msgstr "Papua-Neuguinea"
 
-#: .\users\models.py:236
+#: .\users\models.py:240
 msgid "Paraguay"
 msgstr "Paraguay"
 
-#: .\users\models.py:237
+#: .\users\models.py:241
 msgid "Peru"
 msgstr "Peru"
 
-#: .\users\models.py:238
+#: .\users\models.py:242
 msgid "Philippines"
 msgstr "Philippinen"
 
-#: .\users\models.py:239
+#: .\users\models.py:243
 msgid "Poland"
 msgstr "Polen"
 
-#: .\users\models.py:240
+#: .\users\models.py:244
 msgid "Portugal"
 msgstr "Portugal"
 
-#: .\users\models.py:241
+#: .\users\models.py:245
 msgid "Qatar"
 msgstr "Katar"
 
-#: .\users\models.py:242
+#: .\users\models.py:246
 msgid "Romania"
 msgstr "Rumänien"
 
-#: .\users\models.py:243
+#: .\users\models.py:247
 msgid "Russia"
 msgstr "Russland"
 
-#: .\users\models.py:244
+#: .\users\models.py:248
 msgid "Rwanda"
 msgstr "Ruanda"
 
-#: .\users\models.py:245
+#: .\users\models.py:249
 msgid "Saint Kitts and Nevis"
 msgstr "St. Kitts und Nevis"
 
-#: .\users\models.py:246
+#: .\users\models.py:250
 msgid "Saint Lucia"
 msgstr "St. Lucia"
 
-#: .\users\models.py:247
+#: .\users\models.py:251
 msgid "Saint Vincent and the Grenadines"
 msgstr "St. Vincent und die Grenadinen"
 
-#: .\users\models.py:248
+#: .\users\models.py:252
 msgid "Samoa"
 msgstr "Samoa"
 
-#: .\users\models.py:249
+#: .\users\models.py:253
 msgid "San Marino"
 msgstr "San Marino"
 
-#: .\users\models.py:250
+#: .\users\models.py:254
 msgid "São Tomé and Príncipe"
 msgstr "São Tomé und Príncipe"
 
-#: .\users\models.py:251
+#: .\users\models.py:255
 msgid "Saudi Arabia"
 msgstr "Saudi Arabien"
 
-#: .\users\models.py:252
+#: .\users\models.py:256
 msgid "Senegal"
 msgstr "Senegal"
 
-#: .\users\models.py:253
+#: .\users\models.py:257
 msgid "Serbia"
 msgstr "Serbien"
 
-#: .\users\models.py:254
+#: .\users\models.py:258
 msgid "Seychelles"
 msgstr "Seychellen"
 
-#: .\users\models.py:255
+#: .\users\models.py:259
 msgid "Scotland"
 msgstr "Schottland"
 
-#: .\users\models.py:256
+#: .\users\models.py:260
 msgid "Sierra Leone"
 msgstr "Sierra Leone"
 
-#: .\users\models.py:257
+#: .\users\models.py:261
 msgid "Singapore"
 msgstr "Singapur"
 
-#: .\users\models.py:258
+#: .\users\models.py:262
 msgid "Slovakia"
 msgstr "Slowakei"
 
-#: .\users\models.py:259
+#: .\users\models.py:263
 msgid "Slovenia"
 msgstr "Slowenien"
 
-#: .\users\models.py:260
+#: .\users\models.py:264
 msgid "Solomon Islands"
 msgstr "Salamonen"
 
-#: .\users\models.py:261
+#: .\users\models.py:265
 msgid "Somalia"
 msgstr "Somalia"
 
-#: .\users\models.py:262
+#: .\users\models.py:266
 msgid "South Africa"
 msgstr "Südafrika"
 
-#: .\users\models.py:263
+#: .\users\models.py:267
 msgid "South Sudan"
 msgstr "Südsudan"
 
-#: .\users\models.py:264
+#: .\users\models.py:268
 msgid "Spain"
 msgstr "Spanien"
 
-#: .\users\models.py:265
+#: .\users\models.py:269
 msgid "Sri Lanka"
 msgstr "Sri Lanka"
 
-#: .\users\models.py:266
+#: .\users\models.py:270
 msgid "Sudan"
 msgstr "Sudan"
 
-#: .\users\models.py:267
+#: .\users\models.py:271
 msgid "Suriname"
 msgstr "Suriname"
 
-#: .\users\models.py:268
+#: .\users\models.py:272
 msgid "Sweden"
 msgstr "Schweden"
 
-#: .\users\models.py:269
+#: .\users\models.py:273
 msgid "Switzerland"
 msgstr "Schweiz"
 
-#: .\users\models.py:270
+#: .\users\models.py:274
 msgid "Syria"
 msgstr "Syrien"
 
-#: .\users\models.py:271
+#: .\users\models.py:275
 msgid "Taiwan"
 msgstr "Taiwan"
 
-#: .\users\models.py:272
+#: .\users\models.py:276
 msgid "Tajikistan"
 msgstr "Tadschikistan"
 
-#: .\users\models.py:273
+#: .\users\models.py:277
 msgid "Tanzania"
 msgstr "Tansania"
 
-#: .\users\models.py:274
+#: .\users\models.py:278
 msgid "Thailand"
 msgstr "Thailand"
 
-#: .\users\models.py:275
+#: .\users\models.py:279
 msgid "Timor-Leste"
 msgstr "Timor-Leste"
 
-#: .\users\models.py:276
+#: .\users\models.py:280
 msgid "Togo"
 msgstr "Togo"
 
-#: .\users\models.py:277
+#: .\users\models.py:281
 msgid "Tonga"
 msgstr "Tonga"
 
-#: .\users\models.py:278
+#: .\users\models.py:282
 msgid "Trinidad and Tobago"
 msgstr "Trinidad und Tobago"
 
-#: .\users\models.py:279
+#: .\users\models.py:283
 msgid "Tunisia"
 msgstr "Tunesien"
 
-#: .\users\models.py:280
+#: .\users\models.py:284
 msgid "Turkey"
 msgstr "Türkei"
 
-#: .\users\models.py:281
+#: .\users\models.py:285
 msgid "Turkmenistan"
 msgstr "Turkmenistan"
 
-#: .\users\models.py:282
+#: .\users\models.py:286
 msgid "Tuvalu"
 msgstr "Tuvalu"
 
-#: .\users\models.py:283
+#: .\users\models.py:287
 msgid "Uganda"
 msgstr "Uganda"
 
-#: .\users\models.py:284
+#: .\users\models.py:288
 msgid "Ukraine"
 msgstr "Ukraine"
 
-#: .\users\models.py:285
+#: .\users\models.py:289
 msgid "United Arab Emirates"
 msgstr "Vereinigte Arabische Emirate"
 
-#: .\users\models.py:286
+#: .\users\models.py:290
 msgid "United States"
 msgstr "Vereinigte Staaten"
 
-#: .\users\models.py:287
+#: .\users\models.py:291
 msgid "Uruguay"
 msgstr "Uruguay"
 
-#: .\users\models.py:288
+#: .\users\models.py:292
 msgid "Uzbekistan"
 msgstr "Usbekistan"
 
-#: .\users\models.py:289
+#: .\users\models.py:293
 msgid "Vanuatu"
 msgstr "Vanuatu"
 
-#: .\users\models.py:290
+#: .\users\models.py:294
 msgid "Vatican City"
 msgstr "Vatikanstadt"
 
-#: .\users\models.py:291
+#: .\users\models.py:295
 msgid "Venezuela"
 msgstr "Venezuela"
 
-#: .\users\models.py:292
+#: .\users\models.py:296
 msgid "Vietnam"
 msgstr "Vietnam"
 
-#: .\users\models.py:293
+#: .\users\models.py:297
 msgid "Yemen"
 msgstr "Jemen"
 
-#: .\users\models.py:294
+#: .\users\models.py:298
 msgid "Wales"
 msgstr "Wales"
 
-#: .\users\models.py:295
+#: .\users\models.py:299
 msgid "Zambia"
 msgstr "Sambia"
 
-#: .\users\models.py:296
+#: .\users\models.py:300
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
 
-#~ msgid "View your match!"
-#~ msgstr ", sieh dir dein Match an! "
+#~ msgid "Export Feedback (CSV)"
+#~ msgstr "Feeback exportieren (CSV)"
 
-#~ msgid "United Kingdom"
-#~ msgstr "Vereinigtes Königreich"
-
-# Homepage
-#~ msgid "Hello, world!"
-#~ msgstr "Deutsch"
-
-#~ msgid "Your Email is:"
-#~ msgstr "Deine Email ist:"
+#~ msgid "No feedback Entries found."
+#~ msgstr "Keine Feedback-Einträge gefunden."
