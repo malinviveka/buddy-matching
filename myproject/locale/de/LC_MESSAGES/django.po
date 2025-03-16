@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-16 14:58+0100\n"
+"POT-Creation-Date: 2025-03-16 18:28+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -106,6 +106,14 @@ msgstr "Inhalt auf Deutsch"
 msgid "Content in English"
 msgstr "Inhalt auf Englisch"
 
+#: .\templates\feedback\admin_feedback_list.html:11
+msgid "Export Feedback (CSV)"
+msgstr "Feeback exportieren (CSV)"
+
+#: .\templates\feedback\admin_feedback_list.html:53
+msgid "No feedback entries found."
+msgstr "Keine Feedback-Einträge gefunden."
+
 #: .\templates\feedback\feedback.html:13
 msgid "I participated in the Buddy Programme as"
 msgstr "Ich habe am Buddy Programm teilgenommen als"
@@ -177,18 +185,10 @@ msgstr "Abschicken"
 msgid "Home"
 msgstr "Startseite"
 
-#: .\templates\homepage\base.html:30
-msgid "User Management"
-msgstr "Benutzermamagement"
-
 #: .\templates\homepage\base.html:32
 #: .\templates\homepage\edit_homepage_text.html:6
 msgid "Edit Homepage Messages"
 msgstr "Homepage Nachrichten bearbeiten"
-
-#: .\templates\homepage\base.html:34
-msgid "Feedback Management"
-msgstr "Feedbackmanagement"
 
 #: .\templates\homepage\base.html:41
 msgid ", view your matches!"
@@ -1359,9 +1359,3 @@ msgstr "Sambia"
 #: .\users\models.py:300
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
-
-#~ msgid "Export Feedback (CSV)"
-#~ msgstr "Feeback exportieren (CSV)"
-
-#~ msgid "No feedback Entries found."
-#~ msgstr "Keine Feedback-Einträge gefunden."

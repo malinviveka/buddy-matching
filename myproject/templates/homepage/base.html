@@ -27,11 +27,11 @@
                     {% if user.is_staff %}
                         <!--Admin-->
                         <a class="title {% if request.path == '/cadmin/users/' %}active{% endif %}"
-                           href="{% url 'admin_user_list' %}">{% trans "User Management" %}</a>
+                           href="{% url 'admin_user_list' %}">User Management</a>
                         <a class="title {% if request.path == '/cadmin/edit_homepage_text/' %}active{% endif %}"
                            href="{% url 'edit_homepage_text' %}">{% trans "Edit Homepage Messages" %}</a>
                         <a class="title {% if request.path == '/cadmin/feedback/' %}active{% endif %}"
-                           href="{% url 'admin_feedback_list' %}">{% trans "Feedback Management" %}</a>
+                           href="{% url 'admin_feedback_list' %}">Feedback Management</a>
                         <br>
                     {% else %}
                         <!--User-->

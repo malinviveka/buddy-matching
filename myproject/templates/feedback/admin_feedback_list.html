@@ -8,7 +8,7 @@
     <!-- Optional buttons for actions (e.g. export) -->
     <a href="{% url 'export_feedback_csv' %}"
        id="exportFeedbackButton"
-       class="button">Feedback exportieren (CSV)</a>
+       class="button">{% trans "Export Feedback (CSV)" %}</a>
     <br>
     <br>
     <table>
@@ -50,7 +50,7 @@
                 </tr>
             {% empty %}
                 <tr>
-                    <td colspan="5">Keine Feedback-Einträge gefunden.</td>
+                    <td colspan="5">{% trans "No feedback entries found." %}</td>
                 </tr>
             {% endfor %}
         </tbody>
