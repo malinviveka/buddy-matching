@@ -120,6 +120,10 @@ python manage.py migrate
 python manage.py makemessages -l de -l en
 python manage.py compilemessages
 ```
+### 7. Mobile Viewports
+Die Adminansicht ist nicht optimiert für Mobile Devices!
+
+
 
 ---
 
