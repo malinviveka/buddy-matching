@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-16 18:28+0100\n"
+"POT-Creation-Date: 2025-03-17 11:47+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,11 +52,11 @@ msgstr ""
 msgid "Friends and fellow students"
 msgstr ""
 
-#: .\feedback\models.py:40 .\feedback\models.py:59 .\feedback\models.py:65
+#: .\feedback\models.py:40 .\feedback\models.py:64
 msgid "Yes"
 msgstr ""
 
-#: .\feedback\models.py:41 .\feedback\models.py:60 .\feedback\models.py:66
+#: .\feedback\models.py:41 .\feedback\models.py:60
 msgid "No"
 msgstr ""
 
@@ -92,12 +92,12 @@ msgstr ""
 msgid "Inexistent"
 msgstr ""
 
-#: .\feedback\models.py:61
-msgid "Sometimes"
+#: .\feedback\models.py:59
+msgid "Yes/Sometimes"
 msgstr ""
 
-#: .\feedback\models.py:67
-msgid "Maybe"
+#: .\feedback\models.py:65
+msgid "No/Maybe"
 msgstr ""
 
 #: .\homepage\models.py:7
@@ -182,7 +182,7 @@ msgid "Home"
 msgstr "Home"
 
 #: .\templates\homepage\base.html:32
-#: .\templates\homepage\edit_homepage_text.html:6
+#: .\templates\homepage\edit_homepage_text.html:5
 msgid "Edit Homepage Messages"
 msgstr ""
 
@@ -194,20 +194,20 @@ msgstr ""
 msgid ", view your match!"
 msgstr ""
 
-#: .\templates\homepage\base.html:69 .\templates\users\account_creation.html:11
+#: .\templates\homepage\base.html:67 .\templates\users\account_creation.html:11
 #: .\templates\users\account_creation.html:151 .\templates\users\login.html:31
 msgid "Create Account"
-msgstr "Create Account"
+msgstr ""
 
-#: .\templates\homepage\edit_homepage_text.html:9
+#: .\templates\homepage\edit_homepage_text.html:8
 msgid "Homepage Text in German:"
 msgstr ""
 
-#: .\templates\homepage\edit_homepage_text.html:13
+#: .\templates\homepage\edit_homepage_text.html:12
 msgid "Homepage Text in English:"
 msgstr ""
 
-#: .\templates\homepage\edit_homepage_text.html:17
+#: .\templates\homepage\edit_homepage_text.html:16
 msgid "Save"
 msgstr ""
 
@@ -339,7 +339,7 @@ msgstr "Confirm Password:"
 
 #: .\templates\users\account_creation.html:131
 msgid "Enter the same password as before, for verification."
-msgstr "Enter the same password as before, for verification."
+msgstr ""
 
 #: .\templates\users\account_creation.html:139
 msgid "Please read the"
@@ -362,16 +362,12 @@ msgid "Email"
 msgstr ""
 
 #: .\templates\users\admin_user_site.html:16
-#, fuzzy
-#| msgid "First Name:"
 msgid "First Name"
-msgstr "First Name:"
+msgstr ""
 
 #: .\templates\users\admin_user_site.html:17
-#, fuzzy
-#| msgid "First Name:"
 msgid "Last Name"
-msgstr "First Name:"
+msgstr ""
 
 #: .\templates\users\admin_user_site.html:18
 #, fuzzy
@@ -432,7 +428,7 @@ msgstr ""
 msgid "Yes, delete account"
 msgstr "Create Account"
 
-#: .\templates\users\delete_confirm.html:10
+#: .\templates\users\delete_confirm.html:12
 msgid "Cancel"
 msgstr ""
 
@@ -1355,10 +1351,3 @@ msgstr ""
 #: .\users\models.py:300
 msgid "Zimbabwe"
 msgstr ""
-
-# Homepage
-#~ msgid "Hello, world!"
-#~ msgstr "English"
-
-#~ msgid "Your Email is:"
-#~ msgstr "Your Email is: "

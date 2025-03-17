@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-16 18:28+0100\n"
+"POT-Creation-Date: 2025-03-17 11:47+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,11 +50,11 @@ msgstr "Social-Media-Kanäle"
 msgid "Friends and fellow students"
 msgstr "Freunde und Kommilitionen"
 
-#: .\feedback\models.py:40 .\feedback\models.py:59 .\feedback\models.py:65
+#: .\feedback\models.py:40 .\feedback\models.py:64
 msgid "Yes"
 msgstr "Ja"
 
-#: .\feedback\models.py:41 .\feedback\models.py:60 .\feedback\models.py:66
+#: .\feedback\models.py:41 .\feedback\models.py:60
 msgid "No"
 msgstr "Nein"
 
@@ -90,13 +90,13 @@ msgstr "Niedrig"
 msgid "Inexistent"
 msgstr "Ich hatte keinen Kontakt"
 
-#: .\feedback\models.py:61
-msgid "Sometimes"
-msgstr "Manchmal"
+#: .\feedback\models.py:59
+msgid "Yes/Sometimes"
+msgstr "Ja/Manchmal"
 
-#: .\feedback\models.py:67
-msgid "Maybe"
-msgstr "Vielleicht"
+#: .\feedback\models.py:65
+msgid "No/Maybe"
+msgstr "Nein/Vielleicht"
 
 #: .\homepage\models.py:7
 msgid "Content in German"
@@ -186,7 +186,7 @@ msgid "Home"
 msgstr "Startseite"
 
 #: .\templates\homepage\base.html:32
-#: .\templates\homepage\edit_homepage_text.html:6
+#: .\templates\homepage\edit_homepage_text.html:5
 msgid "Edit Homepage Messages"
 msgstr "Homepage Nachrichten bearbeiten"
 
@@ -198,24 +198,20 @@ msgstr ", sieh dir deine Matches an!"
 msgid ", view your match!"
 msgstr ", sieh dir dein Match an!"
 
-#: .\templates\homepage\base.html:69 .\templates\users\account_creation.html:11
+#: .\templates\homepage\base.html:67 .\templates\users\account_creation.html:11
 #: .\templates\users\account_creation.html:151 .\templates\users\login.html:31
 msgid "Create Account"
 msgstr "Account Erstellen"
 
-#: .\templates\homepage\edit_homepage_text.html:9
-#, fuzzy
-#| msgid "Homepage text in german:"
+#: .\templates\homepage\edit_homepage_text.html:8
 msgid "Homepage Text in German:"
-msgstr "Homepage-Text auf Deutsch"
+msgstr "Homepage-Text auf Deutsch:"
 
-#: .\templates\homepage\edit_homepage_text.html:13
-#, fuzzy
-#| msgid "Homepage text in english:"
+#: .\templates\homepage\edit_homepage_text.html:12
 msgid "Homepage Text in English:"
-msgstr "Homepage-Text auf Englisch"
+msgstr "Homepage-Text auf Englisch:"
 
-#: .\templates\homepage\edit_homepage_text.html:17
+#: .\templates\homepage\edit_homepage_text.html:16
 msgid "Save"
 msgstr "Speichern"
 
@@ -440,7 +436,7 @@ msgstr ""
 msgid "Yes, delete account"
 msgstr "Ja, Account löschen"
 
-#: .\templates\users\delete_confirm.html:10
+#: .\templates\users\delete_confirm.html:12
 msgid "Cancel"
 msgstr "Abbrechen"
 
