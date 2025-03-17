@@ -49,7 +49,7 @@
                     <!--Left Side of topnav:-->
                     <div class="profile-container">
                         <!--Profile Icon-->
-                        {% load static %}  
+                        {% load static %}
                         <a href="{% url 'profile' %}"> <!--profile icon color changes if active-->
                             <img src="{% if request.path == '/profile/' %} {% static 'images/profile_icon_dark-blue.png' %} {% else %} {% static 'images/profile_icon_text-color.png' %} {% endif %}"
                                  alt="Profile"

@@ -7,7 +7,9 @@
         <form method="post" action="{% url 'delete_user' %}">
             {% csrf_token %}
             <button type="submit" id="delete_user" class="btn btn-danger">{% trans "Yes, delete account" %}</button>
-            <a href="{% url 'profile' %}" id="cancle_delete" class="btn btn-secondary">{% trans "Cancel" %}</a>
+            <a href="{% url 'profile' %}"
+               id="cancle_delete"
+               class="btn btn-secondary">{% trans "Cancel" %}</a>
         </form>
     </div>
 {% endblock %}
