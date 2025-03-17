@@ -193,7 +193,7 @@ textarea {
   font-weight: var(--body-font-weight);
   text-decoration: underline;
 }
-#cancle_delete{
+#cancle_delete {
   background-color: var(--ISS-medium-blue-color);
   color: #fff;
   border-radius: var(--border-radius-200);
@@ -486,7 +486,8 @@ textarea {
 /* 
   FEEDBACK: 
 */
-.form-feedback {  /* similar to account creation */
+.form-feedback {
+  /* similar to account creation */
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -494,14 +495,13 @@ textarea {
 
   /*centering*/
   width: 70%;
-  margin: var(--size-space-500) 0;  
+  margin: var(--size-space-500) 0;
 }
 
-.form-control{
+.form-control {
   margin-top: var(--size-space-100);
   width: 100%;
 }
-
 
 /* 
   MATCH(ES): 
@@ -783,7 +783,6 @@ textarea {
   */
   .form-feedback {
     width: 100%; /* full width */
-    
   }
   .form-feedback .form-box {
     /* for mobile: not as repeated style */
@@ -859,5 +858,3 @@ textarea {
   width: 100%;
   z-index: 10000; /* make sure that modal is in front of everything */
 }
-
-
