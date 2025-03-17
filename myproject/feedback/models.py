@@ -56,15 +56,13 @@ class Feedback(models.Model):
     ]
 
     PROBLEMS_CHOICES = [
-        ("Yes", _("Yes")),
+        ("Yes/Sometimes", _("Yes/Sometimes")),
         ("No", _("No")),
-        ("Sometimes", _("Sometimes")),
     ]
 
     RECOMMENDATION_CHOICES = [
         ("Yes", _("Yes")),
-        ("No", _("No")),
-        ("Maybe", _("Maybe")),
+        ("No/Maybe", _("No/Maybe")),
     ]
 
     student_email = models.EmailField(

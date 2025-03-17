@@ -77,10 +77,10 @@ class FeedbackForm(forms.ModelForm):
         if q5 == "No" and not q5_details:
             self.add_error("q5_details", "Please specify the issue you encountered.")
 
-        if q8 == "Yes" and not q8_details:
+        if q8 == "Yes/Sometimes" and not q8_details:
             self.add_error("q8_details", "Would you like to share the problem with us?")
 
-        if q9 == "No" and not q9_details:
+        if q9 == "No/Maybe" and not q9_details:
             self.add_error(
                 "q9_details",
                 "Would you like to explain us why you would not recommend us?",
