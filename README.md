@@ -1,6 +1,20 @@
 # Buddy-Matching
 Repository für das Matching-Software-Projekt für den ISS
 
+## Projektbeschreibung
+
+Das vom Internationalen Studierenden Services (ISS) in Auftrag gegebene Projekt zielt darauf ab, eine Website zu entwickeln,
+die es internationalen Austauschstudierenden ermöglicht, mit lokalen „Buddies” der TU Darmstadt
+(TUDA) in Kontakt zu treten. Diese Plattform soll die soziale Integration vereinfachen, Freundschaften fördern und den kulturellen
+Austausch fördern.
+Die Automatisierung des Matching-Prozesses mit einem objektiven, unvoreingenommenen Algorithmus
+soll die Gruppenzuweisungen optimieren, den Arbeitsaufwand reduzieren und subjektive Fehler eliminieren.
+Sowohl nationale als auch internationale Studierende registrieren sich mit einem verifizierten Konto, das mit ihren persönlichen
+Daten verknüpft ist. Das System verwendet zu Beginn jedes Semesters einen Algorithmus, um
+einem oder mehreren Austauschstudierenden Buddies zuzuweisen, wobei Präferenzen wie übereinstimmende Interessen,
+gemeinsame Studienfächer und das Land, in dem sich die entsendende Universität des internationalen Studierenden befindet, berücksichtigt werden.
+Anschließend werden die Kontaktdaten ausgetauscht, um die Kontaktaufnahme zu erleichtern.
+
 ## Installation und Setup des Projekts
 
 Diese Anleitung beschreibt die Schritte, um das Projekt auf einem lokalen Rechner einzurichten.
